@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "title": "Education",
+    "description": "Academic tracks and programs at Saribekyan International Medical University."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "education": "Education"
+  },
+  "nav": {
+    "aria": "Education sections",
+    "overview": "Overview",
+    "medicine": "Faculty of Medicine",
+    "dentistry": "Faculty of Dentistry",
+    "cpd": "Postgraduate & CPD"
+  },
+  "hero": {
+    "badge": "Education",
+    "title": "Choose your future",
+    "highlight": "professional path",
+    "description": "Join the SIMU community and receive medical education that meets modern standards. Our programs combine theory, clinical practice, and international benchmarks."
+  },
+  "hub": {
+    "badge": "Academic tracks",
+    "title": "Our",
+    "highlight": "faculties",
+    "description": "Three core tracks — faculties of medicine and dentistry, plus postgraduate education and continuing professional development.",
+    "view": "Explore"
+  },
+  "cards": {
+    "medicine": {
+      "title": "Faculty of Medicine",
+      "description": "General medicine program, departments, and faculty leadership."
+    },
+    "dentistry": {
+      "title": "Faculty of Dentistry",
+      "description": "Dental education, clinical practice, and a specialized department."
+    },
+    "cpd": {
+      "title": "Postgraduate & CPD",
+      "description": "Clinical residency, specialties, and continuing professional development courses."
+    }
+  },
+  "sections": {
+    "about": "About the faculty",
+    "program": "Academic program",
+    "facts": "Key facts",
+    "duration": "Program duration",
+    "qualification": "Awarded qualification",
+    "leadership": "Leadership",
+    "departments": "Departments",
+    "programs": "Postgraduate programs",
+    "residency": "Clinical residency",
+    "specialties": "Specialties",
+    "admission": "Admission requirements",
+    "courses": "CPD courses",
+    "schedule": "Course schedule"
+  },
+  "medicine": {
+    "metaTitle": "Faculty of Medicine",
+    "metaDescription": "Medicine program, duration, qualification, leadership, and departments.",
+    "badge": "Faculty of Medicine",
+    "title": "General",
+    "highlight": "medicine",
+    "description": "The faculty prepares physicians with strong foundational knowledge and clinical practice aligned with modern medical standards.",
+    "about": {
+      "p1": "The Faculty of Medicine is one of SIMU’s core academic tracks. Students receive theoretical and practical training from basic sciences through clinical specialties.",
+      "p2": "Teaching takes place in university clinics, simulation centers, and partner medical institutions to develop practical skills."
+    },
+    "program": {
+      "title": "Academic program",
+      "description": "The curriculum covers humanities, natural sciences, biomedical subjects, and clinical disciplines, with a progressive transition to clinical practice."
+    },
+    "duration": "6 years",
+    "qualification": "Physician",
+    "leadership": {
+      "dean": {
+        "name": "Dean",
+        "role": "Dean of the Faculty of Medicine",
+        "bio": "Overall academic and organizational leadership of the faculty."
+      },
+      "viceDean": {
+        "name": "Vice Dean",
+        "role": "Vice Dean for Academic Affairs",
+        "bio": "Coordination of the learning process and student support."
+      },
+      "methodist": {
+        "name": "Methodologist",
+        "role": "Academic methodology coordinator",
+        "bio": "Coordination of curricula and methodological support."
+      }
+    },
+    "departments": {
+      "humanities": {
+        "title": "Department of Humanities",
+        "description": "Teaching of humanities and social science subjects."
+      },
+      "natural": {
+        "title": "Department of Natural Sciences",
+        "description": "Natural science foundations for medical education."
+      },
+      "biomedical": {
+        "title": "Department of Biomedical Sciences",
+        "description": "Theoretical and laboratory teaching of biomedical subjects."
+      },
+      "therapy": {
+        "title": "Department of Therapy",
+        "description": "Clinical training in internal medicine and related therapeutic fields."
+      },
+      "surgery": {
+        "title": "Department of Surgery",
+        "description": "Surgical subjects and practical skill development."
+      },
+      "other": {
+        "title": "Other professional departments",
+        "description": "Additional clinical and professional departments according to the curriculum."
+      }
+    }
+  },
+  "dentistry": {
+    "metaTitle": "Faculty of Dentistry",
+    "metaDescription": "Dentistry program, duration, qualification, leadership, and department.",
+    "badge": "Faculty of Dentistry",
+    "title": "Dental",
+    "highlight": "education",
+    "description": "The faculty prepares dentists using modern clinical methods and hands-on practice.",
+    "about": {
+      "p1": "The Faculty of Dentistry provides specialized education that combines foundational sciences with dental clinical practice.",
+      "p2": "Students train in simulation labs and the dental center, building professional skills in a clinical environment."
+    },
+    "program": {
+      "title": "Academic program",
+      "description": "The curriculum includes general medical foundations and specialized dental subjects with an extended clinical component."
+    },
+    "duration": "5 years",
+    "qualification": "Dentist",
+    "leadership": {
+      "dean": {
+        "name": "Dean",
+        "role": "Dean of the Faculty of Dentistry",
+        "bio": "Overall leadership of academic programs and clinical practice."
+      },
+      "viceDean": {
+        "name": "Vice Dean",
+        "role": "Vice Dean for Clinical Affairs",
+        "bio": "Coordination of clinical practice and professional training."
+      }
+    },
+    "departments": {
+      "stomatology": {
+        "title": "Department of Stomatology",
+        "description": "Teaching of dental subjects, clinical practice, and professional skill development."
+      }
+    }
+  },
+  "cpd": {
+    "metaTitle": "Postgraduate & CPD",
+    "metaDescription": "Postgraduate programs, clinical residency, specialties, and continuing professional development.",
+    "badge": "Postgraduate & CPD",
+    "title": "Postgraduate education and",
+    "highlight": "professional development",
+    "description": "Clinical residency, specialty tracks, and continuing professional development courses for practicing physicians.",
+    "about": {
+      "p1": "The postgraduate and CPD division provides specialization and qualification upgrade opportunities for physicians.",
+      "p2": "Programs include clinical residency and continuing professional development courses aligned with current clinical requirements."
+    },
+    "programs": {
+      "title": "Postgraduate academic programs",
+      "description": "Specialization programs focused on deepening clinical knowledge and professional skills.",
+      "items": {
+        "residency": {
+          "title": "Clinical residency",
+          "description": "Professional training in a clinical setting under qualified specialists."
+        },
+        "cpd": {
+          "title": "Continuing professional development",
+          "description": "Short-term and modular courses for practicing physicians."
+        }
+      }
+    },
+    "residency": {
+      "title": "Clinical residency",
+      "description": "Residency is delivered in university and partner clinics across specialty profiles."
+    },
+    "specialties": {
+      "therapy": "Therapy",
+      "surgery": "Surgery",
+      "pediatrics": "Pediatrics",
+      "obstetrics": "Obstetrics and gynecology",
+      "anesthesiology": "Anesthesiology and intensive care",
+      "dentistry": "Dentistry"
+    },
+    "duration": "2–4 years (by specialty)",
+    "admission": {
+      "title": "Admission requirements",
+      "items": {
+        "diploma": {
+          "title": "Diploma",
+          "description": "A medical university diploma and relevant qualification."
+        },
+        "documents": {
+          "title": "Documents",
+          "description": "Identity documents, application, and any additional materials required by the program."
+        },
+        "selection": {
+          "title": "Selection",
+          "description": "Application review and a professional interview or competitive process, depending on the program."
+        }
+      }
+    },
+    "courses": {
+      "title": "CPD courses",
+      "description": "Thematic courses on current clinical practice topics, with a certificate.",
+      "items": {
+        "emergency": {
+          "title": "Emergency medical care",
+          "description": "Primary assessment and fundamentals of urgent interventions."
+        },
+        "diagnostics": {
+          "title": "Modern diagnostics",
+          "description": "Diagnostic approaches and clinical decision-making."
+        },
+        "infection": {
+          "title": "Infection control",
+          "description": "Infection prevention and safety standards in clinical settings."
+        }
+      }
+    },
+    "schedule": {
+      "title": "Course schedule",
+      "description": "Sample schedule for the current academic year. Dates may be updated.",
+      "columns": {
+        "course": "Course",
+        "dates": "Period",
+        "format": "Format",
+        "hours": "Hours"
+      },
+      "rows": {
+        "r1": {
+          "course": "Emergency medical care",
+          "dates": "March 2026",
+          "format": "On-site / hybrid",
+          "hours": "16 hours"
+        },
+        "r2": {
+          "course": "Modern diagnostics",
+          "dates": "May 2026",
+          "format": "On-site",
+          "hours": "24 hours"
+        },
+        "r3": {
+          "course": "Infection control",
+          "dates": "September 2026",
+          "format": "Online",
+          "hours": "12 hours"
+        }
+      }
+    }
+  },
+  "cta": {
+    "badge": "Admissions",
+    "title": "Ready to begin?",
+    "description": "Review the admissions steps and apply online through a clear, transparent process.",
+    "button": "Apply online",
+    "secondary": "About admissions"
+  }
+}

@@ -1,0 +1,744 @@
+{
+  "meta": {
+    "title": "Clinics",
+    "description": "Clinical bases, practical centres, and simulation training at Saribekyan International Medical University."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "clinics": "Clinics"
+  },
+  "nav": {
+    "aria": "Clinic sections",
+    "overview": "Overview",
+    "hospitals": "Our hospitals",
+    "practical": "Practical centres",
+    "tour": "Virtual tour"
+  },
+  "hero": {
+    "badge": "Clinics",
+    "title": "Clinical bases and",
+    "highlight": "practical training",
+    "description": "The university medical complex, dental centre, and simulation rooms combine patient care, student practice, and modern equipment."
+  },
+  "hub": {
+    "badge": "Clinical environment",
+    "title": "Our",
+    "highlight": "clinics",
+    "description": "Two core tracks — university hospitals and centres, and practical and simulation training.",
+    "view": "Explore"
+  },
+  "cards": {
+    "hospitals": {
+      "title": "Our hospitals",
+      "description": "The Saribekyan university medical complex, dental centre, services, and clinical practice."
+    },
+    "practical": {
+      "title": "Practical centres",
+      "description": "Medical and dental simulation, practical courses, and a 3D virtual tour."
+    }
+  },
+  "cta": {
+    "badge": "3D / 360°",
+    "title": "See the spaces online",
+    "description": "The virtual tour lets you explore clinical and simulation environments before you visit.",
+    "button": "Open the virtual tour"
+  },
+  "sections": {
+    "about": "Overview",
+    "facilities": "Clinical bases",
+    "centers": "Training centres",
+    "directions": "Areas of activity",
+    "services": "Medical services",
+    "practice": "Clinical practice",
+    "equipment": "Equipment",
+    "specialists": "Specialists",
+    "gallery": "Photos",
+    "videos": "Videos",
+    "contacts": "Contact details",
+    "courses": "Practical courses",
+    "skills": "Practical skills",
+    "dentalSim": "Dental simulation"
+  },
+  "media": {
+    "hours": "Opening hours",
+    "videoPending": "Video",
+    "videosLead": "Videos will be published when the final footage is ready. The topics below are already planned."
+  },
+  "facilities": {
+    "complex": {
+      "title": "University medical complex",
+      "description": "Clinical practice and patient care in a modern university complex."
+    },
+    "dental": {
+      "title": "Dental centre",
+      "description": "Dental clinic, student practice, and specialist services."
+    },
+    "simulation": {
+      "title": "Medical simulation centre",
+      "description": "A safe environment for developing clinical skills."
+    },
+    "dentalSim": {
+      "title": "Dental simulation rooms",
+      "description": "Phantom tables and dental units for preclinical preparation."
+    }
+  },
+  "hospitals": {
+    "metaTitle": "Our hospitals",
+    "metaDescription": "The Saribekyan university medical complex, dental centre, services, equipment, and clinical practice.",
+    "badge": "Our hospitals",
+    "title": "The university",
+    "highlight": "clinical base",
+    "description": "This section presents the university hospitals and centres, their activity areas, services, and student clinical practice.",
+    "about": {
+      "title": "About the clinical bases",
+      "p1": "The clinical bases of Saribekyan International Medical University combine patient care and teaching in one environment. Students work under specialist supervision on real clinical cases.",
+      "p2": "The complex and the dental centre are equipped for diagnostics and treatment so that teaching meets current clinical standards."
+    },
+    "facilitiesTitle": "Hospitals and centres",
+    "facilitiesDescription": "Two core clinical platforms — a multidisciplinary medical complex and a dental centre.",
+    "directionsLead": "The centres cover clinical, diagnostic, and teaching activity.",
+    "practiceLead": "Students complete clinical practice at university bases with graded responsibility.",
+    "directions": {
+      "therapy": {
+        "title": "Internal medicine",
+        "description": "Diagnosis and treatment of internal diseases, with bedside teaching."
+      },
+      "surgery": {
+        "title": "Surgery",
+        "description": "Surgical care, preoperative preparation, and practical training."
+      },
+      "diagnostics": {
+        "title": "Diagnostics",
+        "description": "Laboratory and imaging investigations that support clinical decisions."
+      },
+      "dentistry": {
+        "title": "Dentistry",
+        "description": "Therapeutic, surgical, and preventive dental services."
+      },
+      "emergency": {
+        "title": "Emergency care",
+        "description": "Initial assessment and stabilisation of acute conditions, with teaching supervision."
+      },
+      "training": {
+        "title": "Clinical teaching",
+        "description": "Practice for students and residents in university clinics."
+      }
+    },
+    "services": {
+      "outpatient": {
+        "title": "Outpatient care",
+        "description": "Consultations and planned treatment across specialty profiles."
+      },
+      "inpatient": {
+        "title": "Inpatient care",
+        "description": "Patient monitoring and treatment at the university base."
+      },
+      "diagnostics": {
+        "title": "Diagnostic services",
+        "description": "Laboratory tests and medical imaging."
+      },
+      "dental": {
+        "title": "Dental treatment",
+        "description": "Therapeutic, surgical, and hygiene procedures."
+      },
+      "prevention": {
+        "title": "Prevention programmes",
+        "description": "Screening, hygiene, and healthy-lifestyle counselling."
+      },
+      "consultation": {
+        "title": "Specialist consultation",
+        "description": "Multidisciplinary discussion of complex clinical cases."
+      }
+    },
+    "practice": {
+      "bedside": {
+        "title": "Bedside teaching",
+        "description": "Patient assessment, history taking, and clinical reasoning."
+      },
+      "supervised": {
+        "title": "Supervised procedures",
+        "description": "Practical skills under direct specialist supervision."
+      },
+      "cases": {
+        "title": "Case discussions",
+        "description": "Analysis of clinical cases and treatment planning."
+      },
+      "rotations": {
+        "title": "Clinical rotations",
+        "description": "Rotations across internal medicine, surgery, and dentistry."
+      }
+    },
+    "equipment": {
+      "imaging": {
+        "title": "Medical imaging",
+        "description": "Diagnostic imaging for clinical work and teaching."
+      },
+      "theatres": {
+        "title": "Operating theatres",
+        "description": "Spaces for surgical procedures and training."
+      },
+      "icu": {
+        "title": "Intensive care",
+        "description": "Monitoring equipment for critically ill patients."
+      },
+      "lab": {
+        "title": "Laboratory",
+        "description": "A clinical laboratory base for investigations."
+      },
+      "dentalUnits": {
+        "title": "Dental units",
+        "description": "Modern dental chairs and instrument sets."
+      },
+      "sterile": {
+        "title": "Sterilisation",
+        "description": "Instrument processing and infection-control systems."
+      }
+    },
+    "specialists": {
+      "director": {
+        "name": "Clinical director",
+        "role": "Head of the medical complex",
+        "bio": "Overall coordination of clinical and teaching activity at the complex."
+      },
+      "therapy": {
+        "name": "Head of internal medicine",
+        "role": "Internal medicine service",
+        "bio": "Treatment of internal diseases and bedside teaching."
+      },
+      "surgery": {
+        "name": "Head of surgery",
+        "role": "Surgical service",
+        "bio": "Surgical care and organisation of practical training."
+      },
+      "diagnostics": {
+        "name": "Head of diagnostics",
+        "role": "Diagnostic service",
+        "bio": "Coordination of laboratory and imaging investigations."
+      },
+      "dental": {
+        "name": "Head of the dental centre",
+        "role": "Dental service",
+        "bio": "Dental treatment and supervision of student practice."
+      },
+      "coordinator": {
+        "name": "Practice coordinator",
+        "role": "Clinical teaching",
+        "bio": "Organisation of student rotations and clinical supervision."
+      }
+    },
+    "gallery": {
+      "g1": { "alt": "Clinical space at the university medical complex" },
+      "g2": { "alt": "Students during clinical practice" },
+      "g3": { "alt": "Reception and consultation area" }
+    },
+    "videos": {
+      "v1": {
+        "title": "Introduction to the complex",
+        "description": "Spaces, services, and the teaching environment of the medical complex."
+      },
+      "v2": {
+        "title": "Clinical practice",
+        "description": "How students work under specialist supervision."
+      }
+    },
+    "contact": {
+      "title": "Clinical bases contact",
+      "description": "Get in touch about services, practice placements, and visits to the university clinics.",
+      "hours": "Monday–Friday, 09:00–18:00"
+    }
+  },
+  "practical": {
+    "metaTitle": "Practical centres",
+    "metaDescription": "Medical simulation centre, dental simulation rooms, courses, and a virtual tour.",
+    "badge": "Practical centres",
+    "title": "Simulation and",
+    "highlight": "practical training",
+    "description": "This section presents the university’s practical and simulation training, so skills can be developed in a safe environment.",
+    "about": {
+      "title": "About practical training",
+      "p1": "The simulation centre and dental rooms let students repeat clinical skills before they work with real patients.",
+      "p2": "Courses include scenario-based training, debriefing, and teamwork with modern simulation equipment."
+    },
+    "centersTitle": "Simulation platforms",
+    "centersDescription": "A medical simulation centre and dental preclinical rooms.",
+    "coursesLead": "Practical courses are built around clinical scenarios and repeated drills.",
+    "skillsLead": "The aim is safe, measurable, and repeatable skill development.",
+    "dentalSim": {
+      "title": "Dental simulation rooms",
+      "description": "Preclinical preparation on phantom models and dental units before moving to the clinic chair.",
+      "items": {
+        "phantoms": {
+          "title": "Phantom tables",
+          "description": "Dental models for preparation and restoration drills."
+        },
+        "units": {
+          "title": "Teaching dental units",
+          "description": "Ergonomics, instrument handling, and simulated clinical workflow."
+        },
+        "supervision": {
+          "title": "Instructor supervision",
+          "description": "Every exercise is assessed and followed by feedback."
+        },
+        "hygiene": {
+          "title": "Asepsis and hygiene",
+          "description": "Sterile technique and infection-control skills."
+        }
+      }
+    },
+    "courses": {
+      "emergency": {
+        "title": "Emergency care",
+        "description": "Basic life support and team management of acute scenarios."
+      },
+      "clinical": {
+        "title": "Clinical skills",
+        "description": "History taking, examination, injections, and core procedures."
+      },
+      "dental": {
+        "title": "Dental preclinical training",
+        "description": "Phantom work and the sequence of dental procedures."
+      },
+      "team": {
+        "title": "Team simulation",
+        "description": "Communication, role allocation, and shared clinical decisions."
+      }
+    },
+    "equipment": {
+      "manikins": {
+        "title": "Simulation manikins",
+        "description": "Physiological scenarios and procedure drills."
+      },
+      "virtual": {
+        "title": "Virtual simulators",
+        "description": "Digital modules for repeating diagnosis and interventions."
+      },
+      "phantoms": {
+        "title": "Dental phantoms",
+        "description": "Models and units for preclinical dental work."
+      },
+      "debrief": {
+        "title": "Debriefing equipment",
+        "description": "Recording and review after each scenario to lock in learning."
+      }
+    },
+    "skills": {
+      "procedures": {
+        "title": "Procedural skills",
+        "description": "Repeated practice until the clinical safety threshold is reached."
+      },
+      "communication": {
+        "title": "Patient communication",
+        "description": "Explanation, consent, and professional conduct."
+      },
+      "osce": {
+        "title": "OSCE preparation",
+        "description": "Practical assessment in a station-exam format."
+      },
+      "safety": {
+        "title": "Safety",
+        "description": "Error prevention, team checking, and clinical protocols."
+      }
+    },
+    "gallery": {
+      "g1": { "alt": "Hall of the medical simulation centre" },
+      "g2": { "alt": "Dental simulation room" },
+      "g3": { "alt": "Students during a practical session" }
+    },
+    "videos": {
+      "v1": {
+        "title": "Simulation scenario",
+        "description": "How a team simulation and debriefing session run."
+      },
+      "v2": {
+        "title": "Dental preclinical training",
+        "description": "Work in the phantom rooms and the teaching flow."
+      }
+    }
+  },
+  "complex": {
+    "metaTitle": "University medical complex",
+    "metaDescription": "Services, equipment, specialists, and clinical practice at the Saribekyan university medical complex.",
+    "badge": "Medical complex",
+    "title": "Saribekyan university",
+    "highlight": "medical complex",
+    "description": "A multidisciplinary clinical base for patient care, diagnostics, and student practice.",
+    "about": {
+      "title": "About the complex",
+      "p1": "The university medical complex is SIMU’s main platform for clinical teaching. Students apply theory in a real clinical environment.",
+      "p2": "The complex brings together outpatient and inpatient services, diagnostics, and specialist consultation."
+    },
+    "directions": {
+      "therapy": {
+        "title": "Internal medicine",
+        "description": "Diagnosis and treatment of internal diseases."
+      },
+      "surgery": {
+        "title": "Surgery",
+        "description": "Surgical care and practical training."
+      },
+      "diagnostics": {
+        "title": "Diagnostics",
+        "description": "Laboratory and imaging investigations."
+      },
+      "emergency": {
+        "title": "Emergency care",
+        "description": "Assessment and stabilisation of acute conditions."
+      }
+    },
+    "services": {
+      "outpatient": {
+        "title": "Outpatient service",
+        "description": "Planned appointments and examinations."
+      },
+      "inpatient": {
+        "title": "Inpatient care",
+        "description": "Patient monitoring and treatment."
+      },
+      "diagnostics": {
+        "title": "Diagnostic tests",
+        "description": "Laboratory and instrumental diagnostics."
+      },
+      "consult": {
+        "title": "Consultation",
+        "description": "Specialist opinion and clinical conclusions."
+      }
+    },
+    "practice": {
+      "bedside": {
+        "title": "Clinical examination",
+        "description": "Patient assessment under specialist supervision."
+      },
+      "procedures": {
+        "title": "Practical procedures",
+        "description": "Core interventions following a teaching protocol."
+      },
+      "rounds": {
+        "title": "Clinical rounds",
+        "description": "Team discussion and review of the treatment plan."
+      }
+    },
+    "equipment": {
+      "imaging": {
+        "title": "Medical imaging",
+        "description": "Diagnostic imaging for clinical work."
+      },
+      "or": {
+        "title": "Operating theatre",
+        "description": "Equipment for surgical procedures."
+      },
+      "icu": {
+        "title": "Monitoring",
+        "description": "Intensive-care and vital-sign equipment."
+      },
+      "lab": {
+        "title": "Laboratory base",
+        "description": "Equipment for clinical investigations."
+      }
+    },
+    "specialists": {
+      "director": {
+        "name": "Director of the complex",
+        "role": "Clinical leadership",
+        "bio": "Coordination of treatment and teaching at the complex."
+      },
+      "therapy": {
+        "name": "Internist",
+        "role": "Internal medicine service",
+        "bio": "Treatment of internal diseases and student teaching."
+      },
+      "surgery": {
+        "name": "Surgeon",
+        "role": "Surgical service",
+        "bio": "Surgical care and practical sessions."
+      },
+      "coordinator": {
+        "name": "Teaching coordinator",
+        "role": "Clinical practice",
+        "bio": "Student practice schedules and supervision."
+      }
+    },
+    "gallery": {
+      "g1": { "alt": "Clinical hall of the medical complex" },
+      "g2": { "alt": "Consultation and reception area" },
+      "g3": { "alt": "Students during practice at the complex" }
+    },
+    "videos": {
+      "v1": {
+        "title": "Walkthrough of the complex",
+        "description": "Clinical spaces and core services."
+      },
+      "v2": {
+        "title": "Practice at the complex",
+        "description": "Students working as part of the clinical team."
+      }
+    },
+    "contact": {
+      "title": "Complex contact",
+      "description": "For appointments, services, and teaching practice.",
+      "hours": "Monday–Friday, 09:00–18:00"
+    }
+  },
+  "dental": {
+    "metaTitle": "Dental centre",
+    "metaDescription": "Services, equipment, specialists, and student practice at the dental centre.",
+    "badge": "Dental centre",
+    "title": "Dental",
+    "highlight": "centre",
+    "description": "Dental treatment and student practice with modern units and specialist supervision.",
+    "about": {
+      "title": "About the centre",
+      "p1": "The dental centre is part of the university clinical base and provides therapeutic, surgical, and preventive services.",
+      "p2": "Students practise chairside, starting with supervised procedures and moving toward independent work."
+    },
+    "directions": {
+      "therapy": {
+        "title": "Therapeutic dentistry",
+        "description": "Caries treatment, endodontics, and restoration."
+      },
+      "surgery": {
+        "title": "Surgical dentistry",
+        "description": "Extractions and outpatient surgical procedures."
+      },
+      "orthodontics": {
+        "title": "Orthodontics",
+        "description": "Malocclusion correction and teaching-case analysis."
+      },
+      "prevention": {
+        "title": "Prevention",
+        "description": "Hygiene, screening, and patient education."
+      }
+    },
+    "services": {
+      "treatment": {
+        "title": "Therapeutic treatment",
+        "description": "Diagnosis, treatment, and restoration."
+      },
+      "surgery": {
+        "title": "Surgical care",
+        "description": "Outpatient dental surgery."
+      },
+      "imaging": {
+        "title": "Dental diagnostics",
+        "description": "Intraoral and radiographic imaging."
+      },
+      "hygiene": {
+        "title": "Professional hygiene",
+        "description": "Cleaning, prevention, and counselling."
+      }
+    },
+    "practice": {
+      "chairside": {
+        "title": "Chairside teaching",
+        "description": "Patient reception and observation of treatment stages."
+      },
+      "supervised": {
+        "title": "Supervised procedures",
+        "description": "Student work under instructor supervision."
+      },
+      "cases": {
+        "title": "Clinical cases",
+        "description": "Treatment planning and outcome review."
+      }
+    },
+    "equipment": {
+      "units": {
+        "title": "Dental units",
+        "description": "Modern chairs for teaching and clinical work."
+      },
+      "imaging": {
+        "title": "Diagnostic imaging",
+        "description": "Dental X-ray and intraoral cameras."
+      },
+      "sterile": {
+        "title": "Sterilisation",
+        "description": "Instrument processing and infection-control line."
+      },
+      "lab": {
+        "title": "Teaching laboratory",
+        "description": "Equipment for preclinical and technical work."
+      }
+    },
+    "specialists": {
+      "head": {
+        "name": "Head of the centre",
+        "role": "Dental service",
+        "bio": "Leadership of clinical and teaching work at the centre."
+      },
+      "surgeon": {
+        "name": "Oral surgeon",
+        "role": "Surgical dentistry",
+        "bio": "Outpatient surgery and practical teaching."
+      },
+      "therapist": {
+        "name": "Dental therapist",
+        "role": "Therapeutic dentistry",
+        "bio": "Therapeutic treatment and clinical sessions."
+      },
+      "hygienist": {
+        "name": "Hygiene specialist",
+        "role": "Prevention",
+        "bio": "Professional hygiene and patient education."
+      }
+    },
+    "gallery": {
+      "g1": { "alt": "Treatment hall of the dental centre" },
+      "g2": { "alt": "Dental reception area" },
+      "g3": { "alt": "University dental clinic" }
+    },
+    "videos": {
+      "v1": {
+        "title": "Introduction to the centre",
+        "description": "Spaces and services of the dental centre."
+      },
+      "v2": {
+        "title": "Teaching practice",
+        "description": "Students working chairside under specialist supervision."
+      }
+    },
+    "contact": {
+      "title": "Dental centre contact",
+      "description": "For appointments, treatment, and teaching practice.",
+      "hours": "Monday–Friday, 09:00–18:00"
+    }
+  },
+  "simulation": {
+    "metaTitle": "Medical simulation centre",
+    "metaDescription": "Rooms, equipment, courses, and practical skill development at the medical simulation centre.",
+    "badge": "Simulation centre",
+    "title": "Medical",
+    "highlight": "simulation centre",
+    "description": "A safe teaching environment for clinical scenarios, simulation equipment, and repeated skill practice.",
+    "about": {
+      "title": "About the centre",
+      "p1": "The medical simulation centre lets students learn with the right to make mistakes — without risk to a patient. Scenarios are repeated until the skill is stable.",
+      "p2": "The centre works with the dental simulation rooms and prepares students for clinical practice and the OSCE format."
+    },
+    "directions": {
+      "clinical": {
+        "title": "Clinical simulation",
+        "description": "Medical scenarios and core procedures."
+      },
+      "dental": {
+        "title": "Dental simulation",
+        "description": "Preclinical drills in phantom rooms."
+      },
+      "emergency": {
+        "title": "Emergency scenarios",
+        "description": "Team response to acute conditions."
+      },
+      "debrief": {
+        "title": "Debriefing",
+        "description": "After-action review and feedback."
+      }
+    },
+    "services": {
+      "skills": {
+        "title": "Skills lab",
+        "description": "Individual and group practical sessions."
+      },
+      "osce": {
+        "title": "OSCE preparation",
+        "description": "Station-style assessment drills."
+      },
+      "team": {
+        "title": "Team simulation",
+        "description": "Role allocation and clinical communication."
+      },
+      "courses": {
+        "title": "Short courses",
+        "description": "Thematic practical modules for students and residents."
+      }
+    },
+    "practice": {
+      "scenarios": {
+        "title": "Scenario-based training",
+        "description": "Simulation of real clinical cases."
+      },
+      "feedback": {
+        "title": "Immediate feedback",
+        "description": "Review with the instructor and video recording."
+      },
+      "repeat": {
+        "title": "Repeated practice",
+        "description": "Skill reinforcement until independent performance."
+      }
+    },
+    "equipment": {
+      "manikins": {
+        "title": "High-fidelity manikins",
+        "description": "Simulators with physiological response."
+      },
+      "phantoms": {
+        "title": "Dental phantoms",
+        "description": "Models for preclinical dental drills."
+      },
+      "av": {
+        "title": "Audiovisual system",
+        "description": "Recording and a debriefing room."
+      },
+      "virtual": {
+        "title": "Digital simulators",
+        "description": "Virtual modules for diagnosis and interventions."
+      }
+    },
+    "specialists": {
+      "head": {
+        "name": "Head of the centre",
+        "role": "Simulation teaching",
+        "bio": "Overall leadership of simulation programmes and scenarios."
+      },
+      "instructor": {
+        "name": "Simulation instructor",
+        "role": "Clinical skills",
+        "bio": "Running scenarios and assessing students."
+      },
+      "dental": {
+        "name": "Dental instructor",
+        "role": "Preclinical rooms",
+        "bio": "Teaching and supervising phantom work."
+      },
+      "technician": {
+        "name": "Simulation technician",
+        "role": "Equipment",
+        "bio": "Preparing simulators and providing technical support."
+      }
+    },
+    "gallery": {
+      "g1": { "alt": "Main hall of the simulation centre" },
+      "g2": { "alt": "Students during a simulation scenario" },
+      "g3": { "alt": "Dental simulation equipment" }
+    },
+    "videos": {
+      "v1": {
+        "title": "Simulation centre walkthrough",
+        "description": "Rooms, equipment, and the teaching flow."
+      },
+      "v2": {
+        "title": "Team scenario",
+        "description": "How a simulation and debriefing session run."
+      }
+    },
+    "contact": {
+      "title": "Simulation centre contact",
+      "description": "For courses, room booking, and teaching visits.",
+      "hours": "Monday–Friday, 09:00–18:00"
+    }
+  },
+  "tour": {
+    "metaTitle": "3D virtual tour",
+    "metaDescription": "A 3D or 360° virtual tour of Saribekyan University clinical and simulation spaces.",
+    "badge": "Virtual tour",
+    "title": "3D and 360°",
+    "highlight": "virtual tour",
+    "description": "Explore the university clinics and simulation rooms online in 3D or 360°.",
+    "aboutTitle": "Why the tour matters",
+    "aboutDescription": "The virtual tour helps applicants and students see the teaching environment in advance.",
+    "p1": "A 3D or 360° tour presents the medical complex, dental centre, and simulation rooms without a physical visit.",
+    "p2": "When the tour is ready, it will be embedded on this page. Until then you can explore the hospitals and practical centres sections.",
+    "viewerBadge": "360°",
+    "viewerTitle": "Tour viewer",
+    "viewerDescription": "The embedded 3D/360° tour will appear here when the footage is available.",
+    "placeholder": "The 3D or 360° virtual tour will be published when filming of the spaces is complete."
+  }
+}

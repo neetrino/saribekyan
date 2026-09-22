@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "title": "International relations",
+    "description": "The International Office of Saribekyan International Medical University, partner universities, memoranda, exchange programmes, and joint projects."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "international": "International"
+  },
+  "sectionNavAria": "International relations sections",
+  "nav": {
+    "office": "International Office",
+    "europe": "Europe",
+    "cis": "CIS",
+    "partners": "Partners",
+    "memoranda": "Memoranda",
+    "exchange": "Exchange",
+    "projects": "Projects"
+  },
+  "hero": {
+    "badge": "International relations",
+    "title": "International",
+    "highlight": "collaboration",
+    "description": "University international activity, partner institutions, exchange programmes, and joint projects."
+  },
+  "office": {
+    "badge": "International Office",
+    "title": "About the International Office",
+    "description": "The office coordinates the university’s external relations, student and staff mobility, and partnership agreements.",
+    "p1": "The International Office is the structure responsible for Saribekyan International Medical University’s external collaboration. It maintains links with partner universities, education networks, and international programmes.",
+    "p2": "The office supports international applicants and students, organises exchanges, manages memoranda of understanding, and assists joint academic and research projects.",
+    "phone": "Phone",
+    "email": "Email",
+    "focus": {
+      "agreements": {
+        "title": "Agreements and memoranda",
+        "description": "Preparation, signing, and follow-up of cooperation documents with partner universities."
+      },
+      "mobility": {
+        "title": "Academic mobility",
+        "description": "Organisation and support of student, resident, and faculty exchanges."
+      },
+      "projects": {
+        "title": "International projects",
+        "description": "Coordination of joint education and research initiatives."
+      },
+      "support": {
+        "title": "Student support",
+        "description": "Visa, residence, recognition, and integration support for international students."
+      }
+    }
+  },
+  "europe": {
+    "badge": "Europe",
+    "title": "Cooperation with European universities",
+    "description": "The university develops links with European medical schools through academic mobility, clinical practice, and joint research.",
+    "items": {
+      "academic": {
+        "title": "Academic programmes",
+        "description": "Joint modules, faculty exchange, and comparative curriculum development."
+      },
+      "clinical": {
+        "title": "Clinical practice",
+        "description": "Short clinical placements in partner European clinics and simulation centres."
+      },
+      "research": {
+        "title": "Joint research",
+        "description": "Conferences, publications, and initiatives to improve the quality of medical education."
+      }
+    }
+  },
+  "cis": {
+    "badge": "CIS",
+    "title": "Cooperation with CIS universities",
+    "description": "Collaboration with medical universities in the CIS region includes mobility, specialist training, and academic research links.",
+    "items": {
+      "mobility": {
+        "title": "Student mobility",
+        "description": "Semester study and clinical practice at partner universities in CIS countries."
+      },
+      "training": {
+        "title": "Specialist training",
+        "description": "Exchange of experience in residency and continuing medical education."
+      },
+      "science": {
+        "title": "Research collaboration",
+        "description": "Joint research topics, conferences, and academic visits."
+      }
+    }
+  },
+  "partners": {
+    "badge": "Partners",
+    "title": "International partners",
+    "description": "Partner university logos and official website links, grouped by region.",
+    "visitWebsite": "Official website",
+    "regions": {
+      "europe": "European partners",
+      "cis": "CIS partners"
+    },
+    "sofia": {
+      "name": "Medical University of Sofia",
+      "country": "Bulgaria"
+    },
+    "charles": {
+      "name": "Charles University",
+      "country": "Czechia"
+    },
+    "lsmu": {
+      "name": "Lithuanian University of Health Sciences",
+      "country": "Lithuania"
+    },
+    "zagreb": {
+      "name": "University of Zagreb School of Medicine",
+      "country": "Croatia"
+    },
+    "bsmu": {
+      "name": "Belarusian State Medical University",
+      "country": "Belarus"
+    },
+    "kaznmu": {
+      "name": "Asfendiyarov Kazakh National Medical University",
+      "country": "Kazakhstan"
+    },
+    "sechenov": {
+      "name": "Sechenov First Moscow State Medical University",
+      "country": "Russia"
+    },
+    "tma": {
+      "name": "Tashkent Medical Academy",
+      "country": "Uzbekistan"
+    }
+  },
+  "memoranda": {
+    "badge": "Memoranda",
+    "title": "Memoranda of cooperation",
+    "description": "Signed memoranda with partner universities define the framework for mobility, practice, and research collaboration.",
+    "sofia": {
+      "year": "2022",
+      "title": "Memorandum with the Medical University of Sofia",
+      "description": "Academic mobility and clinical practice exchange."
+    },
+    "lsmu": {
+      "year": "2023",
+      "title": "Memorandum with the Lithuanian University of Health Sciences",
+      "description": "Quality of medical education and faculty exchange."
+    },
+    "bsmu": {
+      "year": "2021",
+      "title": "Memorandum with Belarusian State Medical University",
+      "description": "Student mobility and joint academic events."
+    },
+    "kaznmu": {
+      "year": "2024",
+      "title": "Memorandum with Kazakh National Medical University",
+      "description": "Residency, training, and research initiatives."
+    }
+  },
+  "exchange": {
+    "badge": "Exchange",
+    "title": "Exchange programmes",
+    "description": "Students, residents, and faculty may take part in short-term and semester exchanges at partner universities.",
+    "items": {
+      "semester": {
+        "title": "Semester study",
+        "description": "One semester at a partner university with agreed courses and credit recognition."
+      },
+      "clinical": {
+        "title": "Clinical exchange",
+        "description": "Clinical practice of 4–12 weeks in partner hospitals and teaching clinics."
+      },
+      "staff": {
+        "title": "Faculty exchange",
+        "description": "Short visits by lecturers and clinical supervisors, masterclasses, and methodological work."
+      }
+    }
+  },
+  "projects": {
+    "badge": "Projects",
+    "title": "International projects",
+    "description": "The university takes part in academic mobility, joint research, and institutional capacity-building projects.",
+    "items": {
+      "mobility": {
+        "title": "Academic mobility project",
+        "description": "Student and staff mobility with partner universities in Europe and the CIS."
+      },
+      "research": {
+        "title": "Joint research project",
+        "description": "Shared topics in medical education and clinical science with partner institutes."
+      },
+      "capacity": {
+        "title": "Capacity building",
+        "description": "Programmes to develop quality assurance, simulation-based teaching, and teaching methods."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Contact",
+    "title": "Contact the International Office",
+    "description": "For partnerships, exchanges, or international admissions, get in touch with the International Office.",
+    "button": "Get in touch",
+    "secondary": "International applicants"
+  }
+}

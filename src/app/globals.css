@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --brand-ink: #203734;
+  --brand-teal: #5b9d94;
+  --brand-mint: #a9f3e9;
+  --brand-lime: #fff75e;
+  --brand-aqua: #54ffd4;
+  --brand-gold: #f7d043;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-aqua: var(--brand-aqua);
+  --color-brand-gold: var(--brand-gold);
+  --font-sans: var(--font-montserrat);
+  --font-jakarta: var(--font-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+}
+
+.font-jakarta {
+  font-family: var(--font-jakarta), var(--font-montserrat), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-teal) 35%, white);
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "University address, phone numbers, emails, department contacts, working hours, map, and contact form."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Contact",
+    "title": "Get in touch",
+    "highlight": "with us",
+    "description": "Find our address, phone numbers, department contacts, and send a message through the contact form."
+  },
+  "details": {
+    "badge": "Contacts",
+    "title": "How to reach us",
+    "description": "Main contact details and working hours.",
+    "address": "Address",
+    "phones": "Phone numbers",
+    "emails": "Email addresses",
+    "hours": "Working hours",
+    "phoneLabels": {
+      "main": "Main",
+      "reception": "Reception"
+    },
+    "emailLabels": {
+      "info": "General",
+      "office": "Administration"
+    },
+    "hoursItems": {
+      "weekdays": {
+        "label": "Monday – Friday",
+        "value": "09:00 – 18:00"
+      },
+      "saturday": {
+        "label": "Saturday",
+        "value": "10:00 – 14:00"
+      },
+      "sunday": {
+        "label": "Sunday",
+        "value": "Closed"
+      }
+    }
+  },
+  "departments": {
+    "badge": "Departments",
+    "title": "Department contacts",
+    "description": "Contact details for Admissions and the International Office.",
+    "admissions": {
+      "title": "Admissions Office",
+      "description": "Applications, documents, and admissions questions.",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "international": {
+      "title": "International Office",
+      "description": "International applicants, partnerships, and visa support.",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  },
+  "social": {
+    "badge": "Social",
+    "title": "Follow us",
+    "description": "Official channels and updates."
+  },
+  "map": {
+    "badge": "Map",
+    "title": "Find us on the map",
+    "description": "University location.",
+    "openExternal": "Open map"
+  },
+  "form": {
+    "badge": "Contact form",
+    "title": "Send a message",
+    "description": "Fill in the form and we will reply during working hours.",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "department": "Department",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send",
+    "submitting": "Sending…",
+    "success": "Your message has been received. We will reply shortly.",
+    "error": "Could not send. Please try again or call us.",
+    "departments": {
+      "general": "General inquiry",
+      "admissions": "Admissions Office",
+      "international": "International Office"
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid phone number.",
+      "department": "Select a department.",
+      "subject": "Enter a subject.",
+      "message": "Enter a message (at least 10 characters)."
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "hub": {
+    "badge": "About",
+    "title": "Saribekyan International Medical University",
+    "highlight": "our identity",
+    "description": "Learn about the university’s history, quality assurance system, and organizational structure.",
+    "metaTitle": "About",
+    "metaDescription": "History, quality assurance, and organizational structure of Saribekyan International Medical University."
+  },
+  "nav": {
+    "overview": "Overview",
+    "whoWeAre": "Who we are",
+    "quality": "Quality assurance",
+    "structure": "Structure"
+  },
+  "cards": {
+    "who": {
+      "title": "Who we are",
+      "description": "History, mission, vision, values, and leadership."
+    },
+    "quality": {
+      "title": "Quality assurance",
+      "description": "QA system, ANQA standards, reports, and work plans."
+    },
+    "structure": {
+      "title": "Structure",
+      "description": "Organizational chart, human resources, accounting, and facilities."
+    }
+  },
+  "viewSection": "View section",
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "about": "About"
+  },
+  "subnavAria": "About sections"
+}

@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "titleBefore": "The future of medicine",
+    "titleAfter": "starts",
+    "titleAccent": "here",
+    "studentsAlt": "Students of Saribekyan University",
+    "applyCta": "Apply online"
+  },
+  "about": {
+    "badge": "About the university",
+    "titleBefore": "The future of medicine",
+    "titleAfter": "starts",
+    "titleAccent": "here",
+    "p1": "Saribekyan International Medical University was founded in 1991. The university was accredited by the RA Ministry of Education and Science in 2001.",
+    "p2": "The university received institutional accreditation from the RA ANQA foundation in 2021 and 2024.",
+    "readMore": "Read more"
+  },
+  "programs": {
+    "badge": "Academic tracks",
+    "titleBefore": "Choose your future",
+    "titleAccent": "professional path",
+    "description": "Join the SIMU community and receive medical education that meets modern standards. The application process is clear and transparent.",
+    "allDirections": "All tracks"
+  },
+  "admissions": {
+    "badge": "Admissions",
+    "title": "Admissions",
+    "description": "Join the SIMU community and receive medical education that meets modern standards. The application process is clear and transparent.",
+    "aboutLink": "About admissions",
+    "imageAlt": "Admissions at Saribekyan University",
+    "stepMore": "{title} — more",
+    "tabs": {
+      "apply": "Apply online",
+      "documents": "Documents",
+      "tuition": "Tuition fees"
+    }
+  },
+  "clinics": {
+    "badge": "Clinics",
+    "titleBefore": "Clinical opportunities and",
+    "titleAccent": "simulation centers",
+    "description": "Saribekyan university medical complex, dental center, and simulation labs for developing practical skills.",
+    "tourCta": "3D virtual tour"
+  },
+  "partners": {
+    "badge": "Partners",
+    "titleBefore": "International",
+    "titleAccent": "collaboration",
+    "description": "Saribekyan International Medical University was founded in 1991. The university was accredited by the RA Ministry of Education and Science in 2001. The university received institutional accreditation from the RA ANQA foundation in 2021 and 2024.",
+    "link": "International collaboration"
+  },
+  "news": {
+    "badge": "News",
+    "titleBefore": "Stay",
+    "titleAccent": "informed",
+    "readMore": "Read more"
+  }
+}

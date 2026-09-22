@@ -1,0 +1,26 @@
+{
+  "education": {
+    "title": "Education",
+    "description": "The academic tracks and programs page is under preparation."
+  },
+  "admissions": {
+    "title": "Admissions",
+    "description": "Admissions information will be published soon."
+  },
+  "clinics": {
+    "title": "Clinics",
+    "description": "The clinics page is under preparation."
+  },
+  "science": {
+    "title": "Science",
+    "description": "The research page is under preparation."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "The contact page is under preparation."
+  },
+  "news": {
+    "title": "News",
+    "description": "The news page is under preparation."
+  }
+}
