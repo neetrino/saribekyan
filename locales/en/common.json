@@ -1,0 +1,55 @@
+{
+  "brand": {
+    "name": "Saribekyan International Medical University",
+    "shortName": "SIMU",
+    "nameLines": "SARIBEKYAN INTERNATIONAL\nMEDICAL UNIVERSITY",
+    "logoAlt": "Saribekyan University",
+    "description": "A modern learning environment, clinical experience, and international collaboration for the medical professionals of tomorrow"
+  },
+  "nav": {
+    "mainAria": "Main navigation",
+    "menu": "Menu",
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "admissions": "Admissions",
+    "clinics": "Clinics",
+    "science": "Science",
+    "contact": "Contact",
+    "international": "International"
+  },
+  "language": {
+    "aria": "Language",
+    "hy": "HY",
+    "en": "EN"
+  },
+  "footer": {
+    "university": "University",
+    "applicants": "Applicants",
+    "quickLinks": "Quick links",
+    "legal": "Legal",
+    "about": "About",
+    "governance": "Governance",
+    "quality": "Quality assurance",
+    "structure": "Structure",
+    "faculties": "Faculties",
+    "documents": "Official documents",
+    "admissions": "Admissions",
+    "programs": "Academic programs",
+    "tuition": "Tuition fees",
+    "internationalApplicants": "International applicants",
+    "news": "News and events",
+    "library": "Library",
+    "students": "Student council",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "sitemap": "Sitemap",
+    "copyright": "Copyright © 2026 | All rights reserved | Created by <company>Neetrino IT Company</company>"
+  },
+  "comingSoon": {
+    "badge": "Coming soon",
+    "defaultDescription": "This page will be available soon.",
+    "backHome": "Back to home"
+  }
+}

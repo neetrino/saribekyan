@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "title": "Science",
+    "description": "Scientific activity at Saribekyan International Medical University — research, projects, publications, conferences, the Student Scientific Society, and reports."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "science": "Science"
+  },
+  "sectionNavAria": "Science sections",
+  "filters": {
+    "all": "All"
+  },
+  "nav": {
+    "overview": "Overview",
+    "research": "Research",
+    "projects": "Projects",
+    "publications": "Publications",
+    "events": "Events",
+    "ugs": "SSS",
+    "reports": "Reports",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "badge": "Science",
+    "title": "Scientific activity",
+    "highlight": "and research",
+    "description": "The university science unit coordinates research, projects, publications, and student scientific initiatives."
+  },
+  "overview": {
+    "badge": "Science unit",
+    "title": "About the science unit",
+    "description": "Scientific activity connects education, clinical practice, and research in one ecosystem.",
+    "p1": "The science unit at Saribekyan International Medical University organizes and coordinates university research, scientific projects, and dissemination of results. Activity includes faculty, postgraduate researchers, and students.",
+    "p2": "Priority areas include biomedical and clinical research, public health, and education science aimed at improving medical education quality."
+  },
+  "research": {
+    "badge": "Research",
+    "title": "Scientific research",
+    "description": "Core directions that shape the university’s research initiatives.",
+    "items": {
+      "biomedical": {
+        "title": "Biomedical research",
+        "description": "Laboratory and translational studies on disease mechanisms and new diagnostic approaches."
+      },
+      "clinical": {
+        "title": "Clinical research",
+        "description": "Practice-based studies assessing treatment effectiveness and safety."
+      },
+      "publicHealth": {
+        "title": "Public health",
+        "description": "Epidemiological analysis, prevention programs, and scientific support for health policy."
+      },
+      "educationScience": {
+        "title": "Education science",
+        "description": "Studies of medical education methods, simulation training, and assessment systems."
+      }
+    }
+  },
+  "projects": {
+    "badge": "Projects",
+    "title": "Current and completed projects",
+    "description": "University scientific projects by status.",
+    "empty": "Projects will be published soon.",
+    "filters": {
+      "all": "All",
+      "current": "Current",
+      "completed": "Completed"
+    },
+    "items": {
+      "cardio": {
+        "title": "Early detection of cardiovascular risk",
+        "description": "Monitoring cardiovascular risk factors in young adults and developing prevention approaches.",
+        "period": "2025–2027"
+      },
+      "oral": {
+        "title": "Digital monitoring of oral health",
+        "description": "Evaluating digital tools and prevention effectiveness in dental services.",
+        "period": "2025–2026"
+      },
+      "infection": {
+        "title": "Hospital infection prevention",
+        "description": "Assessment and improvement of infection-control protocols in clinical settings.",
+        "period": "2023–2025"
+      },
+      "simulation": {
+        "title": "Simulation training evaluation",
+        "description": "Analysis of how simulation modules affect students’ clinical readiness.",
+        "period": "2022–2024"
+      }
+    }
+  },
+  "publications": {
+    "badge": "Publications",
+    "title": "Scientific publications",
+    "description": "Articles, reports, and other scholarly works by year.",
+    "empty": "Publications will be added soon.",
+    "items": {
+      "pub1": {
+        "title": "Methodological guide to clinical research",
+        "type": "Guide"
+      },
+      "pub2": {
+        "title": "Quality indicators in medical education",
+        "type": "Article"
+      },
+      "pub3": {
+        "title": "Evaluating public health interventions",
+        "type": "Article"
+      },
+      "pub4": {
+        "title": "Analysis of simulation training outcomes",
+        "type": "Report"
+      }
+    }
+  },
+  "events": {
+    "badge": "Events",
+    "title": "Conferences and events",
+    "description": "Calendar of scientific and student events.",
+    "items": {
+      "conference": {
+        "title": "Annual medical conference",
+        "description": "Presentation and discussion of faculty and student research.",
+        "date": "15–16 May 2026",
+        "venue": "Main university building"
+      },
+      "seminar": {
+        "title": "Research methods seminar",
+        "description": "Practical seminar on scientific writing, data analysis, and ethics.",
+        "date": "12 March 2026",
+        "venue": "Science hall"
+      },
+      "symposium": {
+        "title": "SSS spring symposium",
+        "description": "Presentation and competitive review of student research projects.",
+        "date": "24 April 2026",
+        "venue": "Student centre"
+      }
+    }
+  },
+  "ugs": {
+    "badge": "SSS",
+    "title": "Student Scientific Society",
+    "description": "The SSS fosters student research initiatives and a culture of scientific inquiry.",
+    "p1": "The Student Scientific Society organizes research groups, seminars, and conferences, supports student publications, and connects early researchers with faculty mentors.",
+    "focus": {
+      "research": {
+        "title": "Student research",
+        "description": "Thematic groups and projects under faculty supervision."
+      },
+      "events": {
+        "title": "Scientific events",
+        "description": "Seminars, symposia, and competitions for students."
+      },
+      "mentoring": {
+        "title": "Mentoring",
+        "description": "Academic guidance through research planning and presentation."
+      }
+    }
+  },
+  "reports": {
+    "badge": "Reports",
+    "title": "Scientific activity reports",
+    "description": "Annual reports and activity plans.",
+    "empty": "Reports will be published soon.",
+    "items": {
+      "annual2025": {
+        "title": "Annual scientific activity report",
+        "type": "Annual report"
+      },
+      "annual2024": {
+        "title": "Annual scientific activity report",
+        "type": "Annual report"
+      },
+      "plan2026": {
+        "title": "Scientific activity work plan",
+        "type": "Work plan"
+      }
+    }
+  },
+  "contacts": {
+    "badge": "Contacts",
+    "title": "Responsible persons",
+    "description": "Contact details for science coordination leads.",
+    "people": {
+      "viceRector": {
+        "name": "Narine Avetisyan",
+        "role": "Vice-Rector for Science",
+        "bio": "Coordinates the university’s science strategy, projects, and external collaboration.",
+        "email": "n.avetisyan@saribekyan.am",
+        "phone": "+374 10 000 201"
+      },
+      "scienceHead": {
+        "name": "Hayk Martirosyan",
+        "role": "Head of the Science Unit",
+        "bio": "Organizes monitoring of research projects, publications, and reporting.",
+        "email": "h.martirosyan@saribekyan.am",
+        "phone": "+374 10 000 202"
+      },
+      "ugsCoordinator": {
+        "name": "Lilit Sargsyan",
+        "role": "SSS Coordinator",
+        "bio": "Supports student research projects, events, and mentoring programs.",
+        "email": "l.sargsyan@saribekyan.am",
+        "phone": "+374 10 000 203"
+      }
+    }
+  }
+}

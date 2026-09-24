@@ -1,0 +1,351 @@
+{
+  "meta": {
+    "title": "Admissions",
+    "description": "Application steps, documents, tuition fees, and downloadable application forms at Saribekyan International Medical University."
+  },
+  "breadcrumb": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "admissions": "Admissions"
+  },
+  "subnavAria": "Admissions sections",
+  "viewSection": "View section",
+  "downloadPdf": "Download PDF",
+  "openPdf": "View PDF",
+  "nav": {
+    "overview": "Overview",
+    "howToApply": "How to apply",
+    "tuition": "Tuition fees",
+    "apply": "Online application"
+  },
+  "hub": {
+    "badge": "Admissions",
+    "title": "Apply through a clear,",
+    "highlight": "transparent process",
+    "description": "Review the application stages, tuition fees, and download the application forms in PDF format.",
+    "metaTitle": "Admissions",
+    "metaDescription": "How to apply to Saribekyan International Medical University, tuition fees, and online application forms."
+  },
+  "cards": {
+    "howToApply": {
+      "title": "How to apply",
+      "description": "Stages, documents, conditions, international requirements, regulations, and deadlines."
+    },
+    "tuition": {
+      "title": "Tuition fees",
+      "description": "Program fees, annual payments, terms, schedule, and payment methods."
+    },
+    "apply": {
+      "title": "Online application",
+      "description": "Download the application forms as PDFs, review them, and complete them accurately."
+    }
+  },
+  "cta": {
+    "badge": "Application",
+    "title": "Ready to apply?",
+    "description": "Download the form, complete it, and submit it together with the required documents.",
+    "button": "Download application forms",
+    "secondary": "How to apply"
+  },
+  "howToApply": {
+    "badge": "How to apply",
+    "title": "The full application",
+    "highlight": "process",
+    "description": "A step-by-step guide covering stages, documents, regulations, and admission deadlines.",
+    "metaTitle": "How to apply",
+    "metaDescription": "SIMU admissions stages, documents, conditions, international requirements, and deadlines.",
+    "steps": {
+      "badge": "Stages",
+      "title": "Application stages",
+      "description": "The process is sequential. Each stage has a clear outcome.",
+      "explore": {
+        "number": "01",
+        "title": "Explore programs",
+        "description": "Review academic tracks, study duration, and admission requirements."
+      },
+      "form": {
+        "number": "02",
+        "title": "Application form",
+        "description": "Download the relevant PDF form, complete it, and keep it for submission."
+      },
+      "documents": {
+        "number": "03",
+        "title": "Submit documents",
+        "description": "Prepare the required file and submit it to the admissions office in person or by email."
+      },
+      "assessment": {
+        "number": "04",
+        "title": "Assessment",
+        "description": "Take the entrance exam or interview required for your chosen program."
+      },
+      "results": {
+        "number": "05",
+        "title": "Competitive results",
+        "description": "Results are published on the stated date. Successful applicants receive an enrollment invitation."
+      },
+      "enroll": {
+        "number": "06",
+        "title": "Contract and enrollment",
+        "description": "Sign the study contract, pay the first installment, and enroll for the academic year."
+      }
+    },
+    "documents": {
+      "badge": "Documents",
+      "title": "Required documents",
+      "description": "Submit a complete file. A missing document may pause the review of your application.",
+      "application": {
+        "title": "Application form",
+        "description": "A completed and signed form using the university’s approved PDF template."
+      },
+      "identity": {
+        "title": "Proof of identity",
+        "description": "A copy of your passport or ID card, to be checked against the original when submitting in person."
+      },
+      "diploma": {
+        "title": "Education certificate",
+        "description": "Original and copy of the secondary or equivalent education certificate."
+      },
+      "transcript": {
+        "title": "Transcript of records",
+        "description": "An official record of final examinations or academic performance."
+      },
+      "photos": {
+        "title": "Photographs",
+        "description": "Four color photos, 3×4 cm, on a white background."
+      },
+      "medical": {
+        "title": "Medical certificate",
+        "description": "A health certificate in the required format."
+      },
+      "military": {
+        "title": "Military registration",
+        "description": "Required for male applicants who are citizens of Armenia, as provided by law."
+      }
+    },
+    "conditions": {
+      "badge": "Conditions",
+      "title": "Admission conditions",
+      "description": "Admission is competitive and follows the university’s internal regulations.",
+      "education": {
+        "title": "Educational prerequisite",
+        "description": "Secondary, vocational, or equivalent education matching the program’s entry requirements."
+      },
+      "competition": {
+        "title": "Competitive selection",
+        "description": "Places are allocated based on exam or interview results and the submitted file."
+      },
+      "language": {
+        "title": "Language of instruction",
+        "description": "Programs are delivered in Armenian and/or English. Adequate language preparation is required."
+      },
+      "contract": {
+        "title": "Contract and tuition",
+        "description": "Enrollment is valid only after the study contract is signed and the first payment is made."
+      },
+      "capacity": {
+        "title": "Legal capacity",
+        "description": "Applicants must have legal capacity or the consent of a lawful representative."
+      }
+    },
+    "international": {
+      "badge": "International applicants",
+      "title": "Requirements for international applicants",
+      "description": "Foreign citizens follow the same stages, with additional legal and document requirements.",
+      "equivalence": {
+        "title": "Education equivalence",
+        "description": "The foreign education credential must be equivalent to Armenian secondary or the required level."
+      },
+      "legalization": {
+        "title": "Apostille or legalization",
+        "description": "The diploma and transcript must bear an apostille or be legalized as required."
+      },
+      "translation": {
+        "title": "Notarized translation",
+        "description": "Documents are submitted with a notarized translation into Armenian or English."
+      },
+      "passport": {
+        "title": "Passport",
+        "description": "A valid passport with at least 12 months remaining at the time of application."
+      },
+      "insurance": {
+        "title": "Health insurance",
+        "description": "Medical insurance or equivalent coverage for the duration of studies."
+      },
+      "residence": {
+        "title": "Residence and visa",
+        "description": "After admission, the university issues an invitation to support residence status."
+      }
+    },
+    "regulations": {
+      "badge": "Regulations",
+      "title": "Applicable regulations",
+      "description": "Admissions are governed by internal acts. The documents are available as PDFs.",
+      "admissions": {
+        "title": "Admissions procedure",
+        "description": "Rules for receiving, assessing, and enrolling applicants."
+      },
+      "tuition": {
+        "title": "Tuition payment rules",
+        "description": "Annual fees, payment schedule, and late-payment terms."
+      },
+      "internal": {
+        "title": "Internal academic rules",
+        "description": "Core provisions on studies, conduct, and student status."
+      }
+    },
+    "deadlines": {
+      "badge": "Deadlines",
+      "title": "Application deadlines",
+      "description": "Calendar for the 2026–2027 academic year. Exact dates may be updated by official notice.",
+      "local": {
+        "title": "Armenian applicants",
+        "description": "Application window",
+        "date": "1 March – 20 August 2026"
+      },
+      "international": {
+        "title": "International applicants",
+        "description": "Application window",
+        "date": "1 March – 15 July 2026"
+      },
+      "assessment": {
+        "title": "Admission assessment",
+        "description": "Exams and interviews",
+        "date": "10–25 August 2026"
+      },
+      "results": {
+        "title": "Publication of results",
+        "description": "Competitive ranking",
+        "date": "28 August 2026"
+      },
+      "contract": {
+        "title": "Contract signing",
+        "description": "Enrollment deadline",
+        "date": "by 10 September 2026"
+      },
+      "start": {
+        "title": "Academic year start",
+        "description": "Classes begin",
+        "date": "15 September 2026"
+      }
+    }
+  },
+  "tuition": {
+    "badge": "Tuition fees",
+    "title": "Tuition and",
+    "highlight": "payment terms",
+    "description": "Annual fees for 2026–2027, payment conditions, schedule, and methods.",
+    "metaTitle": "Tuition fees",
+    "metaDescription": "SIMU program tuition, annual fees, and payment terms.",
+    "programs": {
+      "badge": "Programs",
+      "title": "Tuition by academic program",
+      "description": "Amounts are in Armenian drams and cover one academic year or course. The contract confirms the official amount.",
+      "viewProgram": "Explore program",
+      "from": "from",
+      "general-medicine": {
+        "title": "General medicine",
+        "description": "A full medical program combining theoretical and clinical training."
+      },
+      "dentistry": {
+        "title": "Dentistry",
+        "description": "Dental education with a modern clinical base."
+      },
+      "cpd": {
+        "title": "Professional development",
+        "description": "Continuing medical education courses for practicing specialists."
+      },
+      "billing": {
+        "year": "per year",
+        "course": "per course"
+      }
+    },
+    "terms": {
+      "badge": "Terms",
+      "title": "Payment conditions",
+      "annual": {
+        "title": "Annual fee",
+        "description": "Tuition for core programs is calculated per academic year and may be paid in full or in installments."
+      },
+      "installments": {
+        "title": "Installments",
+        "description": "Two equal installments are allowed according to the schedule in the contract."
+      },
+      "enrollment": {
+        "title": "Enrollment condition",
+        "description": "A student is enrolled only after the first installment is paid and the contract is signed."
+      },
+      "late": {
+        "title": "Late payment",
+        "description": "Overdue payments are governed by the contract and may suspend academic services."
+      }
+    },
+    "schedule": {
+      "badge": "Schedule",
+      "title": "Payment schedule",
+      "description": "Recommended two-installment calendar for the 2026–2027 academic year.",
+      "first": {
+        "number": "01",
+        "title": "First installment — 50%",
+        "description": "Paid when the contract is signed, before the academic year begins."
+      },
+      "second": {
+        "number": "02",
+        "title": "Second installment — 50%",
+        "description": "Paid by 15 January 2027, before the second semester starts."
+      }
+    },
+    "methods": {
+      "badge": "Methods",
+      "title": "Payment methods",
+      "transfer": {
+        "title": "Bank transfer",
+        "description": "Pay to the university account. Include the applicant’s name and program title."
+      },
+      "cashier": {
+        "title": "University cashier",
+        "description": "Pay in person at the university accounting office during working hours."
+      },
+      "online": {
+        "title": "Online payment",
+        "description": "An online payment system will be added later. Until then, use a transfer or the cashier."
+      }
+    }
+  },
+  "apply": {
+    "badge": "Online application",
+    "title": "Download the application",
+    "highlight": "forms",
+    "description": "Forms are published as PDFs so applicants can review, download, and complete them accurately.",
+    "metaTitle": "Online application",
+    "metaDescription": "SIMU application forms in PDF format for download and completion.",
+    "forms": {
+      "badge": "Forms",
+      "title": "Application forms in PDF",
+      "description": "Choose your application type, download the form, and submit it with your document file to the admissions office.",
+      "undergraduate": {
+        "title": "Undergraduate / medical programs",
+        "description": "For applicants to general medicine and dentistry."
+      },
+      "international": {
+        "title": "International applicant",
+        "description": "Application form for foreign citizens, with additional fields."
+      },
+      "cpd": {
+        "title": "Professional development",
+        "description": "Application for continuing medical education courses."
+      }
+    },
+    "submit": {
+      "badge": "Submission",
+      "title": "How to submit the completed form",
+      "inPerson": {
+        "title": "In person",
+        "description": "Bring the completed form and documents to the admissions office at the university address."
+      },
+      "email": {
+        "title": "Email",
+        "description": "Send a scanned PDF package to {email}, with the program name in the subject line."
+      }
+    }
+  }
+}
