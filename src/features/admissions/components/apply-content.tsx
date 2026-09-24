@@ -25,6 +25,7 @@ export async function ApplyContent() {
   return (
     <>
       <ContentSection
+        id="forms"
         badge={t("forms.badge")}
         title={t("forms.title")}
         description={t("forms.description")}
@@ -32,7 +33,11 @@ export async function ApplyContent() {
         <ApplicationForms />
       </ContentSection>
 
-      <ContentSection badge={t("submit.badge")} title={t("submit.title")}>
+      <ContentSection
+        id="submit"
+        badge={t("submit.badge")}
+        title={t("submit.title")}
+      >
         <InfoCards items={submitItems} />
       </ContentSection>
     </>

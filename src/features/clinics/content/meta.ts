@@ -27,6 +27,77 @@ export const clinicNavHrefs: Array<{ key: ClinicNavKey; href: string }> = [
   { key: "tour", href: "/clinics/tour" },
 ];
 
+export type ClinicSectionDef = {
+  id: string;
+  labelKey: string;
+};
+
+const facilitySectionDefs: ClinicSectionDef[] = [
+  { id: "about", labelKey: "sections.about" },
+  { id: "directions", labelKey: "sections.directions" },
+  { id: "services", labelKey: "sections.services" },
+  { id: "practice", labelKey: "sections.practice" },
+  { id: "equipment", labelKey: "sections.equipment" },
+  { id: "specialists", labelKey: "sections.specialists" },
+  { id: "gallery", labelKey: "sections.gallery" },
+  { id: "videos", labelKey: "sections.videos" },
+  { id: "contacts", labelKey: "sections.contacts" },
+];
+
+export const clinicsPageSections: Record<ClinicSlug, ClinicSectionDef[]> = {
+  hospitals: [
+    { id: "about", labelKey: "sections.about" },
+    { id: "facilities", labelKey: "sections.facilities" },
+    { id: "directions", labelKey: "sections.directions" },
+    { id: "services", labelKey: "sections.services" },
+    { id: "practice", labelKey: "sections.practice" },
+    { id: "equipment", labelKey: "sections.equipment" },
+    { id: "specialists", labelKey: "sections.specialists" },
+    { id: "gallery", labelKey: "sections.gallery" },
+    { id: "videos", labelKey: "sections.videos" },
+    { id: "contacts", labelKey: "sections.contacts" },
+  ],
+  practical: [
+    { id: "about", labelKey: "sections.about" },
+    { id: "centers", labelKey: "sections.centers" },
+    { id: "dental-sim", labelKey: "sections.dentalSim" },
+    { id: "courses", labelKey: "sections.courses" },
+    { id: "equipment", labelKey: "sections.equipment" },
+    { id: "skills", labelKey: "sections.skills" },
+    { id: "gallery", labelKey: "sections.gallery" },
+    { id: "videos", labelKey: "sections.videos" },
+  ],
+  tour: [
+    { id: "about", labelKey: "tour.aboutTitle" },
+    { id: "viewer", labelKey: "tour.viewerTitle" },
+  ],
+  complex: facilitySectionDefs,
+  dental: facilitySectionDefs,
+  simulation: facilitySectionDefs.map((section) =>
+    section.id === "practice"
+      ? { id: "practice", labelKey: "sections.skills" }
+      : section,
+  ),
+};
+
+export const clinicsHeaderNav = [
+  {
+    key: "hospitals" as const,
+    href: "/clinics/hospitals",
+    sections: clinicsPageSections.hospitals,
+  },
+  {
+    key: "practical" as const,
+    href: "/clinics/practical",
+    sections: clinicsPageSections.practical,
+  },
+  {
+    key: "tour" as const,
+    href: "/clinics/tour",
+    sections: clinicsPageSections.tour,
+  },
+];
+
 export const clinicParentNav: Record<ClinicSlug, ClinicNavKey> = {
   hospitals: "hospitals",
   complex: "hospitals",

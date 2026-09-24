@@ -33,5 +33,7 @@
     "home": "Home",
     "about": "About"
   },
-  "subnavAria": "About sections"
+  "subnavAria": "About sections",
+  "sectionsDropdownAria": "Page sections",
+  "sectionNavAria": "On this page"
 }

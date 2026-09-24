@@ -8,6 +8,7 @@ import {
   EducationAdmissionsCta,
   EducationPageShell,
   MedicineFacultyContent,
+  educationPageSections,
   educationSlugs,
   isEducationSlug,
   type EducationSlug,
@@ -60,6 +61,12 @@ export default async function EducationProgramPage({
   }
 
   const t = await getTranslations(`education.${slug}`);
+  const tEducation = await getTranslations("education");
+
+  const sectionNav = educationPageSections[slug].map((id) => ({
+    id,
+    label: tEducation(`sections.${id}`),
+  }));
 
   return (
     <EducationPageShell
@@ -69,6 +76,7 @@ export default async function EducationProgramPage({
       description={t("description")}
       currentLabel={t("badge")}
       compact
+      sectionNav={sectionNav}
     >
       <FacultyContent slug={slug} />
       <EducationAdmissionsCta />

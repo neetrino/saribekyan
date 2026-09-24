@@ -16,6 +16,7 @@ import {
   rectorate,
   universityValues,
   whoWeAreIntro,
+  aboutPageSections,
 } from "@/features/about";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default async function WhoWeArePage({ params }: PageProps) {
       title={whoWeAreIntro.title}
       highlight={whoWeAreIntro.highlight}
       description={whoWeAreIntro.description}
+      sectionNav={aboutPageSections.whoWeAre}
     >
       <ContentSection
         id="history"

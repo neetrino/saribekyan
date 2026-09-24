@@ -16,6 +16,53 @@ export const educationNavHrefs: Array<{ key: EducationNavKey; href: string }> =
     { key: "cpd", href: "/education/cpd" },
   ];
 
+export type EducationSectionId =
+  | "about"
+  | "program"
+  | "leadership"
+  | "departments"
+  | "programs"
+  | "residency"
+  | "specialties"
+  | "admission"
+  | "courses"
+  | "schedule";
+
+export const educationPageSections: Record<
+  EducationSlug,
+  readonly EducationSectionId[]
+> = {
+  medicine: ["about", "program", "leadership", "departments"],
+  dentistry: ["about", "program", "leadership", "departments"],
+  cpd: [
+    "about",
+    "programs",
+    "residency",
+    "specialties",
+    "admission",
+    "courses",
+    "schedule",
+  ],
+};
+
+export const educationHeaderNav = [
+  {
+    key: "medicine" as const,
+    href: "/education/medicine",
+    sectionIds: educationPageSections.medicine,
+  },
+  {
+    key: "dentistry" as const,
+    href: "/education/dentistry",
+    sectionIds: educationPageSections.dentistry,
+  },
+  {
+    key: "cpd" as const,
+    href: "/education/cpd",
+    sectionIds: educationPageSections.cpd,
+  },
+];
+
 export const educationHubCards = [
   {
     id: "medicine",

@@ -9,7 +9,7 @@ export { DocumentYearFilter } from "./components/document-year-filter";
 export { OrgChart } from "./components/org-chart";
 export { StructureUnitCards } from "./components/structure-unit-cards";
 
-export { aboutHubCardMeta, aboutNavHrefs } from "./content/hub";
+export { aboutHubCardMeta, aboutNavHrefs, aboutPageSections } from "./content/hub";
 export {
   whoWeAreIntro,
   historyItems,

@@ -9,6 +9,7 @@ import {
   PracticalContent,
   TourContent,
   clinicSlugs,
+  clinicsPageSections,
   getClinicNavHref,
   isClinicFacilitySlug,
   isClinicSlug,
@@ -69,6 +70,11 @@ export default async function ClinicsSubPage({ params }: ClinicsSubPageProps) {
   }
 
   const t = await getTranslations(`clinics.${slug}`);
+  const tRoot = await getTranslations("clinics");
+  const sectionNav = clinicsPageSections[slug].map((section) => ({
+    id: section.id,
+    label: tRoot(section.labelKey),
+  }));
 
   return (
     <ClinicsPageShell
@@ -79,6 +85,7 @@ export default async function ClinicsSubPage({ params }: ClinicsSubPageProps) {
       currentLabel={t("badge")}
       activeHref={getClinicNavHref(slug)}
       compact
+      sectionNav={sectionNav}
     >
       <ClinicsSlugBody slug={slug} />
     </ClinicsPageShell>
