@@ -9,6 +9,8 @@
     "admissions": "Admissions"
   },
   "subnavAria": "Admissions sections",
+  "sectionsDropdownAria": "Page sections",
+  "sectionNavAria": "On this page",
   "viewSection": "View section",
   "downloadPdf": "Download PDF",
   "openPdf": "View PDF",

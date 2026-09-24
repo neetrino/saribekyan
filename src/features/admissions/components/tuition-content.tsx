@@ -40,6 +40,7 @@ export async function TuitionContent({ locale }: TuitionContentProps) {
   return (
     <>
       <ContentSection
+        id="programs"
         badge={t("programs.badge")}
         title={t("programs.title")}
         description={t("programs.description")}
@@ -47,11 +48,16 @@ export async function TuitionContent({ locale }: TuitionContentProps) {
         <TuitionPrograms locale={locale} />
       </ContentSection>
 
-      <ContentSection badge={t("terms.badge")} title={t("terms.title")}>
+      <ContentSection
+        id="terms"
+        badge={t("terms.badge")}
+        title={t("terms.title")}
+      >
         <InfoCards items={terms} />
       </ContentSection>
 
       <ContentSection
+        id="schedule"
         badge={t("schedule.badge")}
         title={t("schedule.title")}
         description={t("schedule.description")}
@@ -59,7 +65,11 @@ export async function TuitionContent({ locale }: TuitionContentProps) {
         <ProcessSteps steps={schedule} />
       </ContentSection>
 
-      <ContentSection badge={t("methods.badge")} title={t("methods.title")}>
+      <ContentSection
+        id="methods"
+        badge={t("methods.badge")}
+        title={t("methods.title")}
+      >
         <InfoCards items={methods} />
       </ContentSection>
 

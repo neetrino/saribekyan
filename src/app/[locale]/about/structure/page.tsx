@@ -9,6 +9,7 @@ import {
   orgChart,
   structureIntro,
   structureUnits,
+  aboutPageSections,
 } from "@/features/about";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default async function StructurePage({ params }: PageProps) {
       title={structureIntro.title}
       highlight={structureIntro.highlight}
       description={structureIntro.description}
+      sectionNav={aboutPageSections.structure}
     >
       <ContentSection
         id="org-chart"

@@ -6,6 +6,8 @@ export const admissionsHubCardMeta = [
 
 export type AdmissionsNavKey = "overview" | "howToApply" | "tuition" | "apply";
 
+export type AdmissionsContentKey = Exclude<AdmissionsNavKey, "overview">;
+
 export const admissionsNavHrefs: Array<{
   key: AdmissionsNavKey;
   href: string;
@@ -14,6 +16,53 @@ export const admissionsNavHrefs: Array<{
   { key: "howToApply", href: "/admissions/how-to-apply" },
   { key: "tuition", href: "/admissions/tuition" },
   { key: "apply", href: "/admissions/apply" },
+];
+
+export type AdmissionsSectionDef = {
+  id: string;
+  labelKey: string;
+};
+
+export const admissionsPageSections: Record<
+  AdmissionsContentKey,
+  AdmissionsSectionDef[]
+> = {
+  howToApply: [
+    { id: "steps", labelKey: "howToApply.steps.title" },
+    { id: "documents", labelKey: "howToApply.documents.title" },
+    { id: "conditions", labelKey: "howToApply.conditions.title" },
+    { id: "international", labelKey: "howToApply.international.title" },
+    { id: "regulations", labelKey: "howToApply.regulations.title" },
+    { id: "deadlines", labelKey: "howToApply.deadlines.title" },
+  ],
+  tuition: [
+    { id: "programs", labelKey: "tuition.programs.title" },
+    { id: "terms", labelKey: "tuition.terms.title" },
+    { id: "schedule", labelKey: "tuition.schedule.title" },
+    { id: "methods", labelKey: "tuition.methods.title" },
+  ],
+  apply: [
+    { id: "forms", labelKey: "apply.forms.title" },
+    { id: "submit", labelKey: "apply.submit.title" },
+  ],
+};
+
+export const admissionsHeaderNav = [
+  {
+    key: "howToApply" as const,
+    href: "/admissions/how-to-apply",
+    sections: admissionsPageSections.howToApply,
+  },
+  {
+    key: "tuition" as const,
+    href: "/admissions/tuition",
+    sections: admissionsPageSections.tuition,
+  },
+  {
+    key: "apply" as const,
+    href: "/admissions/apply",
+    sections: admissionsPageSections.apply,
+  },
 ];
 
 export const howToApplyPathAliases = [

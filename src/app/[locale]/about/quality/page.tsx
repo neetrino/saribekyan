@@ -12,6 +12,7 @@ import {
   qualityDocuments,
   qualityIntro,
   qualityTeam,
+  aboutPageSections,
 } from "@/features/about";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default async function QualityPage({ params }: PageProps) {
       title={qualityIntro.title}
       highlight={qualityIntro.highlight}
       description={qualityIntro.description}
+      sectionNav={aboutPageSections.quality}
     >
       <ContentSection
         id="team"

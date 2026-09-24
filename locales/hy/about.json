@@ -33,5 +33,7 @@
     "home": "Գլխավոր",
     "about": "Մեր մասին"
   },
-  "subnavAria": "Մեր մասին բաժիններ"
+  "subnavAria": "Մեր մասին բաժիններ",
+  "sectionsDropdownAria": "Էջի բաժիններ",
+  "sectionNavAria": "Էջի ներսի բաժիններ"
 }

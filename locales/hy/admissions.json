@@ -9,6 +9,8 @@
     "admissions": "Ընդունելություն"
   },
   "subnavAria": "Ընդունելության բաժիններ",
+  "sectionsDropdownAria": "Էջի բաժիններ",
+  "sectionNavAria": "Էջի ներսի բաժիններ",
   "viewSection": "Դիտել բաժինը",
   "downloadPdf": "Ներբեռնել PDF",
   "openPdf": "Դիտել PDF",

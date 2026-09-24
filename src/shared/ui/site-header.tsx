@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
+import { AboutHeaderNavItem } from "@/features/about/components/about-header-nav-item";
+import { AdmissionsHeaderNavItem } from "@/features/admissions/components/admissions-header-nav-item";
+import { ClinicsHeaderNavItem } from "@/features/clinics/components/clinics-header-nav-item";
+import { EducationHeaderNavItem } from "@/features/education/components/education-header-nav-item";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { locales, type AppLocale } from "@/i18n/routing";
 import { mainNav } from "@/shared/config/site";
@@ -57,10 +61,23 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:flex-1">
           <nav
             aria-label={t("nav.mainAria")}
-            className="hidden h-14 flex-1 items-center overflow-hidden rounded-[90px] bg-white lg:flex"
+            className="hidden h-14 flex-1 items-center rounded-[90px] bg-white lg:flex"
           >
             <ul className="flex w-full items-center gap-4 px-3 text-base text-brand-ink">
               {mainNav.map((item) => {
+                if (item.key === "about") {
+                  return <AboutHeaderNavItem key={item.href} />;
+                }
+                if (item.key === "education") {
+                  return <EducationHeaderNavItem key={item.href} />;
+                }
+                if (item.key === "admissions") {
+                  return <AdmissionsHeaderNavItem key={item.href} />;
+                }
+                if (item.key === "clinics") {
+                  return <ClinicsHeaderNavItem key={item.href} />;
+                }
+
                 const active =
                   item.href === "/"
                     ? pathname === "/"
@@ -150,8 +167,46 @@ export function SiteHeader() {
           className="mx-4 rounded-3xl bg-white p-4 shadow-lg lg:hidden"
         >
           <ul className="flex flex-col gap-1">
-            {mainNav.map((item) => (
-              <li key={item.href}>
+            {mainNav.map((item) => {
+              if (item.key === "about") {
+                return (
+                  <AboutHeaderNavItem
+                    key={item.href}
+                    variant="mobile"
+                    onNavigate={() => setOpen(false)}
+                  />
+                );
+              }
+              if (item.key === "education") {
+                return (
+                  <EducationHeaderNavItem
+                    key={item.href}
+                    variant="mobile"
+                    onNavigate={() => setOpen(false)}
+                  />
+                );
+              }
+              if (item.key === "admissions") {
+                return (
+                  <AdmissionsHeaderNavItem
+                    key={item.href}
+                    variant="mobile"
+                    onNavigate={() => setOpen(false)}
+                  />
+                );
+              }
+              if (item.key === "clinics") {
+                return (
+                  <ClinicsHeaderNavItem
+                    key={item.href}
+                    variant="mobile"
+                    onNavigate={() => setOpen(false)}
+                  />
+                );
+              }
+
+              return (
+                <li key={item.href}>
                 <Link
                   href={item.href}
                   prefetch
@@ -160,8 +215,9 @@ export function SiteHeader() {
                 >
                   {t(`nav.${item.key}`)}
                 </Link>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       ) : null}

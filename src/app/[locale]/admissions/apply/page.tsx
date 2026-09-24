@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { AdmissionsPageShell, ApplyContent } from "@/features/admissions";
+import {
+  AdmissionsPageShell,
+  ApplyContent,
+  admissionsPageSections,
+} from "@/features/admissions";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -23,6 +27,11 @@ export default async function ApplyPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("admissions.apply");
+  const tRoot = await getTranslations("admissions");
+  const sectionNav = admissionsPageSections.apply.map((section) => ({
+    id: section.id,
+    label: tRoot(section.labelKey),
+  }));
 
   return (
     <AdmissionsPageShell
@@ -30,6 +39,7 @@ export default async function ApplyPage({ params }: PageProps) {
       title={t("title")}
       highlight={t("highlight")}
       description={t("description")}
+      sectionNav={sectionNav}
     >
       <ApplyContent />
     </AdmissionsPageShell>

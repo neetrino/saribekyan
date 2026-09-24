@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { HashScroll } from "@/shared/ui/hash-scroll";
+import {
+  PageSectionNav,
+  type PageSectionNavItem,
+} from "@/shared/ui/page-section-nav";
 import { SiteHeader } from "@/shared/ui/site-header";
 import { SectionBadge } from "@/shared/ui/section-badge";
 import { cn } from "@/shared/lib/cn";
@@ -16,6 +21,7 @@ type EducationPageShellProps = {
   description: string;
   currentLabel?: string;
   compact?: boolean;
+  sectionNav?: PageSectionNavItem[];
 };
 
 export async function EducationPageShell({
@@ -26,6 +32,7 @@ export async function EducationPageShell({
   description,
   currentLabel,
   compact = false,
+  sectionNav,
 }: EducationPageShellProps) {
   const t = await getTranslations("education");
 
@@ -36,6 +43,7 @@ export async function EducationPageShell({
 
   return (
     <main>
+      <HashScroll />
       <section
         className={cn(
           "relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint",
@@ -93,7 +101,11 @@ export async function EducationPageShell({
 
       <div className="relative z-10 -mt-10 rounded-t-[40px] bg-white px-6 pb-20 pt-8 sm:px-10 lg:-mt-14 lg:px-20 lg:pb-24 lg:pt-10">
         <div className="mx-auto max-w-[1280px]">
-          <EducationSubnav items={navItems} ariaLabel={t("nav.aria")} />
+          {sectionNav && sectionNav.length > 0 ? (
+            <PageSectionNav items={sectionNav} ariaLabel={t("sectionNavAria")} />
+          ) : (
+            <EducationSubnav items={navItems} ariaLabel={t("nav.aria")} />
+          )}
           <div className="space-y-14 lg:space-y-16">{children}</div>
         </div>
       </div>

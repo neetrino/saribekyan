@@ -7,6 +7,7 @@ export { FacilityContent } from "./components/facility-content";
 export { TourContent } from "./components/tour-content";
 export {
   clinicSlugs,
+  clinicsPageSections,
   getClinicNavHref,
   isClinicSlug,
   isClinicFacilitySlug,

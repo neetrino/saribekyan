@@ -3,6 +3,11 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { HashScroll } from "@/shared/ui/hash-scroll";
+import {
+  PageSectionNav,
+  type PageSectionNavItem,
+} from "@/shared/ui/page-section-nav";
 import { SiteHeader } from "@/shared/ui/site-header";
 import { SectionBadge } from "@/shared/ui/section-badge";
 
@@ -15,6 +20,7 @@ type AdmissionsPageShellProps = {
   highlight?: string;
   description: string;
   children: ReactNode;
+  sectionNav?: PageSectionNavItem[];
 };
 
 export async function AdmissionsPageShell({
@@ -23,6 +29,7 @@ export async function AdmissionsPageShell({
   highlight,
   description,
   children,
+  sectionNav,
 }: AdmissionsPageShellProps) {
   const t = await getTranslations("admissions");
 
@@ -33,6 +40,7 @@ export async function AdmissionsPageShell({
 
   return (
     <main>
+      <HashScroll />
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint pb-28 pt-0">
         <SiteHeader />
         <div className="relative mx-auto max-w-[1280px] px-6 pb-10 pt-40 sm:px-10 lg:px-20">
@@ -74,7 +82,11 @@ export async function AdmissionsPageShell({
 
       <div className="relative z-10 -mt-10 rounded-t-[40px] bg-white px-6 pb-20 pt-8 sm:px-10 lg:-mt-14 lg:px-20 lg:pb-24 lg:pt-10">
         <div className="mx-auto max-w-[1280px]">
-          <AdmissionsSubnav items={navItems} ariaLabel={t("subnavAria")} />
+          {sectionNav && sectionNav.length > 0 ? (
+            <PageSectionNav items={sectionNav} ariaLabel={t("sectionNavAria")} />
+          ) : (
+            <AdmissionsSubnav items={navItems} ariaLabel={t("subnavAria")} />
+          )}
           {children}
         </div>
       </div>
