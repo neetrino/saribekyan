@@ -23,6 +23,7 @@ const tabHrefs: Record<TabId, string> = {
   tuition: "/admissions/tuition",
 };
 
+/** Figma Admissions 198:927 */
 export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
   const t = useTranslations("home.admissions");
   const [activeTab, setActiveTab] = useState<TabId>("apply");
@@ -30,10 +31,11 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
   return (
     <section
       id="admissions"
-      className="bg-white px-6 py-16 sm:px-10 lg:px-[3.8rem] lg:py-[60px]"
+      className="overflow-x-clip bg-white px-6 py-16 sm:px-10 lg:px-[3.8rem] lg:py-[60px]"
     >
-      <div className="mx-auto grid max-w-[1328px] items-start gap-10 lg:grid-cols-[minmax(0,753px)_minmax(0,1fr)] lg:gap-8 xl:gap-12">
-        <div className="min-w-0">
+      <div className="relative mx-auto grid max-w-[1328px] items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,521px)] lg:gap-x-8 xl:gap-x-12">
+        {/* Left: tabs + steps */}
+        <div className="min-w-0 lg:max-w-[753px]">
           <div className="mb-8 flex h-auto max-w-[594px] flex-wrap items-center gap-2.5 rounded-[80px] bg-[#ededed] py-[9px] pl-[21px] pr-6 sm:h-[73px] sm:flex-nowrap sm:pr-[55px]">
             {tabIds.map((tabId) => (
               <button
@@ -66,7 +68,7 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
                       : "bg-[#ededed] text-[#0f172a] shadow-[0_1px_1px_rgba(0,0,0,0.05)]",
                   )}
                 >
-                  <div className="max-w-[448px]">
+                  <div className="min-w-0 max-w-[448px]">
                     <h3 className="text-lg font-medium leading-7">
                       {step.number} {step.title}
                     </h3>
@@ -108,29 +110,35 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
           </ul>
         </div>
 
+        {/* Right: badge + title + copy + arrow + image (Figma) */}
         <div className="relative min-w-0 lg:pt-3">
           <SectionBadge>{t("badge")}</SectionBadge>
-          <h2 className="mt-4 text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-[1.28] tracking-[-0.56px] text-[#222]">
+          <h2 className="mt-4 text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-[64px] tracking-[-0.56px] text-[#222] lg:text-[50px]">
             {t("title")}
           </h2>
           <p className="mt-[17px] max-w-[562px] text-base leading-[23px] text-[#222]">
             {t("description")}
           </p>
 
+          {/* Figma 198:987 — dark circle, arrow →, sits under copy in the column gap */}
           <ArrowLink
             href="/admissions"
             label={t("aboutLink")}
-            className="mt-6 size-14 lg:absolute lg:left-0 lg:top-[9.5rem] lg:mt-0 lg:-translate-x-[calc(100%+0.75rem)]"
+            className="mt-6 size-14 [&_span]:!rotate-0 lg:-ml-7"
           />
 
-          <div className="relative mt-8 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:mt-10">
-            <Image
-              src="/images/home/admissions.png"
-              alt={t("imageAlt")}
-              fill
-              className="object-contain object-left"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
+          {/* Figma 198:990 — books + gloves cutout, crop like Figma */}
+          <div className="relative mt-8 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:mt-6 lg:h-[524px] lg:w-[605px] lg:max-w-none lg:aspect-auto">
+            <div className="absolute inset-y-0 -left-[20%] w-[130%]">
+              <Image
+                src="/images/home/admissions.png"
+                alt={t("imageAlt")}
+                fill
+                className="object-cover object-left"
+                sizes="(max-width: 1024px) 90vw, 786px"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
       </div>
