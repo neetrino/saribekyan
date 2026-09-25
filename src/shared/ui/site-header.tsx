@@ -85,7 +85,7 @@ export function SiteHeader() {
             <div className="relative shrink-0" ref={langRef}>
               <button
                 type="button"
-                className="inline-flex h-14 w-24 items-center justify-center rounded-[29px] bg-brand-ink text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px]"
+                className="inline-flex h-14 w-24 items-center justify-center rounded-[29px] bg-brand-ink text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px] transition-opacity hover:opacity-90"
                 aria-label={t("language.aria")}
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
@@ -97,7 +97,12 @@ export function SiteHeader() {
                   </span>
                   <span className="inline-flex items-center gap-px">
                     {t(`language.${locale}`)}
-                    <span className="relative size-3.5 shrink-0">
+                    <span
+                      className={cn(
+                        "relative size-3.5 shrink-0 transition-transform duration-200 ease-out",
+                        langOpen && "rotate-180",
+                      )}
+                    >
                       <Image
                         src="/icons/chevron-down.svg"
                         alt=""
@@ -109,31 +114,35 @@ export function SiteHeader() {
                 </span>
               </button>
 
-              {langOpen ? (
-                <ul
-                  role="listbox"
-                  className="absolute right-0 top-full z-50 mt-2 min-w-full overflow-hidden rounded-2xl bg-white py-1 text-brand-ink shadow-lg"
-                >
-                  {locales.map((item) => (
-                    <li
-                      key={item}
-                      role="option"
-                      aria-selected={item === locale}
+              <ul
+                role="listbox"
+                className={cn(
+                  "absolute right-0 top-full z-50 mt-2 min-w-full origin-top overflow-hidden rounded-2xl bg-white py-1 text-brand-ink shadow-lg transition-[opacity,transform] duration-200 ease-out",
+                  langOpen
+                    ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
+                    : "pointer-events-none -translate-y-1 scale-95 opacity-0",
+                )}
+              >
+                {locales.map((item) => (
+                  <li
+                    key={item}
+                    role="option"
+                    aria-selected={item === locale}
+                  >
+                    <button
+                      type="button"
+                      tabIndex={langOpen ? 0 : -1}
+                      className={cn(
+                        "flex w-full px-4 py-2.5 text-left text-sm font-semibold tracking-[1.2px] transition-colors hover:bg-brand-ink/5",
+                        item === locale && "bg-brand-ink/5",
+                      )}
+                      onClick={() => switchLocale(item)}
                     >
-                      <button
-                        type="button"
-                        className={cn(
-                          "flex w-full px-4 py-2.5 text-left text-sm font-semibold tracking-[1.2px] transition-colors hover:bg-brand-ink/5",
-                          item === locale && "bg-brand-ink/5",
-                        )}
-                        onClick={() => switchLocale(item)}
-                      >
-                        {t(`language.${item}`)}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+                      {t(`language.${item}`)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <button
