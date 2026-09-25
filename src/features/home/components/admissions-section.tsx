@@ -123,12 +123,12 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
             className="mt-6 size-14 lg:absolute lg:left-0 lg:top-[9.5rem] lg:mt-0 lg:-translate-x-[calc(100%+0.75rem)]"
           />
 
-          <div className="relative mt-8 aspect-[605/524] w-full max-w-[605px] lg:mt-10 lg:-ml-2 xl:ml-0">
+          <div className="relative mt-8 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:mt-10">
             <Image
               src="/images/home/admissions.png"
               alt={t("imageAlt")}
               fill
-              className="object-contain object-left origin-left scale-[1.18]"
+              className="object-contain object-left"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>

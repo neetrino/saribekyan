@@ -45,7 +45,7 @@ export async function AboutSection({ stats }: AboutSectionProps) {
           </CtaButton>
         </div>
 
-        <div className="flex items-end justify-start gap-0 overflow-x-auto pb-2 lg:col-span-7 lg:justify-end">
+        <div className="flex min-w-0 items-end justify-start gap-0 overflow-x-auto pb-2 lg:col-span-7 lg:justify-end">
           {stats.map((stat, index) => (
             <div
               key={stat.id}

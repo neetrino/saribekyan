@@ -43,7 +43,7 @@ const socialIcons = [
   },
 ] as const;
 
-/** Figma Footer 198:790 */
+/** Figma Footer 198:790 — left ~86px, right ~104px */
 export async function SiteFooter() {
   const t = await getTranslations("common");
   const brandLines = t("brand.nameLines").split("\n");
@@ -55,9 +55,9 @@ export async function SiteFooter() {
         backgroundImage: "linear-gradient(267deg, #203734 6%, #5b9d94 77%)",
       }}
     >
-      <div className="mx-auto max-w-[1440px] px-6 pb-10 pt-16 sm:px-10 lg:px-[86px] lg:pb-12 lg:pt-[148px]">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-[65px]">
-          {/* Brand + contact — Figma left column */}
+      <div className="mx-auto w-full max-w-[1440px] px-6 pb-10 pt-16 sm:px-10 lg:px-[86px] lg:pb-12 lg:pt-[148px] lg:pr-[104px]">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+          {/* Brand + contact — Figma left */}
           <div className="flex w-full max-w-[340px] shrink-0 flex-col lg:min-h-[276px]">
             <div className="flex items-center gap-4">
               <span className="relative h-[51px] w-[46px] shrink-0">
@@ -110,10 +110,10 @@ export async function SiteFooter() {
             </ul>
           </div>
 
-          {/* Link columns — Figma right cluster, gap 65 */}
-          <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:gap-x-[65px]">
+          {/* Link columns — Figma gap 65; min-w-0 so they never blow page width */}
+          <div className="grid min-w-0 grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:gap-x-10 xl:gap-x-[65px]">
             {footerColumns.map((column) => (
-              <div key={column.titleKey} className="flex flex-col gap-3">
+              <div key={column.titleKey} className="min-w-0 flex flex-col gap-3">
                 <h2 className="pb-2 text-base font-bold leading-4 tracking-[1.2px] text-white">
                   {t(`footer.${column.titleKey}`)}
                 </h2>
@@ -134,9 +134,9 @@ export async function SiteFooter() {
           </div>
         </div>
 
-        {/* Social + copyright — Figma bottom row */}
-        <div className="relative mt-12 lg:mt-[52px]">
-          <ul className="flex items-center gap-[22px] lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+        {/* Social left + copyright right */}
+        <div className="mt-12 flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between lg:mt-[52px]">
+          <ul className="flex items-center gap-[22px]">
             {socialIcons.map((item) => (
               <li key={item.label}>
                 <a
@@ -156,7 +156,7 @@ export async function SiteFooter() {
             ))}
           </ul>
 
-          <p className="mt-8 text-left text-sm leading-5 text-white sm:text-right lg:mt-0">
+          <p className="text-sm leading-5 text-white sm:text-right">
             {t.rich("footer.copyright", {
               company: (chunks) => (
                 <a
