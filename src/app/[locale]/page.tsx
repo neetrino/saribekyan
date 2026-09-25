@@ -5,6 +5,7 @@ import {
   AdmissionsSection,
   ClinicsSection,
   getHomeContent,
+  HeroBand,
   HeroSection,
   NewsSection,
   PartnersSection,
@@ -26,8 +27,10 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <main>
-      <HeroSection />
-      <AboutSection stats={content.stats} />
+      <HeroBand>
+        <HeroSection />
+        <AboutSection stats={content.stats} />
+      </HeroBand>
       <ProgramsSection programs={content.programs} />
       <AdmissionsSection steps={content.admissionSteps} />
       <ClinicsSection clinics={content.clinics} />

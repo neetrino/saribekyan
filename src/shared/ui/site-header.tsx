@@ -13,7 +13,12 @@ import { locales, type AppLocale } from "@/i18n/routing";
 import { mainNav } from "@/shared/config/site";
 import { cn } from "@/shared/lib/cn";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  /** When true, header sits in the parent content shell (no absolute / max-width row). */
+  embedded?: boolean;
+};
+
+export function SiteHeader({ embedded = false }: SiteHeaderProps) {
   const t = useTranslations("common");
   const pathname = usePathname();
   const router = useRouter();
@@ -45,8 +50,20 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <div className="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-6 sm:px-8 lg:gap-[4.5rem] lg:px-[4.5rem]">
+    <header
+      className={cn(
+        "z-50",
+        embedded ? "relative shrink-0" : "absolute inset-x-0 top-0",
+      )}
+    >
+      <div
+        className={cn(
+          "flex items-center gap-4",
+          embedded
+            ? "w-full gap-4 xl:gap-10 wide:gap-[75px]"
+            : "mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 xl:gap-10 xl:px-6 xl:pt-11 wide:gap-[75px] wide:px-[72px] wide:pt-[44px]",
+        )}
+      >
         <Link href="/" className="relative h-[69px] w-[62px] shrink-0">
           <Image
             src="/logos/logo.svg"
@@ -58,12 +75,12 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="ml-auto flex items-center gap-2 lg:ml-0 lg:flex-1">
+        <div className="ml-auto flex min-w-0 items-center gap-2 xl:ml-0 xl:flex-1">
           <nav
             aria-label={t("nav.mainAria")}
-            className="hidden h-14 flex-1 items-center rounded-[90px] bg-white lg:flex"
+            className="hidden h-14 min-w-0 flex-1 items-center overflow-hidden rounded-[90px] bg-white xl:flex"
           >
-            <ul className="flex w-full items-center gap-4 px-3 text-base text-brand-ink">
+            <ul className="flex items-center gap-4 px-3 text-base leading-[17px] text-brand-ink">
               {mainNav.map((item) => {
                 if (item.key === "about") {
                   return <AboutHeaderNavItem key={item.href} />;
@@ -84,15 +101,15 @@ export function SiteHeader() {
                     : pathname.startsWith(item.href);
 
                 return (
-                  <li key={item.href}>
+                  <li key={item.href} className="shrink-0">
                     <Link
                       href={item.href}
                       prefetch
                       className={cn(
-                        "inline-flex h-[38px] items-center rounded-[40px] px-5 transition-colors",
+                        "inline-flex h-[38px] items-center whitespace-nowrap transition-colors",
                         active
-                          ? "bg-brand-ink font-extrabold text-[#f5f5f5]"
-                          : "hover:bg-brand-ink/5",
+                          ? "rounded-[40px] bg-brand-ink px-5 font-extrabold text-[#f5f5f5]"
+                          : "hover:opacity-80",
                       )}
                     >
                       {t(`nav.${item.key}`)}
@@ -103,21 +120,30 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <div className="relative" ref={langRef}>
+          <div className="relative shrink-0" ref={langRef}>
             <button
               type="button"
-              className="inline-flex h-14 w-24 items-center justify-center gap-2 rounded-[29px] bg-brand-ink/90 px-4 text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px]"
+              className="inline-flex h-14 w-24 items-center justify-center rounded-[29px] bg-brand-ink text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px]"
               aria-label={t("language.aria")}
               aria-expanded={langOpen}
               aria-haspopup="listbox"
               onClick={() => setLangOpen((value) => !value)}
             >
-              <span className="relative size-5 shrink-0">
-                <Image src="/icons/globe.svg" alt="" fill sizes="20px" />
-              </span>
-              {t(`language.${locale}`)}
-              <span className="relative size-3.5 shrink-0">
-                <Image src="/icons/chevron-down.svg" alt="" fill sizes="14px" />
+              <span className="inline-flex items-center gap-2">
+                <span className="relative size-5 shrink-0">
+                  <Image src="/icons/globe.svg" alt="" fill sizes="20px" />
+                </span>
+                <span className="inline-flex items-center gap-px">
+                  {t(`language.${locale}`)}
+                  <span className="relative size-3.5 shrink-0">
+                    <Image
+                      src="/icons/chevron-down.svg"
+                      alt=""
+                      fill
+                      sizes="14px"
+                    />
+                  </span>
+                </span>
               </span>
             </button>
 
@@ -146,7 +172,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-ink lg:hidden"
+            className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-ink xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -164,7 +190,10 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="mx-4 rounded-3xl bg-white p-4 shadow-lg lg:hidden"
+          className={cn(
+            "rounded-3xl bg-white p-4 shadow-lg xl:hidden",
+            embedded ? "mt-3" : "mx-4",
+          )}
         >
           <ul className="flex flex-col gap-1">
             {mainNav.map((item) => {

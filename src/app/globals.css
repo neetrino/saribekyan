@@ -22,6 +22,7 @@
   --color-brand-gold: var(--brand-gold);
   --font-sans: var(--font-montserrat);
   --font-jakarta: var(--font-jakarta);
+  --breakpoint-wide: 90rem;
 }
 
 html {

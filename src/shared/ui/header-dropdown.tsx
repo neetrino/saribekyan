@@ -171,15 +171,15 @@ export function HeaderDropdown({
   }
 
   return (
-    <li ref={rootRef} className="relative">
+    <li ref={rootRef} className="relative shrink-0">
       <button
         type="button"
         className={cn(
-          "inline-flex h-[38px] items-center gap-1.5 rounded-[40px] px-5 transition-colors",
+          "inline-flex h-[38px] items-center whitespace-nowrap transition-colors",
           isActive
-            ? "bg-brand-ink font-extrabold text-[#f5f5f5]"
-            : "hover:bg-brand-ink/5",
-          open && !isActive && "bg-brand-ink/5",
+            ? "rounded-[40px] bg-brand-ink px-5 font-extrabold text-[#f5f5f5]"
+            : "hover:opacity-80",
+          open && !isActive && "opacity-80",
         )}
         aria-expanded={open}
         aria-haspopup="menu"
@@ -187,9 +187,6 @@ export function HeaderDropdown({
         onClick={() => setOpen((value) => !value)}
       >
         {label}
-        <ChevronDownIcon
-          className={cn("transition-transform", open && "rotate-180")}
-        />
       </button>
 
       {open ? (

@@ -26,7 +26,7 @@ export async function AboutSection({ stats }: AboutSectionProps) {
   const locale = await getLocale();
 
   return (
-    <section className="relative z-10 -mt-10 rounded-t-[40px] bg-white px-6 pb-16 pt-10 sm:px-10 lg:-mt-16 lg:px-20 lg:pb-20 lg:pt-[35px]">
+    <section className="relative z-10 -mt-10 rounded-t-[40px] bg-white px-6 pb-16 pt-[35px] sm:px-10 lg:px-20 lg:pb-20">
       <div className="mx-auto grid max-w-[1280px] items-end gap-10 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <SectionBadge>{t("badge")}</SectionBadge>
