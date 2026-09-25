@@ -5,7 +5,7 @@ import type { Partner } from "@prisma/client";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-import { ArrowLink } from "@/shared/ui/arrow-link";
+import { Link } from "@/i18n/navigation";
 import { SectionBadge } from "@/shared/ui/section-badge";
 import { cn } from "@/shared/lib/cn";
 
@@ -17,6 +17,7 @@ const SLOT_GAP = 16;
 const SLOT_HEIGHT = 91;
 const CENTER_HEIGHT = 101;
 const STACK_HEIGHT = SLOT_HEIGHT * 4 + CENTER_HEIGHT + SLOT_GAP * 4;
+const PARTNERS_HREF = "/international";
 
 function circularOffset(index: number, active: number, count: number): number {
   let offset = index - active;
@@ -41,7 +42,6 @@ function slotMetrics(offset: number): {
 }
 
 function slotTop(offset: number): number {
-  // Positions for offsets -2..2 matching Figma stack
   const heights = [SLOT_HEIGHT, SLOT_HEIGHT, CENTER_HEIGHT, SLOT_HEIGHT, SLOT_HEIGHT];
   const index = offset + 2;
   let top = 0;
@@ -51,25 +51,18 @@ function slotTop(offset: number): number {
   return top;
 }
 
-/** Figma PARTNERS 198:886 — smooth transform carousel */
+/** Figma PARTNERS 198:886 — click opens link; hover previews */
 export function PartnersSection({ partners }: PartnersSectionProps) {
   const t = useTranslations("home.partners");
   const count = partners.length;
   const [activeIndex, setActiveIndex] = useState(() =>
     count > 0 ? Math.min(2, count - 1) : 0,
   );
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (count === 0) {
     return null;
   }
-
-  const goPrev = () => {
-    setActiveIndex((current) => (current - 1 + count) % count);
-  };
-
-  const goNext = () => {
-    setActiveIndex((current) => (current + 1) % count);
-  };
 
   return (
     <section className="bg-white px-6 py-16 sm:px-10 lg:px-[4.375rem] lg:py-20">
@@ -84,96 +77,79 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
           <p className="mt-8 max-w-[386px] text-base leading-6 text-[#424847]">
             {t("description")}
           </p>
-          <ArrowLink
-            href="/international"
-            label={t("link")}
-            className="mt-10 [&_span]:!rotate-0"
-          />
         </div>
 
-        <div className="relative flex items-center gap-4 lg:gap-5">
-          <div className="flex shrink-0 flex-col gap-3">
-            <button
-              type="button"
-              onClick={goPrev}
-              aria-label={t("prevPartner")}
-              className="inline-flex size-9 items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80"
-            >
-              <span className="relative size-4 -rotate-90">
-                <Image
-                  src="/icons/arrow-up-right-dark.svg"
-                  alt=""
-                  fill
-                  className="object-contain"
-                  sizes="16px"
-                />
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              aria-label={t("nextPartner")}
-              className="inline-flex size-9 items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80"
-            >
-              <span className="relative size-4 rotate-90">
-                <Image
-                  src="/icons/arrow-up-right-dark.svg"
-                  alt=""
-                  fill
-                  className="object-contain"
-                  sizes="16px"
-                />
-              </span>
-            </button>
-          </div>
+        <div
+          className="relative min-w-0 w-full"
+          style={{ height: STACK_HEIGHT }}
+          onMouseLeave={() => {
+            setHoveredIndex(null);
+          }}
+        >
+          {partners.map((partner, index) => {
+            const offset = circularOffset(index, activeIndex, count);
+            const visible = Math.abs(offset) <= 2;
+            const metrics = slotMetrics(
+              visible ? offset : offset > 0 ? 2 : -2,
+            );
+            const top = slotTop(visible ? offset : offset > 0 ? 2 : -2);
+            const isActive = index === activeIndex;
+            const isHovered = hoveredIndex === index;
+            const showPreview = isHovered && !isActive;
+            const href = partner.website ?? PARTNERS_HREF;
 
-          <div
-            className="relative min-w-0 flex-1"
-            style={{ height: STACK_HEIGHT }}
-          >
-            {partners.map((partner, index) => {
-              const offset = circularOffset(index, activeIndex, count);
-              const visible = Math.abs(offset) <= 2;
-              const metrics = slotMetrics(
-                visible ? offset : offset > 0 ? 2 : -2,
-              );
-              const top = slotTop(
-                visible ? offset : offset > 0 ? 2 : -2,
-              );
-
-              return (
-                <div
-                  key={partner.id}
-                  aria-hidden={!visible}
-                  className={cn(
-                    "absolute right-0 flex items-center justify-center overflow-hidden rounded-l-[80px] bg-[#ededed] px-8 py-2",
-                    "transition-[transform,width,height,opacity,top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-                    !visible && "pointer-events-none",
-                  )}
-                  style={{
-                    top,
-                    width: `${metrics.widthPercent}%`,
-                    height: metrics.height,
-                    opacity: visible ? metrics.opacity : 0,
-                    zIndex: visible ? 5 - Math.abs(offset) : 0,
-                  }}
+            return (
+              <Link
+                key={partner.id}
+                href={href}
+                aria-hidden={!visible}
+                aria-current={isActive ? "true" : undefined}
+                tabIndex={visible ? 0 : -1}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => {
+                  setHoveredIndex(index);
+                  if (!isActive) {
+                    setActiveIndex(index);
+                  }
+                }}
+                className={cn(
+                  "absolute right-0 flex items-center justify-center overflow-hidden rounded-l-[80px] bg-[#ededed] px-8 py-2",
+                  "transition-[transform,width,height,opacity,top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  visible ? "cursor-pointer" : "pointer-events-none",
+                  showPreview && "ring-1 ring-brand-ink/15",
+                )}
+                style={{
+                  top,
+                  width: `${metrics.widthPercent}%`,
+                  height: metrics.height,
+                  opacity: visible
+                    ? showPreview
+                      ? Math.min(1, metrics.opacity + 0.35)
+                      : metrics.opacity
+                    : 0,
+                  zIndex: visible
+                    ? showPreview
+                      ? 10
+                      : 5 - Math.abs(offset)
+                    : 0,
+                  transform: showPreview ? "scale(1.02)" : "scale(1)",
+                }}
+              >
+                <span
+                  className="relative w-40 transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{ height: metrics.logoHeight }}
                 >
-                  <span
-                    className="relative w-40 transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                    style={{ height: metrics.logoHeight }}
-                  >
-                    <Image
-                      src={partner.logoUrl}
-                      alt={partner.name}
-                      fill
-                      className="object-contain"
-                      sizes="184px"
-                    />
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+                  <Image
+                    src={partner.logoUrl}
+                    alt={partner.name}
+                    fill
+                    className="object-contain"
+                    sizes="184px"
+                  />
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
