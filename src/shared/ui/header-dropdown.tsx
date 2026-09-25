@@ -27,6 +27,9 @@ type HeaderDropdownProps = {
   isActive: boolean;
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  /** Active pill is drawn by parent; only text styles change. */
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function HeaderDropdown({
@@ -38,6 +41,8 @@ export function HeaderDropdown({
   isActive,
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: HeaderDropdownProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -176,11 +181,15 @@ export function HeaderDropdown({
   return (
     <li ref={rootRef} className="relative shrink-0">
       <button
+        ref={triggerRef}
         type="button"
         className={cn(
-          "inline-flex h-[38px] items-center whitespace-nowrap transition-colors",
+          "inline-flex h-[38px] items-center whitespace-nowrap transition-colors duration-300",
+          slidingActive ? "px-1.5 xl:px-2 wide:px-3" : null,
           isActive
-            ? "rounded-[40px] bg-brand-ink px-5 font-extrabold text-[#f5f5f5]"
+            ? slidingActive
+              ? "font-extrabold text-[#f5f5f5]"
+              : "rounded-[40px] bg-brand-ink px-5 font-extrabold text-[#f5f5f5]"
             : "hover:opacity-80",
           open && !isActive && "opacity-80",
         )}

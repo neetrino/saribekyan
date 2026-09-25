@@ -5,7 +5,6 @@ import {
   PageSectionNav,
   type PageSectionNavItem,
 } from "@/shared/ui/page-section-nav";
-import { SiteHeader } from "@/shared/ui/site-header";
 import { SectionBadge } from "@/shared/ui/section-badge";
 import { cn } from "@/shared/lib/cn";
 
@@ -48,7 +47,6 @@ export async function EducationPageShell({
           compact ? "pb-20 pt-0" : "pb-28 pt-0",
         )}
       >
-        <SiteHeader />
         <div
           className={cn(
             "relative mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-20",

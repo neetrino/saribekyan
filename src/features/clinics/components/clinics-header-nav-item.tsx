@@ -10,11 +10,15 @@ import { clinicsHeaderNav } from "../content/meta";
 type ClinicsHeaderNavItemProps = {
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function ClinicsHeaderNavItem({
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: ClinicsHeaderNavItemProps) {
   const t = useTranslations("clinics");
   const pathname = usePathname();
@@ -28,6 +32,8 @@ export function ClinicsHeaderNavItem({
       isActive={pathname === "/clinics" || pathname.startsWith("/clinics/")}
       variant={variant}
       onNavigate={onNavigate}
+      slidingActive={slidingActive}
+      triggerRef={triggerRef}
       groups={clinicsHeaderNav.map((group) => ({
         key: group.key,
         href: group.href,

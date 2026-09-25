@@ -7,7 +7,6 @@ import {
   PageSectionNav,
   type PageSectionNavItem,
 } from "@/shared/ui/page-section-nav";
-import { SiteHeader } from "@/shared/ui/site-header";
 import { SectionBadge } from "@/shared/ui/section-badge";
 
 import { admissionsNavHrefs } from "../content/hub";
@@ -40,7 +39,6 @@ export async function AdmissionsPageShell({
   return (
     <main>
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint pb-28 pt-0">
-        <SiteHeader />
         <div className="relative mx-auto max-w-[1280px] px-6 pb-10 pt-40 sm:px-10 lg:px-20">
           <nav aria-label={t("breadcrumb.aria")} className="mb-6">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-white/70">

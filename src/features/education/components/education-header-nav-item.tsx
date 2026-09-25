@@ -10,11 +10,15 @@ import { educationHeaderNav } from "../content/meta";
 type EducationHeaderNavItemProps = {
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function EducationHeaderNavItem({
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: EducationHeaderNavItemProps) {
   const t = useTranslations("education");
   const pathname = usePathname();
@@ -28,6 +32,8 @@ export function EducationHeaderNavItem({
       isActive={pathname === "/education" || pathname.startsWith("/education/")}
       variant={variant}
       onNavigate={onNavigate}
+      slidingActive={slidingActive}
+      triggerRef={triggerRef}
       groups={educationHeaderNav.map((group) => ({
         key: group.key,
         href: group.href,

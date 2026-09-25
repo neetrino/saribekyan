@@ -2,7 +2,6 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import { CtaButton } from "@/shared/ui/cta-button";
-import { SiteHeader } from "@/shared/ui/site-header";
 
 export async function HeroSection() {
   const t = await getTranslations("home.hero");
@@ -27,7 +26,8 @@ export async function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-16 pt-6 sm:px-8 xl:h-full xl:min-h-0 xl:px-10 xl:pb-0 xl:pt-11 wide:px-[72px]">
-        <SiteHeader embedded />
+        {/* Spacer for fixed SiteHeader in layout */}
+        <div className="h-[69px] w-full shrink-0" aria-hidden />
 
         {/* Mobile */}
         <div className="flex flex-1 flex-col justify-end gap-8 pt-28 xl:hidden">
