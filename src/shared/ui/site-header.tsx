@@ -21,6 +21,7 @@ export function SiteHeader() {
   const locale = useLocale() as AppLocale;
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,6 +29,16 @@ export function SiteHeader() {
       router.prefetch(item.href);
     }
   }, [router]);
+
+  useEffect(() => {
+    function onScroll(): void {
+      setScrolled(window.scrollY > 12);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     function onPointerDown(event: MouseEvent) {
@@ -57,8 +68,35 @@ export function SiteHeader() {
   } satisfies Record<NavKey, string>;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100]">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 pb-3 pt-6 sm:px-8 xl:gap-6 xl:px-8 xl:pb-4 xl:pt-11 wide:gap-8 wide:px-[72px] wide:pt-[44px]">
+    <header
+      className="fixed inset-x-0 top-0 z-[100]"
+      data-scrolled={scrolled ? "true" : "false"}
+    >
+      {/* Scrolled glass background — Kamancha-style */}
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 rounded-b-[28px] bg-[linear-gradient(180deg,rgba(32,55,52,0.72)_0%,rgba(91,157,148,0.48)_100%)] backdrop-blur-[10px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
+          scrolled ? "opacity-100" : "opacity-0",
+        )}
+      />
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 rounded-b-[28px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
+          scrolled ? "opacity-100" : "opacity-0",
+        )}
+        style={{
+          padding: 1,
+          background:
+            "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0.12) 82%, rgba(255,255,255,0.22) 100%)",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
+          mask: "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 pb-3 pt-6 sm:px-8 xl:gap-6 xl:px-8 xl:pb-4 xl:pt-11 wide:gap-8 wide:px-[72px] wide:pt-[44px]">
           <Link
             href="/"
             scroll={false}

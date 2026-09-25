@@ -52,13 +52,13 @@ export async function SiteFooter() {
     <footer
       className="overflow-hidden rounded-t-[40px] text-white"
       style={{
-        backgroundImage:
-          "linear-gradient(267deg, #203734 6%, #5b9d94 77%)",
+        backgroundImage: "linear-gradient(267deg, #203734 6%, #5b9d94 77%)",
       }}
     >
-      <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-16 sm:px-10 lg:px-[86px] lg:pb-10 lg:pt-[148px]">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-[65px]">
-          <div className="flex max-w-[340px] shrink-0 flex-col gap-[42px]">
+      <div className="mx-auto max-w-[1440px] px-6 pb-10 pt-16 sm:px-10 lg:px-[86px] lg:pb-12 lg:pt-[148px]">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-[65px]">
+          {/* Brand + contact — Figma left column */}
+          <div className="flex w-full max-w-[340px] shrink-0 flex-col lg:min-h-[276px]">
             <div className="flex items-center gap-4">
               <span className="relative h-[51px] w-[46px] shrink-0">
                 <Image
@@ -69,7 +69,7 @@ export async function SiteFooter() {
                   sizes="46px"
                 />
               </span>
-              <p className="text-sm font-bold leading-5 text-white">
+              <p className="text-sm font-bold leading-5 tracking-normal text-white">
                 {brandLines.map((line) => (
                   <span key={line} className="block">
                     {line}
@@ -78,7 +78,7 @@ export async function SiteFooter() {
               </p>
             </div>
 
-            <ul className="flex flex-col gap-[21px] text-base tracking-[-0.35px]">
+            <ul className="mt-[42px] flex flex-col gap-[21px] text-base tracking-[-0.35px]">
               <li className="flex items-center gap-[18px]">
                 <span className="relative size-6 shrink-0">
                   <Image src="/icons/phone.svg" alt="" fill sizes="24px" />
@@ -108,28 +108,9 @@ export async function SiteFooter() {
                 <span className="leading-5 text-white">{siteConfig.address}</span>
               </li>
             </ul>
-
-            <ul className="flex items-center gap-[22px]">
-              {socialIcons.map((item) => (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    aria-label={item.label}
-                    className={`relative block opacity-90 transition-opacity hover:opacity-100 ${item.className}`}
-                  >
-                    <Image
-                      src={item.src}
-                      alt=""
-                      fill
-                      className="object-contain"
-                      sizes="24px"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
+          {/* Link columns — Figma right cluster, gap 65 */}
           <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:gap-x-[65px]">
             {footerColumns.map((column) => (
               <div key={column.titleKey} className="flex flex-col gap-3">
@@ -153,13 +134,43 @@ export async function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-14 text-center text-sm leading-5 text-white lg:mt-16">
-          {t.rich("footer.copyright", {
-            company: (chunks) => (
-              <span className="font-bold text-brand-gold">{chunks}</span>
-            ),
-          })}
-        </p>
+        {/* Social + copyright — Figma bottom row */}
+        <div className="relative mt-12 lg:mt-[52px]">
+          <ul className="flex items-center gap-[22px] lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+            {socialIcons.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  aria-label={item.label}
+                  className={`relative block opacity-90 transition-opacity hover:opacity-100 ${item.className}`}
+                >
+                  <Image
+                    src={item.src}
+                    alt=""
+                    fill
+                    className="object-contain"
+                    sizes="24px"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-8 text-left text-sm leading-5 text-white sm:text-right lg:mt-0">
+            {t.rich("footer.copyright", {
+              company: (chunks) => (
+                <a
+                  href="https://neetrino.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-brand-gold transition-opacity hover:opacity-80"
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
+          </p>
+        </div>
       </div>
     </footer>
   );
