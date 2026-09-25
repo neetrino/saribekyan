@@ -66,7 +66,7 @@ export async function HeroSection() {
             <span className="font-bold text-brand-lime">{t("titleAccent")}</span>
           </h1>
 
-          <p className="absolute bottom-[18%] left-0 max-w-[227px] text-base leading-6 text-white wide:bottom-auto wide:top-[450px]">
+          <p className="absolute bottom-[24%] left-0 max-w-[227px] text-base leading-6 text-white wide:bottom-auto wide:top-[400px]">
             {tCommon("description")}
           </p>
 

@@ -64,7 +64,7 @@ export function SiteHeader({ embedded = false }: SiteHeaderProps) {
             : "mx-auto max-w-[1440px] px-4 pt-6 sm:px-8 xl:gap-10 xl:px-6 xl:pt-11 wide:gap-[75px] wide:px-[72px] wide:pt-[44px]",
         )}
       >
-        <Link href="/" className="relative h-[69px] w-[62px] shrink-0">
+        <Link href="/" scroll={false} className="relative h-[69px] w-[62px] shrink-0">
           <Image
             src="/logos/logo.svg"
             alt={t("brand.logoAlt")}
@@ -105,6 +105,7 @@ export function SiteHeader({ embedded = false }: SiteHeaderProps) {
                     <Link
                       href={item.href}
                       prefetch
+                      scroll={false}
                       className={cn(
                         "inline-flex h-[38px] items-center whitespace-nowrap transition-colors",
                         active
@@ -239,6 +240,7 @@ export function SiteHeader({ embedded = false }: SiteHeaderProps) {
                 <Link
                   href={item.href}
                   prefetch
+                  scroll={false}
                   className="block rounded-2xl px-4 py-3 text-brand-ink hover:bg-slate-100"
                   onClick={() => setOpen(false)}
                 >

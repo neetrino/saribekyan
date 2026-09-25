@@ -106,6 +106,7 @@ export function HeaderDropdown({
               <Link
                 href={overviewHref}
                 prefetch
+                scroll={false}
                 className="block rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
                 onClick={closeMenu}
               >
@@ -121,6 +122,7 @@ export function HeaderDropdown({
                     <Link
                       href={group.href}
                       prefetch
+                      scroll={false}
                       className="flex-1 rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
                       onClick={closeMenu}
                     >
@@ -152,6 +154,7 @@ export function HeaderDropdown({
                           <Link
                             href={{ pathname: group.href, hash: section.id }}
                             prefetch
+                            scroll={false}
                             className="block rounded-lg px-3 py-2 text-sm text-[#6f6f6f] hover:bg-slate-100 hover:text-brand-ink"
                             onClick={closeMenu}
                           >
@@ -199,6 +202,7 @@ export function HeaderDropdown({
             href={overviewHref}
             role="menuitem"
             prefetch
+            scroll={false}
             className="block px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-brand-ink/5"
             onClick={closeMenu}
           >
@@ -215,6 +219,7 @@ export function HeaderDropdown({
                     href={group.href}
                     role="menuitem"
                     prefetch
+                    scroll={false}
                     className="flex-1 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-brand-ink/5"
                     onClick={closeMenu}
                   >
@@ -247,6 +252,7 @@ export function HeaderDropdown({
                           href={{ pathname: group.href, hash: section.id }}
                           role="menuitem"
                           prefetch
+                          scroll={false}
                           className="block px-4 py-2 text-sm text-[#6f6f6f] transition-colors hover:bg-brand-ink/5 hover:text-brand-ink"
                           onClick={closeMenu}
                         >

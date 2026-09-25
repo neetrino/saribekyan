@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
-import { HashScroll } from "@/shared/ui/hash-scroll";
 import {
   PageSectionNav,
   type PageSectionNavItem,
@@ -43,7 +42,6 @@ export async function EducationPageShell({
 
   return (
     <main>
-      <HashScroll />
       <section
         className={cn(
           "relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint",

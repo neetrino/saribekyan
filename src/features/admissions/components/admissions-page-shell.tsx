@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
-import { HashScroll } from "@/shared/ui/hash-scroll";
 import {
   PageSectionNav,
   type PageSectionNavItem,
@@ -40,7 +39,6 @@ export async function AdmissionsPageShell({
 
   return (
     <main>
-      <HashScroll />
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint pb-28 pt-0">
         <SiteHeader />
         <div className="relative mx-auto max-w-[1280px] px-6 pb-10 pt-40 sm:px-10 lg:px-20">
