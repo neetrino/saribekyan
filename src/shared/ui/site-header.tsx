@@ -80,7 +80,7 @@ export function SiteHeader({ embedded = false }: SiteHeaderProps) {
             aria-label={t("nav.mainAria")}
             className="hidden h-14 min-w-0 flex-1 items-center overflow-hidden rounded-[90px] bg-white xl:flex"
           >
-            <ul className="flex items-center gap-4 px-3 text-base leading-[17px] text-brand-ink">
+            <ul className="flex w-full items-center justify-evenly px-3 text-base leading-[17px] text-brand-ink">
               {mainNav.map((item) => {
                 if (item.key === "about") {
                   return <AboutHeaderNavItem key={item.href} />;

@@ -11,7 +11,7 @@ type HeroBandProps = {
  */
 export function HeroBand({ children }: HeroBandProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-brand-ink from-[12%] to-brand-mint pb-10">
+    <div className="relative overflow-hidden bg-gradient-to-b from-brand-ink from-[12%] to-brand-mint">
       <div className="pointer-events-none absolute inset-0 mix-blend-soft-light opacity-70">
         <Image
           src="/images/home/hero-pattern.png"
