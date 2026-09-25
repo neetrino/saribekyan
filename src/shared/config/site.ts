@@ -30,6 +30,8 @@ export const siteConfig = {
     instagram: "#",
     telegram: "#",
     youtube: "#",
+    whatsapp: "#",
+    viber: "#",
   },
 } as const;
 
@@ -95,8 +97,6 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { labelKey: "about", href: "/about" },
       { labelKey: "governance", href: "/about/who-we-are#governance" },
-      { labelKey: "quality", href: "/about/quality" },
-      { labelKey: "structure", href: "/about/structure" },
       { labelKey: "faculties", href: "/education" },
       { labelKey: "documents", href: "/documents" },
     ],
