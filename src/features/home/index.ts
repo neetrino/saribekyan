@@ -1,4 +1,5 @@
 export { HeroSection } from "./components/hero-section";
+export { HeroBand } from "./components/hero-band";
 export { AboutSection } from "./components/about-section";
 export { ProgramsSection } from "./components/programs-section";
 export { AdmissionsSection } from "./components/admissions-section";

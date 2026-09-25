@@ -4,29 +4,54 @@ import { useEffect } from "react";
 
 import { usePathname } from "@/i18n/navigation";
 
-function scrollToHashTarget(): void {
+function smoothScrollToHash(): boolean {
   const hash = window.location.hash.replace(/^#/, "");
   if (!hash) {
-    return;
+    return false;
   }
 
   const target = document.getElementById(hash);
   if (!target) {
-    return;
+    return false;
   }
 
-  requestAnimationFrame(() => {
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
 }
 
-/** Scrolls to the URL hash after client navigations. */
+function smoothScrollToTop(): void {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/**
+ * Smooth scroll on navbar / route changes and hash targets.
+ */
 export function HashScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
-    scrollToHashTarget();
+    const frame = requestAnimationFrame(() => {
+      const scrolledToHash = smoothScrollToHash();
+      if (!scrolledToHash) {
+        smoothScrollToTop();
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
+
+  useEffect(() => {
+    function onHashChange(): void {
+      requestAnimationFrame(() => {
+        if (!smoothScrollToHash()) {
+          smoothScrollToTop();
+        }
+      });
+    }
+
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return null;
 }

@@ -23,25 +23,30 @@ const tabHrefs: Record<TabId, string> = {
   tuition: "/admissions/tuition",
 };
 
+/** Figma Admissions 198:927 */
 export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
   const t = useTranslations("home.admissions");
   const [activeTab, setActiveTab] = useState<TabId>("apply");
 
   return (
-    <section className="bg-white px-6 py-16 sm:px-10 lg:px-[3.8rem] lg:py-20">
-      <div className="mx-auto grid max-w-[1328px] items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12">
-        <div>
-          <div className="mb-8 flex h-auto flex-wrap items-center gap-2.5 rounded-[80px] bg-[#ededed] px-5 py-4 sm:h-[73px] sm:flex-nowrap">
+    <section
+      id="admissions"
+      className="overflow-x-clip bg-white px-6 py-16 sm:px-10 lg:px-[3.8rem] lg:py-[60px]"
+    >
+      <div className="relative mx-auto grid max-w-[1328px] items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,521px)] lg:gap-x-8 xl:gap-x-12">
+        {/* Left: tabs + steps */}
+        <div className="min-w-0 lg:max-w-[753px]">
+          <div className="mb-8 flex h-auto max-w-[594px] flex-wrap items-center gap-2.5 rounded-[80px] bg-[#ededed] p-[9px] px-[16px] sm:h-[73px] sm:flex-nowrap sm:px-[16px] sm:py-[9px]">
             {tabIds.map((tabId) => (
               <button
                 key={tabId}
                 type="button"
                 onClick={() => setActiveTab(tabId)}
                 className={cn(
-                  "inline-flex h-[42px] flex-1 items-center justify-center rounded-full px-3 text-base transition-colors sm:min-w-[160px]",
+                  "inline-flex h-[42px] flex-1 items-center justify-center rounded-full px-2.5 text-base transition-colors",
                   activeTab === tabId
                     ? "bg-brand-ink font-bold text-white"
-                    : "bg-white text-[#8f8f8f]",
+                    : "bg-white font-normal text-[#8f8f8f]",
                 )}
               >
                 {t(`tabs.${tabId}`)}
@@ -49,7 +54,7 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
             ))}
           </div>
 
-          <ul className="space-y-5">
+          <ul className="flex flex-col gap-5">
             {steps.map((step, index) => {
               const accent = index % 2 === 0;
 
@@ -59,18 +64,20 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
                   className={cn(
                     "flex items-center justify-between gap-4 rounded-3xl p-6",
                     accent
-                      ? "bg-gradient-to-r from-[#233b38] to-[#60a199] text-white shadow-md"
-                      : "bg-[#ededed] text-slate-900",
+                      ? "bg-gradient-to-r from-[#233b38] to-[#60a199] text-white shadow-[0_4px_6px_-1px_rgba(35,59,56,0.2),0_2px_4px_-2px_rgba(35,59,56,0.2)]"
+                      : "bg-[#ededed] text-[#0f172a] shadow-[0_1px_1px_rgba(0,0,0,0.05)]",
                   )}
                 >
-                  <div className="max-w-[448px]">
+                  <div className="min-w-0 max-w-[448px]">
                     <h3 className="text-lg font-medium leading-7">
                       {step.number} {step.title}
                     </h3>
                     <p
                       className={cn(
-                        "mt-1 text-sm leading-6",
-                        accent ? "text-white/76" : "text-[#838383]",
+                        "mt-1 text-sm",
+                        accent
+                          ? "leading-6 text-white/76"
+                          : "leading-[21px] text-[#838383]",
                       )}
                     >
                       {step.description}
@@ -103,28 +110,35 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
           </ul>
         </div>
 
-        <div className="relative">
+        {/* Right: badge + title + copy + arrow + image (Figma) */}
+        <div className="relative min-w-0 lg:min-h-[720px] lg:pt-3">
           <SectionBadge>{t("badge")}</SectionBadge>
-          <div className="mt-4 flex items-start justify-between gap-4">
-            <div>
-              <h2 className="text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-[1.28] tracking-[-0.56px] text-[#222]">
-                {t("title")}
-              </h2>
-              <p className="mt-4 max-w-[520px] text-base leading-[23px] text-[#222]">
-                {t("description")}
-              </p>
-            </div>
-            <ArrowLink href="/admissions" label={t("aboutLink")} />
-          </div>
+          <h2 className="mt-4 text-[clamp(2rem,4vw,3.125rem)] font-semibold leading-[64px] tracking-[-0.56px] text-[#222] lg:text-[50px]">
+            {t("title")}
+          </h2>
+          <p className="mt-[17px] max-w-[520px] text-base leading-[23px] text-[#222]">
+            {t("description")}
+          </p>
 
-          <div className="relative mt-8 aspect-[605/524] overflow-hidden rounded-[28px]">
-            <Image
-              src="/images/home/admissions.png"
-              alt={t("imageAlt")}
-              fill
-              className="object-cover object-left"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
+          {/* Figma 198:987 — under description */}
+          <ArrowLink
+            href="/admissions"
+            label={t("aboutLink")}
+            className="z-10 mt-6 size-14 [&_span]:!rotate-0 lg:-ml-2"
+          />
+
+          {/* Figma 198:990 — raised beside steps 02–04 */}
+          <div className="relative mt-6 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:absolute lg:left-0 lg:top-[12.5rem] lg:mt-0 lg:h-[524px] lg:w-[605px] lg:max-w-none lg:aspect-auto">
+            <div className="absolute inset-y-0 -left-[20%] w-[130%]">
+              <Image
+                src="/images/home/admissions.png"
+                alt={t("imageAlt")}
+                fill
+                className="object-cover object-left"
+                sizes="(max-width: 1024px) 90vw, 786px"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -47,7 +47,9 @@
     "titleBefore": "International",
     "titleAccent": "collaboration",
     "description": "Saribekyan International Medical University was founded in 1991. The university was accredited by the RA Ministry of Education and Science in 2001. The university received institutional accreditation from the RA ANQA foundation in 2021 and 2024.",
-    "link": "International collaboration"
+    "link": "International collaboration",
+    "prevPartner": "Previous partner",
+    "nextPartner": "Next partner"
   },
   "news": {
     "badge": "News",

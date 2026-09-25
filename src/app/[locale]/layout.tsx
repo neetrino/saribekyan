@@ -6,7 +6,9 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { routing } from "@/i18n/routing";
+import { HashScroll } from "@/shared/ui/hash-scroll";
 import { SiteFooter } from "@/shared/ui/site-footer";
+import { SiteHeader } from "@/shared/ui/site-header";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -68,6 +70,8 @@ export default async function LocaleLayout({
         className={`${montserrat.variable} ${jakarta.variable} min-h-dvh bg-white font-sans antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <HashScroll />
+          <SiteHeader />
           {children}
           <SiteFooter />
         </NextIntlClientProvider>

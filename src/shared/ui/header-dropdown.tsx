@@ -27,17 +27,21 @@ type HeaderDropdownProps = {
   isActive: boolean;
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  /** Active pill is drawn by parent; only text styles change. */
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function HeaderDropdown({
   label,
   overviewHref,
-  overviewLabel,
   groups,
   sectionsAriaLabel,
   isActive,
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: HeaderDropdownProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -102,16 +106,6 @@ export function HeaderDropdown({
         </button>
         {open ? (
           <ul className="mb-1 ml-2 space-y-1 border-l border-brand-ink/10 pl-3">
-            <li>
-              <Link
-                href={overviewHref}
-                prefetch
-                className="block rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
-                onClick={closeMenu}
-              >
-                {overviewLabel}
-              </Link>
-            </li>
             {groups.map((group) => {
               const groupOpen = expandedHref === group.href;
 
@@ -121,6 +115,7 @@ export function HeaderDropdown({
                     <Link
                       href={group.href}
                       prefetch
+                      scroll={false}
                       className="flex-1 rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
                       onClick={closeMenu}
                     >
@@ -152,6 +147,7 @@ export function HeaderDropdown({
                           <Link
                             href={{ pathname: group.href, hash: section.id }}
                             prefetch
+                            scroll={false}
                             className="block rounded-lg px-3 py-2 text-sm text-[#6f6f6f] hover:bg-slate-100 hover:text-brand-ink"
                             onClick={closeMenu}
                           >
@@ -171,97 +167,104 @@ export function HeaderDropdown({
   }
 
   return (
-    <li ref={rootRef} className="relative">
-      <button
-        type="button"
+    <li
+      ref={rootRef}
+      className="relative shrink-0"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => {
+        setOpen(false);
+        setExpandedHref(null);
+      }}
+    >
+      <Link
+        ref={triggerRef}
+        href={overviewHref}
+        prefetch
+        scroll={false}
         className={cn(
-          "inline-flex h-[38px] items-center gap-1.5 rounded-[40px] px-5 transition-colors",
+          "inline-flex h-[38px] items-center whitespace-nowrap transition-colors duration-300",
+          slidingActive ? "px-1.5 xl:px-2 wide:px-3" : null,
           isActive
-            ? "bg-brand-ink font-extrabold text-[#f5f5f5]"
-            : "hover:bg-brand-ink/5",
-          open && !isActive && "bg-brand-ink/5",
+            ? slidingActive
+              ? "font-extrabold text-[#f5f5f5]"
+              : "rounded-[40px] bg-brand-ink px-5 font-extrabold text-[#f5f5f5]"
+            : "hover:opacity-80",
+          open && !isActive && "opacity-80",
         )}
         aria-expanded={open}
         aria-haspopup="menu"
         aria-controls={menuId}
-        onClick={() => setOpen((value) => !value)}
       >
         {label}
-        <ChevronDownIcon
-          className={cn("transition-transform", open && "rotate-180")}
-        />
-      </button>
+      </Link>
 
       {open ? (
-        <div
-          id={menuId}
-          role="menu"
-          className="absolute left-0 top-full z-50 mt-3 max-h-[70vh] w-[min(22rem,calc(100vw-2rem))] overflow-y-auto rounded-2xl bg-white py-2 text-brand-ink shadow-lg"
-        >
-          <Link
-            href={overviewHref}
-            role="menuitem"
-            prefetch
-            className="block px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-brand-ink/5"
-            onClick={closeMenu}
+        <div className="absolute left-0 top-full z-50 pt-3">
+          <div
+            id={menuId}
+            role="menu"
+            className="max-h-[70vh] w-[min(22rem,calc(100vw-2rem))] overflow-y-auto rounded-2xl bg-white py-2 text-brand-ink shadow-lg"
           >
-            {overviewLabel}
-          </Link>
+            {groups.map((group, index) => {
+              const groupOpen = expandedHref === group.href;
 
-          {groups.map((group) => {
-            const groupOpen = expandedHref === group.href;
-
-            return (
-              <div key={group.href} className="border-t border-[#f0f0f0]">
-                <div className="flex items-stretch">
-                  <Link
-                    href={group.href}
-                    role="menuitem"
-                    prefetch
-                    className="flex-1 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-brand-ink/5"
-                    onClick={closeMenu}
-                  >
-                    {group.label}
-                  </Link>
-                  <button
-                    type="button"
-                    className="inline-flex items-center border-l border-[#f0f0f0] px-3 transition-colors hover:bg-brand-ink/5"
-                    aria-expanded={groupOpen}
-                    aria-label={sectionsAriaLabel}
-                    onClick={() =>
-                      setExpandedHref((current) =>
-                        current === group.href ? null : group.href,
-                      )
-                    }
-                  >
-                    <ChevronDownIcon
-                      className={cn(
-                        "transition-transform",
-                        groupOpen && "rotate-180",
-                      )}
-                    />
-                  </button>
+              return (
+                <div
+                  key={group.href}
+                  className={cn(index > 0 && "border-t border-[#f0f0f0]")}
+                >
+                  <div className="flex items-stretch">
+                    <Link
+                      href={group.href}
+                      role="menuitem"
+                      prefetch
+                      scroll={false}
+                      className="flex-1 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-brand-ink/5"
+                      onClick={closeMenu}
+                    >
+                      {group.label}
+                    </Link>
+                    <button
+                      type="button"
+                      className="inline-flex items-center border-l border-[#f0f0f0] px-3 transition-colors hover:bg-brand-ink/5"
+                      aria-expanded={groupOpen}
+                      aria-label={sectionsAriaLabel}
+                      onClick={() =>
+                        setExpandedHref((current) =>
+                          current === group.href ? null : group.href,
+                        )
+                      }
+                    >
+                      <ChevronDownIcon
+                        className={cn(
+                          "transition-transform",
+                          groupOpen && "rotate-180",
+                        )}
+                      />
+                    </button>
+                  </div>
+                  {groupOpen ? (
+                    <ul className="bg-[#fafafa] py-1">
+                      {group.sections.map((section) => (
+                        <li key={section.id} role="none">
+                          <Link
+                            href={{ pathname: group.href, hash: section.id }}
+                            role="menuitem"
+                            prefetch
+                            scroll={false}
+                            className="block px-4 py-2 text-sm text-[#6f6f6f] transition-colors hover:bg-brand-ink/5 hover:text-brand-ink"
+                            onClick={closeMenu}
+                          >
+                            {section.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
-                {groupOpen ? (
-                  <ul className="bg-[#fafafa] py-1">
-                    {group.sections.map((section) => (
-                      <li key={section.id} role="none">
-                        <Link
-                          href={{ pathname: group.href, hash: section.id }}
-                          role="menuitem"
-                          prefetch
-                          className="block px-4 py-2 text-sm text-[#6f6f6f] transition-colors hover:bg-brand-ink/5 hover:text-brand-ink"
-                          onClick={closeMenu}
-                        >
-                          {section.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       ) : null}
     </li>

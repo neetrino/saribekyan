@@ -1,12 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
-import { HashScroll } from "@/shared/ui/hash-scroll";
 import {
   PageSectionNav,
   type PageSectionNavItem,
 } from "@/shared/ui/page-section-nav";
-import { SiteHeader } from "@/shared/ui/site-header";
 import { SectionBadge } from "@/shared/ui/section-badge";
 import { cn } from "@/shared/lib/cn";
 
@@ -43,14 +41,12 @@ export async function EducationPageShell({
 
   return (
     <main>
-      <HashScroll />
       <section
         className={cn(
           "relative overflow-hidden bg-gradient-to-b from-brand-ink from-[18%] to-brand-mint",
           compact ? "pb-20 pt-0" : "pb-28 pt-0",
         )}
       >
-        <SiteHeader />
         <div
           className={cn(
             "relative mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-20",

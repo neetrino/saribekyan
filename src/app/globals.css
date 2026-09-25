@@ -22,16 +22,19 @@
   --color-brand-gold: var(--brand-gold);
   --font-sans: var(--font-montserrat);
   --font-jakarta: var(--font-jakarta);
+  --breakpoint-wide: 90rem;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 .font-jakarta {

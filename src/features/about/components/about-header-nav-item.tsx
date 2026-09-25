@@ -10,11 +10,15 @@ import { aboutHeaderNav } from "../content/hub";
 type AboutHeaderNavItemProps = {
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function AboutHeaderNavItem({
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: AboutHeaderNavItemProps) {
   const t = useTranslations("about");
   const pathname = usePathname();
@@ -28,6 +32,8 @@ export function AboutHeaderNavItem({
       isActive={pathname === "/about" || pathname.startsWith("/about/")}
       variant={variant}
       onNavigate={onNavigate}
+      slidingActive={slidingActive}
+      triggerRef={triggerRef}
       groups={aboutHeaderNav.map((group) => ({
         key: group.key,
         href: group.href,

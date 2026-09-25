@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
-import { SiteHeader } from "@/shared/ui/site-header";
 
 type ComingSoonPageProps = {
   title: string;
@@ -16,7 +15,6 @@ export async function ComingSoonPage({
 
   return (
     <div className="relative min-h-dvh bg-gradient-to-b from-brand-ink to-brand-mint">
-      <SiteHeader />
       <main className="mx-auto flex min-h-dvh max-w-3xl flex-col items-start justify-center px-6 py-32 text-white sm:px-10">
         <p className="rounded-full bg-white/10 px-4 py-1.5 text-xs">
           {t("badge")}

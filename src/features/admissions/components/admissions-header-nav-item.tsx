@@ -10,11 +10,15 @@ import { admissionsHeaderNav } from "../content/hub";
 type AdmissionsHeaderNavItemProps = {
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  slidingActive?: boolean;
+  triggerRef?: (node: HTMLElement | null) => void;
 };
 
 export function AdmissionsHeaderNavItem({
   onNavigate,
   variant = "desktop",
+  slidingActive = false,
+  triggerRef,
 }: AdmissionsHeaderNavItemProps) {
   const t = useTranslations("admissions");
   const pathname = usePathname();
@@ -30,6 +34,8 @@ export function AdmissionsHeaderNavItem({
       }
       variant={variant}
       onNavigate={onNavigate}
+      slidingActive={slidingActive}
+      triggerRef={triggerRef}
       groups={admissionsHeaderNav.map((group) => ({
         key: group.key,
         href: group.href,
