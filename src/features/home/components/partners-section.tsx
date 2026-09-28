@@ -3,9 +3,10 @@
 import Image from "next/image";
 import type { Partner } from "@prisma/client";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 import { Link } from "@/i18n/navigation";
+import { ArrowLink } from "@/shared/ui/arrow-link";
 import { SectionBadge } from "@/shared/ui/section-badge";
 import { cn } from "@/shared/lib/cn";
 
@@ -13,11 +14,55 @@ type PartnersSectionProps = {
   partners: Partner[];
 };
 
-const SLOT_GAP = 16;
-const SLOT_HEIGHT = 91;
-const CENTER_HEIGHT = 101;
-const STACK_HEIGHT = SLOT_HEIGHT * 4 + CENTER_HEIGHT + SLOT_GAP * 4;
+type StackMetrics = {
+  slotGap: number;
+  slotHeight: number;
+  centerHeight: number;
+  stackHeight: number;
+  widths: [number, number, number];
+  logoHeights: [number, number, number];
+  navSizeClass: string;
+};
+
+const MOBILE_METRICS: StackMetrics = {
+  slotGap: 11,
+  slotHeight: 61,
+  centerHeight: 69,
+  stackHeight: 357,
+  widths: [62, 80, 100],
+  logoHeights: [25, 37, 51],
+  navSizeClass: "size-10",
+};
+
+const DESKTOP_METRICS: StackMetrics = {
+  slotGap: 16,
+  slotHeight: 91,
+  centerHeight: 101,
+  stackHeight: 529,
+  widths: [70, 85, 100],
+  logoHeights: [40, 40, 62],
+  navSizeClass: "size-9",
+};
+
 const PARTNERS_HREF = "/international";
+
+function subscribeLg(onStoreChange: () => void): () => void {
+  const mq = window.matchMedia("(min-width: 1024px)");
+  mq.addEventListener("change", onStoreChange);
+  return () => mq.removeEventListener("change", onStoreChange);
+}
+
+function getLgSnapshot(): boolean {
+  return window.matchMedia("(min-width: 1024px)").matches;
+}
+
+function getServerLgSnapshot(): boolean {
+  return true;
+}
+
+function useIsLg(): boolean {
+  return useSyncExternalStore(subscribeLg, getLgSnapshot, getServerLgSnapshot);
+}
 
 function circularOffset(index: number, active: number, count: number): number {
   let offset = index - active;
@@ -26,34 +71,61 @@ function circularOffset(index: number, active: number, count: number): number {
   return offset;
 }
 
-function slotMetrics(offset: number): {
+function slotMetrics(
+  offset: number,
+  metrics: StackMetrics,
+): {
   widthPercent: number;
   opacity: number;
   height: number;
   logoHeight: number;
 } {
-  if (offset === 0) {
-    return { widthPercent: 100, opacity: 1, height: CENTER_HEIGHT, logoHeight: 62 };
+  const abs = Math.abs(offset);
+  if (abs === 0) {
+    return {
+      widthPercent: metrics.widths[2],
+      opacity: 1,
+      height: metrics.centerHeight,
+      logoHeight: metrics.logoHeights[2],
+    };
   }
-  if (Math.abs(offset) === 1) {
-    return { widthPercent: 85, opacity: 0.6, height: SLOT_HEIGHT, logoHeight: 40 };
+  if (abs === 1) {
+    return {
+      widthPercent: metrics.widths[1],
+      opacity: 0.6,
+      height: metrics.slotHeight,
+      logoHeight: metrics.logoHeights[1],
+    };
   }
-  return { widthPercent: 70, opacity: 0.3, height: SLOT_HEIGHT, logoHeight: 40 };
+  return {
+    widthPercent: metrics.widths[0],
+    opacity: 0.3,
+    height: metrics.slotHeight,
+    logoHeight: metrics.logoHeights[0],
+  };
 }
 
-function slotTop(offset: number): number {
-  const heights = [SLOT_HEIGHT, SLOT_HEIGHT, CENTER_HEIGHT, SLOT_HEIGHT, SLOT_HEIGHT];
+function slotTop(offset: number, metrics: StackMetrics): number {
+  const heights = [
+    metrics.slotHeight,
+    metrics.slotHeight,
+    metrics.centerHeight,
+    metrics.slotHeight,
+    metrics.slotHeight,
+  ];
   const index = offset + 2;
   let top = 0;
   for (let i = 0; i < index; i += 1) {
-    top += heights[i]! + SLOT_GAP;
+    top += heights[i]! + metrics.slotGap;
   }
   return top;
 }
 
-/** Figma PARTNERS 198:886 — buttons switch carousel; logos link out */
+/** Figma PARTNERS — mobile 198:397, desktop 198:886 */
 export function PartnersSection({ partners }: PartnersSectionProps) {
   const t = useTranslations("home.partners");
+  const isLg = useIsLg();
+  const metrics = isLg ? DESKTOP_METRICS : MOBILE_METRICS;
   const count = partners.length;
   const [activeIndex, setActiveIndex] = useState(() =>
     count > 0 ? Math.min(2, count - 1) : 0,
@@ -72,27 +144,37 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
   };
 
   return (
-    <section className="bg-white px-6 py-16 sm:px-10 lg:px-[4.375rem] lg:py-20">
-      <div className="mx-auto grid max-w-[1300px] items-center gap-12 lg:grid-cols-[minmax(0,649px)_minmax(0,1fr)] lg:gap-8 xl:gap-12">
+    <section className="bg-white px-5 py-10 sm:px-10 lg:px-[4.375rem] lg:py-20">
+      <div className="mx-auto grid max-w-[1300px] items-center gap-6 lg:grid-cols-[minmax(0,649px)_minmax(0,1fr)] lg:gap-8 xl:gap-12">
         <div className="relative max-w-[649px]">
-          <SectionBadge>{t("badge")}</SectionBadge>
-          <h2 className="mt-4 text-[clamp(2rem,4vw,3.125rem)] leading-[1.2] tracking-[-1.5px] text-black">
+          <div className="flex items-center justify-between gap-4 lg:justify-start">
+            <SectionBadge>{t("badge")}</SectionBadge>
+            <ArrowLink
+              href={PARTNERS_HREF}
+              label={t("link")}
+              className="lg:hidden"
+            />
+          </div>
+          <h2 className="mt-1.5 text-[29px] font-normal leading-10 tracking-[-0.5px] text-black lg:mt-4 lg:text-[clamp(2rem,4vw,3.125rem)] lg:leading-[1.2] lg:tracking-[-1.5px]">
             <span className="font-normal">{t("titleBefore")}</span>
             <br />
             <span className="font-extrabold">{t("titleAccent")}</span>
           </h2>
-          <p className="mt-8 max-w-[386px] text-base leading-6 text-[#424847]">
+          <p className="mt-3 max-w-[386px] text-sm leading-[22px] text-[#424847] lg:mt-8 lg:text-base lg:leading-6">
             {t("description")}
           </p>
         </div>
 
-        <div className="relative flex items-center gap-4 lg:gap-5">
+        <div className="relative flex items-center gap-3 overflow-x-clip lg:gap-5">
           <div className="flex shrink-0 flex-col gap-3">
             <button
               type="button"
               onClick={goPrev}
               aria-label={t("prevPartner")}
-              className="inline-flex size-9 items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80"
+              className={cn(
+                "inline-flex items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80",
+                metrics.navSizeClass,
+              )}
             >
               <span className="relative size-4 -rotate-90">
                 <Image
@@ -108,7 +190,10 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
               type="button"
               onClick={goNext}
               aria-label={t("nextPartner")}
-              className="inline-flex size-9 items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80"
+              className={cn(
+                "inline-flex items-center justify-center rounded-full bg-[#f2f2f2] transition-opacity hover:opacity-80",
+                metrics.navSizeClass,
+              )}
             >
               <span className="relative size-4 rotate-90">
                 <Image
@@ -124,15 +209,19 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
 
           <div
             className="relative min-w-0 flex-1"
-            style={{ height: STACK_HEIGHT }}
+            style={{ height: metrics.stackHeight }}
           >
             {partners.map((partner, index) => {
               const offset = circularOffset(index, activeIndex, count);
               const visible = Math.abs(offset) <= 2;
-              const metrics = slotMetrics(
+              const slot = slotMetrics(
                 visible ? offset : offset > 0 ? 2 : -2,
+                metrics,
               );
-              const top = slotTop(visible ? offset : offset > 0 ? 2 : -2);
+              const top = slotTop(
+                visible ? offset : offset > 0 ? 2 : -2,
+                metrics,
+              );
               const isActive = index === activeIndex;
               const href = partner.website ?? PARTNERS_HREF;
 
@@ -144,21 +233,21 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
                   aria-current={isActive ? "true" : undefined}
                   tabIndex={visible ? 0 : -1}
                   className={cn(
-                    "absolute right-0 flex items-center justify-center overflow-hidden rounded-l-[80px] bg-[#ededed] px-8 py-2",
+                    "absolute right-0 flex items-center justify-center overflow-hidden rounded-l-[80px] bg-[#ededed] px-5 py-2 lg:px-8",
                     "transition-[transform,width,height,opacity,top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     visible ? "cursor-pointer" : "pointer-events-none",
                   )}
                   style={{
                     top,
-                    width: `${metrics.widthPercent}%`,
-                    height: metrics.height,
-                    opacity: visible ? metrics.opacity : 0,
+                    width: `${slot.widthPercent}%`,
+                    height: slot.height,
+                    opacity: visible ? slot.opacity : 0,
                     zIndex: visible ? 5 - Math.abs(offset) : 0,
                   }}
                 >
                   <span
-                    className="relative w-40 transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                    style={{ height: metrics.logoHeight }}
+                    className="relative w-[7.5rem] transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:w-40"
+                    style={{ height: slot.logoHeight }}
                   >
                     <Image
                       src={partner.logoUrl}
