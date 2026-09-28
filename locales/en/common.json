@@ -9,6 +9,7 @@
   "nav": {
     "mainAria": "Main navigation",
     "menu": "Menu",
+    "closeMenu": "Close menu",
     "home": "Home",
     "about": "About",
     "education": "Education",
