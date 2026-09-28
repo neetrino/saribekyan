@@ -72,35 +72,42 @@ export function SiteHeader() {
       className="fixed inset-x-0 top-0 z-[100]"
       data-scrolled={scrolled ? "true" : "false"}
     >
-      {/* Scrolled glass background — Kamancha-style */}
-      <div
-        aria-hidden
-        className={cn(
-          "pointer-events-none absolute inset-0 rounded-b-[28px] bg-[linear-gradient(180deg,rgba(32,55,52,0.72)_0%,rgba(91,157,148,0.48)_100%)] backdrop-blur-[10px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
-          scrolled ? "opacity-100" : "opacity-0",
-        )}
-      />
-      <div
-        aria-hidden
-        className={cn(
-          "pointer-events-none absolute inset-0 rounded-b-[28px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
-          scrolled ? "opacity-100" : "opacity-0",
-        )}
-        style={{
-          padding: 1,
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0.12) 82%, rgba(255,255,255,0.22) 100%)",
-          WebkitMask:
-            "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
-          mask: "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
-        }}
-      />
+      {/* Top bar only — glass stays behind logo/burger, not under the panel */}
+      <div className="relative">
+        {/* Scrolled glass background — Kamancha-style */}
+        <div
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute inset-0 rounded-b-[28px] bg-[linear-gradient(180deg,rgba(32,55,52,0.72)_0%,rgba(91,157,148,0.48)_100%)] backdrop-blur-[10px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
+            scrolled ? "opacity-100" : "opacity-0",
+          )}
+        />
+        <div
+          aria-hidden
+          className={cn(
+            "pointer-events-none absolute inset-0 rounded-b-[28px] transition-opacity duration-300 ease-out xl:rounded-b-[40px]",
+            scrolled ? "opacity-100" : "opacity-0",
+          )}
+          style={{
+            padding: 1,
+            background:
+              "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0.12) 82%, rgba(255,255,255,0.22) 100%)",
+            WebkitMask:
+              "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
+            mask: "linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)",
+          }}
+        />
 
-      <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 pb-3 pt-6 sm:px-8 xl:gap-6 xl:px-8 xl:pb-4 xl:pt-11 wide:gap-8 wide:px-[72px] wide:pt-[44px]">
+        <div className="relative z-10 mx-auto grid max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 pb-3 pt-6 sm:px-8 xl:gap-6 xl:px-8 xl:pb-4 xl:pt-11 wide:gap-8 wide:px-[72px] wide:pt-[44px]">
           <Link
             href="/"
             scroll={false}
             className="relative h-[69px] w-[62px] shrink-0"
+            onClick={() => {
+              if (pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <Image
               src="/logos/logo.svg"
@@ -120,7 +127,8 @@ export function SiteHeader() {
           </div>
 
           <div className="flex items-center justify-end gap-2">
-            <div className="relative shrink-0" ref={langRef}>
+            {/* Language — desktop only; mobile lives inside burger panel */}
+            <div className="relative hidden shrink-0 xl:block" ref={langRef}>
               <button
                 type="button"
                 className="inline-flex h-14 w-24 items-center justify-center rounded-[29px] bg-brand-ink text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px] transition-opacity hover:opacity-90"
@@ -183,28 +191,51 @@ export function SiteHeader() {
               </ul>
             </div>
 
+            {/* Burger — Figma 200:1054 pill + 200:1055 charm:menu-hamburger → X */}
             <button
               type="button"
-              className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-ink xl:hidden"
+              className="relative z-20 inline-flex h-14 w-[111px] items-center justify-center rounded-[29px] border border-white/12 bg-white shadow-[0_0_32px_rgba(104,239,189,0.45)] xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
+              aria-label={open ? t("nav.closeMenu") : t("nav.menu")}
               onClick={() => setOpen((value) => !value)}
             >
-              <span className="sr-only">{t("nav.menu")}</span>
-              <span className="flex flex-col gap-1.5">
-                <span className="block h-0.5 w-5 bg-brand-ink" />
-                <span className="block h-0.5 w-5 bg-brand-ink" />
-                <span className="block h-0.5 w-5 bg-brand-ink" />
+              <span className="relative block size-[38px]" aria-hidden>
+                <span
+                  className={cn(
+                    "absolute left-[7px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
+                    open ? "top-[17.75px] rotate-45" : "top-[11.75px] rotate-0",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute left-[7px] top-[18.25px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
+                    open ? "opacity-0" : "opacity-100",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute left-[7px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
+                    open ? "top-[17.75px] -rotate-45" : "top-[24.75px] rotate-0",
+                  )}
+                />
               </span>
             </button>
           </div>
         </div>
+      </div>
 
-        {open ? (
-          <nav
-            id="mobile-nav"
-            className="mx-4 mt-3 rounded-3xl bg-white p-4 shadow-lg xl:hidden"
-          >
+      {/* Menu panel opens below the bar — no glass behind it */}
+      <nav
+          id="mobile-nav"
+          aria-hidden={!open}
+          className={cn(
+            "relative z-10 mx-4 overflow-hidden rounded-3xl bg-white shadow-lg transition-[max-height,opacity,margin,padding] duration-300 ease-out xl:hidden",
+            open
+              ? "mt-3 max-h-[min(80vh,640px)] p-4 opacity-100"
+              : "pointer-events-none mt-0 max-h-0 p-0 opacity-0",
+          )}
+        >
             <ul className="flex flex-col gap-1">
               {mainNav.map((item) => {
                 if (item.key === "about") {
@@ -252,6 +283,7 @@ export function SiteHeader() {
                       scroll={false}
                       className="block rounded-2xl px-4 py-3 text-brand-ink hover:bg-slate-100"
                       onClick={() => setOpen(false)}
+                      tabIndex={open ? 0 : -1}
                     >
                       {t(`nav.${item.key}`)}
                     </Link>
@@ -259,8 +291,35 @@ export function SiteHeader() {
                 );
               })}
             </ul>
+
+            <div className="mt-3 border-t border-brand-ink/10 pt-3">
+              <p className="px-4 pb-2 text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
+                {t("language.aria")}
+              </p>
+              <ul className="flex gap-2 px-2" role="listbox" aria-label={t("language.aria")}>
+                {locales.map((item) => (
+                  <li key={item} role="option" aria-selected={item === locale}>
+                    <button
+                      type="button"
+                      tabIndex={open ? 0 : -1}
+                      className={cn(
+                        "inline-flex h-11 min-w-[4.5rem] items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold tracking-[1.2px] transition-colors",
+                        item === locale
+                          ? "bg-brand-ink text-white"
+                          : "bg-brand-ink/5 text-brand-ink hover:bg-brand-ink/10",
+                      )}
+                      onClick={() => {
+                        switchLocale(item);
+                        setOpen(false);
+                      }}
+                    >
+                      {t(`language.${item}`)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
-        ) : null}
       </header>
   );
 }

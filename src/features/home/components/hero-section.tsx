@@ -25,34 +25,43 @@ export async function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-16 pt-6 sm:px-8 xl:h-full xl:min-h-0 xl:px-10 xl:pb-0 xl:pt-11 wide:px-[72px]">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-0 pt-6 sm:px-8 xl:h-full xl:min-h-0 xl:px-10 xl:pt-11 wide:px-[72px]">
         {/* Spacer for fixed SiteHeader in layout */}
         <div className="h-[69px] w-full shrink-0" aria-hidden />
 
-        {/* Mobile */}
-        <div className="flex flex-1 flex-col justify-end gap-8 pt-28 xl:hidden">
-          <h1 className="max-w-[845px] text-[clamp(2.25rem,7vw,3.8125rem)] font-normal leading-[1.1] tracking-[-0.56px] text-white">
-            {t("titleBefore")}
-            <br />
-            {t("titleAfter")}
-            <br />
-            <span className="font-bold text-brand-lime">{t("titleAccent")}</span>
-          </h1>
-          <p className="max-w-[227px] text-base leading-6 text-white">
-            {tCommon("description")}
-          </p>
-          <CtaButton href="/admissions/apply" variant="light" className="self-start">
-            {t("applyCta")}
-          </CtaButton>
-          <div className="relative mx-auto aspect-[1296/729] w-full max-w-xl">
+        {/* Mobile — Figma HeroSection 198:992 */}
+        <div className="relative min-h-[calc(100svh-93px)] flex-1 xl:hidden">
+          {/* Students — Figma 198:1019: 742×414, nudged lower under text */}
+          <div className="pointer-events-none absolute bottom-0 left-[-30%] z-0 h-[min(414px,48svh)] w-[185%] translate-y-12">
             <Image
               src="/images/home/hero-students.png"
               alt={t("studentsAlt")}
               fill
               priority
               className="object-contain object-bottom"
-              sizes="(max-width: 768px) 90vw, 576px"
+              sizes="185vw"
             />
+          </div>
+
+          <div className="relative z-10 flex flex-col px-2 pt-16">
+            <h1 className="max-w-[354px] text-[48px] font-semibold leading-[49px] tracking-[-0.56px] text-white">
+              <span className="block">
+                {t("titleBefore")} {t("titleAfter")}
+              </span>
+              <span className="block text-brand-lime">{t("titleAccent")}</span>
+            </h1>
+
+            <CtaButton
+              href="/admissions/apply"
+              variant="light"
+              className="mt-7 w-full max-w-[349px] justify-between shadow-[0_0_40px_rgba(104,239,189,0.55)]"
+            >
+              {t("applyCta")}
+            </CtaButton>
+
+            <p className="mt-8 max-w-[356px] text-sm leading-[18px] text-white">
+              {tCommon("description")}
+            </p>
           </div>
         </div>
 

@@ -14,28 +14,30 @@ export async function ClinicsSection({ clinics }: ClinicsSectionProps) {
   const t = await getTranslations("home.clinics");
 
   return (
-    <section className="bg-[#f7f8f8] px-6 py-16 sm:px-10 lg:px-[3.8rem] lg:py-20">
+    <section className="overflow-x-clip bg-[#f7f8f8] px-5 py-10 sm:px-10 lg:px-[3.8rem] lg:py-20">
       <div className="mx-auto max-w-[1320px]">
-        <div className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-3">
+        <div className="mb-8 flex min-w-0 flex-col gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+          <div className="min-w-0 max-w-3xl space-y-3">
             <SectionBadge>{t("badge")}</SectionBadge>
-            <h2 className="text-[clamp(2rem,4vw,3.125rem)] font-light leading-[1.2] tracking-[-1.5px] text-black">
+            <h2 className="text-[29px] font-normal leading-10 tracking-[-0.5px] text-black lg:text-[clamp(2rem,4vw,3.125rem)] lg:font-light lg:leading-[1.2] lg:tracking-[-1.5px]">
               {t("titleBefore")}{" "}
               <span className="font-semibold">{t("titleAccent")}</span>
             </h2>
-            <p className="text-base leading-6 text-[#6f6f6f]">{t("description")}</p>
+            <p className="text-sm leading-[22px] text-[#6f6f6f] lg:text-base lg:leading-6">
+              {t("description")}
+            </p>
           </div>
-          <CtaButton href="/clinics/tour" variant="dark">
+          <CtaButton href="/clinics/tour" variant="dark" className="shrink-0 self-start">
             {t("tourCta")}
           </CtaButton>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid min-w-0 gap-4 md:grid-cols-3 md:gap-5">
           {clinics.map((clinic) => (
             <Link
               key={clinic.id}
               href={clinic.href}
-              className="group overflow-hidden rounded-3xl bg-white shadow-sm transition-shadow hover:shadow-md"
+              className="group min-w-0 overflow-hidden rounded-[20px] bg-white shadow-sm transition-shadow hover:shadow-md lg:rounded-3xl"
             >
               <div className="relative aspect-[4/3]">
                 <Image

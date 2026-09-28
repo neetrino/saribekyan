@@ -9,6 +9,7 @@
   "nav": {
     "mainAria": "Main navigation",
     "menu": "Menu",
+    "closeMenu": "Close menu",
     "home": "Home",
     "about": "About",
     "education": "Education",
@@ -45,7 +46,7 @@
     "privacy": "Privacy policy",
     "terms": "Terms of use",
     "sitemap": "Sitemap",
-    "copyright": "© 2026 | All rights reserved | Created by <company>Neetrino</company>"
+    "copyright": "Copyright © 2026 | All rights reserved | <br></br>Created by <company>Neetrino</company>"
   },
   "comingSoon": {
     "badge": "Coming soon",
