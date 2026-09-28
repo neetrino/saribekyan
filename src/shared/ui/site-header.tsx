@@ -101,6 +101,11 @@ export function SiteHeader() {
             href="/"
             scroll={false}
             className="relative h-[69px] w-[62px] shrink-0"
+            onClick={() => {
+              if (pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <Image
               src="/logos/logo.svg"
