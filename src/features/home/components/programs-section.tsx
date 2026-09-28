@@ -14,16 +14,16 @@ export async function ProgramsSection({ programs }: ProgramsSectionProps) {
   const t = await getTranslations("home.programs");
 
   return (
-    <section className="bg-white px-5 py-10 sm:px-10 lg:px-[3.7rem] lg:py-20">
+    <section className="overflow-x-clip bg-white px-5 py-10 sm:px-10 lg:px-[3.7rem] lg:py-20">
       <div className="mx-auto max-w-[1320px]">
         <div className="mb-6 flex flex-col gap-1.5 lg:mb-14 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
-          <div className="max-w-[765px]">
+          <div className="min-w-0 max-w-[765px]">
             <div className="flex items-center justify-between gap-4 lg:justify-start">
               <SectionBadge>{t("badge")}</SectionBadge>
               <ArrowLink
                 href="/education"
                 label={t("allDirections")}
-                className="lg:hidden"
+                className="shrink-0 lg:hidden"
               />
             </div>
             <h2 className="mt-1.5 text-[29px] font-normal leading-10 tracking-[-0.5px] text-black lg:mt-2 lg:text-[clamp(2rem,4vw,3.125rem)] lg:font-light lg:leading-[1.2] lg:tracking-[-1.5px]">

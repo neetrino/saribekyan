@@ -38,7 +38,7 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
         <div className="min-w-0 lg:hidden">
           <div className="flex items-center justify-between gap-4">
             <SectionBadge>{t("badge")}</SectionBadge>
-            <ArrowLink href="/admissions" label={t("aboutLink")} />
+            <ArrowLink href="/admissions" label={t("aboutLink")} className="shrink-0" />
           </div>
           <h2 className="mt-1.5 text-[29px] font-normal leading-10 tracking-[-0.5px] text-[#222]">
             {t("title")}

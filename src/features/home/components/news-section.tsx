@@ -32,12 +32,16 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
   const locale = await getLocale();
 
   return (
-    <section className="bg-white px-5 py-10 sm:px-10 lg:px-[3.9rem] lg:py-20">
+    <section className="overflow-x-clip bg-white px-5 py-10 sm:px-10 lg:px-[3.9rem] lg:py-20">
       <div className="mx-auto grid max-w-[1314px] gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-10">
-        <div>
+        <div className="min-w-0">
           <div className="flex items-center justify-between gap-4 lg:justify-start">
             <SectionBadge>{t("badge")}</SectionBadge>
-            <ArrowLink href="/news" label={t("readMore")} className="lg:hidden" />
+            <ArrowLink
+              href="/news"
+              label={t("readMore")}
+              className="shrink-0 lg:hidden"
+            />
           </div>
           <h2 className="mt-1.5 text-[32px] font-normal leading-[48px] tracking-[-0.5px] text-slate-900 lg:mt-6 lg:text-[clamp(2.25rem,5vw,3.75rem)] lg:leading-[1.12] lg:tracking-[-1.5px]">
             <span className="font-normal lg:font-light">{t("titleBefore")}</span>{" "}
@@ -47,7 +51,7 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
           {featured ? (
             <Link
               href={`/news/${featured.slug}`}
-              className="mt-6 block overflow-hidden rounded-[24px] bg-[#171717] lg:mt-8 lg:rounded-3xl lg:bg-neutral-900"
+              className="mt-6 block w-full max-w-full overflow-hidden rounded-[24px] bg-[#171717] lg:mt-8 lg:rounded-3xl lg:bg-neutral-900"
             >
               <div className="relative mx-3.5 mt-5 aspect-[336/231] overflow-hidden rounded-[20px] lg:m-4 lg:aspect-[482/331]">
                 <Image
@@ -65,7 +69,7 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
                 <p className="text-base font-bold uppercase leading-4">
                   {featured.category}
                 </p>
-                <p className="max-w-[335px] text-sm font-light leading-[18px]">
+                <p className="text-sm font-light leading-[18px]">
                   {featured.excerpt}
                 </p>
                 <span className="hidden pt-2 text-sm font-medium underline-offset-4 hover:underline lg:inline-block">
@@ -76,7 +80,7 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-5 lg:justify-center lg:pt-24">
+        <div className="flex min-w-0 flex-col gap-5 lg:justify-center lg:pt-24">
           {items.map((item, index) => {
             const darkIcon = index === 2;
 
@@ -85,11 +89,11 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
                 key={item.id}
                 href={`/news/${item.slug}`}
                 className={cn(
-                  "relative flex min-h-[179px] items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-ink to-brand-teal p-2 pr-12 text-white lg:gap-5 lg:pr-14",
+                  "relative flex w-full min-w-0 items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-ink to-brand-teal p-2 pr-10 text-white sm:gap-3 sm:pr-11 lg:min-h-[179px] lg:gap-5 lg:pr-14",
                   desktopCardStyles[index] ?? desktopCardStyles[0],
                 )}
               >
-                <div className="relative h-[164px] w-[172px] shrink-0 overflow-hidden rounded-[10px]">
+                <div className="relative aspect-[172/164] w-[min(47%,172px)] shrink-0 self-stretch overflow-hidden rounded-[10px] lg:aspect-auto lg:h-[164px] lg:w-[172px] lg:self-auto">
                   <Image
                     src={item.coverImage}
                     alt=""
@@ -98,14 +102,14 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
                     sizes="172px"
                   />
                 </div>
-                <div className="min-w-0 flex-1 space-y-2.5 py-3 pr-2 lg:py-6 lg:pr-4">
+                <div className="min-w-0 flex-1 space-y-2.5 py-3 pr-1 lg:py-6 lg:pr-4">
                   <p className="hidden text-xs opacity-70 lg:block">
                     {formatDate(item.publishedAt, locale)}
                   </p>
                   <p className="text-sm font-bold uppercase leading-4 lg:text-base lg:leading-4">
                     {item.category}
                   </p>
-                  <p className="max-w-[165px] text-xs font-light leading-[15px] lg:max-w-[341px] lg:text-sm lg:leading-4">
+                  <p className="text-xs font-light leading-[15px] lg:max-w-[341px] lg:text-sm lg:leading-4">
                     {item.excerpt}
                   </p>
                   <span className="hidden pt-1 text-xs font-medium lg:inline-block">
@@ -114,7 +118,7 @@ export async function NewsSection({ featured, items }: NewsSectionProps) {
                 </div>
                 <span
                   className={cn(
-                    "absolute bottom-2 right-2 inline-flex size-9 items-center justify-center rounded-full bg-white lg:bottom-auto lg:right-5 lg:top-5",
+                    "absolute bottom-2 right-2 inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-white lg:bottom-auto lg:right-5 lg:top-5",
                     darkIcon && "lg:bg-[#212121]",
                   )}
                 >

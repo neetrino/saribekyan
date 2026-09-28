@@ -144,15 +144,15 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
   };
 
   return (
-    <section className="bg-white px-5 py-10 sm:px-10 lg:px-[4.375rem] lg:py-20">
+    <section className="overflow-x-clip bg-white px-5 py-10 sm:px-10 lg:px-[4.375rem] lg:py-20">
       <div className="mx-auto grid max-w-[1300px] items-center gap-6 lg:grid-cols-[minmax(0,649px)_minmax(0,1fr)] lg:gap-8 xl:gap-12">
-        <div className="relative max-w-[649px]">
+        <div className="relative min-w-0 max-w-[649px]">
           <div className="flex items-center justify-between gap-4 lg:justify-start">
             <SectionBadge>{t("badge")}</SectionBadge>
             <ArrowLink
               href={PARTNERS_HREF}
               label={t("link")}
-              className="lg:hidden"
+              className="shrink-0 lg:hidden"
             />
           </div>
           <h2 className="mt-1.5 text-[29px] font-normal leading-10 tracking-[-0.5px] text-black lg:mt-4 lg:text-[clamp(2rem,4vw,3.125rem)] lg:leading-[1.2] lg:tracking-[-1.5px]">
@@ -165,7 +165,8 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
           </p>
         </div>
 
-        <div className="relative flex items-center gap-3 overflow-x-clip lg:gap-5">
+        {/* Mobile: cards bleed to the right edge (Figma 198:397); clipped by section */}
+        <div className="relative -mr-5 flex items-center gap-3 overflow-x-clip lg:mr-0 lg:gap-5">
           <div className="flex shrink-0 flex-col gap-3">
             <button
               type="button"
@@ -208,7 +209,7 @@ export function PartnersSection({ partners }: PartnersSectionProps) {
           </div>
 
           <div
-            className="relative min-w-0 flex-1"
+            className="relative min-w-0 flex-1 -mr-16 lg:mr-0"
             style={{ height: metrics.stackHeight }}
           >
             {partners.map((partner, index) => {

@@ -191,7 +191,7 @@ export function SiteHeader() {
               </ul>
             </div>
 
-            {/* Burger — Figma 200:1054 pill; Kamancha-style → X */}
+            {/* Burger — Figma 200:1054 pill + 200:1055 charm:menu-hamburger → X */}
             <button
               type="button"
               className="relative z-20 inline-flex h-14 w-[111px] items-center justify-center rounded-[29px] border border-white/12 bg-white shadow-[0_0_32px_rgba(104,239,189,0.45)] xl:hidden"
@@ -200,23 +200,23 @@ export function SiteHeader() {
               aria-label={open ? t("nav.closeMenu") : t("nav.menu")}
               onClick={() => setOpen((value) => !value)}
             >
-              <span className="relative block h-6 w-[28px]" aria-hidden>
+              <span className="relative block size-[38px]" aria-hidden>
                 <span
                   className={cn(
-                    "absolute left-0 block h-0.5 w-full rounded-full bg-brand-ink transition-all duration-300 ease-in-out",
-                    open ? "top-[11px] rotate-45" : "top-0 rotate-0",
+                    "absolute left-[7px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
+                    open ? "top-[17.75px] rotate-45" : "top-[11.75px] rotate-0",
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-[11px] block h-0.5 w-full rounded-full bg-brand-ink transition-all duration-300 ease-in-out",
+                    "absolute left-[7px] top-[18.25px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
                     open ? "opacity-0" : "opacity-100",
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 block h-0.5 w-full rounded-full bg-brand-ink transition-all duration-300 ease-in-out",
-                    open ? "top-[11px] -rotate-45" : "top-[22px] rotate-0",
+                    "absolute left-[7px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
+                    open ? "top-[17.75px] -rotate-45" : "top-[24.75px] rotate-0",
                   )}
                 />
               </span>

@@ -27,15 +27,15 @@ export async function AboutSection({ stats }: AboutSectionProps) {
   const locale = await getLocale();
 
   return (
-    <section className="relative z-10 -mt-10 rounded-t-[28px] bg-white px-5 py-8 sm:px-10 lg:rounded-t-[40px] lg:px-20 lg:pb-20 lg:pt-[35px]">
+    <section className="relative z-10 -mt-10 overflow-x-clip rounded-t-[28px] bg-white px-5 py-8 sm:px-10 lg:rounded-t-[40px] lg:px-20 lg:pb-20 lg:pt-[35px]">
       <div className="mx-auto grid max-w-[1280px] items-end gap-6 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-5">
+        <div className="min-w-0 lg:col-span-5">
           <div className="flex items-center justify-between gap-4 lg:justify-start">
             <SectionBadge>{t("badge")}</SectionBadge>
             <ArrowLink
               href="/about"
               label={t("readMore")}
-              className="lg:hidden"
+              className="shrink-0 lg:hidden"
             />
           </div>
           <h2 className="mt-1.5 text-[29px] font-normal leading-10 tracking-[-0.5px] text-black lg:mt-3.5 lg:text-[clamp(2rem,4vw,3.125rem)] lg:font-light lg:leading-[1.2] lg:tracking-[-1.5px]">
