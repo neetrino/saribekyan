@@ -125,7 +125,8 @@ export function SiteHeader() {
           </div>
 
           <div className="flex items-center justify-end gap-2">
-            <div className="relative shrink-0" ref={langRef}>
+            {/* Language — desktop only; mobile lives inside burger panel */}
+            <div className="relative hidden shrink-0 xl:block" ref={langRef}>
               <button
                 type="button"
                 className="inline-flex h-14 w-24 items-center justify-center rounded-[29px] bg-brand-ink text-sm font-semibold tracking-[1.2px] text-[#f4f1ed] backdrop-blur-[7px] transition-opacity hover:opacity-90"
@@ -188,19 +189,23 @@ export function SiteHeader() {
               </ul>
             </div>
 
+            {/* Burger — Figma 200:1054, 111×56 pill */}
             <button
               type="button"
-              className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-ink xl:hidden"
+              className="inline-flex h-14 w-[111px] items-center justify-center rounded-[29px] border border-white/12 bg-white shadow-[0_0_32px_rgba(104,239,189,0.45)] xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
             >
               <span className="sr-only">{t("nav.menu")}</span>
-              <span className="flex flex-col gap-1.5">
-                <span className="block h-0.5 w-5 bg-brand-ink" />
-                <span className="block h-0.5 w-5 bg-brand-ink" />
-                <span className="block h-0.5 w-5 bg-brand-ink" />
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element -- Figma SVG icon */}
+              <img
+                src="/icons/menu-hamburger.svg"
+                alt=""
+                width={38}
+                height={38}
+                className="size-[38px]"
+              />
             </button>
           </div>
         </div>
@@ -264,6 +269,33 @@ export function SiteHeader() {
                 );
               })}
             </ul>
+
+            <div className="mt-3 border-t border-brand-ink/10 pt-3">
+              <p className="px-4 pb-2 text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
+                {t("language.aria")}
+              </p>
+              <ul className="flex gap-2 px-2" role="listbox" aria-label={t("language.aria")}>
+                {locales.map((item) => (
+                  <li key={item} role="option" aria-selected={item === locale}>
+                    <button
+                      type="button"
+                      className={cn(
+                        "inline-flex h-11 min-w-[4.5rem] items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold tracking-[1.2px] transition-colors",
+                        item === locale
+                          ? "bg-brand-ink text-white"
+                          : "bg-brand-ink/5 text-brand-ink hover:bg-brand-ink/10",
+                      )}
+                      onClick={() => {
+                        switchLocale(item);
+                        setOpen(false);
+                      }}
+                    >
+                      {t(`language.${item}`)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         ) : null}
       </header>
