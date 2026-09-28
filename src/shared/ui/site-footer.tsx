@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import type { ReactNode } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { footerColumns, siteConfig } from "@/shared/config/site";
@@ -42,6 +43,19 @@ const socialIcons = [
     className: "h-6 w-[22px]",
   },
 ] as const;
+
+function NeetrinoLink({ children }: { children: ReactNode }) {
+  return (
+    <a
+      href="https://neetrino.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-bold text-brand-gold transition-opacity hover:opacity-80"
+    >
+      {children}
+    </a>
+  );
+}
 
 /** Figma Footer 198:790 — left ~86px, right ~104px */
 export async function SiteFooter() {
@@ -158,16 +172,8 @@ export async function SiteFooter() {
 
           <p className="text-sm leading-5 text-white sm:text-right">
             {t.rich("footer.copyright", {
-              company: (chunks) => (
-                <a
-                  href="https://neetrino.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-brand-gold transition-opacity hover:opacity-80"
-                >
-                  {chunks}
-                </a>
-              ),
+              br: () => <br className="sm:hidden" />,
+              company: (chunks) => <NeetrinoLink>{chunks}</NeetrinoLink>,
             })}
           </p>
         </div>
