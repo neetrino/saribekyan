@@ -181,19 +181,7 @@
     "regulations": {
       "badge": "Regulations",
       "title": "Applicable regulations",
-      "description": "Admissions are governed by internal acts. The documents are available as PDFs.",
-      "admissions": {
-        "title": "Admissions procedure",
-        "description": "Rules for receiving, assessing, and enrolling applicants."
-      },
-      "tuition": {
-        "title": "Tuition payment rules",
-        "description": "Annual fees, payment schedule, and late-payment terms."
-      },
-      "internal": {
-        "title": "Internal academic rules",
-        "description": "Core provisions on studies, conduct, and student status."
-      }
+      "description": "Admissions are governed by internal acts. The documents are available as PDFs."
     },
     "deadlines": {
       "badge": "Deadlines",
@@ -323,19 +311,7 @@
     "forms": {
       "badge": "Forms",
       "title": "Application forms in PDF",
-      "description": "Choose your application type, download the form, and submit it with your document file to the admissions office.",
-      "undergraduate": {
-        "title": "Undergraduate / medical programs",
-        "description": "For applicants to general medicine and dentistry."
-      },
-      "international": {
-        "title": "International applicant",
-        "description": "Application form for foreign citizens, with additional fields."
-      },
-      "cpd": {
-        "title": "Professional development",
-        "description": "Application for continuing medical education courses."
-      }
+      "description": "Choose your application type, download the form, and submit it with your document file to the admissions office."
     },
     "submit": {
       "badge": "Submission",

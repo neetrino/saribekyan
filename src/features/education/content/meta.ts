@@ -95,10 +95,6 @@ export const medicineDepartmentIds = [
 
 export const dentistryDepartmentIds = ["stomatology"] as const;
 
-export const medicineLeadershipIds = ["dean", "viceDean", "methodist"] as const;
-
-export const dentistryLeadershipIds = ["dean", "viceDean"] as const;
-
 export const cpdProgramIds = ["residency", "cpd"] as const;
 
 export const cpdSpecialtyIds = [

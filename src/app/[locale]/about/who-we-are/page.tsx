@@ -6,18 +6,14 @@ import {
   ContentSection,
   HistoryTimeline,
   InfoGrid,
-  PeopleGrid,
-  academicCouncil,
-  boardOfTrustees,
   historyItems,
-  leadershipContacts,
   mainActivities,
   missionVision,
-  rectorate,
   universityValues,
   whoWeAreIntro,
   aboutPageSections,
 } from "@/features/about";
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 export const metadata: Metadata = {
   title: "Ով ենք մենք",
@@ -32,6 +28,7 @@ type PageProps = {
 export default async function WhoWeArePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const team = await getTeamPageMembers("about-who-we-are", locale);
 
   return (
     <AboutPageShell
@@ -93,7 +90,7 @@ export default async function WhoWeArePage({ params }: PageProps) {
         title="Կառավարման խորհուրդ"
         description="Ռազմավարական որոշումներ և ինստիտուցիոնալ վերահսկողություն։"
       >
-        <PeopleGrid people={boardOfTrustees} featuredFirst />
+        <TeamPeopleGrid people={team.governance} featuredFirst />
       </ContentSection>
 
       <ContentSection
@@ -102,7 +99,7 @@ export default async function WhoWeArePage({ params }: PageProps) {
         title="Գիտական խորհուրդ"
         description="Ակադեմիական և գիտական քաղաքականության ձևավորում։"
       >
-        <PeopleGrid people={academicCouncil} />
+        <TeamPeopleGrid people={team["academic-council"]} />
       </ContentSection>
 
       <ContentSection
@@ -111,7 +108,7 @@ export default async function WhoWeArePage({ params }: PageProps) {
         title="Ռեկտորատ"
         description="Օպերատիվ կառավարում և համալսարանի առօրյա ղեկավարում։"
       >
-        <PeopleGrid people={rectorate} featuredFirst />
+        <TeamPeopleGrid people={team.rectorate} featuredFirst />
       </ContentSection>
 
       <ContentSection
@@ -119,7 +116,7 @@ export default async function WhoWeArePage({ params }: PageProps) {
         badge="Ղեկավար կազմ"
         title="Ղեկավար կազմի և պատասխանատու անձանց տվյալներ"
       >
-        <PeopleGrid people={leadershipContacts} />
+        <TeamPeopleGrid people={team.leadership} />
       </ContentSection>
     </AboutPageShell>
   );

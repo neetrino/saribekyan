@@ -16,6 +16,26 @@
 - Admin CMS
 - Visual QA vs Figma in browser (desktop / laptop / mobile)
 
+## 2026-09-28 — Admin: Team Members
+
+- [x] Prisma `TeamMember` + `TeamMemberPlacement` (multi-page placements, per-section order)
+- [x] Page/section registry (About, Education, Clinics, Science — 10 pages)
+- [x] `/admin/team`: tabs as filters, search, page/section filter, reorder, add/edit/delete, photo upload
+- [x] Admin login (env password hash + signed cookie)
+- [x] Public pages read staff from DB via one shared card; seed migrates existing staff (hy/en)
+- [ ] Apply schema + seed on dev DB (`pnpm db:push && pnpm db:seed`)
+- [ ] Rate limiting on admin login; R2 storage for photos before serverless deploy
+
+## 2026-09-30 — Admin: Documents
+
+- [x] Prisma `SiteDocument` + `SiteDocumentPlacement` (multi-section placements, per-section order)
+- [x] Registry: Quality, HR, Accounting, How to Apply, Application, Science (publications + reports)
+- [x] `/admin/documents`: tabs as filters, search, page/section/year filter, reorder, add/edit/delete, PDF upload/replace, new years
+- [x] Public pages read documents from DB (hy/en); year filters derived from data; seed migrates existing lists
+- [x] Shared admin UI extracted to `admin-shell` (used by Team and Documents)
+- [ ] Apply schema + seed on dev DB (`pnpm db:push`, then seed documents)
+- [ ] R2 storage for PDFs before serverless deploy
+
 ## 2026-09-22 — Education pages
 
 - [x] `/education` hub + medicine / dentistry / cpd detail pages

@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
       dynamic: 30,
       static: 180,
     },
+    // Admin uploads: team photos up to 2 MB, PDF documents up to 10 MB (plus form fields).
+    // The default Server Action body limit is 1 MB.
+    serverActions: {
+      bodySizeLimit: "12mb",
+    },
   },
 };
 

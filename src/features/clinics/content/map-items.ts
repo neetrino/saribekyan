@@ -12,19 +12,6 @@ export function mapInfoItems(
   }));
 }
 
-export function mapPeople(
-  t: Translate,
-  prefix: string,
-  ids: readonly string[],
-): Array<{ id: string; name: string; role: string; bio: string }> {
-  return ids.map((id) => ({
-    id,
-    name: t(`${prefix}.${id}.name`),
-    role: t(`${prefix}.${id}.role`),
-    bio: t(`${prefix}.${id}.bio`),
-  }));
-}
-
 export function mapGallery(
   t: Translate,
   prefix: string,

@@ -192,15 +192,6 @@ export const hospitalEquipmentIds = [
   "sterile",
 ] as const;
 
-export const hospitalSpecialistIds = [
-  "director",
-  "therapy",
-  "surgery",
-  "diagnostics",
-  "dental",
-  "coordinator",
-] as const;
-
 export const hospitalGalleryIds = ["g1", "g2", "g3"] as const;
 export const hospitalVideoIds = ["v1", "v2"] as const;
 
@@ -257,12 +248,6 @@ export const facilityEquipmentIds = {
   complex: ["imaging", "or", "icu", "lab"] as const,
   dental: ["units", "imaging", "sterile", "lab"] as const,
   simulation: ["manikins", "phantoms", "av", "virtual"] as const,
-};
-
-export const facilitySpecialistIds = {
-  complex: ["director", "therapy", "surgery", "coordinator"] as const,
-  dental: ["head", "surgeon", "therapist", "hygienist"] as const,
-  simulation: ["head", "instructor", "dental", "technician"] as const,
 };
 
 export const facilityGalleryIds = ["g1", "g2", "g3"] as const;

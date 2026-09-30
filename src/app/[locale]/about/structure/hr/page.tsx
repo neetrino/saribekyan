@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import {
-  AboutPageShell,
-  ContentSection,
-  DocumentList,
-  PeopleGrid,
-  hrDocuments,
-  hrIntro,
-  hrStaff,
-} from "@/features/about";
+import { AboutPageShell, ContentSection, hrIntro } from "@/features/about";
+import { DocumentList, getPageDocuments } from "@/features/documents";
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 export const metadata: Metadata = {
   title: "Մարդկային ռեսուրսներ",
@@ -24,6 +18,11 @@ type PageProps = {
 export default async function HrStructurePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const [team, documents, t] = await Promise.all([
+    getTeamPageMembers("about-hr", locale),
+    getPageDocuments("about-hr", locale),
+    getTranslations("documents"),
+  ]);
 
   return (
     <AboutPageShell
@@ -38,7 +37,7 @@ export default async function HrStructurePage({ params }: PageProps) {
         badge="Աշխատակազմ"
         title="Բաժնի աշխատակազմ"
       >
-        <PeopleGrid people={hrStaff} featuredFirst />
+        <TeamPeopleGrid people={team.staff} featuredFirst />
       </ContentSection>
 
       <ContentSection
@@ -46,7 +45,7 @@ export default async function HrStructurePage({ params }: PageProps) {
         badge="Փաստաթղթեր"
         title="Կանոնակարգ և տարեկան հաշվետվություններ"
       >
-        <DocumentList documents={hrDocuments} />
+        <DocumentList documents={documents.documents} emptyLabel={t("empty")} />
       </ContentSection>
     </AboutPageShell>
   );

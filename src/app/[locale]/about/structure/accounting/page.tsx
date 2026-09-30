@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import {
-  AboutPageShell,
-  ContentSection,
-  DocumentYearFilter,
-  accountingDocuments,
-  accountingIntro,
-} from "@/features/about";
+import { AboutPageShell, ContentSection, accountingIntro } from "@/features/about";
+import { DocumentYearFilter, getPageDocuments } from "@/features/documents";
 
 export const metadata: Metadata = {
   title: "Հաշվապահություն",
   description:
-    "Հաշվապահության բաժնի 2025 և 2026 թվականների փաստաթղթեր և ֆինանսական հաշվետվություններ։",
+    "Հաշվապահության բաժնի փաստաթղթեր և ֆինանսական հաշվետվություններ ըստ տարիների։",
 };
 
 type PageProps = {
@@ -22,6 +17,10 @@ type PageProps = {
 export default async function AccountingStructurePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const [documents, t] = await Promise.all([
+    getPageDocuments("about-accounting", locale),
+    getTranslations("documents"),
+  ]);
 
   return (
     <AboutPageShell
@@ -34,13 +33,10 @@ export default async function AccountingStructurePage({ params }: PageProps) {
       <ContentSection
         id="documents"
         badge="Փաստաթղթեր"
-        title="2025 և 2026 թվականների փաստաթղթեր"
+        title="Ֆինանսական հաշվետվություններ և փաստաթղթեր"
         description="Ֆինանսական հաշվետվություններ և հաշվապահական փաստաթղթեր ըստ տարիների։"
       >
-        <DocumentYearFilter
-          documents={accountingDocuments}
-          years={[2026, 2025]}
-        />
+        <DocumentYearFilter documents={documents.financial} allLabel={t("all")} emptyLabel={t("empty")} />
       </ContentSection>
     </AboutPageShell>
   );

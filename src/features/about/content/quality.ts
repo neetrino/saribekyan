@@ -1,4 +1,4 @@
-import type { AboutDocument, AboutPerson, ActivityItem } from "./types";
+import type { ActivityItem } from "./types";
 
 export const qualityIntro = {
   badge: "Որակի ապահովում",
@@ -7,23 +7,6 @@ export const qualityIntro = {
   description:
     "Համալսարանի որակի ապահովման բաժինը համակարգում է ինստիտուցիոնալ գնահատումը, ինքնավերլուծությունը և շարունակական բարելավումը՝ ANQA չափանիշներին համապատասխան։",
 } as const;
-
-export const qualityTeam: AboutPerson[] = [
-  {
-    id: "qa-1",
-    name: "Արայիկ Գյոզալյան",
-    role: "Որակի ապահովման և կրթության բարեփոխումների գծով պրոռեկտոր",
-    email: "a.gyozalyan@saribekyan.am",
-    bio: "Պատասխանատու է որակի ապահովման ռազմավարության, կրթական բարեփոխումների և ինստիտուցիոնալ հավատարմագրման գործընթացների համար։",
-  },
-  {
-    id: "qa-2",
-    name: "Մանուշակ Հովսեփյան",
-    role: "Որակի ապահովման առաջատար մասնագետ",
-    email: "m.hovsepyan@saribekyan.am",
-    bio: "Համակարգում է ինքնավերլուծության հաշվետվությունները, տարեկան պլանները և որակի մոնիտորինգի գործիքները։",
-  },
-];
 
 export const qualityDirections: ActivityItem[] = [
   {
@@ -63,48 +46,3 @@ export const anqaInfo = {
     "Ներքին որակի ապահովման համակարգ և ինքնավերլուծություն",
   ],
 } as const;
-
-export const qualityDocuments: AboutDocument[] = [
-  {
-    id: "qa-doc-1",
-    title: "Ինքնավերլուծության հաշվետվություն",
-    year: 2024,
-    type: "Ինքնավերլուծություն",
-    href: "#",
-  },
-  {
-    id: "qa-doc-2",
-    title: "Որակի ապահովման տարեկան հաշվետվություն",
-    year: 2024,
-    type: "Տարեկան հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "qa-doc-3",
-    title: "Որակի ապահովման աշխատանքային պլան",
-    year: 2024,
-    type: "Աշխատանքային պլան",
-    href: "#",
-  },
-  {
-    id: "qa-doc-4",
-    title: "Որակի ապահովման տարեկան հաշվետվություն",
-    year: 2025,
-    type: "Տարեկան հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "qa-doc-5",
-    title: "Որակի ապահովման աշխատանքային պլան",
-    year: 2025,
-    type: "Աշխատանքային պլան",
-    href: "#",
-  },
-  {
-    id: "qa-doc-6",
-    title: "Որակի ապահովման աշխատանքային պլան",
-    year: 2026,
-    type: "Աշխատանքային պլան",
-    href: "#",
-  },
-];

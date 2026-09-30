@@ -1,21 +1,3 @@
-export type AboutPerson = {
-  id: string;
-  name: string;
-  role: string;
-  email?: string;
-  phone?: string;
-  bio?: string;
-  imageUrl?: string;
-};
-
-export type AboutDocument = {
-  id: string;
-  title: string;
-  year: number;
-  type: string;
-  href: string;
-};
-
 export type TimelineItem = {
   id: string;
   year: string;

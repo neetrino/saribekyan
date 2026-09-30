@@ -1,4 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 import {
   clinicGalleryImages,
@@ -7,21 +9,14 @@ import {
   facilityGalleryIds,
   facilityPracticeIds,
   facilityServiceIds,
-  facilitySpecialistIds,
   facilityVideoIds,
   type ClinicFacilitySlug,
 } from "../content/meta";
-import {
-  mapGallery,
-  mapInfoItems,
-  mapPeople,
-  mapVideos,
-} from "../content/map-items";
+import { mapGallery, mapInfoItems, mapVideos } from "../content/map-items";
 import { ClinicContact } from "./clinic-contact";
 import { ClinicGallery } from "./clinic-gallery";
 import { ClinicInfoGrid } from "./clinic-info-grid";
 import { ClinicSection } from "./clinic-section";
-import { ClinicSpecialists } from "./clinic-specialists";
 import { ClinicTourCta } from "./clinic-tour-cta";
 import { ClinicVideos } from "./clinic-videos";
 
@@ -29,9 +24,16 @@ type FacilityContentProps = {
   slug: ClinicFacilitySlug;
 };
 
+const facilityTeamPageKeys = {
+  complex: "clinics-complex",
+  dental: "clinics-dental",
+  simulation: "clinics-simulation",
+} as const satisfies Record<ClinicFacilitySlug, string>;
+
 export async function FacilityContent({ slug }: FacilityContentProps) {
   const t = await getTranslations("clinics");
   const images = clinicGalleryImages[slug];
+  const team = await getTeamPageMembers(facilityTeamPageKeys[slug], await getLocale());
 
   return (
     <>
@@ -99,13 +101,7 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
         badge={t("sections.specialists")}
         title={t("sections.specialists")}
       >
-        <ClinicSpecialists
-          people={mapPeople(
-            t,
-            `${slug}.specialists`,
-            facilitySpecialistIds[slug],
-          )}
-        />
+        <TeamPeopleGrid people={team.specialists} featuredFirst />
       </ClinicSection>
 
       <ClinicSection

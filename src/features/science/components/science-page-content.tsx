@@ -1,26 +1,28 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { DocumentYearFilter, getPageDocuments } from "@/features/documents";
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 import {
-  contactIds,
-  documentYears,
   eventIds,
   projectMeta,
-  publicationMeta,
-  reportMeta,
   researchDirectionIds,
   scienceSectionIds,
   ugsFocusIds,
 } from "../content/meta";
 import { ContentSection } from "./content-section";
-import { DocumentYearFilter } from "./document-year-filter";
 import { EventList } from "./event-list";
 import { ProjectCards } from "./project-cards";
 import { ScienceInfoGrid } from "./science-info-grid";
 import { SciencePageShell } from "./science-page-shell";
-import { SciencePeopleGrid } from "./science-people-grid";
 
 export async function SciencePageContent() {
-  const t = await getTranslations("science");
+  const locale = await getLocale();
+  const [t, team, documents] = await Promise.all([
+    getTranslations("science"),
+    getTeamPageMembers("science", locale),
+    getPageDocuments("science", locale),
+  ]);
 
   const sectionNav = scienceSectionIds.map((id) => ({
     id,
@@ -41,14 +43,6 @@ export async function SciencePageContent() {
     period: t(`projects.items.${project.id}.period`),
   }));
 
-  const publications = publicationMeta.map((item) => ({
-    id: item.id,
-    year: item.year,
-    href: item.href,
-    title: t(`publications.items.${item.id}.title`),
-    type: t(`publications.items.${item.id}.type`),
-  }));
-
   const events = eventIds.map((id) => ({
     id,
     title: t(`events.items.${id}.title`),
@@ -61,23 +55,6 @@ export async function SciencePageContent() {
     id,
     title: t(`ugs.focus.${id}.title`),
     description: t(`ugs.focus.${id}.description`),
-  }));
-
-  const reports = reportMeta.map((item) => ({
-    id: item.id,
-    year: item.year,
-    href: item.href,
-    title: t(`reports.items.${item.id}.title`),
-    type: t(`reports.items.${item.id}.type`),
-  }));
-
-  const contacts = contactIds.map((id) => ({
-    id,
-    name: t(`contacts.people.${id}.name`),
-    role: t(`contacts.people.${id}.role`),
-    bio: t(`contacts.people.${id}.bio`),
-    email: t(`contacts.people.${id}.email`),
-    phone: t(`contacts.people.${id}.phone`),
   }));
 
   return (
@@ -133,8 +110,7 @@ export async function SciencePageContent() {
         description={t("publications.description")}
       >
         <DocumentYearFilter
-          documents={publications}
-          years={[...documentYears]}
+          documents={documents.publications}
           allLabel={t("filters.all")}
           emptyLabel={t("publications.empty")}
         />
@@ -168,8 +144,7 @@ export async function SciencePageContent() {
         description={t("reports.description")}
       >
         <DocumentYearFilter
-          documents={reports}
-          years={[...documentYears]}
+          documents={documents.reports}
           allLabel={t("filters.all")}
           emptyLabel={t("reports.empty")}
         />
@@ -181,7 +156,7 @@ export async function SciencePageContent() {
         title={t("contacts.title")}
         description={t("contacts.description")}
       >
-        <SciencePeopleGrid people={contacts} featuredFirst />
+        <TeamPeopleGrid people={team.contacts} featuredFirst />
       </ContentSection>
     </SciencePageShell>
   );

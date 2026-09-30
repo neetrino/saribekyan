@@ -1,4 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 import {
   clinicGalleryImages,
@@ -8,25 +10,19 @@ import {
   hospitalGalleryIds,
   hospitalPracticeIds,
   hospitalServiceIds,
-  hospitalSpecialistIds,
   hospitalVideoIds,
 } from "../content/meta";
-import {
-  mapGallery,
-  mapInfoItems,
-  mapPeople,
-  mapVideos,
-} from "../content/map-items";
+import { mapGallery, mapInfoItems, mapVideos } from "../content/map-items";
 import { ClinicContact } from "./clinic-contact";
 import { ClinicGallery } from "./clinic-gallery";
 import { ClinicImageCards } from "./clinic-image-cards";
 import { ClinicInfoGrid } from "./clinic-info-grid";
 import { ClinicSection } from "./clinic-section";
-import { ClinicSpecialists } from "./clinic-specialists";
 import { ClinicVideos } from "./clinic-videos";
 
 export async function HospitalsContent() {
   const t = await getTranslations("clinics");
+  const team = await getTeamPageMembers("clinics-hospitals", await getLocale());
 
   const facilities = hospitalFacilityCards.map((card) => ({
     ...card,
@@ -103,9 +99,7 @@ export async function HospitalsContent() {
         badge={t("sections.specialists")}
         title={t("sections.specialists")}
       >
-        <ClinicSpecialists
-          people={mapPeople(t, "hospitals.specialists", hospitalSpecialistIds)}
-        />
+        <TeamPeopleGrid people={team.specialists} featuredFirst />
       </ClinicSection>
 
       <ClinicSection

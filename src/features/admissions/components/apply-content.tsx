@@ -1,5 +1,6 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
+import { getPageDocuments } from "@/features/documents";
 import { siteConfig } from "@/shared/config/site";
 
 import { ApplicationForms } from "./application-forms";
@@ -7,7 +8,11 @@ import { ContentSection } from "./content-section";
 import { InfoCards } from "./info-cards";
 
 export async function ApplyContent() {
-  const t = await getTranslations("admissions.apply");
+  const locale = await getLocale();
+  const [t, documents] = await Promise.all([
+    getTranslations("admissions.apply"),
+    getPageDocuments("admissions-apply", locale),
+  ]);
 
   const submitItems = [
     {
@@ -30,7 +35,7 @@ export async function ApplyContent() {
         title={t("forms.title")}
         description={t("forms.description")}
       >
-        <ApplicationForms />
+        <ApplicationForms forms={documents.forms} />
       </ContentSection>
 
       <ContentSection

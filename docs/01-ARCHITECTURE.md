@@ -22,6 +22,10 @@ src/
     science/           # research, projects, publications, SSS, reports
     contact/           # contact details, map, validated contact form
     international/     # international office, partners, memoranda, exchanges
+    team/              # unified Team Members: registry, public cards, admin (team/admin)
+    documents/         # unified PDF Documents: registry, public lists, admin (documents/admin)
+    admin-auth/        # admin login, signed session cookie, requireAdmin guard
+    admin-shell/       # admin layout, i18n, shared admin UI (drawer, placements editor, row drag)
   shared/
     ui/                # Header, Footer, primitives
     lib/               # prisma, cn, utilities
@@ -88,6 +92,62 @@ structural IDs in `features/science/content/meta.ts`.
 department contacts, working hours, social links, map embed, and a validated
 contact form (server action + Zod). Copy lives in `locales/*/contact.json`;
 contact values and map URLs live in `shared/config/site.ts`.
+
+## Team Members (CMS)
+
+One `TeamMember` table (hy/en name, position, optional bio, photo, contacts) plus
+`TeamMemberPlacement` rows (`pageKey`, `sectionKey`, `sortOrder`). A member is
+created once and can be placed in several page sections, each with its own order.
+Allowed pages/sections live in `features/team/config/placements.ts`; add a new
+entry there and render it with `getTeamPageMembers(pageKey, locale)` +
+`TeamPeopleGrid` on the public page. Admin UI: `/admin/team` (tabs All / About /
+Education / Clinics / Science are filters, plus search and page/section filter;
+drag the grip dots to reorder a single section — including a tab that has only one
+section, such as Science). Add/Edit open a right-side drawer
+(70% width) driven by the URL (`?drawer=new`, `?edit=<id>`) that keeps the active
+filters; the form switches between Armenian and English fields. Saving
+revalidates the affected public paths for both locales.
+
+Photos are upload-only (no external URLs), stored on local disk in `storage/uploads/team/` (git-ignored) and
+served by `/media/team/[file]`. Move to object storage (R2) before a serverless
+deployment.
+
+## Documents (CMS)
+
+Same model as Team Members: one `SiteDocument` table (hy/en title, optional hy/en
+description, year, PDF file) plus `SiteDocumentPlacement` rows (`pageKey`,
+`sectionKey`, `sortOrder`), so one PDF can appear in several sections. Pages and
+sections live in `features/documents/config/placements.ts`; each section declares
+`groupByYear`. Year-grouped sections (Quality reports, Accounting, Science
+publications and reports) show newest year first with the admin order inside each
+year; the others (HR, admission regulations, application forms) use the admin order.
+Year chips on the site are derived from the documents, so a new year (e.g. 2027)
+appears as soon as a document uses it. Public pages render
+`getPageDocuments(pageKey, locale)` with `DocumentYearFilter` / `DocumentList`
+(or the admissions `PdfDownloadList` / `ApplicationForms`).
+
+Admin UI: `/admin/documents` — tabs All / About Us / Admissions / Science are
+filters; search plus page/section/year filters; drag reorder is enabled when the
+list is exactly one ordered group (one section, and one year for year-grouped
+sections). The drawer form has hy/en fields, PDF upload/replace, a year picker
+with "add another year", and the shared placements editor.
+
+PDFs (max 10 MB, validated by `%PDF-` signature) are stored in
+`storage/uploads/documents/` and served by `/media/documents/[file]`; a replaced or
+deleted document removes its uploaded file. Seeded documents point to static
+files under `public/documents/`.
+
+Shared admin building blocks (drawer, tabs, delete button, form fields,
+placements editor, row drag, placement/search-param/form-parsing helpers) live in
+`features/admin-shell`; disk storage in `shared/lib/local-file-store.ts`.
+
+## Admin auth
+
+`/admin/*` is excluded from the i18n middleware. Single admin account
+(`ADMIN_EMAIL` + `ADMIN_PASSWORD`, constant-time comparison) and an HMAC-signed HttpOnly
+cookie (key derived from the admin credentials, so changing them invalidates sessions; 8h,
+`path=/admin`, `SameSite=Strict`). Every admin page and server action calls `requireAdmin()`.
+Planned upgrade: Auth.js with per-user accounts.
 
 ## International
 

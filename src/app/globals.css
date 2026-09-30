@@ -28,6 +28,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  cursor: default;
+  caret-color: transparent;
 }
 
 body {
@@ -35,6 +37,14 @@ body {
   color: var(--foreground);
   font-family: var(--font-montserrat), system-ui, sans-serif;
   overflow-x: hidden;
+  cursor: default;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+  caret-color: auto;
 }
 
 .font-jakarta {

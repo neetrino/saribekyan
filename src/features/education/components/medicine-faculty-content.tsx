@@ -1,23 +1,15 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
-import {
-  medicineDepartmentIds,
-  medicineLeadershipIds,
-} from "../content/meta";
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
+
+import { medicineDepartmentIds } from "../content/meta";
 import { EducationDepartments } from "./education-departments";
 import { EducationFacts } from "./education-facts";
-import { EducationLeadership } from "./education-leadership";
 import { EducationSection } from "./education-section";
 
 export async function MedicineFacultyContent() {
   const t = await getTranslations("education");
-
-  const leadership = medicineLeadershipIds.map((id) => ({
-    id,
-    name: t(`medicine.leadership.${id}.name`),
-    role: t(`medicine.leadership.${id}.role`),
-    bio: t(`medicine.leadership.${id}.bio`),
-  }));
+  const team = await getTeamPageMembers("education-medicine", await getLocale());
 
   const departments = medicineDepartmentIds.map((id) => ({
     id,
@@ -63,7 +55,7 @@ export async function MedicineFacultyContent() {
         badge={t("sections.leadership")}
         title={t("sections.leadership")}
       >
-        <EducationLeadership people={leadership} />
+        <TeamPeopleGrid people={team.leadership} featuredFirst />
       </EducationSection>
 
       <EducationSection
