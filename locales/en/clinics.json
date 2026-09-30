@@ -197,42 +197,16 @@
         "description": "Instrument processing and infection-control systems."
       }
     },
-    "specialists": {
-      "director": {
-        "name": "Clinical director",
-        "role": "Head of the medical complex",
-        "bio": "Overall coordination of clinical and teaching activity at the complex."
-      },
-      "therapy": {
-        "name": "Head of internal medicine",
-        "role": "Internal medicine service",
-        "bio": "Treatment of internal diseases and bedside teaching."
-      },
-      "surgery": {
-        "name": "Head of surgery",
-        "role": "Surgical service",
-        "bio": "Surgical care and organisation of practical training."
-      },
-      "diagnostics": {
-        "name": "Head of diagnostics",
-        "role": "Diagnostic service",
-        "bio": "Coordination of laboratory and imaging investigations."
-      },
-      "dental": {
-        "name": "Head of the dental centre",
-        "role": "Dental service",
-        "bio": "Dental treatment and supervision of student practice."
-      },
-      "coordinator": {
-        "name": "Practice coordinator",
-        "role": "Clinical teaching",
-        "bio": "Organisation of student rotations and clinical supervision."
-      }
-    },
     "gallery": {
-      "g1": { "alt": "Clinical space at the university medical complex" },
-      "g2": { "alt": "Students during clinical practice" },
-      "g3": { "alt": "Reception and consultation area" }
+      "g1": {
+        "alt": "Clinical space at the university medical complex"
+      },
+      "g2": {
+        "alt": "Students during clinical practice"
+      },
+      "g3": {
+        "alt": "Reception and consultation area"
+      }
     },
     "videos": {
       "v1": {
@@ -343,9 +317,15 @@
       }
     },
     "gallery": {
-      "g1": { "alt": "Hall of the medical simulation centre" },
-      "g2": { "alt": "Dental simulation room" },
-      "g3": { "alt": "Students during a practical session" }
+      "g1": {
+        "alt": "Hall of the medical simulation centre"
+      },
+      "g2": {
+        "alt": "Dental simulation room"
+      },
+      "g3": {
+        "alt": "Students during a practical session"
+      }
     },
     "videos": {
       "v1": {
@@ -438,32 +418,16 @@
         "description": "Equipment for clinical investigations."
       }
     },
-    "specialists": {
-      "director": {
-        "name": "Director of the complex",
-        "role": "Clinical leadership",
-        "bio": "Coordination of treatment and teaching at the complex."
-      },
-      "therapy": {
-        "name": "Internist",
-        "role": "Internal medicine service",
-        "bio": "Treatment of internal diseases and student teaching."
-      },
-      "surgery": {
-        "name": "Surgeon",
-        "role": "Surgical service",
-        "bio": "Surgical care and practical sessions."
-      },
-      "coordinator": {
-        "name": "Teaching coordinator",
-        "role": "Clinical practice",
-        "bio": "Student practice schedules and supervision."
-      }
-    },
     "gallery": {
-      "g1": { "alt": "Clinical hall of the medical complex" },
-      "g2": { "alt": "Consultation and reception area" },
-      "g3": { "alt": "Students during practice at the complex" }
+      "g1": {
+        "alt": "Clinical hall of the medical complex"
+      },
+      "g2": {
+        "alt": "Consultation and reception area"
+      },
+      "g3": {
+        "alt": "Students during practice at the complex"
+      }
     },
     "videos": {
       "v1": {
@@ -561,32 +525,16 @@
         "description": "Equipment for preclinical and technical work."
       }
     },
-    "specialists": {
-      "head": {
-        "name": "Head of the centre",
-        "role": "Dental service",
-        "bio": "Leadership of clinical and teaching work at the centre."
-      },
-      "surgeon": {
-        "name": "Oral surgeon",
-        "role": "Surgical dentistry",
-        "bio": "Outpatient surgery and practical teaching."
-      },
-      "therapist": {
-        "name": "Dental therapist",
-        "role": "Therapeutic dentistry",
-        "bio": "Therapeutic treatment and clinical sessions."
-      },
-      "hygienist": {
-        "name": "Hygiene specialist",
-        "role": "Prevention",
-        "bio": "Professional hygiene and patient education."
-      }
-    },
     "gallery": {
-      "g1": { "alt": "Treatment hall of the dental centre" },
-      "g2": { "alt": "Dental reception area" },
-      "g3": { "alt": "University dental clinic" }
+      "g1": {
+        "alt": "Treatment hall of the dental centre"
+      },
+      "g2": {
+        "alt": "Dental reception area"
+      },
+      "g3": {
+        "alt": "University dental clinic"
+      }
     },
     "videos": {
       "v1": {
@@ -684,32 +632,16 @@
         "description": "Virtual modules for diagnosis and interventions."
       }
     },
-    "specialists": {
-      "head": {
-        "name": "Head of the centre",
-        "role": "Simulation teaching",
-        "bio": "Overall leadership of simulation programmes and scenarios."
-      },
-      "instructor": {
-        "name": "Simulation instructor",
-        "role": "Clinical skills",
-        "bio": "Running scenarios and assessing students."
-      },
-      "dental": {
-        "name": "Dental instructor",
-        "role": "Preclinical rooms",
-        "bio": "Teaching and supervising phantom work."
-      },
-      "technician": {
-        "name": "Simulation technician",
-        "role": "Equipment",
-        "bio": "Preparing simulators and providing technical support."
-      }
-    },
     "gallery": {
-      "g1": { "alt": "Main hall of the simulation centre" },
-      "g2": { "alt": "Students during a simulation scenario" },
-      "g3": { "alt": "Dental simulation equipment" }
+      "g1": {
+        "alt": "Main hall of the simulation centre"
+      },
+      "g2": {
+        "alt": "Students during a simulation scenario"
+      },
+      "g3": {
+        "alt": "Dental simulation equipment"
+      }
     },
     "videos": {
       "v1": {

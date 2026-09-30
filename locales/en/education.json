@@ -76,23 +76,6 @@
     },
     "duration": "6 years",
     "qualification": "Physician",
-    "leadership": {
-      "dean": {
-        "name": "Dean",
-        "role": "Dean of the Faculty of Medicine",
-        "bio": "Overall academic and organizational leadership of the faculty."
-      },
-      "viceDean": {
-        "name": "Vice Dean",
-        "role": "Vice Dean for Academic Affairs",
-        "bio": "Coordination of the learning process and student support."
-      },
-      "methodist": {
-        "name": "Methodologist",
-        "role": "Academic methodology coordinator",
-        "bio": "Coordination of curricula and methodological support."
-      }
-    },
     "departments": {
       "humanities": {
         "title": "Department of Humanities",
@@ -137,18 +120,6 @@
     },
     "duration": "5 years",
     "qualification": "Dentist",
-    "leadership": {
-      "dean": {
-        "name": "Dean",
-        "role": "Dean of the Faculty of Dentistry",
-        "bio": "Overall leadership of academic programs and clinical practice."
-      },
-      "viceDean": {
-        "name": "Vice Dean",
-        "role": "Vice Dean for Clinical Affairs",
-        "bio": "Coordination of clinical practice and professional training."
-      }
-    },
     "departments": {
       "stomatology": {
         "title": "Department of Stomatology",

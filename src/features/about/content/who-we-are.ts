@@ -1,9 +1,4 @@
-import type {
-  AboutPerson,
-  ActivityItem,
-  TimelineItem,
-  ValueItem,
-} from "./types";
+import type { ActivityItem, TimelineItem, ValueItem } from "./types";
 
 export const whoWeAreIntro = {
   badge: "Ով ենք մենք",
@@ -102,84 +97,5 @@ export const mainActivities: ActivityItem[] = [
     title: "Միջազգային համագործակցություն",
     description:
       "Ծրագրեր և գործընկերություններ արտասահմանյան համալսարանների և կազմակերպությունների հետ։",
-  },
-];
-
-export const boardOfTrustees: AboutPerson[] = [
-  {
-    id: "bot-1",
-    name: "Անուն Ազգանուն",
-    role: "Կառավարման խորհրդի նախագահ",
-    bio: "Կառավարման խորհուրդը սահմանում է համալսարանի ռազմավարական ուղղությունները։",
-  },
-  {
-    id: "bot-2",
-    name: "Անուն Ազգանուն",
-    role: "Կառավարման խորհրդի անդամ",
-  },
-  {
-    id: "bot-3",
-    name: "Անուն Ազգանուն",
-    role: "Կառավարման խորհրդի անդամ",
-  },
-];
-
-export const academicCouncil: AboutPerson[] = [
-  {
-    id: "ac-1",
-    name: "Անուն Ազգանուն",
-    role: "Գիտական խորհրդի նախագահ",
-  },
-  {
-    id: "ac-2",
-    name: "Անուն Ազգանուն",
-    role: "Գիտական խորհրդի անդամ",
-  },
-  {
-    id: "ac-3",
-    name: "Անուն Ազգանուն",
-    role: "Գիտական խորհրդի անդամ",
-  },
-];
-
-export const rectorate: AboutPerson[] = [
-  {
-    id: "rec-1",
-    name: "Անուն Ազգանուն",
-    role: "Ռեկտոր",
-    email: "rector@saribekyan.am",
-  },
-  {
-    id: "rec-2",
-    name: "Արայիկ Գյոզալյան",
-    role: "Որակի ապահովման և կրթության բարեփոխումների գծով պրոռեկտոր",
-    email: "a.gyozalyan@saribekyan.am",
-  },
-  {
-    id: "rec-3",
-    name: "Անուն Ազգանուն",
-    role: "Ուսումնական գծով պրոռեկտոր",
-  },
-  {
-    id: "rec-4",
-    name: "Անուն Ազգանուն",
-    role: "Գիտության գծով պրոռեկտոր",
-  },
-];
-
-export const leadershipContacts: AboutPerson[] = [
-  {
-    id: "lead-1",
-    name: "Անուն Ազգանուն",
-    role: "Ռեկտորի օգնական",
-    email: "office@saribekyan.am",
-    phone: "+374 00 000000",
-  },
-  {
-    id: "lead-2",
-    name: "Անուն Ազգանուն",
-    role: "Ընդհանուր բաժնի պետ",
-    email: "admin@saribekyan.am",
-    phone: "+374 00 000001",
   },
 ];

@@ -1,28 +1,14 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { routing } from "@/i18n/routing";
+import { fontVariables } from "@/shared/config/fonts";
 import { HashScroll } from "@/shared/ui/hash-scroll";
 import { SiteFooter } from "@/shared/ui/site-footer";
 import { SiteHeader } from "@/shared/ui/site-header";
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["700", "800"],
-});
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -67,7 +53,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${montserrat.variable} ${jakarta.variable} min-h-dvh bg-white font-sans antialiased`}
+        className={`${fontVariables} min-h-dvh bg-white font-sans antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           <HashScroll />

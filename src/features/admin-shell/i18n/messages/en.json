@@ -1,0 +1,289 @@
+{
+  "brand": "Saribekyan",
+  "nav": {
+    "aria": "Admin",
+    "team": "Team members",
+    "documents": "Documents"
+  },
+  "viewSite": "View site",
+  "signOut": "Sign out",
+  "language": {
+    "aria": "Admin language",
+    "en": "EN",
+    "hy": "HY",
+    "ru": "RU"
+  },
+  "common": {
+    "close": "Close",
+    "placements": {
+      "empty": "Not shown on any page yet. Add a page and section below.",
+      "page": "Page",
+      "section": "Section",
+      "order": "Order",
+      "remove": "Remove",
+      "selectPlaceholder": "Select",
+      "add": "+ Add page / section"
+    }
+  },
+  "login": {
+    "kicker": "Saribekyan",
+    "title": "Admin panel",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "pending": "Signing in…",
+    "errors": {
+      "invalid": "Incorrect email or password.",
+      "config": "Admin access is not configured. Contact the site administrator."
+    }
+  },
+  "team": {
+    "title": "Team members",
+    "description": "One shared list of staff. Choose where each member appears on the site.",
+    "add": "+ Add member",
+    "addTitle": "Add member",
+    "editTitle": "Edit {name}",
+    "editFallback": "Edit member",
+    "tabsAria": "Member groups",
+    "tabs": {
+      "all": "All members"
+    },
+    "searchPlaceholder": "Search by name, position, email, phone",
+    "searchAria": "Search members",
+    "filterPage": "Filter by page",
+    "filterSection": "Filter by section",
+    "allPages": "All pages",
+    "allSections": "All sections",
+    "apply": "Apply",
+    "reset": "Reset",
+    "orderHint": "Drag the dots to change this section's order. The site pages use the same order.",
+    "count": {
+      "one": "{count} member",
+      "few": "{count} members",
+      "many": "{count} members",
+      "other": "{count} members"
+    },
+    "empty": "No members found.",
+    "columns": {
+      "order": "Order",
+      "member": "Member",
+      "contacts": "Contacts",
+      "shownOn": "Shown on",
+      "actions": "Actions"
+    },
+    "notShown": "Not shown on the site",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteConfirm": "Delete {name}? The member will be removed from every page.",
+    "drag": "Drag to reorder",
+    "form": {
+      "nameTitle": "Name and position",
+      "nameDescription": "Switch the language to fill in the Armenian and English versions.",
+      "photoTitle": "Photo",
+      "photoHint": "JPG, PNG or WebP, up to 2 MB.",
+      "removePhoto": "Remove photo",
+      "contactsTitle": "Contacts",
+      "email": "Email",
+      "phone": "Phone",
+      "placementsTitle": "Where to show",
+      "placementsDescription": "Choose pages, then sections of those pages (you can tick several). A member can appear in several places, each with its own order (smaller number comes first).",
+      "saving": "Saving…",
+      "save": "Save changes",
+      "create": "Add member",
+      "cancel": "Cancel",
+      "choosePhoto": "Upload photo",
+      "replacePhoto": "Replace photo",
+      "languageAria": "Content language",
+      "languageError": "has errors",
+      "langHy": "Հայերեն",
+      "langEn": "English",
+      "name": "Full name",
+      "position": "Position",
+      "bio": "Short bio"
+    }
+  },
+  "documents": {
+    "title": "Documents",
+    "description": "One shared library of PDF documents. Choose where each document appears on the site.",
+    "add": "+ Add document",
+    "addTitle": "Add document",
+    "editTitle": "Edit “{name}”",
+    "tabsAria": "Document groups",
+    "tabs": {
+      "all": "All documents"
+    },
+    "searchPlaceholder": "Search by title, description or file name",
+    "searchAria": "Search documents",
+    "filterPage": "Filter by page",
+    "filterSection": "Filter by section",
+    "filterYear": "Filter by year",
+    "allPages": "All pages",
+    "allSections": "All sections",
+    "allYears": "All years",
+    "apply": "Apply",
+    "reset": "Reset",
+    "orderHint": "Drag the dots to change the order. The site uses the same order.",
+    "orderYearHint": "On the site this section is grouped by year. Choose a year to change the order within it.",
+    "count": {
+      "one": "{count} document",
+      "few": "{count} documents",
+      "many": "{count} documents",
+      "other": "{count} documents"
+    },
+    "empty": "No documents found.",
+    "columns": {
+      "order": "Order",
+      "document": "Document",
+      "year": "Year",
+      "file": "File",
+      "shownOn": "Shown on",
+      "actions": "Actions"
+    },
+    "notShown": "Not shown on the site",
+    "open": "Open",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteConfirm": "Delete “{name}”? The PDF will be removed from every page.",
+    "drag": "Drag to reorder",
+    "form": {
+      "contentTitle": "Title and description",
+      "contentDescription": "Switch the language to fill in the Armenian and English versions.",
+      "title": "Title",
+      "description": "Description (optional)",
+      "fileTitle": "PDF file",
+      "fileHint": "PDF only, up to 10 MB. Uploading a new file replaces the current one.",
+      "chooseFile": "Upload PDF",
+      "replaceFile": "Replace PDF",
+      "selectedFile": "Selected: {name}",
+      "clearFile": "Remove selection",
+      "noFile": "No file uploaded yet.",
+      "yearTitle": "Year",
+      "yearDescription": "The site groups documents by year. If the year is not in the list, add it — it will then be available everywhere.",
+      "year": "Year",
+      "addYear": "+ Add another year…",
+      "backToYears": "Choose from list",
+      "placementsTitle": "Where to show",
+      "placementsDescription": "Choose pages, then sections of those pages (you can tick several). A document can appear in several places (smaller order number comes first). The order within a section can also be changed by dragging rows in the table.",
+      "saving": "Saving…",
+      "save": "Save changes",
+      "create": "Add document",
+      "cancel": "Cancel",
+      "languageAria": "Content language",
+      "languageError": "has errors",
+      "langHy": "Հայերեն",
+      "langEn": "English"
+    },
+    "placements": {
+      "categories": {
+        "about": "About Us",
+        "admissions": "Admissions",
+        "science": "Science"
+      },
+      "pages": {
+        "about-quality": "About Us → Quality Assurance",
+        "about-hr": "About Us → Structure → Human Resources",
+        "about-accounting": "About Us → Structure → Accounting",
+        "admissions-how-to-apply": "Admissions → How to Apply",
+        "admissions-apply": "Admissions → Application",
+        "science": "Science"
+      },
+      "sections": {
+        "about-quality": {
+          "reports": "Reports, Plans and Documents"
+        },
+        "about-hr": {
+          "documents": "Documents"
+        },
+        "about-accounting": {
+          "financial": "Financial Reports and Documents"
+        },
+        "admissions-how-to-apply": {
+          "regulations": "Regulatory Documents"
+        },
+        "admissions-apply": {
+          "forms": "Application Forms"
+        },
+        "science": {
+          "publications": "Scientific Publications",
+          "reports": "Reports"
+        }
+      }
+    }
+  },
+  "errors": {
+    "fixFields": "Please fix the highlighted fields.",
+    "invalidId": "Invalid record id.",
+    "notFound": "This member no longer exists.",
+    "saveFailed": "Could not save the member. Please try again.",
+    "documentNotFound": "This document no longer exists.",
+    "documentSaveFailed": "Could not save the document. Please try again.",
+    "tooShort": "Enter at least 2 characters.",
+    "tooLong": "This value is too long.",
+    "invalid": "This value is not valid.",
+    "email": "Invalid email.",
+    "phone": "Invalid phone.",
+    "unknownPlacement": "Unknown page or section.",
+    "duplicatePlacement": "The same page section is selected twice.",
+    "photoSize": "Photo must be 2 MB or smaller.",
+    "photoType": "Only JPG, PNG or WebP images are allowed.",
+    "fileRequired": "Upload a PDF file.",
+    "fileSize": "The PDF must be 10 MB or smaller.",
+    "fileType": "Only PDF files are allowed.",
+    "year": "Enter a valid year (1990 up to five years ahead)."
+  },
+  "placements": {
+    "categories": {
+      "about": "About Us",
+      "education": "Education",
+      "clinics": "Clinics",
+      "science": "Science"
+    },
+    "pages": {
+      "about-who-we-are": "About Us → Who We Are",
+      "about-quality": "About Us → Quality Assurance",
+      "about-hr": "About Us → Structure → Human Resources",
+      "education-medicine": "Education → Faculty of Medicine",
+      "education-dentistry": "Education → Faculty of Dentistry",
+      "clinics-hospitals": "Clinics → Hospitals",
+      "clinics-complex": "Clinics → Hospitals → Medical Complex",
+      "clinics-dental": "Clinics → Hospitals → Dental Center",
+      "clinics-simulation": "Clinics → Practical Centers → Simulation Center",
+      "science": "Science"
+    },
+    "sections": {
+      "about-who-we-are": {
+        "governance": "Board of Trustees",
+        "academic-council": "Academic Council",
+        "rectorate": "Rectorate",
+        "leadership": "Leadership"
+      },
+      "about-quality": {
+        "team": "Quality Assurance Staff"
+      },
+      "about-hr": {
+        "staff": "Department Staff"
+      },
+      "education-medicine": {
+        "leadership": "Faculty Leadership"
+      },
+      "education-dentistry": {
+        "leadership": "Faculty Leadership"
+      },
+      "clinics-hospitals": {
+        "specialists": "Medical Specialists"
+      },
+      "clinics-complex": {
+        "specialists": "Medical Specialists"
+      },
+      "clinics-dental": {
+        "specialists": "Center Specialists"
+      },
+      "clinics-simulation": {
+        "specialists": "Center Specialists"
+      },
+      "science": {
+        "contacts": "Research Leads"
+      }
+    }
+  }
+}

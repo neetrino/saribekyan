@@ -1,11 +1,12 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { getPageDocuments } from "@/features/documents";
 
 import {
   applicationStepIds,
   conditionIds,
   deadlineIds,
   internationalRequirementIds,
-  regulationFiles,
   requiredDocumentIds,
 } from "../content/hub";
 import { AdmissionsCta } from "./admissions-cta";
@@ -16,7 +17,12 @@ import { PdfDownloadList } from "./pdf-download-list";
 import { ProcessSteps } from "./process-steps";
 
 export async function HowToApplyContent() {
-  const t = await getTranslations("admissions.howToApply");
+  const locale = await getLocale();
+  const [t, tDocuments, pageDocuments] = await Promise.all([
+    getTranslations("admissions.howToApply"),
+    getTranslations("documents"),
+    getPageDocuments("admissions-how-to-apply", locale),
+  ]);
 
   const steps = applicationStepIds.map((id) => ({
     id,
@@ -41,14 +47,6 @@ export async function HowToApplyContent() {
     id,
     title: t(`international.${id}.title`),
     description: t(`international.${id}.description`),
-  }));
-
-  const regulations = regulationFiles.map((file) => ({
-    id: file.id,
-    title: t(`regulations.${file.id}.title`),
-    description: t(`regulations.${file.id}.description`),
-    href: file.href,
-    meta: String(file.year),
   }));
 
   const deadlines = deadlineIds.map((id) => ({
@@ -102,7 +100,7 @@ export async function HowToApplyContent() {
         title={t("regulations.title")}
         description={t("regulations.description")}
       >
-        <PdfDownloadList items={regulations} />
+        <PdfDownloadList documents={pageDocuments.regulations} emptyLabel={tDocuments("empty")} />
       </ContentSection>
 
       <ContentSection

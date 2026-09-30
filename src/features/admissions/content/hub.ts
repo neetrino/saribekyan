@@ -106,24 +106,6 @@ export const internationalRequirementIds = [
   "residence",
 ] as const;
 
-export const regulationFiles = [
-  {
-    id: "admissions",
-    href: "/documents/admissions/admissions-regulation.pdf",
-    year: 2026,
-  },
-  {
-    id: "tuition",
-    href: "/documents/admissions/tuition-payment-rules.pdf",
-    year: 2026,
-  },
-  {
-    id: "internal",
-    href: "/documents/admissions/internal-academic-rules.pdf",
-    year: 2026,
-  },
-] as const;
-
 export const deadlineIds = [
   "local",
   "international",
@@ -170,18 +152,3 @@ export const paymentTermIds = [
 export const paymentScheduleIds = ["first", "second"] as const;
 
 export const paymentMethodIds = ["transfer", "cashier", "online"] as const;
-
-export const applicationForms = [
-  {
-    id: "undergraduate",
-    href: "/documents/admissions/undergraduate-application.pdf",
-  },
-  {
-    id: "international",
-    href: "/documents/admissions/international-application.pdf",
-  },
-  {
-    id: "cpd",
-    href: "/documents/admissions/cpd-application.pdf",
-  },
-] as const;

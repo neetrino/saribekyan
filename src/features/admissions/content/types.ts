@@ -18,11 +18,3 @@ export type InfoCard = {
   title: string;
   description: string;
 };
-
-export type DownloadItem = {
-  id: string;
-  title: string;
-  description: string;
-  href: string;
-  meta?: string;
-};

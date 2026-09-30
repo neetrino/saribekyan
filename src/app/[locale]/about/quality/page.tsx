@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import {
   AboutPageShell,
   ContentSection,
-  DocumentYearFilter,
   InfoGrid,
-  PeopleGrid,
   anqaInfo,
   qualityDirections,
-  qualityDocuments,
   qualityIntro,
-  qualityTeam,
   aboutPageSections,
 } from "@/features/about";
+import { DocumentYearFilter, getPageDocuments } from "@/features/documents";
+import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 export const metadata: Metadata = {
   title: "Որակի ապահովում",
@@ -28,6 +26,11 @@ type PageProps = {
 export default async function QualityPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const [team, documents, t] = await Promise.all([
+    getTeamPageMembers("about-quality", locale),
+    getPageDocuments("about-quality", locale),
+    getTranslations("documents"),
+  ]);
 
   return (
     <AboutPageShell
@@ -43,7 +46,7 @@ export default async function QualityPage({ params }: PageProps) {
         title="Որակի ապահովման բաժնի ներկայացում"
         description="Պատասխանատու անձինք՝ լուսանկարով և կոնտակտային տվյալներով։"
       >
-        <PeopleGrid people={qualityTeam} featuredFirst />
+        <TeamPeopleGrid people={team.team} featuredFirst />
       </ContentSection>
 
       <ContentSection
@@ -78,7 +81,7 @@ export default async function QualityPage({ params }: PageProps) {
         title="Հաշվետվություններ, պլաններ և փաստաթղթեր"
         description="Ինքնավերլուծության հաշվետվություններ և 2024 թվականից սկսած տարեկան փաստաթղթեր։"
       >
-        <DocumentYearFilter documents={qualityDocuments} years={[2026, 2025, 2024]} />
+        <DocumentYearFilter documents={documents.reports} allLabel={t("all")} emptyLabel={t("empty")} />
       </ContentSection>
     </AboutPageShell>
   );

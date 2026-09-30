@@ -31,7 +31,7 @@
 | 2.2 | Ոճեր | Tailwind CSS 4.x | ✅ | design tokens CSS vars |
 | 2.3 | UI Kit | custom (Figma) | ✅ | |
 | 2.6 | Data fetching | Server Components | ✅ | |
-| 2.7 | i18n | next-intl (hy, en) | ✅ | `/[locale]/…`, `locales/{hy,en}/*.json` |
+| 2.7 | i18n | next-intl (hy, en) | ✅ | Կայք՝ hy, en. Ադմին՝ en, hy, ru (cookie, առանձին կատալոգ) |
 | 2.8 | SEO | Metadata API | ✅ | |
 | 2.9 | Մուգ թեմա | պետք չէ | ➖ | |
 | 2.10 | Անիմացիաներ | CSS transitions | ✅ | |
@@ -62,7 +62,7 @@
 
 | # | Պարամետր | Որոշում | Ստատուս | Նշում |
 |---|----------|---------|---------|-------|
-| 5.1 | Լուծում | Auth.js — հետագա (ադմին) | ⬜ | phase 2 |
+| 5.1 | Լուծում | Ադմին՝ env password hash (scrypt) + HMAC cookie; Auth.js — հետագա | 🔄 | `features/admin-auth` |
 
 ---
 

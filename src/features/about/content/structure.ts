@@ -1,10 +1,4 @@
-import type {
-  AboutDocument,
-  AboutPerson,
-  ActivityItem,
-  OrgNode,
-  StructureUnit,
-} from "./types";
+import type { ActivityItem, OrgNode, StructureUnit } from "./types";
 
 export const structureIntro = {
   badge: "Կառուցվածք",
@@ -67,7 +61,7 @@ export const structureUnits: StructureUnit[] = [
     slug: "accounting",
     title: "Հաշվապահություն",
     description:
-      "2025–2026 թվականների փաստաթղթեր և ֆինանսական հաշվետվություններ։",
+      "Ֆինանսական հաշվետվություններ և փաստաթղթեր ըստ տարիների։",
     href: "/about/structure/accounting",
   },
   {
@@ -88,51 +82,6 @@ export const hrIntro = {
     "Բաժինը ապահովում է աշխատակազմի կառավարումը, կանոնակարգերի կիրառումը և տարեկան հաշվետվությունը։",
 } as const;
 
-export const hrStaff: AboutPerson[] = [
-  {
-    id: "hr-1",
-    name: "Անուն Ազգանուն",
-    role: "Մարդկային ռեսուրսների բաժնի պետ",
-    email: "hr@saribekyan.am",
-    phone: "+374 00 000010",
-  },
-  {
-    id: "hr-2",
-    name: "Անուն Ազգանուն",
-    role: "Կադրային մասնագետ",
-    email: "hr.specialist@saribekyan.am",
-  },
-  {
-    id: "hr-3",
-    name: "Անուն Ազգանուն",
-    role: "Ընդհանուր բաժնի մասնագետ",
-  },
-];
-
-export const hrDocuments: AboutDocument[] = [
-  {
-    id: "hr-doc-1",
-    title: "Մարդկային ռեսուրսների կառավարման կանոնակարգ",
-    year: 2024,
-    type: "Կանոնակարգ",
-    href: "#",
-  },
-  {
-    id: "hr-doc-2",
-    title: "Աշխատակազմի տարեկան հաշվետվություն",
-    year: 2024,
-    type: "Տարեկան հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "hr-doc-3",
-    title: "Աշխատակազմի տարեկան հաշվետվություն",
-    year: 2025,
-    type: "Տարեկան հաշվետվություն",
-    href: "#",
-  },
-];
-
 export const accountingIntro = {
   badge: "Հաշվապահություն",
   title: "Հաշվապահության բաժին",
@@ -140,51 +89,6 @@ export const accountingIntro = {
   description:
     "Ֆինանսական փաստաթղթեր, տարեկան հաշվետվություններ և պաշտոնական հաշվետվություններ ըստ տարիների։",
 } as const;
-
-export const accountingDocuments: AboutDocument[] = [
-  {
-    id: "acc-2025-1",
-    title: "Ֆինանսական հաշվետվություն",
-    year: 2025,
-    type: "Ֆինանսական հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "acc-2025-2",
-    title: "Բյուջեի կատարման հաշվետվություն",
-    year: 2025,
-    type: "Հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "acc-2025-3",
-    title: "Հաշվապահական քաղաքականություն",
-    year: 2025,
-    type: "Փաստաթուղթ",
-    href: "#",
-  },
-  {
-    id: "acc-2026-1",
-    title: "Ֆինանսական հաշվետվություն",
-    year: 2026,
-    type: "Ֆինանսական հաշվետվություն",
-    href: "#",
-  },
-  {
-    id: "acc-2026-2",
-    title: "Բյուջեի նախագիծ",
-    year: 2026,
-    type: "Փաստաթուղթ",
-    href: "#",
-  },
-  {
-    id: "acc-2026-3",
-    title: "Եռամսյակային ֆինանսական ամփոփագիր",
-    year: 2026,
-    type: "Հաշվետվություն",
-    href: "#",
-  },
-];
 
 export const facilitiesIntro = {
   badge: "Տնտեսական մաս",

@@ -89,6 +89,79 @@ model AdmissionStep {
   @@index([sortOrder])
 }
 
+/// Single source of truth for university staff. Where a member appears on the
+/// site is defined by `TeamMemberPlacement` rows (page + section + order).
+model TeamMember {
+  id         String                @id @default(cuid())
+  nameHy     String
+  nameEn     String
+  positionHy String
+  positionEn String
+  bioHy      String?
+  bioEn      String?
+  photoUrl   String?
+  email      String?
+  phone      String?
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+  placements TeamMemberPlacement[]
+
+  @@index([nameHy])
+  @@index([nameEn])
+}
+
+/// `pageKey` / `sectionKey` are validated against the code registry in
+/// `src/features/team/config/placements.ts`.
+model TeamMemberPlacement {
+  id         String     @id @default(cuid())
+  memberId   String
+  member     TeamMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  pageKey    String
+  sectionKey String
+  sortOrder  Int        @default(0)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@unique([memberId, pageKey, sectionKey])
+  @@index([pageKey, sectionKey, sortOrder])
+}
+
+/// Single library of downloadable PDF documents. Where a document appears on the site
+/// is defined by `SiteDocumentPlacement` rows (page + section + order).
+model SiteDocument {
+  id            String                  @id @default(cuid())
+  titleHy       String
+  titleEn       String
+  descriptionHy String?
+  descriptionEn String?
+  year          Int
+  fileUrl       String
+  fileName      String
+  fileSize      Int
+  createdAt     DateTime                @default(now())
+  updatedAt     DateTime                @updatedAt
+  placements    SiteDocumentPlacement[]
+
+  @@index([year])
+  @@index([titleHy])
+}
+
+/// `pageKey` / `sectionKey` are validated against the code registry in
+/// `src/features/documents/config/placements.ts`.
+model SiteDocumentPlacement {
+  id         String       @id @default(cuid())
+  documentId String
+  document   SiteDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  pageKey    String
+  sectionKey String
+  sortOrder  Int          @default(0)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@unique([documentId, pageKey, sectionKey])
+  @@index([pageKey, sectionKey, sortOrder])
+}
+
 model SiteSetting {
   id        String   @id @default(cuid())
   key       String   @unique

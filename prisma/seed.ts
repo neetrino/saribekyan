@@ -1,5 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 
+import { seedSiteDocuments } from "./seed-documents";
+import { seedTeam } from "./seed-team";
+
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
@@ -168,6 +171,9 @@ async function main(): Promise<void> {
       },
     ],
   });
+
+  await seedTeam(prisma);
+  await seedSiteDocuments(prisma);
 }
 
 main()
