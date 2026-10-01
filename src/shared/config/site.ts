@@ -98,7 +98,7 @@ export const footerColumns: FooterColumn[] = [
       { labelKey: "about", href: "/about" },
       { labelKey: "governance", href: "/about/who-we-are#governance" },
       { labelKey: "faculties", href: "/education" },
-      { labelKey: "documents", href: "/documents" },
+      { labelKey: "documents", href: "/admissions/documents" },
     ],
   },
   {
