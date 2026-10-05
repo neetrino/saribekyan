@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { AdminDeleteButton } from "@/features/admin-shell/components/admin-delete-button";
+import { AdminEditLink, AdminTrashIcon, adminIconDeleteClass } from "@/features/admin-shell/components/admin-row-actions";
 import { DragHandle } from "@/features/admin-shell/components/drag-handle";
 import { useRowDrag } from "@/features/admin-shell/components/use-row-drag";
 import { useAdminI18n } from "@/features/admin-shell/i18n/admin-i18n-provider";
@@ -61,7 +61,7 @@ export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembe
             <th className="px-4 py-3">{labels.member}</th>
             <th className="px-4 py-3">{labels.contacts}</th>
             <th className="px-4 py-3">{labels.shownOn}</th>
-            <th className="px-4 py-3 text-right">{labels.actions}</th>
+            <th className="px-4 py-3 text-center">{labels.actions}</th>
           </tr>
         </thead>
         <tbody>
@@ -82,18 +82,19 @@ export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembe
                 {row.phone ? <p>{row.phone}</p> : null}
               </td>
               <td className="px-4 py-4"><ShownOn row={row} empty={labels.notShown} /></td>
-              <td className="px-4 py-4">
-                <div className="flex justify-end gap-4">
-                  <Link href={row.editHref} scroll={false} className="text-sm font-semibold text-brand-teal hover:underline">
-                    {labels.edit}
-                  </Link>
+              <td className="px-4 py-4 align-middle">
+                <div className="flex items-center justify-center gap-1">
+                  <AdminEditLink href={row.editHref} label={labels.edit} />
                   <AdminDeleteButton
                     action={deleteTeamMember}
                     id={row.id}
                     returnTo={row.returnTo}
                     label={t("team.delete")}
                     confirmMessage={t("team.deleteConfirm", { name: row.nameHy })}
-                  />
+                    className={adminIconDeleteClass}
+                  >
+                    <AdminTrashIcon />
+                  </AdminDeleteButton>
                 </div>
               </td>
             </tr>

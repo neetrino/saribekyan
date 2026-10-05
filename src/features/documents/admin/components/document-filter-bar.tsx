@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { AdminSearchField } from "@/features/admin-shell/components/admin-search-field";
 import {
   adminInputClass,
   adminPrimaryButtonClass,
@@ -31,13 +32,11 @@ export function DocumentFilterBar({ filters, years }: DocumentFilterBarProps) {
   return (
     <form method="get" action="/admin/documents" className="flex flex-wrap items-end gap-3">
       {filters.tab !== "all" ? <input type="hidden" name="tab" value={filters.tab} /> : null}
-      <input
-        type="search"
+      <AdminSearchField
         name="q"
         defaultValue={filters.q}
         placeholder={t("documents.searchPlaceholder")}
-        aria-label={t("documents.searchAria")}
-        className={`${adminInputClass} min-w-64 flex-1`}
+        ariaLabel={t("documents.searchAria")}
       />
       <select name="page" value={pageKey} onChange={(event) => setPageKey(event.target.value)} aria-label={t("documents.filterPage")} className={selectClass}>
         <option value="">{t("documents.allPages")}</option>

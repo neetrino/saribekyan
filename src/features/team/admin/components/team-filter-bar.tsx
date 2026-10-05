@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { AdminSearchField } from "@/features/admin-shell/components/admin-search-field";
 import {
   adminInputClass,
   adminPrimaryButtonClass,
@@ -28,13 +29,11 @@ export function TeamFilterBar({ filters }: TeamFilterBarProps) {
   return (
     <form method="get" action="/admin/team" className="flex flex-wrap items-end gap-3">
       {filters.tab !== "all" ? <input type="hidden" name="tab" value={filters.tab} /> : null}
-      <input
-        type="search"
+      <AdminSearchField
         name="q"
         defaultValue={filters.q}
         placeholder={t("team.searchPlaceholder")}
-        aria-label={t("team.searchAria")}
-        className={`${adminInputClass} min-w-64 flex-1`}
+        ariaLabel={t("team.searchAria")}
       />
       <select
         name="page"
