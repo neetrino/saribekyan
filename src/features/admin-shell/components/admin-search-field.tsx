@@ -10,7 +10,7 @@ type AdminSearchFieldProps = {
 /** Search input with a leading magnifying-glass icon. */
 export function AdminSearchField({ name, defaultValue, placeholder, ariaLabel }: AdminSearchFieldProps) {
   return (
-    <div className="relative min-w-64 flex-1">
+    <div className="relative w-full">
       <svg
         viewBox="0 0 24 24"
         fill="none"

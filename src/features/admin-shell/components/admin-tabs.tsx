@@ -26,7 +26,7 @@ export function AdminTabs({ tabs, activeKey, ariaLabel }: AdminTabsProps) {
             href={tab.href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
+              "rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]",
               active
                 ? "bg-brand-ink text-white"
                 : "bg-white text-brand-ink ring-1 ring-black/10 hover:bg-[#f5f5f5]",

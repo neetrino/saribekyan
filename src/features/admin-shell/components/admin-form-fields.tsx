@@ -88,7 +88,12 @@ const languages: ContentLanguage[] = ["hy", "en"];
 
 export function LanguageSwitch({ value, onChange, labels, withErrors, ariaLabel, errorLabel }: LanguageSwitchProps) {
   return (
-    <div role="tablist" aria-label={ariaLabel} className="inline-flex rounded-full bg-[#f5f5f5] p-1">
+    <div role="tablist" aria-label={ariaLabel} className="relative inline-flex gap-1 rounded-full bg-[#f5f5f5] p-1">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1 bottom-1 left-1 w-[calc(50%-0.375rem)] rounded-full bg-brand-ink transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
+        style={{ transform: value === "en" ? "translateX(calc(100% + 0.25rem))" : "translateX(0)" }}
+      />
       {languages.map((language) => (
         <button
           key={language}
@@ -97,8 +102,8 @@ export function LanguageSwitch({ value, onChange, labels, withErrors, ariaLabel,
           aria-selected={value === language}
           onClick={() => onChange(language)}
           className={cn(
-            "relative rounded-full px-4 py-1.5 text-sm font-semibold transition-colors",
-            value === language ? "bg-brand-ink text-white" : "text-brand-ink hover:bg-white",
+            "relative z-10 min-w-24 flex-1 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-300",
+            value === language ? "text-white" : "text-brand-ink hover:bg-white/70",
           )}
         >
           {labels[language]}
