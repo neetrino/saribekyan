@@ -19,7 +19,7 @@ export default async function AdminRootLayout({ children }: AdminRootLayoutProps
 
   return (
     <html lang={locale}>
-      <body className={`${fontVariables} min-h-dvh bg-[#f5f5f5] font-sans text-brand-ink antialiased`}>
+      <body className={`${fontVariables} min-h-dvh bg-[#f4f1ec] font-sans text-brand-ink antialiased`}>
         <AdminI18nProvider locale={locale} messages={messages}>
           {children}
         </AdminI18nProvider>
