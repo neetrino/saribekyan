@@ -14,6 +14,7 @@ import {
   type PlacementRow,
 } from "../lib/placement-rows";
 import { adminInputClass, adminSecondaryButtonClass } from "./admin-field-styles";
+import { useAdminConfirm } from "./admin-confirm-dialog";
 import { CheckboxSelect, type CheckboxOption } from "./checkbox-select";
 import { fieldErrorAttr } from "./use-scroll-to-first-error";
 
@@ -54,6 +55,7 @@ export function PlacementsField({
   dragOrder = false,
 }: PlacementsFieldProps) {
   const { t } = useAdminI18n();
+  const { ask, dialog } = useAdminConfirm();
   const listRef = useRef<HTMLDivElement>(null);
   const dragFrom = useRef<number | null>(null);
   const [rows, setRows] = useState<PlacementRow[]>(() => {
@@ -163,8 +165,9 @@ export function PlacementsField({
             <button
               type="button"
               onClick={() => {
-                if (!window.confirm(t("common.confirmDelete"))) return;
-                setRows((current) => current.filter((item) => item.uid !== row.uid));
+                ask(t("common.confirmDelete"), () => {
+                  setRows((current) => current.filter((item) => item.uid !== row.uid));
+                });
               }}
               className="py-2.5 text-sm font-semibold text-red-600 hover:underline"
             >
@@ -174,6 +177,7 @@ export function PlacementsField({
         </div>
       ))}
       {error ? <p {...fieldErrorAttr} className="text-sm text-red-600">{t(error)}</p> : null}
+      {dialog}
       {multipleRows ? (
         <button
           type="button"

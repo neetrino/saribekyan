@@ -15,6 +15,9 @@
   },
   "common": {
     "close": "Close",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirmTitle": "Confirm deletion",
     "confirmDelete": "Delete this? This cannot be undone.",
     "placements": {
       "empty": "Not shown on any page yet. Add a page and section below.",

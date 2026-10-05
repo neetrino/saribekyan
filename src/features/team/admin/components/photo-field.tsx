@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
 
 import { adminSecondaryButtonClass } from "@/features/admin-shell/components/admin-field-styles";
+import { useAdminConfirm } from "@/features/admin-shell/components/admin-confirm-dialog";
 import { fieldErrorAttr } from "@/features/admin-shell/components/use-scroll-to-first-error";
 import { useAdminI18n } from "@/features/admin-shell/i18n/admin-i18n-provider";
 
@@ -17,6 +18,7 @@ type PhotoFieldProps = {
 /** Upload-only photo input with preview; the stored photo is kept unless replaced or removed. */
 export function PhotoField({ memberName, currentUrl, error }: PhotoFieldProps) {
   const { t } = useAdminI18n();
+  const { ask, dialog } = useAdminConfirm();
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [remove, setRemove] = useState(false);
@@ -69,8 +71,11 @@ export function PhotoField({ memberName, currentUrl, error }: PhotoFieldProps) {
               name="removePhoto"
               checked={remove}
               onChange={(e) => {
-                if (e.target.checked && !window.confirm(t("common.confirmDelete"))) return;
-                setRemove(e.target.checked);
+                if (!e.target.checked) {
+                  setRemove(false);
+                  return;
+                }
+                ask(t("common.confirmDelete"), () => setRemove(true));
               }}
             />
             {t("team.form.removePhoto")}
@@ -78,6 +83,7 @@ export function PhotoField({ memberName, currentUrl, error }: PhotoFieldProps) {
         ) : null}
         {error ? <p {...fieldErrorAttr} className="text-sm text-red-600">{t(error)}</p> : null}
       </div>
+      {dialog}
     </div>
   );
 }
