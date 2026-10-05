@@ -105,7 +105,7 @@ export function PlacementsField({
         <div
           key={row.uid}
           data-placement-index={index}
-          className={`grid items-end gap-3 rounded-2xl bg-[#f5f5f5] p-4 ${dragOrder ? "grid-cols-[auto_minmax(0,2fr)_minmax(0,1.5fr)_auto]" : "md:grid-cols-[2fr_1.5fr_110px_auto]"}`}
+          className={`grid min-w-0 items-end gap-3 rounded-2xl bg-[#f5f5f5] p-4 ${dragOrder ? "grid-cols-[auto_minmax(0,2fr)_minmax(0,1.5fr)_auto]" : "md:grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)_4.5rem_auto]"}`}
         >
           {dragOrder ? (
             <button
@@ -150,14 +150,14 @@ export function PlacementsField({
             />
           </div>
           {dragOrder ? null : (
-            <label className="block">
+            <label className="block w-[4.5rem]">
               <span className="text-xs font-medium text-[#6f6f6f]">{t("common.placements.order")}</span>
               <input
                 type="number"
                 min={0}
                 value={row.sortOrder}
                 onChange={(e) => update(row.uid, (r) => ({ ...r, sortOrder: Number(e.target.value) }))}
-                className={`${adminInputClass} mt-1`}
+                className={`${adminInputClass} mt-1 px-2 text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
               />
             </label>
           )}
