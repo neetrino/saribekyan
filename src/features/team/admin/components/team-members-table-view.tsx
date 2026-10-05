@@ -57,7 +57,7 @@ export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembe
       <table ref={drag.tableRef} className="w-full min-w-[860px] text-left text-sm">
         <thead className="border-b border-black/5 text-xs uppercase tracking-wide text-[#6f6f6f]">
           <tr>
-            {order ? <th className="w-14 px-4 py-3">{labels.order}</th> : null}
+            {order ? <th className="w-14 px-4 py-3 text-center">{labels.order}</th> : null}
             <th className="px-4 py-3">{labels.member}</th>
             <th className="px-4 py-3">{labels.contacts}</th>
             <th className="px-4 py-3">{labels.shownOn}</th>
@@ -68,12 +68,15 @@ export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembe
           {drag.rows.map((row, index) => (
             <tr
               key={row.id}
+              data-drag-id={row.id}
               data-index={index}
               className={cn("border-b border-black/5 align-top last:border-0", drag.activeIndex === index && "bg-[#f5f5f5]")}
             >
               {order ? (
-                <td className="px-4 py-4">
-                  <DragHandle index={index} label={labels.drag} drag={drag} />
+                <td className="px-4 py-4 align-middle">
+                  <div className="flex justify-center">
+                    <DragHandle index={index} label={labels.drag} drag={drag} />
+                  </div>
                 </td>
               ) : null}
               <td className="px-4 py-4"><MemberIdentity row={row} /></td>

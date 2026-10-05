@@ -34,6 +34,7 @@ export async function generateMetadata({
     },
     description: t("brand.description"),
     metadataBase: new URL(process.env.APP_URL ?? "http://localhost:3000"),
+    icons: { icon: "/favicon.png", apple: "/favicon.png" },
   };
 }
 

@@ -8,6 +8,7 @@ import { fontVariables } from "@/shared/config/fonts";
 export const metadata: Metadata = {
   title: { default: "Admin", template: "%s | Admin" },
   robots: { index: false, follow: false },
+  icons: { icon: "/favicon.png", apple: "/favicon.png" },
 };
 
 type AdminRootLayoutProps = {
