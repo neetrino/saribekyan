@@ -61,7 +61,7 @@ export function AdminDrawerPanel({ title, closeHref, headerActions, children }: 
       <div
         className={cn(
           "relative h-full w-full transition-transform duration-300 ease-out md:w-[70vw]",
-          shown ? "translate-x-0" : "translate-x-full",
+          shown ? "translate-x-0" : "translate-x-[calc(100%+3rem)]",
         )}
       >
         <button
