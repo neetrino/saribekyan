@@ -36,7 +36,7 @@ export function AdmissionsSubnav({ items, ariaLabel }: AdmissionsSubnavProps) {
   return (
     <nav
       aria-label={ariaLabel}
-      className="mb-12 overflow-x-auto rounded-[80px] bg-[#ededed] p-2 sm:p-3"
+      className="mb-12 w-fit max-w-full overflow-x-auto rounded-[80px] bg-[#ededed] p-2 sm:p-3"
     >
       <ul className="flex min-w-max items-center gap-2">
         {items.map((item) => {

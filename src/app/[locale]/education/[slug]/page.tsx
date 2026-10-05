@@ -74,7 +74,6 @@ export default async function EducationProgramPage({
       title={t("title")}
       highlight={t("highlight")}
       description={t("description")}
-      currentLabel={t("badge")}
       compact
       sectionNav={sectionNav}
     >
