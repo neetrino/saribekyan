@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { cn } from "@/shared/lib/cn";
+import { DragScrollNav } from "@/shared/ui/drag-scroll-nav";
 
 type ScienceSectionNavItem = {
   id: string;
@@ -57,9 +58,9 @@ export function ScienceSectionNav({
   }, [items]);
 
   return (
-    <nav
-      aria-label={ariaLabel}
-      className="mb-12 overflow-x-auto rounded-[80px] bg-[#ededed] p-2 sm:p-3"
+    <DragScrollNav
+      ariaLabel={ariaLabel}
+      className="mb-12 w-fit max-w-full rounded-[80px] bg-[#ededed] p-2 sm:p-3"
     >
       <ul className="flex min-w-max items-center gap-2">
         {items.map((item) => {
@@ -82,6 +83,6 @@ export function ScienceSectionNav({
           );
         })}
       </ul>
-    </nav>
+    </DragScrollNav>
   );
 }

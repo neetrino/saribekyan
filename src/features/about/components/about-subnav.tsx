@@ -2,6 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
+import { DragScrollNav } from "@/shared/ui/drag-scroll-nav";
 
 type AboutSubnavItem = {
   label: string;
@@ -17,9 +18,9 @@ export function AboutSubnav({ items, ariaLabel }: AboutSubnavProps) {
   const pathname = usePathname();
 
   return (
-    <nav
-      aria-label={ariaLabel}
-      className="mb-12 w-fit max-w-full overflow-x-auto rounded-[80px] bg-[#ededed] p-2 sm:p-3"
+    <DragScrollNav
+      ariaLabel={ariaLabel}
+      className="mb-12 w-fit max-w-full rounded-[80px] bg-[#ededed] p-2 sm:p-3"
     >
       <ul className="flex min-w-max items-center gap-2">
         {items.map((item) => {
@@ -46,6 +47,6 @@ export function AboutSubnav({ items, ariaLabel }: AboutSubnavProps) {
           );
         })}
       </ul>
-    </nav>
+    </DragScrollNav>
   );
 }
