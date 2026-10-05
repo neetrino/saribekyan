@@ -57,7 +57,7 @@ export function DragScrollNav({ ariaLabel, className, children }: DragScrollNavP
   }, [syncEdges]);
 
   useEffect(() => {
-    const onMove = (event: PointerEvent) => {
+    const onMove = (event: globalThis.PointerEvent) => {
       const state = dragRef.current;
       const element = scrollerRef.current;
       if (!state || !element || state.pointerId !== event.pointerId) return;
@@ -69,7 +69,7 @@ export function DragScrollNav({ ariaLabel, className, children }: DragScrollNavP
       }
       element.scrollLeft = state.startScrollLeft - delta;
     };
-    const onUp = (event: PointerEvent) => {
+    const onUp = (event: globalThis.PointerEvent) => {
       const state = dragRef.current;
       const element = scrollerRef.current;
       if (!state || state.pointerId !== event.pointerId) return;
