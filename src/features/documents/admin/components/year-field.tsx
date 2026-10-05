@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { AdminSelect } from "@/features/admin-shell/components/admin-select";
 import { adminInputClass } from "@/features/admin-shell/components/admin-field-styles";
 import { fieldErrorAttr } from "@/features/admin-shell/components/use-scroll-to-first-error";
 import { useAdminI18n } from "@/features/admin-shell/i18n/admin-i18n-provider";
@@ -46,26 +47,24 @@ export function YearField({ years, maxYear, defaultValue, error }: YearFieldProp
             className={inputClass}
           />
         ) : (
-          <select
+          <AdminSelect
             name="year"
             value={value}
-            onChange={(event) => {
-              if (event.target.value !== NEW_YEAR_OPTION) {
-                setValue(event.target.value);
+            className="mt-1.5 w-40 shrink-0"
+            ariaLabel={t("documents.form.year")}
+            onChange={(next) => {
+              if (next !== NEW_YEAR_OPTION) {
+                setValue(next);
                 return;
               }
               setCustom(true);
               setValue(String((years[0] ?? defaultValue) + 1));
             }}
-            aria-label={t("documents.form.year")}
-            aria-invalid={Boolean(error)}
-            className={inputClass}
-          >
-            {years.map((year) => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-            <option value={NEW_YEAR_OPTION}>{t("documents.form.addYear")}</option>
-          </select>
+            options={[
+              ...years.map((year) => ({ value: String(year), label: String(year) })),
+              { value: NEW_YEAR_OPTION, label: t("documents.form.addYear") },
+            ]}
+          />
         )}
         {custom && years.length > 0 ? (
           <button

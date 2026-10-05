@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,13 +21,24 @@ export function AdminSidebar() {
   const { locale, t } = useAdminI18n();
 
   return (
-    <aside className="flex w-full shrink-0 flex-col border-b border-black/5 bg-white md:h-full md:w-64 md:overflow-y-auto md:border-r md:border-b-0">
-      <div className="px-5 py-5">
-        <Link href={adminPublicSiteHref(locale)} className="font-jakarta text-base font-extrabold text-brand-ink">
+    <aside className="flex w-full shrink-0 flex-col rounded-br-3xl rounded-tr-3xl bg-[#2d5650] text-white md:h-full md:w-64 md:overflow-y-auto">
+      <div className="px-5 py-6">
+        <Link href={adminPublicSiteHref(locale)} className="flex items-center gap-3 font-jakarta text-base font-extrabold tracking-wide text-white">
+          <Image src="/favicon.png" alt="" width={36} height={36} className="size-9 shrink-0" />
           {t("brand")}
         </Link>
       </div>
-      <nav aria-label={t("nav.aria")} className="flex flex-1 flex-col gap-1 px-3">
+      <nav aria-label={t("nav.aria")} className="relative flex flex-1 flex-col gap-1 px-3">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 left-3 h-10 rounded-xl bg-white/15 transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          style={{
+            transform: `translateY(${Math.max(
+              0,
+              adminNavItems.findIndex((item) => isNavActive(pathname, item.href)),
+            ) * 44}px)`,
+          }}
+        />
         {adminNavItems.map((item) => {
           const active = isNavActive(pathname, item.href);
           return (
@@ -35,8 +47,8 @@ export function AdminSidebar() {
               href={item.href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors",
-                active ? "bg-brand-ink text-white" : "text-brand-ink hover:bg-[#f5f5f5]",
+                "relative z-10 flex h-10 items-center rounded-xl px-3 text-sm font-semibold transition-colors duration-300",
+                active ? "text-white" : "text-white/75 hover:bg-white/10 hover:text-white",
               )}
             >
               {t(item.labelKey)}
@@ -44,20 +56,20 @@ export function AdminSidebar() {
           );
         })}
       </nav>
-      <div className="space-y-3 border-t border-black/5 p-4">
-        <Link
-          href={adminPublicSiteHref(locale)}
-          target="_blank"
-          className="block text-sm text-[#6f6f6f] hover:text-brand-ink"
-        >
-          {t("viewSite")}
-        </Link>
-        <form action={logoutAdmin}>
-          <button type="submit" className="text-sm font-semibold text-brand-ink hover:underline">
-            {t("signOut")}
-          </button>
-        </form>
-        <AdminLocaleSwitch />
+      <div className="border-t border-white/10 p-4">
+        <div className="flex items-stretch gap-2">
+          <div className="min-w-0 flex-1">
+            <AdminLocaleSwitch tone="dark" />
+          </div>
+          <form action={logoutAdmin} className="shrink-0">
+            <button
+              type="submit"
+              className="h-full whitespace-nowrap rounded-xl bg-white/10 px-4 text-xs font-bold tracking-wide text-white transition-colors duration-300 hover:bg-white/20"
+            >
+              {t("signOut")}
+            </button>
+          </form>
+        </div>
       </div>
     </aside>
   );

@@ -21,6 +21,36 @@ function moveRow<Row>(rows: readonly Row[], from: number, to: number): Row[] | n
   return next;
 }
 
+const ROW_SHIFT_MS = 180;
+
+function captureRowTops(draggingId: string): Map<string, number> {
+  const tops = new Map<string, number>();
+  document.querySelectorAll<HTMLElement>("[data-drag-id]").forEach((element) => {
+    const id = element.dataset.dragId;
+    if (!id || id === draggingId) return;
+    tops.set(id, element.getBoundingClientRect().top);
+  });
+  return tops;
+}
+
+function animateRowShift(previousTops: Map<string, number>, draggingId: string): void {
+  requestAnimationFrame(() => {
+    previousTops.forEach((previousTop, id) => {
+      if (id === draggingId) return;
+      const element = document.querySelector<HTMLElement>(`[data-drag-id="${id}"]`);
+      if (!element) return;
+      const deltaY = previousTop - element.getBoundingClientRect().top;
+      if (Math.abs(deltaY) < 0.5) return;
+      element.style.transition = "transform 0s";
+      element.style.transform = `translate3d(0, ${deltaY}px, 0)`;
+      requestAnimationFrame(() => {
+        element.style.transition = `transform ${ROW_SHIFT_MS}ms cubic-bezier(0.25, 1, 0.5, 1)`;
+        element.style.transform = "translate3d(0, 0, 0)";
+      });
+    });
+  });
+}
+
 function rowIndexAt(table: HTMLTableElement, clientY: number): number | null {
   for (const node of table.querySelectorAll<HTMLElement>("[data-index]")) {
     const rect = node.getBoundingClientRect();
@@ -59,10 +89,13 @@ export function useRowDrag<Row extends DraggableRow>(initial: Row[], save: SaveR
   }, [initial, incoming]);
 
   const apply = (next: Row[], index: number) => {
+    const draggingId = next[index]?.id ?? "";
+    const previousTops = captureRowTops(draggingId);
     rowsRef.current = next;
     dragIndex.current = index;
     setRows(next);
     setActiveIndex(index);
+    animateRowShift(previousTops, draggingId);
   };
 
   const commit = () => {

@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 
-import { Link } from "@/i18n/navigation";
 import {
   PageSectionNav,
   type PageSectionNavItem,
@@ -17,7 +16,6 @@ type EducationPageShellProps = {
   title: string;
   highlight?: string;
   description: string;
-  currentLabel?: string;
   compact?: boolean;
   sectionNav?: PageSectionNavItem[];
 };
@@ -28,7 +26,6 @@ export async function EducationPageShell({
   title,
   highlight,
   description,
-  currentLabel,
   compact = false,
   sectionNav,
 }: EducationPageShellProps) {
@@ -53,32 +50,6 @@ export async function EducationPageShell({
             compact ? "pb-6 pt-36" : "pb-10 pt-40",
           )}
         >
-          <nav aria-label={t("breadcrumb.aria")} className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-sm text-white/70">
-              <li>
-                <Link href="/" className="transition-colors hover:text-white">
-                  {t("breadcrumb.home")}
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              {currentLabel ? (
-                <>
-                  <li>
-                    <Link
-                      href="/education"
-                      className="transition-colors hover:text-white"
-                    >
-                      {t("breadcrumb.education")}
-                    </Link>
-                  </li>
-                  <li aria-hidden="true">/</li>
-                  <li className="text-white">{currentLabel}</li>
-                </>
-              ) : (
-                <li className="text-white">{t("breadcrumb.education")}</li>
-              )}
-            </ol>
-          </nav>
           <SectionBadge className="bg-white/15 text-white">{badge}</SectionBadge>
           <h1 className="mt-4 max-w-4xl text-[clamp(2rem,5vw,3.25rem)] font-light leading-[1.15] tracking-[-1px] text-white">
             {title}

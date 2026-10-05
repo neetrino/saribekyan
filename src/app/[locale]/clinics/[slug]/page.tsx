@@ -82,7 +82,6 @@ export default async function ClinicsSubPage({ params }: ClinicsSubPageProps) {
       title={t("title")}
       highlight={t("highlight")}
       description={t("description")}
-      currentLabel={t("badge")}
       activeHref={getClinicNavHref(slug)}
       compact
       sectionNav={sectionNav}
