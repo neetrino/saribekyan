@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { AdminDeleteButton } from "@/features/admin-shell/components/admin-delete-button";
 import { AdminEditLink, AdminTrashIcon, adminIconDeleteClass } from "@/features/admin-shell/components/admin-row-actions";
 import { DragHandle } from "@/features/admin-shell/components/drag-handle";
@@ -48,7 +50,7 @@ function FileCell({ row, openLabel }: { row: DocumentTableRow; openLabel: string
       <p className="truncate text-brand-ink" title={row.fileName}>{row.fileName}</p>
       <p className="mt-0.5 text-xs text-[#6f6f6f]">
         {row.fileSize} ·{" "}
-        <a href={row.fileUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-teal hover:underline">
+        <a href={row.fileUrl} target="_blank" rel="noopener noreferrer" className="relative z-10 font-semibold text-brand-teal hover:underline">
           {openLabel}
         </a>
       </p>
@@ -59,6 +61,7 @@ function FileCell({ row, openLabel }: { row: DocumentTableRow; openLabel: string
 /** Admin documents list. A grip handle is shown when the list is exactly one ordered group. */
 export function DocumentsTableView({ rows: initial, order, labels }: DocumentsTableViewProps) {
   const { t } = useAdminI18n();
+  const router = useRouter();
   const drag = useRowDrag(
     initial,
     order ? (placementIds) => reorderDocumentSection({ ...order, placementIds }) : null,
@@ -83,7 +86,14 @@ export function DocumentsTableView({ rows: initial, order, labels }: DocumentsTa
               key={row.id}
               data-drag-id={row.id}
               data-index={index}
-              className={cn("border-b border-black/5 align-top last:border-0", drag.activeIndex === index && "bg-[#f5f5f5]")}
+              onClick={(event) => {
+                if ((event.target as HTMLElement).closest("a, button")) return;
+                router.push(row.editHref, { scroll: false });
+              }}
+              className={cn(
+                "cursor-pointer border-b border-black/5 align-top last:border-0 hover:bg-[#f5f5f5]",
+                drag.activeIndex === index && "bg-[#f5f5f5]",
+              )}
             >
               {order ? (
                 <td className="px-4 py-4 align-middle">

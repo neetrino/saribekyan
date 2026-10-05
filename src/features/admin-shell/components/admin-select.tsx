@@ -6,6 +6,7 @@ import { cn } from "@/shared/lib/cn";
 import { ChevronDownIcon } from "@/shared/ui/chevron-down-icon";
 
 import { adminInputClass } from "./admin-field-styles";
+import { menuOpensUpward } from "../lib/menu-placement";
 
 export type AdminSelectOption = {
   value: string;
@@ -25,6 +26,7 @@ type AdminSelectProps = {
 /** Custom dropdown that submits its value with the surrounding GET form. */
 export function AdminSelect({ name, value, options, ariaLabel, disabled = false, className, onChange }: AdminSelectProps) {
   const [open, setOpen] = useState(false);
+  const [opensUp, setOpensUp] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
   const selected = options.find((option) => option.value === value) ?? options[0];
@@ -54,7 +56,10 @@ export function AdminSelect({ name, value, options, ariaLabel, disabled = false,
         aria-label={ariaLabel}
         aria-expanded={open}
         aria-controls={listId}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          if (rootRef.current) setOpensUp(menuOpensUpward(rootRef.current));
+          setOpen((current) => !current);
+        }}
         className={cn(adminInputClass, "flex items-center justify-between gap-2 text-left disabled:cursor-not-allowed disabled:opacity-50")}
       >
         <span className="truncate">{selected?.label}</span>
@@ -65,7 +70,8 @@ export function AdminSelect({ name, value, options, ariaLabel, disabled = false,
         role="listbox"
         aria-label={ariaLabel}
         className={cn(
-          "absolute inset-x-0 top-full z-30 mt-1 max-h-72 origin-top overflow-y-auto rounded-xl bg-white py-1 shadow-xl ring-1 ring-black/10 transition-all duration-200 ease-[cubic-bezier(0.25,1,0.5,1)]",
+          "absolute inset-x-0 z-30 max-h-72 overflow-y-auto rounded-xl bg-white py-1 shadow-xl ring-1 ring-black/10 transition-all duration-200 ease-[cubic-bezier(0.25,1,0.5,1)]",
+          opensUp ? "bottom-full mb-1 origin-bottom" : "top-full mt-1 origin-top",
           open ? "visible scale-100 opacity-100" : "invisible scale-95 opacity-0",
         )}
       >

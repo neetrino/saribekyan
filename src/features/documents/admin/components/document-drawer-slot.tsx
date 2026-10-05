@@ -1,5 +1,6 @@
-import { AdminDeleteButton, adminDrawerDeleteClass } from "@/features/admin-shell/components/admin-delete-button";
+import { AdminDeleteButton } from "@/features/admin-shell/components/admin-delete-button";
 import { AdminDrawerPanel } from "@/features/admin-shell/components/admin-drawer-panel";
+import { AdminTrashIcon, adminIconDeleteClass } from "@/features/admin-shell/components/admin-row-actions";
 import { getAdminI18n } from "@/features/admin-shell/i18n/get-admin-locale";
 import { sectionCountKey, type PlacementDraft } from "@/features/admin-shell/lib/placement-registry";
 import type { AdminDrawer } from "@/features/admin-shell/lib/search-params";
@@ -57,8 +58,10 @@ export async function DocumentDrawerSlot({ drawer, filters }: DocumentDrawerSlot
             returnTo={closeHref}
             label={t("documents.delete")}
             confirmMessage={t("documents.deleteConfirm", { name: document.titleHy })}
-            className={adminDrawerDeleteClass}
-          />
+            className={adminIconDeleteClass}
+          >
+            <AdminTrashIcon />
+          </AdminDeleteButton>
         ) : null
       }
     >

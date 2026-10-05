@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { cn } from "@/shared/lib/cn";
 
 import { adminInputClass } from "./admin-field-styles";
+import { menuOpensUpward } from "../lib/menu-placement";
 
 export type CheckboxOption = {
   value: string;
@@ -23,6 +24,7 @@ type CheckboxSelectProps = {
 /** Select-like dropdown where every option has a checkbox, allowing multiple values. */
 export function CheckboxSelect({ options, selected, placeholder, onToggle }: CheckboxSelectProps) {
   const [open, setOpen] = useState(false);
+  const [opensUp, setOpensUp] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const summary = options.filter((option) => selected.includes(option.value)).map((option) => option.label).join(", ");
 
@@ -48,14 +50,20 @@ export function CheckboxSelect({ options, selected, placeholder, onToggle }: Che
       <button
         type="button"
         aria-expanded={open}
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => {
+          if (rootRef.current) setOpensUp(menuOpensUpward(rootRef.current));
+          setOpen((value) => !value);
+        }}
         className={cn(adminInputClass, "flex items-center justify-between gap-2 text-left")}
       >
         <span className={cn("truncate", !summary && "text-[#6f6f6f]")}>{summary || placeholder}</span>
         <span aria-hidden="true" className={cn("shrink-0 text-[10px] transition-transform", open && "rotate-180")}>▼</span>
       </button>
       {open ? (
-        <ul className="absolute inset-x-0 top-full z-20 mt-1 max-h-72 overflow-y-auto rounded-xl bg-white py-1 shadow-xl ring-1 ring-black/10">
+        <ul className={cn(
+          "absolute inset-x-0 z-20 max-h-72 overflow-y-auto rounded-xl bg-white py-1 shadow-xl ring-1 ring-black/10",
+          opensUp ? "bottom-full mb-1" : "top-full mt-1",
+        )}>
           {options.map((option, index) => (
             <li key={option.value}>
               {option.group && option.group !== options[index - 1]?.group ? (

@@ -2,6 +2,8 @@
 
 import type { ReactNode } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { AdminDeleteButton } from "@/features/admin-shell/components/admin-delete-button";
 import { AdminEditLink, AdminTrashIcon, adminIconDeleteClass } from "@/features/admin-shell/components/admin-row-actions";
 import { DragHandle } from "@/features/admin-shell/components/drag-handle";
@@ -47,6 +49,7 @@ function MemberIdentity({ row }: { row: TeamMemberTableRow }) {
 /** Admin member list. A grip handle is shown when the list is exactly one page section. */
 export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembersTableViewProps) {
   const { t } = useAdminI18n();
+  const router = useRouter();
   const drag = useRowDrag(
     initial,
     order ? (placementIds) => reorderTeamSection({ ...order, placementIds }) : null,
@@ -70,7 +73,14 @@ export function TeamMembersTableView({ rows: initial, order, labels }: TeamMembe
               key={row.id}
               data-drag-id={row.id}
               data-index={index}
-              className={cn("border-b border-black/5 align-top last:border-0", drag.activeIndex === index && "bg-[#f5f5f5]")}
+              onClick={(event) => {
+                if ((event.target as HTMLElement).closest("a, button")) return;
+                router.push(row.editHref, { scroll: false });
+              }}
+              className={cn(
+                "cursor-pointer border-b border-black/5 align-top last:border-0 hover:bg-[#f5f5f5]",
+                drag.activeIndex === index && "bg-[#f5f5f5]",
+              )}
             >
               {order ? (
                 <td className="px-4 py-4 align-middle">

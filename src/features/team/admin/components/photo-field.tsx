@@ -64,7 +64,15 @@ export function PhotoField({ memberName, currentUrl, error }: PhotoFieldProps) {
         <p className="text-xs text-[#6f6f6f]">{t("team.form.photoHint")}</p>
         {hasPhoto || remove ? (
           <label className="flex items-center gap-2 text-sm text-brand-ink">
-            <input type="checkbox" name="removePhoto" checked={remove} onChange={(e) => setRemove(e.target.checked)} />
+            <input
+              type="checkbox"
+              name="removePhoto"
+              checked={remove}
+              onChange={(e) => {
+                if (e.target.checked && !window.confirm(t("common.confirmDelete"))) return;
+                setRemove(e.target.checked);
+              }}
+            />
             {t("team.form.removePhoto")}
           </label>
         ) : null}

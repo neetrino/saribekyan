@@ -44,6 +44,3 @@ export function AdminDeleteButton({
     </form>
   );
 }
-
-export const adminDrawerDeleteClass =
-  "rounded-xl px-4 py-2 text-sm font-semibold text-red-600 ring-1 ring-red-200 hover:bg-red-50";

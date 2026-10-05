@@ -118,6 +118,7 @@ export function TeamMemberForm({ values, sectionCounts, closeHref }: TeamMemberF
           initial={values.placements}
           sectionCounts={sectionCounts}
           error={errors.placements}
+          dragOrder
         />
       </FormCard>
 

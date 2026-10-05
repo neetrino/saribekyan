@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 
 import { useAdminI18n } from "../i18n/admin-i18n-provider";
 import { sectionCountKey, type PlacementDraft, type PlacementPageDef } from "../lib/placement-registry";
@@ -26,7 +26,18 @@ type PlacementsFieldProps = {
   error?: string;
   /** When false, rows cannot be added and at least one row is always kept. */
   multipleRows?: boolean;
+  /** Reorder rows with a drag handle instead of the numeric order field. */
+  dragOrder?: boolean;
 };
+
+function reorderPlacementRows(rows: readonly PlacementRow[], from: number, to: number): PlacementRow[] {
+  if (from === to || to < 0 || to >= rows.length) return [...rows];
+  const next = [...rows];
+  const [item] = next.splice(from, 1);
+  if (!item) return [...rows];
+  next.splice(to, 0, item);
+  return next.map((row, index) => ({ ...row, sortOrder: index + 1 }));
+}
 
 /**
  * Edits where an entry is shown. Each row picks one or more pages and sections (checkbox
@@ -40,8 +51,11 @@ export function PlacementsField({
   sectionCounts,
   error,
   multipleRows = true,
+  dragOrder = false,
 }: PlacementsFieldProps) {
   const { t } = useAdminI18n();
+  const listRef = useRef<HTMLDivElement>(null);
+  const dragFrom = useRef<number | null>(null);
   const [rows, setRows] = useState<PlacementRow[]>(() => {
     const stored = toPlacementRows(initial);
     return multipleRows || stored.length > 0 ? stored : [emptyPlacementRow()];
@@ -65,12 +79,56 @@ export function PlacementsField({
       }));
     });
 
+  const moveRow = (from: number, to: number) => {
+    dragFrom.current = to;
+    setRows((current) => reorderPlacementRows(current, from, to));
+  };
+
+  const onDragMove = (event: PointerEvent<HTMLButtonElement>) => {
+    const from = dragFrom.current;
+    if (from === null || !listRef.current) return;
+    const cards = [...listRef.current.querySelectorAll<HTMLElement>("[data-placement-index]")];
+    const to = cards.findIndex((card) => {
+      const rect = card.getBoundingClientRect();
+      return event.clientY >= rect.top && event.clientY <= rect.bottom;
+    });
+    if (to >= 0 && to !== from) moveRow(from, to);
+  };
+
   return (
-    <div className="space-y-3">
+    <div ref={listRef} className="space-y-3">
       <input type="hidden" name="placements" value={placementRowsPayload(pages, rows)} />
       {rows.length === 0 ? <p className="text-sm text-[#6f6f6f]">{t("common.placements.empty")}</p> : null}
-      {rows.map((row) => (
-        <div key={row.uid} className="grid gap-3 rounded-2xl bg-[#f5f5f5] p-4 md:grid-cols-[2fr_1.5fr_110px_auto] md:items-end">
+      {rows.map((row, index) => (
+        <div
+          key={row.uid}
+          data-placement-index={index}
+          className={`grid items-end gap-3 rounded-2xl bg-[#f5f5f5] p-4 ${dragOrder ? "grid-cols-[auto_minmax(0,2fr)_minmax(0,1.5fr)_auto]" : "md:grid-cols-[2fr_1.5fr_110px_auto]"}`}
+        >
+          {dragOrder ? (
+            <button
+              type="button"
+              aria-label={t("team.drag")}
+              onPointerDown={(event) => {
+                event.currentTarget.setPointerCapture(event.pointerId);
+                dragFrom.current = index;
+              }}
+              onPointerMove={onDragMove}
+              onPointerUp={() => {
+                dragFrom.current = null;
+              }}
+              onPointerCancel={() => {
+                dragFrom.current = null;
+              }}
+              className="flex size-8 cursor-grab touch-none items-center justify-center self-center rounded-lg text-[#9a9a9a] hover:bg-white hover:text-brand-ink"
+            >
+              <span className="grid grid-cols-2 gap-0.5" aria-hidden="true">
+                {Array.from({ length: 6 }, (_, dot) => (
+                  <span key={dot} className="size-1 rounded-full bg-current" />
+                ))}
+              </span>
+            </button>
+          ) : null}
           <div>
             <span className="text-xs font-medium text-[#6f6f6f]">{t("common.placements.page")}</span>
             <CheckboxSelect
@@ -89,20 +147,25 @@ export function PlacementsField({
               onToggle={(key, checked) => update(row.uid, (r) => togglePlacementSection(r, key, checked, sectionCounts))}
             />
           </div>
-          <label className="block">
-            <span className="text-xs font-medium text-[#6f6f6f]">{t("common.placements.order")}</span>
-            <input
-              type="number"
-              min={0}
-              value={row.sortOrder}
-              onChange={(e) => update(row.uid, (r) => ({ ...r, sortOrder: Number(e.target.value) }))}
-              className={`${adminInputClass} mt-1`}
-            />
-          </label>
+          {dragOrder ? null : (
+            <label className="block">
+              <span className="text-xs font-medium text-[#6f6f6f]">{t("common.placements.order")}</span>
+              <input
+                type="number"
+                min={0}
+                value={row.sortOrder}
+                onChange={(e) => update(row.uid, (r) => ({ ...r, sortOrder: Number(e.target.value) }))}
+                className={`${adminInputClass} mt-1`}
+              />
+            </label>
+          )}
           {canRemove ? (
             <button
               type="button"
-              onClick={() => setRows((current) => current.filter((item) => item.uid !== row.uid))}
+              onClick={() => {
+                if (!window.confirm(t("common.confirmDelete"))) return;
+                setRows((current) => current.filter((item) => item.uid !== row.uid));
+              }}
               className="py-2.5 text-sm font-semibold text-red-600 hover:underline"
             >
               {t("common.placements.remove")}
