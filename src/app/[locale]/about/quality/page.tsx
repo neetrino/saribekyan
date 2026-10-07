@@ -42,8 +42,8 @@ export default async function QualityPage({ params }: PageProps) {
     >
       <ContentSection
         id="team"
-        badge="Բաժին"
-        title="Որակի ապահովման բաժնի ներկայացում"
+        badge="ՈԱ"
+        title="ՈԱ համակարգի կառավարում"
         description="Պատասխանատու անձինք՝ լուսանկարով և կոնտակտային տվյալներով։"
       >
         <TeamPeopleGrid people={team.team} featuredFirst />
@@ -52,7 +52,7 @@ export default async function QualityPage({ params }: PageProps) {
       <ContentSection
         id="directions"
         badge="Ուղղություններ"
-        title="Գործունեության ուղղություններ"
+        title="Գործունեության հիմնական ուղղությունները"
       >
         <InfoGrid items={qualityDirections} />
       </ContentSection>
@@ -66,10 +66,11 @@ export default async function QualityPage({ params }: PageProps) {
         <ul className="grid gap-3 sm:grid-cols-2">
           {anqaInfo.points.map((point) => (
             <li
-              key={point}
+              key={point.title}
               className="rounded-3xl bg-[#f5f5f5] px-5 py-4 text-sm leading-6 text-brand-ink"
             >
-              {point}
+              <p className="font-semibold">{point.title}</p>
+              <p className="mt-1 text-brand-ink/80">{point.description}</p>
             </li>
           ))}
         </ul>

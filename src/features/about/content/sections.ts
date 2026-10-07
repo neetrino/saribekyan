@@ -16,9 +16,9 @@ export const whoWeAreSections: AboutSectionNavItem[] = [
 ];
 
 export const qualitySections: AboutSectionNavItem[] = [
-  { id: "team", label: "Որակի ապահովման բաժնի ներկայացում" },
-  { id: "directions", label: "Գործունեության ուղղություններ" },
-  { id: "anqa", label: "ANQA չափանիշներ" },
+  { id: "team", label: "ՈԱ համակարգի կառավարում" },
+  { id: "directions", label: "Գործունեության հիմնական ուղղությունները" },
+  { id: "anqa", label: "Որակի ներքին ապահովման չափանիշներ" },
   { id: "documents", label: "Հաշվետվություններ և փաստաթղթեր" },
 ];
 
