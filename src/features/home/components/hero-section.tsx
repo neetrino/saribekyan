@@ -29,22 +29,10 @@ export async function HeroSection() {
         {/* Spacer for fixed SiteHeader in layout */}
         <div className="h-[69px] w-full shrink-0" aria-hidden />
 
-        {/* Mobile — Figma HeroSection 198:992 */}
-        <div className="relative min-h-[calc(100svh-93px)] flex-1 xl:hidden">
-          {/* Students — Figma 198:1019: 742×414, nudged lower under text */}
-          <div className="pointer-events-none absolute bottom-0 left-[-30%] z-0 h-[min(414px,48svh)] w-[185%] translate-y-12">
-            <Image
-              src="/images/home/hero-students.png"
-              alt={t("studentsAlt")}
-              fill
-              priority
-              className="object-contain object-bottom"
-              sizes="185vw"
-            />
-          </div>
-
-          <div className="relative z-10 flex flex-col px-2 pt-16">
-            <h1 className="max-w-[354px] text-[48px] font-semibold leading-[49px] tracking-[-0.56px] text-white">
+        {/* Mobile — text and photo stack so Safari chrome cannot overlap them */}
+        <div className="flex min-h-0 flex-1 flex-col xl:hidden">
+          <div className="relative z-10 flex shrink-0 flex-col px-2 pt-8">
+            <h1 className="max-w-[354px] text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.02] tracking-[-0.56px] text-white">
               <span className="block">
                 {t("titleBefore")} {t("titleAfter")}
               </span>
@@ -54,14 +42,25 @@ export async function HeroSection() {
             <CtaButton
               href="/admissions/apply"
               variant="light"
-              className="mt-7 w-full max-w-[349px] justify-between shadow-[0_0_40px_rgba(104,239,189,0.55)]"
+              className="mt-6 w-full max-w-[349px] justify-between shadow-[0_0_40px_rgba(104,239,189,0.55)]"
             >
               {t("applyCta")}
             </CtaButton>
 
-            <p className="mt-8 max-w-[356px] text-sm leading-[18px] text-white">
+            <p className="mt-6 max-w-[356px] text-sm leading-[18px] text-white">
               {tCommon("description")}
             </p>
+          </div>
+
+          <div className="relative mt-2 min-h-[220px] flex-1 overflow-hidden">
+            <Image
+              src="/images/home/hero-students.png"
+              alt={t("studentsAlt")}
+              fill
+              priority
+              className="origin-bottom translate-y-6 scale-[1.18] object-contain object-bottom"
+              sizes="120vw"
+            />
           </div>
         </div>
 

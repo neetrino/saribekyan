@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { Partner } from "@prisma/client";
 import { useTranslations } from "next-intl";
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { ArrowLink } from "@/shared/ui/arrow-link";
@@ -46,22 +46,18 @@ const DESKTOP_METRICS: StackMetrics = {
 
 const PARTNERS_HREF = "/international";
 
-function subscribeLg(onStoreChange: () => void): () => void {
-  const mq = window.matchMedia("(min-width: 1024px)");
-  mq.addEventListener("change", onStoreChange);
-  return () => mq.removeEventListener("change", onStoreChange);
-}
-
-function getLgSnapshot(): boolean {
-  return window.matchMedia("(min-width: 1024px)").matches;
-}
-
-function getServerLgSnapshot(): boolean {
-  return true;
-}
-
 function useIsLg(): boolean {
-  return useSyncExternalStore(subscribeLg, getLgSnapshot, getServerLgSnapshot);
+  const [isLg, setIsLg] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsLg(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return isLg;
 }
 
 function circularOffset(index: number, active: number, count: number): number {
