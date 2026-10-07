@@ -6,7 +6,7 @@ type HistoryTimelineProps = {
 
 export function HistoryTimeline({ items }: HistoryTimelineProps) {
   return (
-    <ol className="space-y-4">
+    <ol className="grid gap-4 sm:grid-cols-2">
       {items.map((item, index) => {
         const accent = index % 2 === 0;
 

@@ -6,10 +6,11 @@ export type AboutSectionNavItem = {
 export const whoWeAreSections: AboutSectionNavItem[] = [
   { id: "history", label: "Համալսարանի պատմական ուղին" },
   { id: "mission", label: "Մեր նպատակը և ուղղությունը" },
-  { id: "values", label: "Այն, ինչով առաջնորդվում ենք" },
+  { id: "values", label: "Մնայուն արժեքներ" },
+  { id: "principles", label: "Հիմնարար սկզբունքներ" },
   { id: "activities", label: "Համալսարանի հիմնական գործունեությունը" },
   { id: "governance", label: "Կառավարման խորհուրդ" },
-  { id: "academic-council", label: "Գիտական խորհուրդ" },
+  { id: "academic-council", label: "Ակադեմիական խորհուրդ" },
   { id: "rectorate", label: "Ռեկտորատ" },
   { id: "leadership", label: "Ղեկավար կազմ" },
 ];

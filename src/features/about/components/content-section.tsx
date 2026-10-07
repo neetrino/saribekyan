@@ -24,7 +24,7 @@ export function ContentSection({
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 max-w-3xl text-base leading-7 text-[#6f6f6f]">
+        <p className="mt-3 max-w-5xl text-base leading-7 text-[#6f6f6f]">
           {description}
         </p>
       ) : null}
