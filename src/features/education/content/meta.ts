@@ -22,11 +22,10 @@ export type EducationSectionId =
   | "leadership"
   | "departments"
   | "programs"
-  | "residency"
-  | "specialties"
-  | "admission"
-  | "courses"
-  | "schedule";
+  | "clinical"
+  | "pedagogy"
+  | "assessment"
+  | "formats";
 
 export const educationPageSections: Record<
   EducationSlug,
@@ -34,15 +33,7 @@ export const educationPageSections: Record<
 > = {
   medicine: ["about", "program", "leadership", "departments"],
   dentistry: ["about", "program", "leadership", "departments"],
-  cpd: [
-    "about",
-    "programs",
-    "residency",
-    "specialties",
-    "admission",
-    "courses",
-    "schedule",
-  ],
+  cpd: ["about", "clinical", "pedagogy", "assessment", "formats"],
 };
 
 export const educationHeaderNav = [
@@ -95,19 +86,4 @@ export const medicineDepartmentIds = [
 
 export const dentistryDepartmentIds = ["stomatology"] as const;
 
-export const cpdProgramIds = ["residency", "cpd"] as const;
-
-export const cpdSpecialtyIds = [
-  "therapy",
-  "surgery",
-  "pediatrics",
-  "obstetrics",
-  "anesthesiology",
-  "dentistry",
-] as const;
-
-export const cpdAdmissionIds = ["diploma", "documents", "selection"] as const;
-
-export const cpdCourseIds = ["emergency", "diagnostics", "infection"] as const;
-
-export const cpdScheduleRowIds = ["r1", "r2", "r3"] as const;
+export const cpdClinicalIds = ["evidence", "simulation", "masterclass"] as const;
