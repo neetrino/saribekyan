@@ -27,14 +27,28 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "common" });
 
+  const title = t("brand.name");
+  const description = t("brand.description");
+
   return {
     title: {
-      default: t("brand.name"),
+      default: title,
       template: `%s | ${t("brand.shortName")}`,
     },
-    description: t("brand.description"),
+    description,
     metadataBase: new URL(process.env.APP_URL ?? "http://localhost:3000"),
     icons: { icon: "/favicon.png", apple: "/favicon.png" },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      locale: locale === "hy" ? "hy_AM" : "en_US",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
   };
 }
 
