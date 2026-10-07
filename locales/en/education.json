@@ -13,7 +13,7 @@
     "overview": "Overview",
     "medicine": "Faculty of Medicine",
     "dentistry": "Faculty of Dentistry",
-    "cpd": "Postgraduate & CPD"
+    "cpd": "CPD"
   },
   "sectionsDropdownAria": "Page sections",
   "sectionNavAria": "On this page",
@@ -40,8 +40,8 @@
       "description": "Dental education, clinical practice, and a specialized department."
     },
     "cpd": {
-      "title": "Postgraduate & CPD",
-      "description": "Clinical residency, specialties, and continuing professional development courses."
+      "title": "Continuing professional development",
+      "description": "Clinical training, medical education, assessment methods, and CPD credits."
     }
   },
   "sections": {
@@ -49,32 +49,43 @@
     "program": "Academic program",
     "facts": "Key facts",
     "duration": "Program duration",
+    "credits": "Program volume",
     "qualification": "Awarded qualification",
     "leadership": "Leadership",
     "departments": "Departments",
-    "programs": "Postgraduate programs",
-    "residency": "Clinical residency",
-    "specialties": "Specialties",
-    "admission": "Admission requirements",
-    "courses": "CPD courses",
-    "schedule": "Course schedule"
+    "clinical": "Clinical tracks",
+    "pedagogy": "Medical education",
+    "assessment": "Assessment systems",
+    "formats": "Formats and certification"
   },
   "medicine": {
     "metaTitle": "Faculty of Medicine",
     "metaDescription": "Medicine program, duration, qualification, leadership, and departments.",
     "badge": "Faculty of Medicine",
     "title": "General",
-    "highlight": "medicine",
-    "description": "The faculty prepares physicians with strong foundational knowledge and clinical practice aligned with modern medical standards.",
+    "highlight": "medicine · 091201",
+    "description": "The university trains physicians in General Medicine in line with national standards, NQF educational requirements, and programs approved by the Academic Council.",
     "about": {
-      "p1": "The Faculty of Medicine is one of SIMU’s core academic tracks. Students receive theoretical and practical training from basic sciences through clinical specialties.",
-      "p2": "Teaching takes place in university clinics, simulation centers, and partner medical institutions to develop practical skills."
+      "paragraphs": [
+        "The Faculty of Medicine was founded in 1991 under Dean A. Karapetyan. The General Medicine program was accredited by the Ministry of Education in 2001 and by the ANQA foundation in 2021 and 2024. Graduates receive a state diploma.",
+        "Training is aimed at physicians who can develop 21st-century medicine by integrating modern and traditional practice, with the knowledge and skills required by the healthcare labor market.",
+        "Alongside contemporary clinical subjects, the curriculum includes scientifically grounded traditional medicine: acupuncture, phytotherapy, homeopathy, manual therapy, and iridodiagnostics.",
+        "Studies take place in the main building, the Saribekyan University Medical Complex, and leading clinics in Yerevan. The program ends with a state final attestation.",
+        "Graduates may work in prevention and diagnosis, management, or research, and may continue in clinical residency or doctoral studies. Many practice, teach, or run private clinics in Armenia and abroad.",
+        "The university provides qualified faculty, simulation centers, laboratories, manikins and training equipment, and access to the library and electronic library."
+      ]
     },
     "program": {
       "title": "Academic program",
-      "description": "The curriculum covers humanities, natural sciences, biomedical subjects, and clinical disciplines, with a progressive transition to clinical practice."
+      "description": "General Medicine is a 6-year full-time program of 360 credits. The curriculum includes:",
+      "items": [
+        "theoretical courses",
+        "clinical courses",
+        "electives and practical training"
+      ]
     },
     "duration": "6 years",
+    "credits": "360 credits",
     "qualification": "Physician",
     "departments": {
       "humanities": {
@@ -107,18 +118,30 @@
     "metaTitle": "Faculty of Dentistry",
     "metaDescription": "Dentistry program, duration, qualification, leadership, and department.",
     "badge": "Faculty of Dentistry",
-    "title": "Dental",
-    "highlight": "education",
-    "description": "The faculty prepares dentists using modern clinical methods and hands-on practice.",
+    "title": "Dentistry",
+    "highlight": "",
+    "description": "The university trains dentists in line with national standards, NQF educational requirements, and programs approved by the Academic Council.",
     "about": {
-      "p1": "The Faculty of Dentistry provides specialized education that combines foundational sciences with dental clinical practice.",
-      "p2": "Students train in simulation labs and the dental center, building professional skills in a clinical environment."
+      "paragraphs": [
+        "The Faculty of Dentistry was founded in 1996 under Dean K. Vardanyan, Doctor of Medical Sciences, Professor. The Dentistry program was accredited by the Ministry of Education in 2001 and by the ANQA foundation in 2021 and 2024. Graduates receive a state diploma.",
+        "Training prepares dentists who can apply theoretical and practical knowledge in clinical work and meet the needs of the healthcare labor market.",
+        "Alongside contemporary medical subjects, the clinical part includes scientifically grounded traditional medicine: acupuncture and phytotherapy.",
+        "Studies take place in the main building, three new buildings including the Saribekyan University Dental Center and the Saribekyan University Medical Complex, and leading clinics in Yerevan. The program ends with a state final attestation.",
+        "Graduates may work in prevention and diagnosis, management, or research, and may continue in clinical residency or doctoral studies. Many practice in Armenia and abroad, and a number run their own clinics.",
+        "The university provides qualified faculty, simulation centers, laboratories, manikins and training equipment, and access to the university library and electronic library."
+      ]
     },
     "program": {
       "title": "Academic program",
-      "description": "The curriculum includes general medical foundations and specialized dental subjects with an extended clinical component."
+      "description": "Dentistry is a 5-year full-time program of 300 credits. The curriculum includes:",
+      "items": [
+        "theoretical courses",
+        "clinical courses",
+        "electives and practical training"
+      ]
     },
     "duration": "5 years",
+    "credits": "300 credits",
     "qualification": "Dentist",
     "departments": {
       "stomatology": {
@@ -128,105 +151,103 @@
     }
   },
   "cpd": {
-    "metaTitle": "Postgraduate & CPD",
-    "metaDescription": "Postgraduate programs, clinical residency, specialties, and continuing professional development.",
-    "badge": "Postgraduate & CPD",
-    "title": "Postgraduate education and",
+    "metaTitle": "Continuing professional development",
+    "metaDescription": "CPD programs: clinical training, medical education, assessment methods, and certification.",
+    "badge": "CPD",
+    "title": "Continuing",
     "highlight": "professional development",
-    "description": "Clinical residency, specialty tracks, and continuing professional development courses for practicing physicians.",
+    "description": "Under the Vice-Rector for Quality Assurance and Educational Reform, the division runs qualification programs for clinicians, faculty, and health-system managers.",
     "about": {
-      "p1": "The postgraduate and CPD division provides specialization and qualification upgrade opportunities for physicians.",
-      "p2": "Programs include clinical residency and continuing professional development courses aligned with current clinical requirements."
+      "paragraphs": [
+        "The Continuing Professional Development (CPD) division of Saribekyan International Medical University, under the direct supervision of the Vice-Rector for Quality Assurance and Educational Reform, delivers qualification programs for healthcare specialists, faculty, and health-system organizers.",
+        "The programs combine narrow clinical expertise with modern medical education, innovative teaching methods, and the full assessment system."
+      ]
     },
-    "programs": {
-      "title": "Postgraduate academic programs",
-      "description": "Specialization programs focused on deepening clinical knowledge and professional skills.",
+    "clinical": {
+      "title": "Clinical and specialty tracks",
+      "description": "Healthcare professionals are offered credit-bearing CPD training, delivered with licensed centers, in the following formats.",
       "items": {
-        "residency": {
-          "title": "Clinical residency",
-          "description": "Professional training in a clinical setting under qualified specialists."
+        "evidence": {
+          "title": "Updated clinical courses",
+          "description": "Evidence-based medicine protocols and international treatment guidelines."
         },
-        "cpd": {
-          "title": "Continuing professional development",
-          "description": "Short-term and modular courses for practicing physicians."
+        "simulation": {
+          "title": "Virtual and simulation practicums",
+          "description": "Clinical and surgical skill practice on high-fidelity simulators."
+        },
+        "masterclass": {
+          "title": "Interprofessional master classes",
+          "description": "Exchange with invited local and international experts and analysis of complex cases (case-based learning)."
         }
       }
     },
-    "residency": {
-      "title": "Clinical residency",
-      "description": "Residency is delivered in university and partner clinics across specialty profiles."
-    },
-    "specialties": {
-      "therapy": "Therapy",
-      "surgery": "Surgery",
-      "pediatrics": "Pediatrics",
-      "obstetrics": "Obstetrics and gynecology",
-      "anesthesiology": "Anesthesiology and intensive care",
-      "dentistry": "Dentistry"
-    },
-    "duration": "2–4 years (by specialty)",
-    "admission": {
-      "title": "Admission requirements",
-      "items": {
-        "diploma": {
-          "title": "Diploma",
-          "description": "A medical university diploma and relevant qualification."
+    "pedagogy": {
+      "title": "Medical education and teaching methods",
+      "description": "This track is for university faculty, mentors of clinical residents, and physician-teachers.",
+      "groups": [
+        {
+          "title": "Interactive teaching methods",
+          "items": [
+            "CBL and PBL: teaching built on challenging clinical situations.",
+            "Flipped classroom: independent study of theory on a digital platform, with class time used for discussion and problem solving."
+          ]
         },
-        "documents": {
-          "title": "Documents",
-          "description": "Identity documents, application, and any additional materials required by the program."
+        {
+          "title": "Simulation pedagogy and debriefing",
+          "items": [
+            "Design of simulation scenarios.",
+            "Debriefing techniques after simulation that avoid creating stress for the learner."
+          ]
         },
-        "selection": {
-          "title": "Selection",
-          "description": "Application review and a professional interview or competitive process, depending on the program."
+        {
+          "title": "Digital and AI tools in medical education",
+          "items": [
+            "Effective use of e-learning platforms (Moodle, Canvas).",
+            "Use of artificial intelligence tools to prepare learning materials and support independent student work."
+          ]
         }
-      }
+      ]
     },
-    "courses": {
-      "title": "CPD courses",
-      "description": "Thematic courses on current clinical practice topics, with a certificate.",
-      "items": {
-        "emergency": {
-          "title": "Emergency medical care",
-          "description": "Primary assessment and fundamentals of urgent interventions."
-        },
-        "diagnostics": {
-          "title": "Modern diagnostics",
-          "description": "Diagnostic approaches and clinical decision-making."
-        },
-        "infection": {
-          "title": "Infection control",
-          "description": "Infection prevention and safety standards in clinical settings."
-        }
-      }
-    },
-    "schedule": {
-      "title": "Course schedule",
-      "description": "Sample schedule for the current academic year. Dates may be updated.",
+    "assessment": {
+      "title": "Assessment systems and methodology",
+      "description": "The course trains participants to apply objective, reliable, and internationally accepted assessment formats.",
       "columns": {
-        "course": "Course",
-        "dates": "Period",
-        "format": "Format",
-        "hours": "Hours"
+        "method": "Assessment method",
+        "description": "Description and use"
       },
-      "rows": {
-        "r1": {
-          "course": "Emergency medical care",
-          "dates": "March 2026",
-          "format": "On-site / hybrid",
-          "hours": "16 hours"
+      "rows": [
+        {
+          "method": "OSCE",
+          "description": "International standard for assessing practical and clinical skills through stations."
         },
-        "r2": {
-          "course": "Modern diagnostics",
-          "dates": "May 2026",
-          "format": "On-site",
-          "hours": "24 hours"
+        {
+          "method": "MCQ and item writing",
+          "description": "How to write higher-order questions that test analytical and clinical reasoning."
         },
-        "r3": {
-          "course": "Infection control",
-          "dates": "September 2026",
-          "format": "Online",
-          "hours": "12 hours"
+        {
+          "method": "DOPS and Mini-CEX",
+          "description": "Workplace-based observation and assessment of a student or resident’s clinical skills."
+        },
+        {
+          "method": "Formative and summative assessment",
+          "description": "Giving feedback during learning so that the student can progress."
+        }
+      ]
+    },
+    "formats": {
+      "title": "Delivery formats and certification",
+      "items": {
+        "mode": {
+          "title": "Format",
+          "description": "On-site, online, and hybrid modules."
+        },
+        "duration": {
+          "title": "Duration",
+          "description": "Short master classes (1–3 days) and longer training programs (1–6 weeks)."
+        },
+        "result": {
+          "title": "Outcome",
+          "description": "Participants receive official CPD credits and certificates of national or international format."
         }
       }
     }

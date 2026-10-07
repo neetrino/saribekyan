@@ -1,129 +1,149 @@
 import { getTranslations } from "next-intl/server";
 
-import {
-  cpdAdmissionIds,
-  cpdCourseIds,
-  cpdProgramIds,
-  cpdScheduleRowIds,
-  cpdSpecialtyIds,
-} from "../content/meta";
-import { EducationFacts } from "./education-facts";
+import { cpdClinicalIds } from "../content/meta";
+import { asStringList } from "../content/string-list";
 import { EducationInfoGrid } from "./education-info-grid";
-import { EducationSchedule } from "./education-schedule";
 import { EducationSection } from "./education-section";
-import { EducationSpecialtyList } from "./education-specialty-list";
+
+type PedagogyGroup = {
+  title: string;
+  items: string[];
+};
+
+type AssessmentRow = {
+  method: string;
+  description: string;
+};
+
+function readPedagogyGroups(value: unknown): PedagogyGroup[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.flatMap((group) => {
+    if (typeof group !== "object" || group === null) {
+      return [];
+    }
+
+    const record = group as { title?: unknown; items?: unknown };
+    if (typeof record.title !== "string") {
+      return [];
+    }
+
+    return [{ title: record.title, items: asStringList(record.items) }];
+  });
+}
+
+function readAssessmentRows(value: unknown): AssessmentRow[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.flatMap((row) => {
+    if (typeof row !== "object" || row === null) {
+      return [];
+    }
+
+    const record = row as { method?: unknown; description?: unknown };
+    if (typeof record.method !== "string" || typeof record.description !== "string") {
+      return [];
+    }
+
+    return [{ method: record.method, description: record.description }];
+  });
+}
 
 export async function CpdFacultyContent() {
   const t = await getTranslations("education");
 
-  const programs = cpdProgramIds.map((id) => ({
+  const clinical = cpdClinicalIds.map((id) => ({
     id,
-    title: t(`cpd.programs.items.${id}.title`),
-    description: t(`cpd.programs.items.${id}.description`),
+    title: t(`cpd.clinical.items.${id}.title`),
+    description: t(`cpd.clinical.items.${id}.description`),
   }));
 
-  const specialties = cpdSpecialtyIds.map((id) =>
-    t(`cpd.specialties.${id}`),
-  );
-
-  const admission = cpdAdmissionIds.map((id) => ({
+  const formats = (["mode", "duration", "result"] as const).map((id) => ({
     id,
-    title: t(`cpd.admission.items.${id}.title`),
-    description: t(`cpd.admission.items.${id}.description`),
+    title: t(`cpd.formats.items.${id}.title`),
+    description: t(`cpd.formats.items.${id}.description`),
   }));
 
-  const courses = cpdCourseIds.map((id) => ({
-    id,
-    title: t(`cpd.courses.items.${id}.title`),
-    description: t(`cpd.courses.items.${id}.description`),
-  }));
-
-  const scheduleRows = cpdScheduleRowIds.map((id) => ({
-    id,
-    course: t(`cpd.schedule.rows.${id}.course`),
-    dates: t(`cpd.schedule.rows.${id}.dates`),
-    format: t(`cpd.schedule.rows.${id}.format`),
-    hours: t(`cpd.schedule.rows.${id}.hours`),
-  }));
+  const pedagogyGroups = readPedagogyGroups(t.raw("cpd.pedagogy.groups"));
+  const assessmentRows = readAssessmentRows(t.raw("cpd.assessment.rows"));
 
   return (
     <>
-      <EducationSection
-        id="about"
-        badge={t("sections.about")}
-        title={t("sections.about")}
-      >
+      <EducationSection id="about" badge={t("sections.about")} title={t("sections.about")}>
         <div className="max-w-3xl space-y-4 text-base leading-7 text-[#6f6f6f]">
-          <p>{t("cpd.about.p1")}</p>
-          <p>{t("cpd.about.p2")}</p>
+          {asStringList(t.raw("cpd.about.paragraphs")).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </EducationSection>
 
       <EducationSection
-        id="programs"
-        badge={t("sections.programs")}
-        title={t("cpd.programs.title")}
-        description={t("cpd.programs.description")}
+        id="clinical"
+        badge={t("sections.clinical")}
+        title={t("cpd.clinical.title")}
+        description={t("cpd.clinical.description")}
       >
-        <EducationInfoGrid items={programs} />
+        <EducationInfoGrid items={clinical} />
       </EducationSection>
 
       <EducationSection
-        id="residency"
-        badge={t("sections.residency")}
-        title={t("cpd.residency.title")}
-        description={t("cpd.residency.description")}
+        id="pedagogy"
+        badge={t("sections.pedagogy")}
+        title={t("cpd.pedagogy.title")}
+        description={t("cpd.pedagogy.description")}
       >
-        <EducationFacts
-          items={[
-            {
-              label: t("sections.duration"),
-              value: t("cpd.duration"),
-            },
-          ]}
-        />
+        <div className="grid gap-4">
+          {pedagogyGroups.map((group) => (
+            <section key={group.title} className="rounded-3xl bg-[#f5f5f5] px-5 py-4">
+              <h3 className="text-base font-semibold text-brand-ink">{group.title}</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#6f6f6f]">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
       </EducationSection>
 
       <EducationSection
-        id="specialties"
-        badge={t("sections.specialties")}
-        title={t("sections.specialties")}
+        id="assessment"
+        badge={t("sections.assessment")}
+        title={t("cpd.assessment.title")}
+        description={t("cpd.assessment.description")}
       >
-        <EducationSpecialtyList items={specialties} />
+        <div className="overflow-x-auto rounded-3xl border border-[#e8e8e8]">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-brand-ink text-white">
+              <tr>
+                <th className="px-5 py-4 font-semibold">{t("cpd.assessment.columns.method")}</th>
+                <th className="px-5 py-4 font-semibold">
+                  {t("cpd.assessment.columns.description")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {assessmentRows.map((row, index) => (
+                <tr key={row.method} className={index % 2 === 0 ? "bg-white" : "bg-[#f7f8f8]"}>
+                  <td className="px-5 py-4 font-medium text-brand-ink">{row.method}</td>
+                  <td className="px-5 py-4 text-[#6f6f6f]">{row.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </EducationSection>
 
       <EducationSection
-        id="admission"
-        badge={t("sections.admission")}
-        title={t("cpd.admission.title")}
+        id="formats"
+        badge={t("sections.formats")}
+        title={t("cpd.formats.title")}
       >
-        <EducationInfoGrid items={admission} />
-      </EducationSection>
-
-      <EducationSection
-        id="courses"
-        badge={t("sections.courses")}
-        title={t("cpd.courses.title")}
-        description={t("cpd.courses.description")}
-      >
-        <EducationInfoGrid items={courses} />
-      </EducationSection>
-
-      <EducationSection
-        id="schedule"
-        badge={t("sections.schedule")}
-        title={t("cpd.schedule.title")}
-        description={t("cpd.schedule.description")}
-      >
-        <EducationSchedule
-          columns={{
-            course: t("cpd.schedule.columns.course"),
-            dates: t("cpd.schedule.columns.dates"),
-            format: t("cpd.schedule.columns.format"),
-            hours: t("cpd.schedule.columns.hours"),
-          }}
-          rows={scheduleRows}
-        />
+        <EducationInfoGrid items={formats} />
       </EducationSection>
     </>
   );

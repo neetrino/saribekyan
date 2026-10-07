@@ -3,6 +3,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { TeamPeopleGrid, getTeamPageMembers } from "@/features/team";
 
 import { dentistryDepartmentIds } from "../content/meta";
+import { asStringList } from "../content/string-list";
 import { EducationDepartments } from "./education-departments";
 import { EducationFacts } from "./education-facts";
 import { EducationSection } from "./education-section";
@@ -25,8 +26,9 @@ export async function DentistryFacultyContent() {
         title={t("sections.about")}
       >
         <div className="max-w-3xl space-y-4 text-base leading-7 text-[#6f6f6f]">
-          <p>{t("dentistry.about.p1")}</p>
-          <p>{t("dentistry.about.p2")}</p>
+          {asStringList(t.raw("dentistry.about.paragraphs")).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </EducationSection>
 
@@ -36,11 +38,20 @@ export async function DentistryFacultyContent() {
         title={t("dentistry.program.title")}
         description={t("dentistry.program.description")}
       >
+        <ul className="mb-6 max-w-3xl list-disc space-y-2 pl-5 text-base leading-7 text-[#6f6f6f]">
+          {asStringList(t.raw("dentistry.program.items")).map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
         <EducationFacts
           items={[
             {
               label: t("sections.duration"),
               value: t("dentistry.duration"),
+            },
+            {
+              label: t("sections.credits"),
+              value: t("dentistry.credits"),
             },
             {
               label: t("sections.qualification"),

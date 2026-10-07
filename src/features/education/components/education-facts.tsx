@@ -9,7 +9,7 @@ type EducationFactsProps = {
 
 export function EducationFacts({ items }: EducationFactsProps) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2">
+    <ul className="grid gap-4 md:grid-cols-3">
       {items.map((item) => (
         <li
           key={item.label}
