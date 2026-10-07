@@ -9,6 +9,7 @@ import { admissionsHeaderNav } from "../content/hub";
 
 type AdmissionsHeaderNavItemProps = {
   onNavigate?: () => void;
+  onMobileOpenChange?: (open: boolean) => void;
   variant?: "desktop" | "mobile";
   slidingActive?: boolean;
   triggerRef?: (node: HTMLElement | null) => void;
@@ -16,6 +17,7 @@ type AdmissionsHeaderNavItemProps = {
 
 export function AdmissionsHeaderNavItem({
   onNavigate,
+  onMobileOpenChange,
   variant = "desktop",
   slidingActive = false,
   triggerRef,
@@ -34,6 +36,7 @@ export function AdmissionsHeaderNavItem({
       }
       variant={variant}
       onNavigate={onNavigate}
+      onMobileOpenChange={onMobileOpenChange}
       slidingActive={slidingActive}
       triggerRef={triggerRef}
       groups={admissionsHeaderNav.map((group) => ({

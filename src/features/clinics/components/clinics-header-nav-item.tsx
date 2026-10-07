@@ -9,6 +9,7 @@ import { clinicsHeaderNav } from "../content/meta";
 
 type ClinicsHeaderNavItemProps = {
   onNavigate?: () => void;
+  onMobileOpenChange?: (open: boolean) => void;
   variant?: "desktop" | "mobile";
   slidingActive?: boolean;
   triggerRef?: (node: HTMLElement | null) => void;
@@ -16,6 +17,7 @@ type ClinicsHeaderNavItemProps = {
 
 export function ClinicsHeaderNavItem({
   onNavigate,
+  onMobileOpenChange,
   variant = "desktop",
   slidingActive = false,
   triggerRef,
@@ -32,6 +34,7 @@ export function ClinicsHeaderNavItem({
       isActive={pathname === "/clinics" || pathname.startsWith("/clinics/")}
       variant={variant}
       onNavigate={onNavigate}
+      onMobileOpenChange={onMobileOpenChange}
       slidingActive={slidingActive}
       triggerRef={triggerRef}
       groups={clinicsHeaderNav.map((group) => ({

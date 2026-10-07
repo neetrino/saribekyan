@@ -27,6 +27,8 @@ type HeaderDropdownProps = {
   isActive: boolean;
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
+  /** Mobile panel uses this to turn on scrolling only after a section opens. */
+  onMobileOpenChange?: (open: boolean) => void;
   /** Active pill is drawn by parent; only text styles change. */
   slidingActive?: boolean;
   triggerRef?: (node: HTMLElement | null) => void;
@@ -40,11 +42,14 @@ export function HeaderDropdown({
   isActive,
   onNavigate,
   variant = "desktop",
+  onMobileOpenChange,
   slidingActive = false,
   triggerRef,
 }: HeaderDropdownProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const onMobileOpenChangeRef = useRef(onMobileOpenChange);
+  onMobileOpenChangeRef.current = onMobileOpenChange;
   const [expandedHref, setExpandedHref] = useState<string | null>(null);
   const rootRef = useRef<HTMLLIElement>(null);
   const menuId = useId();
@@ -80,6 +85,15 @@ export function HeaderDropdown({
     setOpen(false);
     setExpandedHref(null);
   }, [pathname]);
+
+  useEffect(() => {
+    if (variant !== "mobile") {
+      return;
+    }
+
+    onMobileOpenChangeRef.current?.(open);
+    return () => onMobileOpenChangeRef.current?.(false);
+  }, [open, variant]);
 
   function closeMenu() {
     setOpen(false);
