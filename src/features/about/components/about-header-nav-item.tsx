@@ -9,6 +9,7 @@ import { aboutHeaderNav } from "../content/hub";
 
 type AboutHeaderNavItemProps = {
   onNavigate?: () => void;
+  onMobileOpenChange?: (open: boolean) => void;
   variant?: "desktop" | "mobile";
   slidingActive?: boolean;
   triggerRef?: (node: HTMLElement | null) => void;
@@ -16,6 +17,7 @@ type AboutHeaderNavItemProps = {
 
 export function AboutHeaderNavItem({
   onNavigate,
+  onMobileOpenChange,
   variant = "desktop",
   slidingActive = false,
   triggerRef,
@@ -32,6 +34,7 @@ export function AboutHeaderNavItem({
       isActive={pathname === "/about" || pathname.startsWith("/about/")}
       variant={variant}
       onNavigate={onNavigate}
+      onMobileOpenChange={onMobileOpenChange}
       slidingActive={slidingActive}
       triggerRef={triggerRef}
       groups={aboutHeaderNav.map((group) => ({

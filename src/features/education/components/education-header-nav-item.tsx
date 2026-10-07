@@ -9,6 +9,7 @@ import { educationHeaderNav } from "../content/meta";
 
 type EducationHeaderNavItemProps = {
   onNavigate?: () => void;
+  onMobileOpenChange?: (open: boolean) => void;
   variant?: "desktop" | "mobile";
   slidingActive?: boolean;
   triggerRef?: (node: HTMLElement | null) => void;
@@ -16,6 +17,7 @@ type EducationHeaderNavItemProps = {
 
 export function EducationHeaderNavItem({
   onNavigate,
+  onMobileOpenChange,
   variant = "desktop",
   slidingActive = false,
   triggerRef,
@@ -32,6 +34,7 @@ export function EducationHeaderNavItem({
       isActive={pathname === "/education" || pathname.startsWith("/education/")}
       variant={variant}
       onNavigate={onNavigate}
+      onMobileOpenChange={onMobileOpenChange}
       slidingActive={slidingActive}
       triggerRef={triggerRef}
       groups={educationHeaderNav.map((group) => ({

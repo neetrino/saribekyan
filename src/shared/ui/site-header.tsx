@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { AboutHeaderNavItem } from "@/features/about/components/about-header-nav-item";
 import { AdmissionsHeaderNavItem } from "@/features/admissions/components/admissions-header-nav-item";
@@ -20,7 +20,9 @@ export function SiteHeader() {
   const router = useRouter();
   const locale = useLocale() as AppLocale;
   const [open, setOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const openMenusRef = useRef(new Set<string>());
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
@@ -49,6 +51,16 @@ export function SiteHeader() {
 
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
+  }, []);
+
+  const onMobileSubmenu = useCallback((key: string, isOpen: boolean) => {
+    const menus = openMenusRef.current;
+    if (isOpen) {
+      menus.add(key);
+    } else {
+      menus.delete(key);
+    }
+    setSubmenuOpen(menus.size > 0);
   }, []);
 
   function switchLocale(nextLocale: AppLocale) {
@@ -230,10 +242,11 @@ export function SiteHeader() {
           id="mobile-nav"
           aria-hidden={!open}
           className={cn(
-            "relative z-10 mx-4 overflow-hidden rounded-3xl bg-white shadow-lg transition-[max-height,opacity,margin,padding] duration-300 ease-out xl:hidden",
+            "relative z-10 mx-4 rounded-3xl bg-white shadow-lg transition-[max-height,opacity,margin,padding] duration-300 ease-out xl:hidden",
             open
-              ? "mt-3 max-h-[min(80vh,640px)] p-4 opacity-100"
-              : "pointer-events-none mt-0 max-h-0 p-0 opacity-0",
+              ? "mt-3 p-4 opacity-100"
+              : "pointer-events-none mt-0 max-h-0 overflow-hidden p-0 opacity-0",
+            open && submenuOpen && "max-h-[min(70svh,640px)] overflow-y-auto overscroll-contain",
           )}
         >
             <ul className="flex flex-col gap-1">
@@ -244,6 +257,7 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
+                      onMobileOpenChange={(isOpen) => onMobileSubmenu("about", isOpen)}
                     />
                   );
                 }
@@ -253,6 +267,7 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
+                      onMobileOpenChange={(isOpen) => onMobileSubmenu("education", isOpen)}
                     />
                   );
                 }
@@ -262,6 +277,7 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
+                      onMobileOpenChange={(isOpen) => onMobileSubmenu("admissions", isOpen)}
                     />
                   );
                 }
@@ -271,6 +287,7 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
+                      onMobileOpenChange={(isOpen) => onMobileSubmenu("clinics", isOpen)}
                     />
                   );
                 }
