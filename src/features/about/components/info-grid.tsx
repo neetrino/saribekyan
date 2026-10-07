@@ -14,7 +14,7 @@ export function InfoGrid({ items }: InfoGridProps) {
         >
           <div className="mb-4 h-1.5 w-10 rounded-full bg-brand-gold" />
           <h3 className="text-lg font-semibold text-brand-ink">{item.title}</h3>
-          <p className="mt-2 text-sm leading-6 text-[#6f6f6f]">
+          <p className="mt-2 text-base leading-7 text-[#6f6f6f]">
             {item.description}
           </p>
         </li>

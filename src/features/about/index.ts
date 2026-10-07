@@ -1,4 +1,5 @@
 export { AboutPageShell } from "./components/about-page-shell";
+export { AboutIdentitySections } from "./components/about-identity-sections";
 export { HubCards } from "./components/hub-cards";
 export { ContentSection } from "./components/content-section";
 export { HistoryTimeline } from "./components/history-timeline";
@@ -10,9 +11,14 @@ export { aboutHubCardMeta, aboutNavHrefs, aboutPageSections } from "./content/hu
 export {
   whoWeAreIntro,
   historyItems,
-  missionVision,
+  missionStatement,
+  visionDirections,
   universityValues,
+  fundamentalPrinciples,
   mainActivities,
+  academicCouncilCopy,
+  leadershipRoster,
+  rectorateCopy,
 } from "./content/who-we-are";
 export {
   qualityIntro,
