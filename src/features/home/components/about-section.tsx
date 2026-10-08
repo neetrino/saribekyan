@@ -16,6 +16,10 @@ const barStyles = [
   "h-[200px] bg-gradient-to-b from-brand-ink to-brand-teal text-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)] lg:h-full lg:min-h-[420px] lg:shadow-lg",
 ] as const;
 
+function formatAcademicYear(year: number): string {
+  return `${year - 1}-${year}`;
+}
+
 function formatValue(value: number, locale: string): string {
   return new Intl.NumberFormat(locale === "hy" ? "hy-AM" : "en-US").format(
     value,
@@ -69,7 +73,7 @@ export async function AboutSection({ stats }: AboutSectionProps) {
                   index === 2 && "lg:text-2xl lg:text-white",
                 )}
               >
-                {stat.year}
+                {formatAcademicYear(stat.year)}
               </p>
               <div className="space-y-0.5 lg:space-y-1">
                 <p
