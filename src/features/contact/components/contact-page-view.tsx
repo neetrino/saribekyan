@@ -46,21 +46,17 @@ export async function ContactPageView() {
       </ContactSection>
 
       <ContactSection
-        id="map"
-        badge={t("map.badge")}
-        title={t("map.title")}
-        description={t("map.description")}
-      >
-        <ContactMap />
-      </ContactSection>
-
-      <ContactSection
         id="form"
         badge={t("form.badge")}
         title={t("form.title")}
         description={t("form.description")}
       >
-        <ContactForm />
+        <div className="grid items-stretch gap-6 lg:grid-cols-2">
+          <div id="map" className="scroll-mt-28 h-full min-h-[320px]">
+            <ContactMap />
+          </div>
+          <ContactForm />
+        </div>
       </ContactSection>
     </ContactPageShell>
   );

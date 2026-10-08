@@ -6,15 +6,17 @@ export async function ContactMap() {
   const t = await getTranslations("contact.map");
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-[#e8e8e8] bg-[#f5f5f5]">
-      <iframe
-        title={t("title")}
-        src={siteConfig.map.embedUrl}
-        className="h-[320px] w-full border-0 sm:h-[420px]"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-      />
+    <div className="flex h-full min-h-[320px] flex-col overflow-hidden rounded-3xl border border-[#e8e8e8] bg-[#f5f5f5]">
+      <div className="relative min-h-[280px] flex-1">
+        <iframe
+          title={t("title")}
+          src={siteConfig.map.embedUrl}
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      </div>
       <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4">
         <p className="text-sm text-[#6f6f6f]">{siteConfig.address}</p>
         <a
