@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { submitContact } from "../actions/submit-contact";
 import { initialContactFormState } from "../actions/contact-form-state";
 import { contactFormDepartments } from "../content/meta";
+import { ContactDepartmentField } from "./contact-department-field";
 
 const fieldClassName =
   "mt-2 w-full rounded-2xl border border-[#e0e0e0] bg-white px-4 py-3 text-sm text-brand-ink outline-none transition-colors placeholder:text-[#9a9a9a] focus:border-brand-teal";
@@ -73,26 +74,16 @@ export function ContactForm() {
           ) : null}
         </label>
 
-        <label className="block text-sm font-medium text-brand-ink">
-          {t("department")}
-          <select
-            name="department"
-            required
-            defaultValue="general"
-            className={`${fieldClassName} ${state.fieldErrors.department ? errorFieldClassName : ""}`}
-          >
-            {contactFormDepartments.map((id) => (
-              <option key={id} value={id}>
-                {t(`departments.${id}`)}
-              </option>
-            ))}
-          </select>
-          {state.fieldErrors.department ? (
-            <span className="mt-1 block text-xs text-red-600">
-              {t("errors.department")}
-            </span>
-          ) : null}
-        </label>
+        <ContactDepartmentField
+          label={t("department")}
+          defaultValue="general"
+          invalidClassName={errorFieldClassName}
+          error={state.fieldErrors.department ? t("errors.department") : undefined}
+          options={contactFormDepartments.map((id) => ({
+            value: id,
+            label: t(`departments.${id}`),
+          }))}
+        />
       </div>
 
       <label className="mt-5 block text-sm font-medium text-brand-ink">
@@ -141,7 +132,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-brand-ink px-7 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-6 ml-auto flex h-12 w-fit items-center justify-center rounded-full bg-brand-ink px-7 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? t("submitting") : t("submit")}
       </button>
