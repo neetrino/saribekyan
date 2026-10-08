@@ -15,39 +15,41 @@ export async function ContactDetails() {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <article className="rounded-3xl bg-gradient-to-b from-brand-ink to-brand-teal p-7 text-white shadow-md">
-        <div className="space-y-8">
-          <div>
-            <p className="text-sm font-medium text-brand-mint">{t("address")}</p>
-            <p className="mt-3 flex items-start gap-3 text-base leading-7">
-              <span className="relative mt-0.5 size-6 shrink-0">
-                <Image src="/icons/location.svg" alt="" fill sizes="24px" />
-              </span>
-              <span>{siteConfig.address}</span>
-            </p>
-          </div>
+        <div className="grid gap-8 sm:grid-cols-2">
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm font-medium text-brand-mint">{t("address")}</p>
+              <p className="mt-3 flex items-start gap-3 text-base leading-7">
+                <span className="relative mt-0.5 size-6 shrink-0">
+                  <Image src="/icons/location.svg" alt="" fill sizes="24px" />
+                </span>
+                <span>{siteConfig.address}</span>
+              </p>
+            </div>
 
-          <div>
-            <p className="text-sm font-medium text-brand-mint">{t("phones")}</p>
-            <ul className="mt-3 space-y-3">
-              {siteConfig.phones.map((phone) => (
-                <li key={phone.id} className="flex items-center gap-3">
-                  <span className="relative size-6 shrink-0">
-                    <Image src="/icons/phone.svg" alt="" fill sizes="24px" />
-                  </span>
-                  <div>
-                    <p className="text-xs text-white/65">
-                      {t(`phoneLabels.${phone.id}`)}
-                    </p>
-                    <a
-                      href={toTelHref(phone.value)}
-                      className="text-base text-brand-mint transition-opacity hover:opacity-80"
-                    >
-                      {phone.value}
-                    </a>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p className="text-sm font-medium text-brand-mint">{t("phones")}</p>
+              <ul className="mt-3 space-y-3">
+                {siteConfig.phones.map((phone) => (
+                  <li key={phone.id} className="flex items-center gap-3">
+                    <span className="relative size-6 shrink-0">
+                      <Image src="/icons/phone.svg" alt="" fill sizes="24px" />
+                    </span>
+                    <div>
+                      <p className="text-xs text-white/65">
+                        {t(`phoneLabels.${phone.id}`)}
+                      </p>
+                      <a
+                        href={toTelHref(phone.value)}
+                        className="text-base text-brand-mint transition-opacity hover:opacity-80"
+                      >
+                        {phone.value}
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div>
