@@ -457,6 +457,15 @@
       "p1": "The dental centre is part of the university clinical base and provides therapeutic, surgical, and preventive services.",
       "p2": "Students practise chairside, starting with supervised procedures and moving toward independent work."
     },
+    "lab": {
+      "intro": "Our dental laboratory is a core department of the modern dental complex, where digital technology and medical precision come together to create high-quality prosthetic and implant solutions.",
+      "directionsTitle": "Main areas of the department:",
+      "digital": "Digital modelling and design: each construction is planned around the patient’s individual anatomy.",
+      "prosthetics": "Fixed and removable prosthetics: zirconia, all-ceramic, and metal-ceramic crowns, veneers, and clasp or flexible dentures.",
+      "implants": "Implant prosthetics: complex orthopaedic constructions and custom abutments.",
+      "team": "Our experienced dental technicians work closely with dentists to deliver high-quality work, biocompatible materials, and short turnaround times.",
+      "goal": "Our aim is to restore the function of the patient’s dentition and provide a natural, confident smile."
+    },
     "directions": {
       "therapy": {
         "title": "Therapeutic dentistry",

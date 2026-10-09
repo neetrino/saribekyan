@@ -45,6 +45,19 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
         <div className="max-w-3xl space-y-4 text-base leading-7 text-[#6f6f6f]">
           <p>{t(`${slug}.about.p1`)}</p>
           <p>{t(`${slug}.about.p2`)}</p>
+          {slug === "dental" ? (
+            <>
+              <p>{t("dental.lab.intro")}</p>
+              <p className="font-medium text-brand-ink">{t("dental.lab.directionsTitle")}</p>
+              <ul className="list-disc space-y-3 pl-5">
+                <li>{t("dental.lab.digital")}</li>
+                <li>{t("dental.lab.prosthetics")}</li>
+                <li>{t("dental.lab.implants")}</li>
+              </ul>
+              <p>{t("dental.lab.team")}</p>
+              <p>{t("dental.lab.goal")}</p>
+            </>
+          ) : null}
         </div>
       </ClinicSection>
 
