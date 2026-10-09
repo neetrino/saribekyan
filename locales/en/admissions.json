@@ -183,6 +183,34 @@
       "title": "Applicable regulations",
       "description": "Admissions are governed by internal acts. The documents are available as PDFs."
     },
+    "foreign": {
+      "badge": "Foreign citizens",
+      "title": "Admission of foreign citizens",
+      "p1": "The admission process for foreign citizens starts through the unified electronic platform for foreign applicants operated by the Ministry of Education, Science, Culture and Sports of the Republic of Armenia — fs.emis.am.",
+      "p2": "Applicants submit their application on the platform, attach the required documents, and follow the status of the application.",
+      "stepsTitle": "Main application steps",
+      "steps": {
+        "platform": "Sign in to the fs.emis.am unified electronic platform.",
+        "register": "Register in the system and select Saribekyan International Medical University (SIMU).",
+        "programme": "Choose the relevant programme and complete the online application.",
+        "documents": "Fill in the required information and attach the required documents according to the requirements shown in the system.",
+        "submit": "Submit the application for confirmation.",
+        "follow": "Follow the application status and further instructions from the university."
+      },
+      "documentsTitle": "Required documents",
+      "documents": {
+        "photo": "Applicant’s photograph",
+        "passport": "Copy of the passport",
+        "diaspora": "For Diaspora Armenians: a notarized copy of the birth certificate, or a baptism certificate",
+        "diploma": "Graduation document of the educational degree / translation of a copy of the graduation document (notarized, apostilled, or legalized by a consulate)",
+        "medical": "Medical certificate / insurance",
+        "cv": "Curriculum vitae (CV)",
+        "essay": "For postgraduate professional education: a scientific essay on the chosen specialty",
+        "exam": "Unified examination certificate (for those studying in the Republic of Armenia)",
+        "military": "Document on relation to military service (for male applicants who are family members of diplomats serving in diplomatic service bodies)",
+        "diplomatDiploma": "Graduation document on education (for applicants who are family members of diplomats serving in diplomatic service bodies)"
+      }
+    },
     "deadlines": {
       "badge": "Deadlines",
       "title": "Application deadlines",
