@@ -45,6 +45,12 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
         <div className="max-w-3xl space-y-4 text-base leading-7 text-[#6f6f6f]">
           <p>{t(`${slug}.about.p1`)}</p>
           <p>{t(`${slug}.about.p2`)}</p>
+          {slug === "complex" ? (
+            <>
+              <p>{t("complex.about.p3")}</p>
+              <p className="font-medium text-brand-ink">{t("complex.about.tagline")}</p>
+            </>
+          ) : null}
           {slug === "dental" ? (
             <>
               <p>{t("dental.lab.intro")}</p>
@@ -63,8 +69,10 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
 
       <ClinicSection
         id="directions"
-        badge={t("sections.directions")}
-        title={t("sections.directions")}
+        badge={slug === "complex" ? t("sections.keyAreas") : t("sections.directions")}
+        title={
+          slug === "complex" ? t("complex.headings.directions") : t("sections.directions")
+        }
       >
         <ClinicInfoGrid
           items={mapInfoItems(t, `${slug}.directions`, facilityDirectionIds[slug])}
@@ -73,8 +81,9 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
 
       <ClinicSection
         id="services"
-        badge={t("sections.services")}
-        title={t("sections.services")}
+        badge={slug === "complex" ? t("sections.care") : t("sections.services")}
+        title={slug === "complex" ? t("complex.headings.care") : t("sections.services")}
+        description={slug === "complex" ? t("complex.services.intro") : undefined}
       >
         <ClinicInfoGrid
           items={mapInfoItems(t, `${slug}.services`, facilityServiceIds[slug])}
@@ -84,11 +93,20 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
       <ClinicSection
         id="practice"
         badge={
-          slug === "simulation" ? t("sections.skills") : t("sections.practice")
+          slug === "simulation"
+            ? t("sections.skills")
+            : slug === "complex"
+              ? t("sections.environment")
+              : t("sections.practice")
         }
         title={
-          slug === "simulation" ? t("sections.skills") : t("sections.practice")
+          slug === "simulation"
+            ? t("sections.skills")
+            : slug === "complex"
+              ? t("complex.headings.environment")
+              : t("sections.practice")
         }
+        description={slug === "complex" ? t("complex.practice.intro") : undefined}
       >
         <ClinicInfoGrid
           items={mapInfoItems(
@@ -101,13 +119,46 @@ export async function FacilityContent({ slug }: FacilityContentProps) {
 
       <ClinicSection
         id="equipment"
-        badge={t("sections.equipment")}
-        title={t("sections.equipment")}
+        badge={slug === "complex" ? t("sections.technology") : t("sections.equipment")}
+        title={
+          slug === "complex" ? t("complex.headings.technology") : t("sections.equipment")
+        }
+        description={slug === "complex" ? t("complex.equipment.intro") : undefined}
       >
         <ClinicInfoGrid
           items={mapInfoItems(t, `${slug}.equipment`, facilityEquipmentIds[slug])}
         />
       </ClinicSection>
+
+      {slug === "complex" ? (
+        <>
+          <ClinicSection
+            id="leadership"
+            badge={t("sections.leadership")}
+            title={t("complex.headings.leadership")}
+          >
+            <ClinicInfoGrid
+              items={mapInfoItems(t, "complex.leadership", [
+                "chief",
+                "inpatient",
+                "outpatient",
+              ])}
+            />
+          </ClinicSection>
+          <ClinicSection
+            id="website"
+            badge={t("sections.website")}
+            title={t("complex.website.title")}
+          >
+            <p className="max-w-3xl text-base leading-7 text-[#6f6f6f]">
+              {t("complex.website.note")}
+            </p>
+            <span className="mt-6 inline-flex h-12 cursor-not-allowed items-center rounded-full bg-brand-ink/40 px-6 text-sm font-medium text-white">
+              {t("complex.website.button")}
+            </span>
+          </ClinicSection>
+        </>
+      ) : null}
 
       <ClinicSection
         id="specialists"

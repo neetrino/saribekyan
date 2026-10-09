@@ -20,6 +20,7 @@ type ClinicsPageShellProps = {
   activeHref?: string;
   compact?: boolean;
   sectionNav?: PageSectionNavItem[];
+  heroCta?: { href: string; label: string };
 };
 
 export async function ClinicsPageShell({
@@ -31,6 +32,7 @@ export async function ClinicsPageShell({
   activeHref = "/clinics",
   compact = false,
   sectionNav,
+  heroCta,
 }: ClinicsPageShellProps) {
   const t = await getTranslations("clinics");
 
@@ -66,6 +68,14 @@ export async function ClinicsPageShell({
           <p className="mt-5 max-w-2xl text-base leading-7 text-white/85">
             {description}
           </p>
+          {heroCta ? (
+            <a
+              href={heroCta.href}
+              className="mt-8 inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-medium text-brand-ink transition-opacity hover:opacity-90"
+            >
+              {heroCta.label}
+            </a>
+          ) : null}
         </div>
       </section>
 

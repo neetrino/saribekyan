@@ -71,7 +71,19 @@ export const clinicsPageSections: Record<ClinicSlug, ClinicSectionDef[]> = {
     { id: "about", labelKey: "tour.aboutTitle" },
     { id: "viewer", labelKey: "tour.viewerTitle" },
   ],
-  complex: facilitySectionDefs,
+  complex: [
+    { id: "about", labelKey: "sections.about" },
+    { id: "directions", labelKey: "sections.keyAreas" },
+    { id: "services", labelKey: "sections.care" },
+    { id: "practice", labelKey: "sections.environment" },
+    { id: "equipment", labelKey: "sections.technology" },
+    { id: "leadership", labelKey: "sections.leadership" },
+    { id: "website", labelKey: "sections.website" },
+    { id: "specialists", labelKey: "sections.specialists" },
+    { id: "gallery", labelKey: "sections.gallery" },
+    { id: "videos", labelKey: "sections.videos" },
+    { id: "contacts", labelKey: "sections.contacts" },
+  ],
   dental: facilitySectionDefs,
   simulation: facilitySectionDefs.map((section) =>
     section.id === "practice"
@@ -227,25 +239,36 @@ export const practicalGalleryIds = ["g1", "g2", "g3"] as const;
 export const practicalVideoIds = ["v1", "v2"] as const;
 
 export const facilityDirectionIds = {
-  complex: ["therapy", "surgery", "diagnostics", "emergency"] as const,
+  complex: ["anesthesia", "surgery", "therapy", "diagnostics", "pain"] as const,
   dental: ["therapy", "surgery", "orthodontics", "prevention"] as const,
   simulation: ["clinical", "dental", "emergency", "debrief"] as const,
 };
 
 export const facilityServiceIds = {
-  complex: ["outpatient", "inpatient", "diagnostics", "consult"] as const,
+  complex: ["outpatient", "inpatient"] as const,
   dental: ["treatment", "surgery", "imaging", "hygiene"] as const,
   simulation: ["skills", "osce", "team", "courses"] as const,
 };
 
 export const facilityPracticeIds = {
-  complex: ["bedside", "procedures", "rounds"] as const,
+  complex: ["learning", "rounds", "skills", "development"] as const,
   dental: ["chairside", "supervised", "cases"] as const,
   simulation: ["scenarios", "feedback", "repeat"] as const,
 };
 
 export const facilityEquipmentIds = {
-  complex: ["imaging", "or", "icu", "lab"] as const,
+  complex: [
+    "surgical",
+    "anesthesia",
+    "mobileImaging",
+    "ultrasound",
+    "functional",
+    "neuro",
+    "endoscopy",
+    "laser",
+    "rehab",
+    "lab",
+  ] as const,
   dental: ["units", "imaging", "sterile", "lab"] as const,
   simulation: ["manikins", "phantoms", "av", "virtual"] as const,
 };
