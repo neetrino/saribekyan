@@ -33,6 +33,7 @@ export const admissionsPageSections: Record<
     { id: "conditions", labelKey: "howToApply.conditions.title" },
     { id: "international", labelKey: "howToApply.international.title" },
     { id: "regulations", labelKey: "howToApply.regulations.title" },
+    { id: "foreign", labelKey: "howToApply.foreign.title" },
     { id: "deadlines", labelKey: "howToApply.deadlines.title" },
   ],
   tuition: [
@@ -95,6 +96,28 @@ export const conditionIds = [
   "language",
   "contract",
   "capacity",
+] as const;
+
+export const foreignStepIds = [
+  "platform",
+  "register",
+  "programme",
+  "documents",
+  "submit",
+  "follow",
+] as const;
+
+export const foreignDocumentIds = [
+  "photo",
+  "passport",
+  "diaspora",
+  "diploma",
+  "medical",
+  "cv",
+  "essay",
+  "exam",
+  "military",
+  "diplomatDiploma",
 ] as const;
 
 export const internationalRequirementIds = [

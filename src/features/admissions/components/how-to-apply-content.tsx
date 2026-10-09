@@ -6,10 +6,13 @@ import {
   applicationStepIds,
   conditionIds,
   deadlineIds,
+  foreignDocumentIds,
+  foreignStepIds,
   internationalRequirementIds,
   requiredDocumentIds,
 } from "../content/hub";
 import { AdmissionsCta } from "./admissions-cta";
+import { ForeignAdmission } from "./foreign-admission";
 import { ContentSection } from "./content-section";
 import { DeadlineGrid } from "./deadline-grid";
 import { InfoCards } from "./info-cards";
@@ -101,6 +104,20 @@ export async function HowToApplyContent() {
         description={t("regulations.description")}
       >
         <PdfDownloadList documents={pageDocuments.regulations} emptyLabel={tDocuments("empty")} />
+      </ContentSection>
+
+      <ContentSection
+        id="foreign"
+        badge={t("foreign.badge")}
+        title={t("foreign.title")}
+      >
+        <ForeignAdmission
+          intro={[t("foreign.p1"), t("foreign.p2")]}
+          stepsTitle={t("foreign.stepsTitle")}
+          steps={foreignStepIds.map((id) => t(`foreign.steps.${id}`))}
+          documentsTitle={t("foreign.documentsTitle")}
+          documents={foreignDocumentIds.map((id) => t(`foreign.documents.${id}`))}
+        />
       </ContentSection>
 
       <ContentSection

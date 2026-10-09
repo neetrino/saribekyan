@@ -51,9 +51,15 @@
     "facilities": "Clinical bases",
     "centers": "Training centres",
     "directions": "Areas of activity",
+    "keyAreas": "Key clinical areas",
     "services": "Medical services",
+    "care": "Medical care",
     "practice": "Clinical practice",
+    "environment": "Clinical environment",
     "equipment": "Equipment",
+    "technology": "Technology",
+    "leadership": "Medical leadership",
+    "website": "Complex website",
     "specialists": "Specialists",
     "gallery": "Photos",
     "videos": "Videos",
@@ -342,81 +348,137 @@
     "metaTitle": "University medical complex",
     "metaDescription": "Services, equipment, specialists, and clinical practice at the Saribekyan university medical complex.",
     "badge": "Medical complex",
-    "title": "Saribekyan university",
-    "highlight": "medical complex",
-    "description": "A multidisciplinary clinical base for patient care, diagnostics, and student practice.",
+    "title": "University",
+    "highlight": "Medical Complex",
+    "description": "Healthcare, education, research, and innovation within one integrated healthcare ecosystem.",
+    "heroCta": "Explore the Medical Complex",
+    "headings": {
+      "directions": "Key Clinical Areas",
+      "care": "Medical Care",
+      "environment": "Clinical Environment",
+      "technology": "Medical Technology & Equipment",
+      "leadership": "Medical Leadership"
+    },
     "about": {
-      "title": "About the complex",
-      "p1": "The university medical complex is SIMU’s main platform for clinical teaching. Students apply theory in a real clinical environment.",
-      "p2": "The complex brings together outpatient and inpatient services, diagnostics, and specialist consultation."
+      "title": "About the Medical Complex",
+      "p1": "The Saribekyan International Medical University Medical Complex is a modern healthcare ecosystem that brings together clinical care, education, research, and innovation within one integrated environment.",
+      "p2": "Its activities are grounded in the principles of patient-centred, evidence-based, and multidisciplinary medicine. Clinical care is closely integrated with the education of future physicians, continuing professional development of healthcare professionals, and scientific research.",
+      "p3": "The Medical Complex aims to foster an academic and clinical environment where every patient receives high-quality and safe healthcare, while students and healthcare professionals are empowered to learn, develop, and contribute to the advancement of modern medicine.",
+      "tagline": "Care. Education. Research. Innovation. One integrated ecosystem."
     },
     "directions": {
-      "therapy": {
-        "title": "Internal medicine",
-        "description": "Diagnosis and treatment of internal diseases."
+      "anesthesia": {
+        "title": "Anesthesia and Intensive Care Clinic",
+        "description": "Modern anesthesia, perioperative medical care, and intensive care services."
       },
       "surgery": {
-        "title": "Surgery",
-        "description": "Surgical care and practical training."
+        "title": "Surgical Clinic",
+        "description": "Contemporary surgical care spanning diagnosis and preoperative assessment, surgery, and postoperative follow-up."
+      },
+      "therapy": {
+        "title": "Internal Medicine Clinic",
+        "description": "Comprehensive assessment, diagnosis, treatment, and ongoing medical management of internal diseases."
       },
       "diagnostics": {
-        "title": "Diagnostics",
-        "description": "Laboratory and imaging investigations."
+        "title": "Diagnostic Center",
+        "description": "Laboratory, instrumental, and functional diagnostics supporting accurate and informed clinical decision-making."
       },
-      "emergency": {
-        "title": "Emergency care",
-        "description": "Assessment and stabilisation of acute conditions."
+      "pain": {
+        "title": "National Center for Pain Medicine",
+        "description": "Comprehensive assessment and multidisciplinary management of acute and chronic pain using contemporary pharmacological, non-pharmacological, and interventional approaches."
       }
     },
     "services": {
+      "intro": "Services are organized across the Medical Complex’s clinics and centers: Anesthesia and Intensive Care Clinic • Surgical Clinic • Internal Medicine Clinic • Diagnostic Center • National Center for Pain Medicine.",
       "outpatient": {
-        "title": "Outpatient service",
-        "description": "Planned appointments and examinations."
+        "title": "Outpatient Medical Care",
+        "description": "Specialist consultations, diagnostics, treatment, medical follow-up, and appropriate procedures provided through the relevant clinics and centers of the Medical Complex."
       },
       "inpatient": {
-        "title": "Inpatient care",
-        "description": "Patient monitoring and treatment."
-      },
-      "diagnostics": {
-        "title": "Diagnostic tests",
-        "description": "Laboratory and instrumental diagnostics."
-      },
-      "consult": {
-        "title": "Consultation",
-        "description": "Specialist opinion and clinical conclusions."
+        "title": "Inpatient Medical Care",
+        "description": "Round-the-clock medical supervision, treatment, surgical and other specialized procedures, anesthesia, intensive care, and post-treatment management according to the relevant clinical pathway."
       }
     },
     "practice": {
-      "bedside": {
-        "title": "Clinical examination",
-        "description": "Patient assessment under specialist supervision."
-      },
-      "procedures": {
-        "title": "Practical procedures",
-        "description": "Core interventions following a teaching protocol."
+      "intro": "As a university medical complex, we integrate healthcare delivery, clinical experience, and professional development. Our clinical environment supports clinical observation, professional discussion, practical skills development, and knowledge exchange while maintaining the principles of patient safety, confidentiality, and medical ethics.",
+      "learning": {
+        "title": "Clinical Learning",
+        "description": "Development of knowledge and practical skills within a real clinical environment."
       },
       "rounds": {
-        "title": "Clinical rounds",
-        "description": "Team discussion and review of the treatment plan."
+        "title": "Clinical Rounds & Case Discussions",
+        "description": "Clinical case review and professional discussion through a multidisciplinary approach."
+      },
+      "skills": {
+        "title": "Practical Skills",
+        "description": "Development of clinical and practical competencies in accordance with professional and safety standards."
+      },
+      "development": {
+        "title": "Professional Development",
+        "description": "An environment supporting knowledge exchange, continuing education, and professional growth."
       }
     },
     "equipment": {
-      "imaging": {
-        "title": "Medical imaging",
-        "description": "Diagnostic imaging for clinical work."
+      "intro": "The University Medical Complex is equipped with modern medical technologies and equipment supporting a broad spectrum of diagnostic, therapeutic, surgical and interventional procedures, anesthesia, intensive care, rehabilitation, and continuous patient monitoring.",
+      "surgical": {
+        "title": "Surgical & Laparoscopic Technology",
+        "description": "A modern operating theatre equipped for open and laparoscopic surgery, with the technology and instrumentation required for safe surgical care and contemporary minimally invasive procedures."
       },
-      "or": {
-        "title": "Operating theatre",
-        "description": "Equipment for surgical procedures."
+      "anesthesia": {
+        "title": "Anesthesia & Intensive Care",
+        "description": "Modern anesthesia workstations, multiparameter patient monitors, and systems for monitoring and supporting vital functions. The supporting infrastructure includes medical gas, suction, infusion therapy, and perioperative monitoring solutions."
       },
-      "icu": {
-        "title": "Monitoring",
-        "description": "Intensive-care and vital-sign equipment."
+      "mobileImaging": {
+        "title": "Intraoperative & Mobile Imaging",
+        "description": "A mobile C-arm imaging system for intraoperative imaging and image-guided interventional procedures, complemented by mobile radiography for imaging at the patient’s location when clinically required."
+      },
+      "ultrasound": {
+        "title": "Imaging & Ultrasound Diagnostics",
+        "description": "Digital fixed radiography, bone densitometry, a broad range of ultrasound examinations, and echocardiography."
+      },
+      "functional": {
+        "title": "Functional Diagnostics",
+        "description": "Electrocardiography (ECG), Holter monitoring, spirometry, audiometry, and tympanometry."
+      },
+      "neuro": {
+        "title": "Neurophysiological Diagnostics & Neuromodulation",
+        "description": "Electroencephalography (EEG), electroneuromyography (ENMG), and transcranial magnetic stimulation (TMS) for functional assessment of the nervous system and appropriate clinical applications."
+      },
+      "endoscopy": {
+        "title": "Endoscopic Diagnostics",
+        "description": "Modern endoscopic systems for upper gastrointestinal endoscopy (gastroscopy) and colonoscopy."
+      },
+      "laser": {
+        "title": "Laser & Vascular Technology",
+        "description": "A modern vascular laser system supporting minimally invasive treatment of appropriate vascular conditions, including endovenous laser procedures."
+      },
+      "rehab": {
+        "title": "Physiotherapy & Rehabilitation",
+        "description": "A broad spectrum of core physiotherapy modalities and modern rehabilitation equipment supporting restoration of mobility, improvement of functional capacity, and individualized rehabilitation programmes."
       },
       "lab": {
-        "title": "Laboratory base",
-        "description": "Equipment for clinical investigations."
+        "title": "Laboratory Diagnostics",
+        "description": "Laboratory technologies and equipment supporting clinical, biochemical, immunological, and serological testing."
       }
+    },
+    "leadership": {
+      "chief": {
+        "title": "Chief Medical Officer",
+        "description": "Overall clinical leadership of the Medical Complex, with responsibility for quality and safety of care, coordination of clinical services, and strategic clinical development."
+      },
+      "inpatient": {
+        "title": "Deputy Chief Medical Officer for Inpatient Services",
+        "description": "Coordination of inpatient medical care, clinical processes, continuity of treatment, and patient safety."
+      },
+      "outpatient": {
+        "title": "Deputy Chief Medical Officer for Outpatient Services",
+        "description": "Coordination of outpatient medical care, integration of specialist services, and effective organization of patient care pathways."
+      }
+    },
+    "website": {
+      "title": "Visit the official website of the University Medical Complex",
+      "button": "Medical Complex Website",
+      "note": "The link will be added once the Medical Complex’s dedicated official website is launched."
     },
     "gallery": {
       "g1": {
@@ -456,6 +518,15 @@
       "title": "About the centre",
       "p1": "The dental centre is part of the university clinical base and provides therapeutic, surgical, and preventive services.",
       "p2": "Students practise chairside, starting with supervised procedures and moving toward independent work."
+    },
+    "lab": {
+      "intro": "Our dental laboratory is a core department of the modern dental complex, where digital technology and medical precision come together to create high-quality prosthetic and implant solutions.",
+      "directionsTitle": "Main areas of the department:",
+      "digital": "Digital modelling and design: each construction is planned around the patient’s individual anatomy.",
+      "prosthetics": "Fixed and removable prosthetics: zirconia, all-ceramic, and metal-ceramic crowns, veneers, and clasp or flexible dentures.",
+      "implants": "Implant prosthetics: complex orthopaedic constructions and custom abutments.",
+      "team": "Our experienced dental technicians work closely with dentists to deliver high-quality work, biocompatible materials, and short turnaround times.",
+      "goal": "Our aim is to restore the function of the patient’s dentition and provide a natural, confident smile."
     },
     "directions": {
       "therapy": {
