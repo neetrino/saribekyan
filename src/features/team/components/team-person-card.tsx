@@ -12,7 +12,7 @@ export function TeamPersonCard({ person, featured = false }: TeamPersonCardProps
     <article
       className={
         featured
-          ? "flex h-full flex-col rounded-3xl bg-gradient-to-b from-brand-ink to-brand-teal p-7 text-white shadow-md"
+          ? "flex h-full items-center gap-6 rounded-3xl bg-gradient-to-b from-brand-ink to-brand-teal p-7 text-white shadow-md"
           : "flex h-full flex-col rounded-3xl bg-[#f5f5f5] p-7 text-brand-ink"
       }
     >
@@ -21,11 +21,12 @@ export function TeamPersonCard({ person, featured = false }: TeamPersonCardProps
         imageUrl={person.imageUrl}
         className={
           featured
-            ? "size-20 rounded-2xl bg-white/15 text-xl"
+            ? "size-32 shrink-0 rounded-2xl bg-white/15 text-2xl"
             : "size-20 rounded-2xl bg-brand-ink text-xl text-white"
         }
       />
-      <h3 className="mt-5 text-xl font-semibold leading-7">{person.name}</h3>
+      <div className={featured ? "min-w-0 flex-1" : undefined}>
+      <h3 className={featured ? "text-xl font-semibold leading-7" : "mt-5 text-xl font-semibold leading-7"}>{person.name}</h3>
       <p
         className={
           featured
@@ -71,6 +72,7 @@ export function TeamPersonCard({ person, featured = false }: TeamPersonCardProps
             {person.phone}
           </a>
         ) : null}
+      </div>
       </div>
     </article>
   );
