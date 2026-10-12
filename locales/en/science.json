@@ -38,11 +38,11 @@
   "research": {
     "badge": "Research",
     "title": "Scientific research",
-    "description": "Core directions that shape the university’s research initiatives.",
+    "description": "Scientific activity is an integral part of the university’s educational process at SIMU. University specialists and students take part in a wide range of biomedical research projects, in collaboration with leading hospitals and research centres in Armenia and abroad. Scientific articles and conference materials are published in reputable local and international handbooks and journals, covering fundamental, clinical, and case studies. The university also publishes teaching handbooks and organizes international scientific events.",
     "items": {
       "biomedical": {
         "title": "Biomedical research",
-        "description": "Laboratory and translational studies on disease mechanisms and new diagnostic approaches."
+        "description": "This is the university’s overall scientific direction. It brings together fundamental science and clinical practice."
       },
       "clinical": {
         "title": "Clinical research",
@@ -95,50 +95,64 @@
     "badge": "Publications",
     "title": "Scientific publications",
     "description": "Articles, reports, and other scholarly works by year.",
-    "empty": "Publications will be added soon."
+    "empty": "Publications will be added soon.",
+    "groups": {
+      "handbook": "Teaching handbook",
+      "handbooks": "Teaching handbooks",
+      "book": "Book",
+      "articles": "Articles",
+      "chapters": "Book chapters"
+    },
+    "years": {
+      "y2023": "2023–2024 academic year",
+      "y2024": "2024–2025 academic year",
+      "y2025": "2025–2026 academic year"
+    }
   },
   "events": {
     "badge": "Events",
-    "title": "Conferences and events",
-    "description": "Calendar of scientific and student events.",
+    "title": "Calendar of scientific and student events",
+    "description": "",
     "items": {
       "conference": {
-        "title": "Annual medical conference",
-        "description": "Presentation and discussion of faculty and student research.",
-        "date": "15–16 May 2026",
+        "title": "TEDxUTMA",
+        "description": "SIMU’s annual licensed TEDx event.",
+        "date": "29 April 2026",
         "venue": "Main university building"
       },
       "seminar": {
-        "title": "Research methods seminar",
-        "description": "Practical seminar on scientific writing, data analysis, and ethics.",
-        "date": "12 March 2026",
+        "title": "SIMU OPEN SCIENCE",
+        "description": "Open lectures on dementia.",
+        "date": "21 March 2026",
         "venue": "Science hall"
       },
       "symposium": {
-        "title": "SSS spring symposium",
-        "description": "Presentation and competitive review of student research projects.",
-        "date": "24 April 2026",
-        "venue": "Student centre"
+        "title": "International Summit of Medical Faculty and Clinical Leadership",
+        "description": "An international medical conference organized by SIMU and UNILEVEL University in Tbilisi.",
+        "date": "3 March 2026",
+        "venue": "Science hall"
       }
     }
   },
   "ugs": {
     "badge": "SSS",
-    "title": "Student Scientific Society",
-    "description": "The SSS fosters student research initiatives and a culture of scientific inquiry.",
-    "p1": "The Student Scientific Society organizes research groups, seminars, and conferences, supports student publications, and connects early researchers with faculty mentors.",
+    "title": "SSS",
+    "description": "",
+    "p1": "The Student Scientific Society is active at the university. It organizes university scientific events and publishes articles and conference materials in reputable local and international journals and handbooks.",
+    "p2": "Since 2022, a student facilitator system has also been introduced. It is innovative in nature and has created greater opportunities to involve students in scientific work.",
+    "projectsTitle": "SSS projects",
     "focus": {
       "research": {
-        "title": "Student research",
-        "description": "Thematic groups and projects under faculty supervision."
+        "title": "SSS Health-Wise",
+        "description": "Within this project, SIMU students and specialists produce popular-science videos based on small research projects."
       },
       "events": {
-        "title": "Scientific events",
-        "description": "Seminars, symposia, and competitions for students."
+        "title": "SSS Debate Club",
+        "description": "The project hosts student scientific debates in a format developed by the SIMU Student Scientific Society."
       },
       "mentoring": {
-        "title": "Mentoring",
-        "description": "Academic guidance through research planning and presentation."
+        "title": "SSS “A-Eyes” startup",
+        "description": "This student project, created in 2023, develops systems that support people with visual impairments. With the university’s support, the team has taken part in and been presented at many international and local scientific and student platforms."
       }
     }
   },

@@ -11,7 +11,9 @@ import {
   ugsFocusIds,
 } from "../content/meta";
 import { ContentSection } from "./content-section";
+import { publicationYears } from "../content/publications";
 import { EventList } from "./event-list";
+import { PublicationCatalog } from "./publication-catalog";
 import { ProjectCards } from "./project-cards";
 import { ScienceInfoGrid } from "./science-info-grid";
 import { SciencePageShell } from "./science-page-shell";
@@ -109,10 +111,21 @@ export async function SciencePageContent() {
         title={t("publications.title")}
         description={t("publications.description")}
       >
-        <DocumentYearFilter
-          documents={documents.publications}
+        <PublicationCatalog
+          years={publicationYears}
           allLabel={t("filters.all")}
-          emptyLabel={t("publications.empty")}
+          yearLabels={{
+            y2023: t("publications.years.y2023"),
+            y2024: t("publications.years.y2024"),
+            y2025: t("publications.years.y2025"),
+          }}
+          groupLabels={{
+            handbook: t("publications.groups.handbook"),
+            handbooks: t("publications.groups.handbooks"),
+            book: t("publications.groups.book"),
+            articles: t("publications.groups.articles"),
+            chapters: t("publications.groups.chapters"),
+          }}
         />
       </ContentSection>
 
@@ -133,7 +146,9 @@ export async function SciencePageContent() {
       >
         <div className="mb-8 max-w-3xl space-y-4 text-base leading-7 text-[#6f6f6f]">
           <p>{t("ugs.p1")}</p>
+          <p>{t("ugs.p2")}</p>
         </div>
+        <h3 className="mb-6 text-lg font-medium text-brand-ink">{t("ugs.projectsTitle")}</h3>
         <ScienceInfoGrid items={ugsFocus} />
       </ContentSection>
 
