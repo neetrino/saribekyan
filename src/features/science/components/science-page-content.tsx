@@ -11,9 +11,7 @@ import {
   ugsFocusIds,
 } from "../content/meta";
 import { ContentSection } from "./content-section";
-import { publicationYears } from "../content/publications";
 import { EventList } from "./event-list";
-import { PublicationCatalog } from "./publication-catalog";
 import { ProjectCards } from "./project-cards";
 import { ScienceInfoGrid } from "./science-info-grid";
 import { SciencePageShell } from "./science-page-shell";
@@ -106,30 +104,6 @@ export async function SciencePageContent() {
       </ContentSection>
 
       <ContentSection
-        id="publications"
-        badge={t("publications.badge")}
-        title={t("publications.title")}
-        description={t("publications.description")}
-      >
-        <PublicationCatalog
-          years={publicationYears}
-          allLabel={t("filters.all")}
-          yearLabels={{
-            y2023: t("publications.years.y2023"),
-            y2024: t("publications.years.y2024"),
-            y2025: t("publications.years.y2025"),
-          }}
-          groupLabels={{
-            handbook: t("publications.groups.handbook"),
-            handbooks: t("publications.groups.handbooks"),
-            book: t("publications.groups.book"),
-            articles: t("publications.groups.articles"),
-            chapters: t("publications.groups.chapters"),
-          }}
-        />
-      </ContentSection>
-
-      <ContentSection
         id="events"
         badge={t("events.badge")}
         title={t("events.title")}
@@ -172,6 +146,21 @@ export async function SciencePageContent() {
         description={t("contacts.description")}
       >
         <TeamPeopleGrid people={team.contacts} featuredFirst />
+      </ContentSection>
+
+      <ContentSection id="researchClose" title={t("research.title")}>
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)]">
+          <p className="text-base leading-7 text-[#6f6f6f]">{t("research.description")}</p>
+          <article className="rounded-3xl border border-[#e8e8e8] bg-white p-6">
+            <div className="mb-4 h-1.5 w-10 rounded-full bg-brand-gold" />
+            <h3 className="text-lg font-semibold text-brand-ink">
+              {t("research.items.biomedical.title")}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-[#6f6f6f]">
+              {t("research.items.biomedical.description")}
+            </p>
+          </article>
+        </div>
       </ContentSection>
     </SciencePageShell>
   );

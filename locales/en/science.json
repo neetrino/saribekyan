@@ -20,7 +20,8 @@
     "events": "Events",
     "ugs": "SSS",
     "reports": "Reports",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "researchClose": "Scientific research"
   },
   "hero": {
     "badge": "Science",
