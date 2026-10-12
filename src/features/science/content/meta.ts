@@ -2,11 +2,11 @@ export const scienceSectionIds = [
   "overview",
   "research",
   "projects",
-  "publications",
   "events",
   "ugs",
   "reports",
   "contacts",
+  "researchClose",
 ] as const;
 
 export type ScienceSectionId = (typeof scienceSectionIds)[number];
