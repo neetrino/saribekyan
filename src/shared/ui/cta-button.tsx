@@ -24,7 +24,7 @@ export function CtaButton({
     <Link
       href={href}
       className={cn(
-        "group relative inline-flex h-14 items-center justify-between gap-[27px] overflow-hidden rounded-full py-1 pl-7 pr-1 text-base font-medium leading-4",
+        "group relative inline-flex h-14 min-w-0 max-w-full items-center justify-between gap-3 overflow-hidden rounded-full py-1 pl-5 pr-1 text-sm font-medium leading-4 sm:gap-[27px] sm:pl-7 sm:text-base",
         isLight ? "bg-white text-brand-ink" : "bg-brand-ink text-white",
         className,
       )}
@@ -38,7 +38,7 @@ export function CtaButton({
       />
       <span
         className={cn(
-          "relative z-10 whitespace-nowrap transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]",
+          "relative z-10 min-w-0 text-pretty transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]",
           isLight ? "group-hover:text-white" : "group-hover:text-brand-ink",
         )}
       >

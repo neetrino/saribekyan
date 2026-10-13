@@ -13,8 +13,8 @@ const socialHrefs = {
 
 export function ContactSocial() {
   return (
-    <article className="rounded-3xl bg-gradient-to-r from-brand-ink to-brand-teal p-7 text-white shadow-md">
-      <ul className="flex flex-wrap items-center gap-[22px]">
+    <article className="rounded-3xl bg-gradient-to-r from-brand-ink to-brand-teal px-0 py-7 text-white shadow-md">
+      <ul className="flex items-center justify-evenly">
         {contactSocialLinks.map((item) => (
           <li key={item.id}>
             <a
