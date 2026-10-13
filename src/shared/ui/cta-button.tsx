@@ -24,7 +24,7 @@ export function CtaButton({
     <Link
       href={href}
       className={cn(
-        "group relative inline-flex h-14 items-center gap-[27px] overflow-hidden rounded-full py-1 pl-7 pr-1 text-base font-medium leading-4",
+        "group relative inline-flex h-14 items-center justify-between gap-[27px] overflow-hidden rounded-full py-1 pl-7 pr-1 text-base font-medium leading-4",
         isLight ? "bg-white text-brand-ink" : "bg-brand-ink text-white",
         className,
       )}
