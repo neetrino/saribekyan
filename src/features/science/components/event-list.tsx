@@ -19,7 +19,7 @@ export function EventList({ events }: EventListProps) {
           <p className="mt-2 flex-1 text-sm leading-6 text-[#6f6f6f]">
             {event.description}
           </p>
-          <p className="mt-4 font-jakarta text-base font-extrabold text-brand-teal">
+          <p className="mt-4 self-end text-right font-jakarta text-base font-extrabold text-brand-teal">
             {event.date}
           </p>
         </li>

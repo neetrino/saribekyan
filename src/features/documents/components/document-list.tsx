@@ -28,7 +28,7 @@ export function DocumentList({ documents, emptyLabel }: DocumentListProps) {
                 <p className="mt-1 text-sm text-[#6f6f6f]">{document.description}</p>
               ) : null}
             </div>
-            <span className="inline-flex h-9 shrink-0 items-center rounded-full bg-brand-ink px-4 text-sm font-semibold text-white">
+            <span className="inline-flex h-9 w-fit shrink-0 self-end items-center rounded-full bg-brand-ink px-4 text-sm font-semibold text-white sm:self-center">
               {document.year}
             </span>
           </a>
