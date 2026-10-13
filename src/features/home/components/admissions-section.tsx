@@ -143,13 +143,14 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
             className="z-10 mt-6 size-14 [&_span]:!rotate-0 lg:-ml-2"
           />
 
-          <div className="relative mt-6 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:absolute lg:left-0 lg:top-[12.5rem] lg:mt-0 lg:h-[524px] lg:w-[605px] lg:max-w-none lg:aspect-auto">
+          <div className="pointer-events-none relative mt-6 aspect-[605/524] w-full max-w-[605px] overflow-hidden lg:absolute lg:left-0 lg:top-[12.5rem] lg:mt-0 lg:h-[524px] lg:w-[605px] lg:max-w-none lg:aspect-auto">
             <div className="absolute inset-y-0 -left-[20%] w-[130%]">
               <Image
                 src="/images/home/admissions.png"
                 alt={t("imageAlt")}
                 fill
-                className="object-cover object-left"
+                draggable={false}
+                className="object-cover object-left select-none"
                 sizes="(max-width: 1024px) 90vw, 786px"
                 unoptimized
               />
