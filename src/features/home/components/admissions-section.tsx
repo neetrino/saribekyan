@@ -3,7 +3,6 @@
 import Image from "next/image";
 import type { AdmissionStep } from "@prisma/client";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { ArrowLink } from "@/shared/ui/arrow-link";
@@ -26,7 +25,6 @@ const tabHrefs: Record<TabId, string> = {
 /** Figma Admissions — mobile 198:232, desktop 198:927 */
 export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
   const t = useTranslations("home.admissions");
-  const [activeTab, setActiveTab] = useState<TabId>("apply");
 
   return (
     <section
@@ -57,20 +55,19 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
             )}
           >
             {tabIds.map((tabId) => (
-              <button
+              <Link
                 key={tabId}
-                type="button"
-                onClick={() => setActiveTab(tabId)}
+                href={tabHrefs[tabId]}
                 className={cn(
                   "inline-flex h-[38px] items-center justify-center rounded-full px-4 text-sm leading-[21px] transition-colors",
                   "lg:h-[42px] lg:flex-1 lg:px-2.5 lg:text-base",
-                  activeTab === tabId
+                  tabId === "apply"
                     ? "bg-brand-ink font-normal text-white lg:font-bold"
                     : "border border-[#e5e7eb] bg-white font-normal text-[#8f8f8f] lg:border-0",
                 )}
               >
                 {t(`tabs.${tabId}`)}
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -104,7 +101,7 @@ export function AdmissionsSection({ steps }: AdmissionsSectionProps) {
                     </p>
                   </div>
                   <Link
-                    href={tabHrefs[activeTab]}
+                    href={tabHrefs.apply}
                     aria-label={t("stepMore", { title: step.title })}
                     className={cn(
                       "inline-flex size-9 shrink-0 items-center justify-center rounded-full",
