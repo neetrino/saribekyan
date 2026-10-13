@@ -107,7 +107,7 @@ export function HeaderDropdown({
         <button
           type="button"
           className={cn(
-            "flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-brand-ink hover:bg-slate-100",
+            "flex w-full cursor-pointer touch-manipulation items-center justify-between rounded-2xl px-4 py-3 text-left text-brand-ink hover:bg-slate-100",
             isActive && "bg-slate-100 font-semibold",
           )}
           aria-expanded={open}
@@ -130,14 +130,14 @@ export function HeaderDropdown({
                       href={group.href}
                       prefetch
                       scroll={false}
-                      className="flex-1 rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
+                      className="flex-1 cursor-pointer touch-manipulation rounded-xl px-3 py-2 text-sm text-brand-ink hover:bg-slate-100"
                       onClick={closeMenu}
                     >
                       {group.label}
                     </Link>
                     <button
                       type="button"
-                      className="inline-flex size-9 items-center justify-center rounded-xl hover:bg-slate-100"
+                      className="inline-flex size-9 cursor-pointer touch-manipulation items-center justify-center rounded-xl hover:bg-slate-100"
                       aria-expanded={groupOpen}
                       aria-label={sectionsAriaLabel}
                       onClick={() =>
@@ -162,7 +162,7 @@ export function HeaderDropdown({
                             href={{ pathname: group.href, hash: section.id }}
                             prefetch
                             scroll={false}
-                            className="block rounded-lg px-3 py-2 text-sm text-[#6f6f6f] hover:bg-slate-100 hover:text-brand-ink"
+                            className="block cursor-pointer touch-manipulation rounded-lg px-3 py-2 text-sm text-[#6f6f6f] hover:bg-slate-100 hover:text-brand-ink"
                             onClick={closeMenu}
                           >
                             {section.label}
