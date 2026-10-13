@@ -19,7 +19,7 @@ type CohortTranslator = Awaited<ReturnType<typeof getTranslations>>;
 
 function CohortCards({ t }: { t: CohortTranslator }) {
   return (
-    <div className="flex min-w-0 items-end gap-3 lg:col-span-7 lg:justify-end lg:gap-0 lg:overflow-x-auto lg:pb-2">
+    <div className="flex min-w-0 items-end gap-2 lg:col-span-7 lg:justify-end lg:gap-0 lg:overflow-x-auto lg:pb-2">
       {cohortIds.map((id, index) => (
         <CohortCard key={id} id={id} index={index} t={t} />
       ))}
@@ -39,25 +39,25 @@ function CohortCard({
   return (
     <article
       className={cn(
-        "flex min-w-0 flex-1 flex-col justify-between rounded-[20px] p-4 lg:w-[min(100%,227px)] lg:shrink-0 lg:flex-none lg:rounded-3xl lg:p-7",
+        "flex min-w-0 flex-1 flex-col justify-between overflow-hidden rounded-[20px] px-2.5 py-3 lg:w-[min(100%,227px)] lg:shrink-0 lg:flex-none lg:overflow-visible lg:rounded-3xl lg:p-7",
         index > 0 && "lg:ml-6 lg:w-[min(100%,228px)] lg:p-8",
         barStyles[index],
       )}
     >
       <p
         className={cn(
-          "font-jakarta text-sm font-extrabold leading-[21px] lg:text-xl lg:leading-7",
+          "whitespace-nowrap font-jakarta text-[clamp(11px,3.5vw,14px)] font-extrabold leading-5 tracking-tight lg:text-xl lg:leading-7 lg:tracking-normal",
           index === 2 && "text-white lg:text-2xl",
         )}
       >
         {t(`cohorts.${id}.year`)}
       </p>
       <div className="space-y-2">
-        <p className="text-[11px] font-medium leading-4 lg:text-xs lg:leading-[18px]">
+        <p className="break-words text-[10px] font-medium leading-[14px] lg:text-xs lg:leading-[18px]">
           {t(`cohorts.${id}.total`)} {t(`cohorts.${id}.citizens`)}{" "}
           {t(`cohorts.${id}.foreign`)}
         </p>
-        <p className="text-sm font-extrabold leading-5 lg:text-base">
+        <p className="break-words text-xs font-extrabold leading-4 lg:text-base lg:leading-5">
           {t(`cohorts.${id}.graduates`)}
         </p>
       </div>
