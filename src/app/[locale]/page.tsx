@@ -29,7 +29,7 @@ export default async function HomePage({ params }: HomePageProps) {
     <main>
       <HeroBand>
         <HeroSection />
-        <AboutSection stats={content.stats} />
+        <AboutSection />
       </HeroBand>
       <ProgramsSection programs={content.programs} />
       <AdmissionsSection steps={content.admissionSteps} />

@@ -22,6 +22,11 @@ function isRemote(url: string): boolean {
   return /^https?:\/\//i.test(url);
 }
 
+/** Optimizer only reads files in `public/`. Uploads are served by `/media` routes. */
+function skipOptimizer(url: string): boolean {
+  return isRemote(url) || url.startsWith("/media/");
+}
+
 /** Photo with initials fallback. Box size and colors come from `className`. */
 export function TeamAvatar({ name, imageUrl, className, sizes = "80px" }: TeamAvatarProps) {
   return (
@@ -37,7 +42,7 @@ export function TeamAvatar({ name, imageUrl, className, sizes = "80px" }: TeamAv
           alt={name}
           fill
           sizes={sizes}
-          unoptimized={isRemote(imageUrl)}
+          unoptimized={skipOptimizer(imageUrl)}
           className="object-cover"
         />
       ) : (
