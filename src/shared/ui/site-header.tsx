@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { AboutHeaderNavItem } from "@/features/about/components/about-header-nav-item";
 import { AdmissionsHeaderNavItem } from "@/features/admissions/components/admissions-header-nav-item";
@@ -20,9 +20,7 @@ export function SiteHeader() {
   const router = useRouter();
   const locale = useLocale() as AppLocale;
   const [open, setOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const openMenusRef = useRef(new Set<string>());
   const [scrolled, setScrolled] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
@@ -51,16 +49,6 @@ export function SiteHeader() {
 
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
-  }, []);
-
-  const onMobileSubmenu = useCallback((key: string, isOpen: boolean) => {
-    const menus = openMenusRef.current;
-    if (isOpen) {
-      menus.add(key);
-    } else {
-      menus.delete(key);
-    }
-    setSubmenuOpen(menus.size > 0);
   }, []);
 
   function switchLocale(nextLocale: AppLocale) {
@@ -206,13 +194,13 @@ export function SiteHeader() {
             {/* Burger — Figma 200:1054 pill + 200:1055 charm:menu-hamburger → X */}
             <button
               type="button"
-              className="relative z-20 inline-flex h-14 w-[111px] items-center justify-center rounded-[29px] border border-white/12 bg-white shadow-[0_0_32px_rgba(104,239,189,0.45)] xl:hidden"
+              className="relative z-20 inline-flex h-14 w-[111px] cursor-pointer touch-manipulation items-center justify-center rounded-[29px] border border-white/12 bg-white shadow-[0_0_32px_rgba(104,239,189,0.45)] xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? t("nav.closeMenu") : t("nav.menu")}
               onClick={() => setOpen((value) => !value)}
             >
-              <span className="relative block size-[38px]" aria-hidden>
+              <span className="pointer-events-none relative block size-[38px]" aria-hidden>
                 <span
                   className={cn(
                     "absolute left-[7px] block h-[2.5px] w-[25px] rounded-full bg-black transition-all duration-300 ease-in-out",
@@ -242,11 +230,10 @@ export function SiteHeader() {
           id="mobile-nav"
           aria-hidden={!open}
           className={cn(
-            "relative z-10 mx-4 rounded-3xl bg-white shadow-lg transition-[max-height,opacity,margin,padding] duration-300 ease-out xl:hidden",
+            "relative z-10 mx-4 rounded-3xl bg-white shadow-lg xl:hidden",
             open
-              ? "mt-3 p-4 opacity-100"
+              ? "mt-3 max-h-[70svh] overflow-y-auto overscroll-contain p-4 opacity-100"
               : "pointer-events-none mt-0 max-h-0 overflow-hidden p-0 opacity-0",
-            open && submenuOpen && "max-h-[min(70svh,640px)] overflow-y-auto overscroll-contain",
           )}
         >
             <ul className="flex flex-col gap-1">
@@ -257,7 +244,6 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
-                      onMobileOpenChange={(isOpen) => onMobileSubmenu("about", isOpen)}
                     />
                   );
                 }
@@ -267,7 +253,6 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
-                      onMobileOpenChange={(isOpen) => onMobileSubmenu("education", isOpen)}
                     />
                   );
                 }
@@ -277,7 +262,6 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
-                      onMobileOpenChange={(isOpen) => onMobileSubmenu("admissions", isOpen)}
                     />
                   );
                 }
@@ -287,7 +271,6 @@ export function SiteHeader() {
                       key={item.href}
                       variant="mobile"
                       onNavigate={() => setOpen(false)}
-                      onMobileOpenChange={(isOpen) => onMobileSubmenu("clinics", isOpen)}
                     />
                   );
                 }
@@ -298,7 +281,7 @@ export function SiteHeader() {
                       href={item.href}
                       prefetch
                       scroll={false}
-                      className="block rounded-2xl px-4 py-3 text-brand-ink hover:bg-slate-100"
+                      className="block cursor-pointer touch-manipulation rounded-2xl px-4 py-3 text-brand-ink hover:bg-slate-100"
                       onClick={() => setOpen(false)}
                       tabIndex={open ? 0 : -1}
                     >
@@ -309,18 +292,18 @@ export function SiteHeader() {
               })}
             </ul>
 
-            <div className="mt-3 border-t border-brand-ink/10 pt-3">
-              <p className="px-4 pb-2 text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
+            <div className="mt-3 flex items-center justify-between gap-3 border-t border-brand-ink/10 px-2 pt-3">
+              <p className="shrink-0 whitespace-nowrap text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
                 {t("language.aria")}
               </p>
-              <ul className="flex gap-2 px-2" role="listbox" aria-label={t("language.aria")}>
+              <ul className="flex gap-2" role="listbox" aria-label={t("language.aria")}>
                 {locales.map((item) => (
                   <li key={item} role="option" aria-selected={item === locale}>
                     <button
                       type="button"
                       tabIndex={open ? 0 : -1}
                       className={cn(
-                        "inline-flex h-11 min-w-[4.5rem] items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold tracking-[1.2px] transition-colors",
+                        "inline-flex h-9 min-w-14 cursor-pointer touch-manipulation items-center justify-center rounded-full px-3 text-xs font-semibold tracking-[1.2px] transition-colors",
                         item === locale
                           ? "bg-brand-ink text-white"
                           : "bg-brand-ink/5 text-brand-ink hover:bg-brand-ink/10",

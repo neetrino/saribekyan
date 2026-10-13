@@ -18,7 +18,7 @@ export async function MemorandumList() {
               {t(`${id}.description`)}
             </p>
           </div>
-          <span className="inline-flex h-9 shrink-0 items-center rounded-full bg-brand-ink px-4 text-sm font-semibold text-white">
+          <span className="inline-flex h-9 w-fit shrink-0 items-center self-end rounded-full bg-brand-ink px-4 text-sm font-semibold text-white sm:self-center">
             {t(`${id}.year`)}
           </span>
         </li>
