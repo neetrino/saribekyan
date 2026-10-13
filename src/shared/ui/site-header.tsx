@@ -292,18 +292,18 @@ export function SiteHeader() {
               })}
             </ul>
 
-            <div className="mt-3 border-t border-brand-ink/10 pt-3">
-              <p className="px-4 pb-2 text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
+            <div className="mt-3 flex items-center justify-between gap-3 border-t border-brand-ink/10 px-2 pt-3">
+              <p className="shrink-0 whitespace-nowrap text-xs font-semibold tracking-[1.2px] text-brand-ink/50">
                 {t("language.aria")}
               </p>
-              <ul className="flex gap-2 px-2" role="listbox" aria-label={t("language.aria")}>
+              <ul className="flex gap-2" role="listbox" aria-label={t("language.aria")}>
                 {locales.map((item) => (
                   <li key={item} role="option" aria-selected={item === locale}>
                     <button
                       type="button"
                       tabIndex={open ? 0 : -1}
                       className={cn(
-                        "inline-flex h-11 min-w-[4.5rem] cursor-pointer touch-manipulation items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold tracking-[1.2px] transition-colors",
+                        "inline-flex h-9 min-w-14 cursor-pointer touch-manipulation items-center justify-center rounded-full px-3 text-xs font-semibold tracking-[1.2px] transition-colors",
                         item === locale
                           ? "bg-brand-ink text-white"
                           : "bg-brand-ink/5 text-brand-ink hover:bg-brand-ink/10",
