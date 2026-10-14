@@ -26,7 +26,7 @@ export const siteConfig = {
     externalUrl: "https://www.openstreetmap.org/?mlat=40.1776&mlon=44.5126#map=15/40.1776/44.5126",
   },
   social: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/SaribekyanInternationalMedicalUniversity/",
     instagram: "#",
     telegram: "#",
     youtube: "#",

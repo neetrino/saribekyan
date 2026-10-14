@@ -20,6 +20,9 @@ export function ContactSocial() {
             <a
               href={socialHrefs[item.id]}
               aria-label={item.id}
+              {...(socialHrefs[item.id].startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="relative block size-6 opacity-90 transition-opacity hover:opacity-100"
             >
               <Image

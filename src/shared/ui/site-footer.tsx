@@ -65,6 +65,9 @@ function SocialList({ className }: { className?: string }) {
           <a
             href={item.href}
             aria-label={item.label}
+            {...(item.href.startsWith("http")
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className={`relative block opacity-90 transition-opacity hover:opacity-100 ${item.className}`}
           >
             <Image
