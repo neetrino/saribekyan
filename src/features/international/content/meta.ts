@@ -1,7 +1,6 @@
 export const internationalSectionIds = [
   "office",
   "europe",
-  "cis",
   "partners",
   "memoranda",
   "exchange",
@@ -22,10 +21,6 @@ export type OfficeFocusId = (typeof officeFocusIds)[number];
 export const europeFocusIds = ["academic", "clinical", "research"] as const;
 
 export type EuropeFocusId = (typeof europeFocusIds)[number];
-
-export const cisFocusIds = ["mobility", "training", "science"] as const;
-
-export type CisFocusId = (typeof cisFocusIds)[number];
 
 export const partnerRegions = ["europe", "cis"] as const;
 

@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
 import {
-  cisFocusIds,
   europeFocusIds,
   exchangeIds,
   internationalSectionIds,
@@ -38,9 +37,6 @@ export async function InternationalPageView() {
   const europe = mapCards(europeFocusIds, (id, field) =>
     t(`europe.items.${id}.${field}`),
   );
-  const cis = mapCards(cisFocusIds, (id, field) =>
-    t(`cis.items.${id}.${field}`),
-  );
   const exchange = mapCards(exchangeIds, (id, field) =>
     t(`exchange.items.${id}.${field}`),
   );
@@ -72,15 +68,6 @@ export async function InternationalPageView() {
         description={t("europe.description")}
       >
         <InternationalInfoGrid items={europe} />
-      </InternationalSection>
-
-      <InternationalSection
-        id="cis"
-        badge={t("cis.badge")}
-        title={t("cis.title")}
-        description={t("cis.description")}
-      >
-        <InternationalInfoGrid items={cis} />
       </InternationalSection>
 
       <InternationalSection

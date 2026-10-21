@@ -12,7 +12,6 @@
   "nav": {
     "office": "International Office",
     "europe": "Europe",
-    "cis": "CIS",
     "partners": "Partners",
     "memoranda": "Memoranda",
     "exchange": "Exchange",
@@ -67,25 +66,6 @@
       "research": {
         "title": "Joint research",
         "description": "Conferences, publications, and initiatives to improve the quality of medical education."
-      }
-    }
-  },
-  "cis": {
-    "badge": "CIS",
-    "title": "Cooperation with CIS universities",
-    "description": "Collaboration with medical universities in the CIS region includes mobility, specialist training, and academic research links.",
-    "items": {
-      "mobility": {
-        "title": "Student mobility",
-        "description": "Semester study and clinical practice at partner universities in CIS countries."
-      },
-      "training": {
-        "title": "Specialist training",
-        "description": "Exchange of experience in residency and continuing medical education."
-      },
-      "science": {
-        "title": "Research collaboration",
-        "description": "Joint research topics, conferences, and academic visits."
       }
     }
   },
