@@ -14,7 +14,7 @@ export function InternationalInfoGrid({ items }: InternationalInfoGridProps) {
       {items.map((item) => (
         <li
           key={item.id}
-          className="rounded-3xl border border-[#e8e8e8] bg-white p-6"
+          className="rounded-3xl border border-[#e8e8e8] bg-white p-6 sm:last:odd:col-span-2 sm:last:odd:w-[calc(50%-0.5rem)] sm:last:odd:justify-self-center"
         >
           <div className="mb-4 h-1.5 w-10 rounded-full bg-brand-gold" />
           <h3 className="text-lg font-semibold text-brand-ink">{item.title}</h3>
