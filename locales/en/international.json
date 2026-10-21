@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "International relations",
-    "description": "The International Office of Saribekyan International Medical University, partner universities, memoranda, exchange programmes, and joint projects."
+    "description": "The External Relations Office of Saribekyan International Medical University, international cooperation, partners, agreements and memoranda, and exchange programmes."
   },
   "breadcrumb": {
     "aria": "Breadcrumb",
@@ -11,168 +11,90 @@
   "sectionNavAria": "International relations sections",
   "nav": {
     "office": "International Office",
-    "europe": "Europe",
+    "cooperation": "Cooperation",
     "partners": "Partners",
     "memoranda": "Memoranda",
-    "exchange": "Exchange",
-    "projects": "Projects"
+    "exchange": "Exchange"
   },
   "hero": {
     "badge": "International relations",
     "title": "International",
     "highlight": "collaboration",
-    "description": "University international activity, partner institutions, exchange programmes, and joint projects."
+    "description": "The university's external relations, international cooperation, partners, agreements and memoranda, and exchange programmes."
   },
   "office": {
     "badge": "International Office",
     "title": "About the International Office",
-    "description": "The office coordinates the university’s external relations, student and staff mobility, and partnership agreements.",
-    "p1": "The International Office is the structure responsible for Saribekyan International Medical University’s external collaboration. It maintains links with partner universities, education networks, and international programmes.",
-    "p2": "The office supports international applicants and students, organises exchanges, manages memoranda of understanding, and assists joint academic and research projects.",
-    "phone": "Phone",
-    "email": "Email",
-    "focus": {
-      "agreements": {
-        "title": "Agreements and memoranda",
-        "description": "Preparation, signing, and follow-up of cooperation documents with partner universities."
-      },
-      "mobility": {
-        "title": "Academic mobility",
-        "description": "Organisation and support of student, resident, and faculty exchanges."
-      },
-      "projects": {
-        "title": "International projects",
-        "description": "Coordination of joint education and research initiatives."
-      },
-      "support": {
-        "title": "Student support",
-        "description": "Visa, residence, recognition, and integration support for international students."
-      }
+    "paragraphs": {
+      "p1": "The university's External Relations Office is a unit that supports the internationalisation of the university and operates under the Regulations of the External Relations Office.",
+      "p2": "The work of the External Relations Office is carried out by the head of the office and its lead specialist, together with the rector and the university's departments.",
+      "p3": "The main goal of the office is to address the objectives set out in the university's Strategic Plan: attracting international students and broadening the range of their countries of origin, expanding the university's international cooperation in education and research, and integrating the university into international academic and educational processes, programmes, and more."
+    },
+    "functionsTitle": "The main functions of the university's International Relations are to:",
+    "functions": {
+      "represent": "Represent the university in foreign countries",
+      "contacts": "Establish direct links with relevant educational and scientific institutions and organisations in other countries",
+      "training": "Cooperate with institutions engaged in specialist training, retraining, and professional development, as well as with research institutions",
+      "lecturers": "Involve visiting lecturers in the university's teaching and research",
+      "foreign": "Organise the enrolment of foreign citizens in the university's preparatory and degree programmes, in accordance with the regulations approved by the Ministry of Education and Science of the Republic of Armenia",
+      "conferences": "Organise national and international conferences and seminars together with the university's research department"
     }
   },
-  "europe": {
-    "badge": "Europe",
-    "title": "Cooperation with European universities",
-    "description": "The university develops links with European medical schools through academic mobility, clinical practice, and joint research.",
-    "items": {
-      "academic": {
-        "title": "Academic programmes",
-        "description": "Joint modules, faculty exchange, and comparative curriculum development."
-      },
-      "clinical": {
-        "title": "Clinical practice",
-        "description": "Short clinical placements in partner European clinics and simulation centres."
-      },
-      "research": {
-        "title": "Joint research",
-        "description": "Conferences, publications, and initiatives to improve the quality of medical education."
-      }
+  "cooperation": {
+    "badge": "Cooperation",
+    "title": "International cooperation",
+    "paragraphs": {
+      "p1": "SIMU works closely with international partners, delivering professional courses, seminars, and international conferences.",
+      "p2": "The university's internationalisation and recognition are supported by the participation of its staff and lecturers in conferences, seminars, and events organised by various state and public bodies.",
+      "p3": "Some of the university's lecturers have taken part in training programmes abroad (Czech Republic, Israel, Germany, USA, Russia, France, and others).",
+      "p4": "The university also cooperates with the International Academy of Integrative Medicine."
+    },
+    "localTitle": "Local partners",
+    "local": {
+      "p1": "The university cooperates with the Armenian Dental Association. Lecturers and students actively take part in all events, seminars, and international conferences organised by the association.",
+      "p2": "All of this helps lecturers and students gain and share international experience and stay well informed.",
+      "p3": "By establishing international relations and signing international and local cooperation agreements, the university seeks to promote the exchange of experience and the internationalisation and improvement of its educational programmes. This strengthens and develops international academic and research links aimed at the international recognition of scientific achievements that support the development of science and education."
     }
   },
   "partners": {
     "badge": "Partners",
     "title": "International partners",
-    "description": "Partner university logos and official website links, grouped by region.",
-    "visitWebsite": "Official website",
-    "regions": {
-      "europe": "European partners",
-      "cis": "CIS partners"
+    "items": {
+      "studyMedicineEurope": "Study Medicine Europe",
+      "campusInternational": "CAMPUS INTERNATIONAL LLC"
     },
-    "sofia": {
-      "name": "Medical University of Sofia",
-      "country": "Bulgaria"
-    },
-    "charles": {
-      "name": "Charles University",
-      "country": "Czechia"
-    },
-    "lsmu": {
-      "name": "Lithuanian University of Health Sciences",
-      "country": "Lithuania"
-    },
-    "zagreb": {
-      "name": "University of Zagreb School of Medicine",
-      "country": "Croatia"
-    },
-    "bsmu": {
-      "name": "Belarusian State Medical University",
-      "country": "Belarus"
-    },
-    "kaznmu": {
-      "name": "Asfendiyarov Kazakh National Medical University",
-      "country": "Kazakhstan"
-    },
-    "sechenov": {
-      "name": "Sechenov First Moscow State Medical University",
-      "country": "Russia"
-    },
-    "tma": {
-      "name": "Tashkent Medical Academy",
-      "country": "Uzbekistan"
+    "organizationsTitle": "The university has become a valued partner of various international medical organisations, including:",
+    "organizations": {
+      "gmc": "General Medical Council (UK)",
+      "amc": "Australian Medical Council",
+      "mcc": "Medical Council of Canada",
+      "ecfmg": "Educational Commission for Foreign Medical Graduates (ECFMG)",
+      "dpsa": "Danish Patient Safety Authority",
+      "ifmsa": "International Federation of Medical Students' Associations (IFMSA)"
     }
   },
   "memoranda": {
     "badge": "Memoranda",
-    "title": "Memoranda of cooperation",
-    "description": "Signed memoranda with partner universities define the framework for mobility, practice, and research collaboration.",
-    "sofia": {
-      "year": "2022",
-      "title": "Memorandum with the Medical University of Sofia",
-      "description": "Academic mobility and clinical practice exchange."
-    },
-    "lsmu": {
-      "year": "2023",
-      "title": "Memorandum with the Lithuanian University of Health Sciences",
-      "description": "Quality of medical education and faculty exchange."
-    },
-    "bsmu": {
-      "year": "2021",
-      "title": "Memorandum with Belarusian State Medical University",
-      "description": "Student mobility and joint academic events."
-    },
-    "kaznmu": {
-      "year": "2024",
-      "title": "Memorandum with Kazakh National Medical University",
-      "description": "Residency, training, and research initiatives."
+    "title": "Cooperation agreements and memoranda",
+    "items": {
+      "grigoris": "Grigoris Medical and Humanitarian College",
+      "gavar": "Gavar State Medical College",
+      "levonSargsyan": "Levon Sargsyan Medical College",
+      "grigorLusavorich": "Saint Grigor Lusavorich State Medical College CJSC",
+      "vardenis": "Vardenis Medical and Humanitarian College",
+      "foldink": "Foldink company",
+      "ilia": "Ilia State University, Georgia",
+      "unilevel": "University Unilevel LLC, Georgia",
+      "shaan": "Shaan Educational Consultancy, Nepal",
+      "aastmt": "Arab Academy for Science, Technology & Maritime Transport, Egypt",
+      "portSaid": "University of Port Said, Egypt",
+      "grodno": "Grodno State Medical University"
     }
   },
   "exchange": {
     "badge": "Exchange",
     "title": "Exchange programmes",
-    "description": "Students, residents, and faculty may take part in short-term and semester exchanges at partner universities.",
-    "items": {
-      "semester": {
-        "title": "Semester study",
-        "description": "One semester at a partner university with agreed courses and credit recognition."
-      },
-      "clinical": {
-        "title": "Clinical exchange",
-        "description": "Clinical practice of 4–12 weeks in partner hospitals and teaching clinics."
-      },
-      "staff": {
-        "title": "Faculty exchange",
-        "description": "Short visits by lecturers and clinical supervisors, masterclasses, and methodological work."
-      }
-    }
-  },
-  "projects": {
-    "badge": "Projects",
-    "title": "International projects",
-    "description": "The university takes part in academic mobility, joint research, and institutional capacity-building projects.",
-    "items": {
-      "mobility": {
-        "title": "Academic mobility project",
-        "description": "Student and staff mobility with partner universities in Europe and the CIS."
-      },
-      "research": {
-        "title": "Joint research project",
-        "description": "Shared topics in medical education and clinical science with partner institutes."
-      },
-      "capacity": {
-        "title": "Capacity building",
-        "description": "Programmes to develop quality assurance, simulation-based teaching, and teaching methods."
-      }
-    }
+    "text": "SIMU carries out various projects under the Erasmus+ programme funded by the European Commission."
   },
   "cta": {
     "badge": "Contact",

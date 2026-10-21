@@ -6,21 +6,17 @@ export async function MemorandumList() {
   const t = await getTranslations("international.memoranda");
 
   return (
-    <ul className="space-y-3">
+    <ul className="grid gap-3 md:grid-cols-2">
       {memorandumIds.map((id) => (
         <li
           key={id}
-          className="flex flex-col gap-3 rounded-3xl bg-[#f5f5f5] px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+          className="flex items-start gap-3 rounded-3xl bg-[#f5f5f5] px-5 py-4 text-base font-medium leading-6 text-brand-ink"
         >
-          <div className="min-w-0">
-            <p className="font-medium text-brand-ink">{t(`${id}.title`)}</p>
-            <p className="mt-1 text-sm text-[#6f6f6f]">
-              {t(`${id}.description`)}
-            </p>
-          </div>
-          <span className="inline-flex h-9 w-fit shrink-0 items-center self-end rounded-full bg-brand-ink px-4 text-sm font-semibold text-white sm:self-center">
-            {t(`${id}.year`)}
-          </span>
+          <span
+            aria-hidden
+            className="mt-2 size-2 shrink-0 rounded-full bg-brand-gold"
+          />
+          <span>{t(`items.${id}`)}</span>
         </li>
       ))}
     </ul>
