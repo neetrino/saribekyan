@@ -4,11 +4,17 @@ import type { ProcessStep } from "../content/types";
 
 type ProcessStepsProps = {
   steps: ProcessStep[];
+  columns?: 1 | 2;
 };
 
-export function ProcessSteps({ steps }: ProcessStepsProps) {
+export function ProcessSteps({ steps, columns = 1 }: ProcessStepsProps) {
   return (
-    <ol className="space-y-4">
+    <ol
+      className={cn(
+        "grid gap-4",
+        columns === 2 && "md:grid-cols-2",
+      )}
+    >
       {steps.map((step, index) => {
         const accent = index % 2 === 0;
 

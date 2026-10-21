@@ -11,7 +11,7 @@
   "nav": {
     "aria": "Clinic sections",
     "overview": "Overview",
-    "hospitals": "Our hospitals",
+    "hospitals": "Our clinics",
     "practical": "Practical centres",
     "tour": "Virtual tour"
   },
@@ -27,12 +27,12 @@
     "badge": "Clinical environment",
     "title": "Our",
     "highlight": "clinics",
-    "description": "Two core tracks — university hospitals and centres, and practical and simulation training.",
+    "description": "Two core tracks — university clinics and centres, and practical and simulation training.",
     "view": "Explore"
   },
   "cards": {
     "hospitals": {
-      "title": "Our hospitals",
+      "title": "Our clinics",
       "description": "The Saribekyan university medical complex, dental centre, services, and clinical practice."
     },
     "practical": {
@@ -92,18 +92,18 @@
     }
   },
   "hospitals": {
-    "metaTitle": "Our hospitals",
+    "metaTitle": "Our clinics",
     "metaDescription": "The Saribekyan university medical complex, dental centre, services, equipment, and clinical practice.",
-    "badge": "Our hospitals",
+    "badge": "Our clinics",
     "title": "The university",
     "highlight": "clinical base",
-    "description": "This section presents the university hospitals and centres, their activity areas, services, and student clinical practice.",
+    "description": "This section presents the university clinics and centres, their activity areas, services, and student clinical practice.",
     "about": {
       "title": "About the clinical bases",
       "p1": "The clinical bases of Saribekyan International Medical University combine patient care and teaching in one environment. Students work under specialist supervision on real clinical cases.",
       "p2": "The complex and the dental centre are equipped for diagnostics and treatment so that teaching meets current clinical standards."
     },
-    "facilitiesTitle": "Hospitals and centres",
+    "facilitiesTitle": "Clinics and centres",
     "facilitiesDescription": "Two core clinical platforms — a multidisciplinary medical complex and a dental centre.",
     "directionsLead": "The centres cover clinical, diagnostic, and teaching activity.",
     "practiceLead": "Students complete clinical practice at university bases with graded responsibility.",
@@ -731,7 +731,7 @@
     "aboutTitle": "Why the tour matters",
     "aboutDescription": "The virtual tour helps applicants and students see the teaching environment in advance.",
     "p1": "A 3D or 360° tour presents the medical complex, dental centre, and simulation rooms without a physical visit.",
-    "p2": "When the tour is ready, it will be embedded on this page. Until then you can explore the hospitals and practical centres sections.",
+    "p2": "When the tour is ready, it will be embedded on this page. Until then you can explore the clinics and practical centres sections.",
     "viewerBadge": "360°",
     "viewerTitle": "Tour viewer",
     "viewerDescription": "The embedded 3D/360° tour will appear here when the footage is available.",

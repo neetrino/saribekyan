@@ -248,9 +248,9 @@
       "about-hr": "About Us → Structure → Human Resources",
       "education-medicine": "Education → Faculty of Medicine",
       "education-dentistry": "Education → Faculty of Dentistry",
-      "clinics-hospitals": "Clinics → Hospitals",
-      "clinics-complex": "Clinics → Hospitals → Medical Complex",
-      "clinics-dental": "Clinics → Hospitals → Dental Center",
+      "clinics-hospitals": "Clinics → Our clinics",
+      "clinics-complex": "Clinics → Our clinics → Medical Complex",
+      "clinics-dental": "Clinics → Our clinics → Dental Center",
       "clinics-simulation": "Clinics → Practical Centers → Simulation Center",
       "science": "Science"
     },

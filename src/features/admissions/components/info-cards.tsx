@@ -1,12 +1,20 @@
+import { cn } from "@/shared/lib/cn";
+
 import type { InfoCard } from "../content/types";
 
 type InfoCardsProps = {
   items: InfoCard[];
+  columns?: 2 | 3;
 };
 
-export function InfoCards({ items }: InfoCardsProps) {
+export function InfoCards({ items, columns = 2 }: InfoCardsProps) {
   return (
-    <ul className="grid gap-4 sm:grid-cols-2">
+    <ul
+      className={cn(
+        "grid gap-4 sm:grid-cols-2",
+        columns === 3 && "lg:grid-cols-3",
+      )}
+    >
       {items.map((item) => (
         <li
           key={item.id}

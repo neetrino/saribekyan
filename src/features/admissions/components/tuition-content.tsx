@@ -62,7 +62,7 @@ export async function TuitionContent({ locale }: TuitionContentProps) {
         title={t("schedule.title")}
         description={t("schedule.description")}
       >
-        <ProcessSteps steps={schedule} />
+        <ProcessSteps steps={schedule} columns={2} />
       </ContentSection>
 
       <ContentSection
@@ -70,7 +70,7 @@ export async function TuitionContent({ locale }: TuitionContentProps) {
         badge={t("methods.badge")}
         title={t("methods.title")}
       >
-        <InfoCards items={methods} />
+        <InfoCards items={methods} columns={3} />
       </ContentSection>
 
       <AdmissionsCta />
